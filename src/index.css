@@ -9,8 +9,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: black;
   color: white;
-
-  
 }
 
 code {
@@ -18,7 +16,38 @@ code {
     monospace;
 }
 
-h1,h2,h3,h4,h5,h6{
-    padding:0;
-    margin: 0;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+}
+
+@media screen and (min-width: 480px) {
+  .container {
+    width: 320px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+/* TABLET */
+@media screen and (min-width: 768px) {
+  .container {
+    width: 834px;
+    padding-left: 27px;
+    padding-right: 27px;
+  }
+}
+
+/* DESKTOP */
+@media screen and (min-width: 1200px) {
+  .container {
+    width: 1440px;
+    padding-left: 34px;
+    padding-right: 34px;
+  }
 }
