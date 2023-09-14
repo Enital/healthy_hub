@@ -1,36 +1,49 @@
 import { NavLink } from 'react-router-dom';
 import SportAndFitnessTrackerIMG from './../../images/img/illustration-sport-and-fitness-tracker.svg';
 
+import css from './OnePage.module.css';
+
 const OnePage = () => {
   return (
     <div className="container">
-      <img
-        src={SportAndFitnessTrackerIMG}
-        alt="illustration-sport-and-fitness-tracker"
-      />
-      <div>
-        <h1>Set goals and achieve them</h1>
-        <h2>The service will help you set goals and follow them.</h2>
-        <ul>
-          <li>
-            <NavLink to="/signin">Sign in</NavLink>
-          </li>
-          <li>
-            <NavLink to="/signup">Sign up</NavLink>
-          </li>
-        </ul>
-        <ul>
-          <p>Set goals</p>
-        </ul>
-        <ul>
-          <p>Watch your calories</p>
-        </ul>
-        <ul>
-          <p>Keep track of your water intake</p>
-        </ul>
-        <ul>
-          <p>Control your weight</p>
-        </ul>
+      <div className={css.wrapper}>
+        <img
+          className={css.img}
+          src={SportAndFitnessTrackerIMG}
+          alt="illustration-sport-and-fitness-tracker"
+        />
+        <div className={css.content}>
+          <h1 className={css.title}>Set goals and achieve them</h1>
+          <h2 className={css.subtitle}>
+            The service will help you set goals and follow them.
+          </h2>
+          <ul className={css.navigation}>
+            <li>
+              <NavLink className={css.signinBtn} to="/signin">
+                Sign in
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className={css.signupBtn} to="/signup">
+                Sign up
+              </NavLink>
+            </li>
+          </ul>
+          <ul className={css.advantages}>
+            <li>
+              <p className={css.advantage}>Set goals</p>
+            </li>
+            <li>
+              <p className={css.advantage}>Watch your calories</p>
+            </li>
+            <li>
+              <p className={css.advantage}>Keep track of your water intake</p>
+            </li>
+            <li>
+              <p className={css.advantage}>Control your weight</p>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );
