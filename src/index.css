@@ -26,16 +26,18 @@ h6 {
   margin: 0;
 }
 
-@media screen and (min-width: 480px) {
-  .container {
-    width: 320px;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
+/* MOBILE */
+
+.container {
+  width: 320px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* TABLET */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 834px) {
   .container {
     width: 834px;
     padding-left: 27px;
@@ -44,7 +46,7 @@ h6 {
 }
 
 /* DESKTOP */
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1440px) {
   .container {
     width: 1440px;
     padding-left: 34px;
