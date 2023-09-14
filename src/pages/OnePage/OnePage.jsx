@@ -3,7 +3,7 @@ import SportAndFitnessTrackerIMG from './../../images/img/illustration-sport-and
 
 const OnePage = () => {
   return (
-    <div>
+    <div className="container">
       <img
         src={SportAndFitnessTrackerIMG}
         alt="illustration-sport-and-fitness-tracker"

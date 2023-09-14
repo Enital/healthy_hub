@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 const SignUpPage = () => {
   return (
-    <div>
+    <div className="container">
       <img
         src={SportAndFitnessTrackerIMG}
         alt="illustration-sport-and-fitness-tracker"
