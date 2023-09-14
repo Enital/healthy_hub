@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/178.71034ac3.chunk.css","mappings":"AAAA,uBAGI,QAAS,CAFT,cAAe,CAKf,iBAAkB,CAJlB,OAAQ,CAER,sCAAgC,CAAhC,8BAGJ","sources":["components/NotFound/notFound.module.css"],"sourcesContent":[".error{\n    position: fixed;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n\n    text-align: center;\n}"],"names":[],"sourceRoot":""}
