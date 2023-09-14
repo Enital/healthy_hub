@@ -1,30 +1,73 @@
-import { lazy, Suspense } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Loader from './Loader/Loader';
+import { Navigate, Route, Routes } from 'react-router-dom';
+import Layout from '../components/Layout/Layout.jsx';
+import OnePage from '../pages/OnePage/OnePage.jsx';
+import SignUp from '../pages/SignUp/SignUp.jsx';
+import SignIn from '../pages/SignIn/SignIn.jsx';
+import ForgotPassword from '../pages/ForgotPassword/ForgotPassword.jsx';
+import Main from '../pages/Main/Main.jsx';
+import Dashboard from '../pages/Dashboard/Dashboard.jsx';
+import Diary from '../pages/Diary/Diary.jsx';
+import RecommendedFood from '../pages/RecommendedFood/RecommendedFood.jsx';
+import ProfileSettings from '../pages/ProfileSettings/ProfileSettings.jsx';
+import PrivateRoute from './PrivateRoute/PrivateRoute.jsx';
+import RestrictedRoute from './RestrictedRoute/RestrictedRoute.jsx';
 
-const Home = lazy(() => import('../pages/Home/Home'));
-// const MovieDetail = lazy(() => import('../Pages/MovieDetail/MovieDetail'));
-const Layout = lazy(() => import('../components/Layout/Layout'));
-// const Movies = lazy(() => import('../Pages/Movies/Movies'));
-// const Casts = lazy(() => import('../components/Casts/Casts'));
-// const Reviews = lazy(() => import('../components/Reviews/Reviews'));
-const NotFound = lazy(() => import('./NotFound/NotFound'));
+function App() {
+  // useEffect для перевірки чи зареєстрований юзер при перезавантаженні сторінки
 
-export const App = () => {
+  let isAuth = false; // замінити на значення зі стейту
+
   return (
-    <Suspense fallback={<Loader />}>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          {/* <Route path="movies" element={<Movies />} /> */}
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={!isAuth ? <OnePage /> : <Main />} />
+        <Route
+          path="signup"
+          element={<RestrictedRoute redirectTo="/" component={<SignUp />} />}
+        />
+        <Route
+          path="signin"
+          element={<RestrictedRoute redirectTo="/" component={<SignIn />} />}
+        />
+        <Route
+          path="forgot-password"
+          element={
+            <RestrictedRoute redirectTo="/" component={<ForgotPassword />} />
+          }
+        />
 
-          {/* <Route path="movies/:movieId" element={<MovieDetail />}> */}
-          {/* <Route path="cast" element={<Casts />} /> */}
-          {/* <Route path="reviews" element={<Reviews />} /> */}
-          {/* </Route> */}
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
-    </Suspense>
+        <Route
+          path="dashboard"
+          element={
+            <PrivateRoute redirectTo="/signin" component={<Dashboard />} />
+          }
+        />
+        <Route
+          path="diary"
+          element={<PrivateRoute redirectTo="/signin" component={<Diary />} />}
+        />
+        <Route
+          path="recommended-food"
+          element={
+            <PrivateRoute
+              redirectTo="/signin"
+              component={<RecommendedFood />}
+            />
+          }
+        />
+        <Route
+          path="settings"
+          element={
+            <PrivateRoute
+              redirectTo="/signin"
+              component={<ProfileSettings />}
+            />
+          }
+        />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Route>
+    </Routes>
   );
-};
+}
+
+export default App;
