@@ -37,9 +37,9 @@
   margin-bottom: 40px;
 }
 
-.signinBtn {
+.signupBtn {
   display: block;
-  width: 142px;
+  width: 100%;
   padding: 8px 10px;
   border-radius: 12px;
   text-decoration: none;
@@ -49,34 +49,51 @@
   font-size: 14px;
   font-weight: 500;
   line-height: 1.43;
+  margin-bottom: 80px;
 }
 
-.signupBtn {
+.signinBtn {
   display: block;
   width: 142px;
-  padding: 8px 10px;
+  padding: 8px 10px 8px 0;
   border-radius: 12px;
   text-decoration: none;
   background: inherit;
   color: var(--color-primary-white, #fff);
-  text-align: center;
+  text-align: start;
   font-size: 14px;
   font-weight: 500;
   line-height: 1.43;
 }
 
-.advantages {
-  color: var(--color-primary-green-lite, #e3ffa8);
+.form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding-left: 16px;
+  row-gap: 16px;
 }
 
-.advantage {
+.input {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: 1px solid var(--color-primary-green-lite, #e3ffa8);
+  background: var(--color-primary-black-2, #0f0f0f);
   color: var(--color-primary-white, #fff);
   font-size: 14px;
   line-height: 1.43;
+}
+
+.input::placeholder {
+  color: var(--color-primary-grey, #b6b6b6);
+  font-size: 14px;
+  line-height: 1.43;
+}
+
+.question {
+  color: var(--color-primary-grey, #b6b6b6);
+  font-size: 14px;
+  line-height: 1.43;
+  margin-bottom: 16px;
 }
 
 /* TABLET */
@@ -108,23 +125,28 @@
     margin-bottom: 80px;
   }
 
+  .signupBtn {
+    width: 380px;
+    margin-bottom: 238px;
+  }
+
   .signinBtn {
     width: 192px;
   }
 
-  .signupBtn {
-    width: 192px;
+  .form {
+    width: 380px;
+    margin: 0 auto;
   }
 
-  .advantages {
-    flex-direction: row;
-    flex-wrap: wrap;
-    column-gap: 32px;
-    width: 444px;
+  .questionTrumb {
+    display: flex;
+    align-items: center;
+    gap: 16px;
   }
 
-  .advantageLi:nth-child(2n + 1) {
-    width: 234px;
+  .question {
+    margin-bottom: 0;
   }
 }
 
@@ -133,7 +155,7 @@
   .wrapper {
     flex-direction: row;
     column-gap: 104px;
-    align-items: center;
+    align-items: end;
   }
 
   .content {
@@ -160,19 +182,17 @@
     text-align: start;
   }
 
+  .signupBtn {
+    width: 212px;
+    margin-bottom: 200px;
+  }
+
   .signinBtn {
     width: 212px;
   }
 
-  .signupBtn {
+  .form {
     width: 212px;
-  }
-
-  .advantages {
-    flex-direction: column;
-  }
-
-  .advantage {
-    width: 100%;
+    margin: 0;
   }
 }
