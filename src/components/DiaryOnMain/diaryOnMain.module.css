@@ -2,3 +2,97 @@
   height: 540px;
   width: 164px;
 }
+.link {
+  display: flex;
+  align-items: center;
+}
+.diary {
+  margin-right: 10px;
+}
+.overlay {
+  position: fixed;
+  top: 212px;
+  left: 79px;
+  width: 676px;
+  height: 408px;
+  border-radius: 12px;
+  background-color: rgba(15, 15, 15, 1); 
+  z-index: 1000; /* Підняти поверх інших елементів */
+  display: none; /* По замовчуванню невидимий */
+}
+.nameDish {
+  border: 1px solid rgba(227, 255, 168, 1);
+  border-radius: 12px;
+  width: 255px;
+  height: 36px;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba(182, 182, 182, 1);
+  font: Poppins;
+  padding-top: 5px;
+  padding-left: 10px;
+  gap: 10px;
+  
+}
+.nameCarbonoh {
+  border: 1px solid rgba(227, 255, 168, 1);
+  border-radius: 12px;
+  width: 100px;
+  height: 36px;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba(182, 182, 182, 1);
+  font: Poppins;
+  padding-top: 5px;
+  padding-left: 10px;
+  gap: 10px;
+  
+}
+.nameProtein {
+  border: 1px solid rgba(227, 255, 168, 1);
+  border-radius: 12px;
+  width: 86px;
+  height: 36px;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba(182, 182, 182, 1);
+  font: Poppins;
+  padding-top: 5px;
+  padding-left: 10px;
+  gap: 10px;
+  
+}
+.nameFat {
+  border: 1px solid rgba(227, 255, 168, 1);
+  border-radius: 12px;
+  width: 61px;
+  height: 36px;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba(182, 182, 182, 1);
+  font: Poppins;
+  padding-top: 5px;
+  padding-left: 10px;
+  gap: 10px;
+  
+}
+.nameCalories {
+  border: 1px solid rgba(227, 255, 168, 1);
+  border-radius: 12px;
+  width: 78px;
+  height: 36px;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba(182, 182, 182, 1);
+  font: Poppins;
+  padding-top: 5px;
+  padding-left: 10px;
+  gap: 10px;
+  
+}
+.add {
+  width: 16px;
+  height: 16px;
+  
+  
+}
