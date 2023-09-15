@@ -19,8 +19,8 @@ const MealModal = ({ isOpen, onClose }) => {
           <h2 className={css.nameFat}>Fat</h2>
           <h2 className={css.nameCalories}>Calories</h2>
         </div>
-        <h2><img className={css.add} src={add} alt="add" />Add more</h2>
-        <div>
+        <h2 className={css.addMore}><img className={css.add} src={add} alt="add" />Add more</h2>
+        <div className={css.buttonConfirm}>
         <button onClick={onClose}>Cancel</button>
         <button>Confirm</button>
         </div>

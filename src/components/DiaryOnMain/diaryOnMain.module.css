@@ -93,6 +93,21 @@
 .add {
   width: 16px;
   height: 16px;
-  
-  
 }
+.addMore {
+  width: 128px;
+  height: 20px;
+  font-weight: 500px;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba(227, 255, 168, 1);
+}
+/* .buttonConfirm {
+  display: flex;
+  justify-content: space-between;
+  height: 36px;
+  width: 416px;
+  gap: 12px;
+  top: 560px;
+  left: 315px;
+} */
