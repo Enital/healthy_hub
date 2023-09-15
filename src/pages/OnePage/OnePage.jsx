@@ -30,16 +30,16 @@ const OnePage = () => {
             </li>
           </ul>
           <ul className={css.advantages}>
-            <li>
+            <li className={css.advantageLi}>
               <p className={css.advantage}>Set goals</p>
             </li>
-            <li>
+            <li className={css.advantageLi}>
               <p className={css.advantage}>Watch your calories</p>
             </li>
-            <li>
+            <li className={css.advantageLi}>
               <p className={css.advantage}>Keep track of your water intake</p>
             </li>
-            <li>
+            <li className={css.advantageLi}>
               <p className={css.advantage}>Control your weight</p>
             </li>
           </ul>

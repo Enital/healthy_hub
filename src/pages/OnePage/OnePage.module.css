@@ -70,6 +70,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  padding-left: 16px;
 }
 
 .advantage {
@@ -121,8 +122,8 @@
     width: 444px;
   }
 
-  .advantage {
-    width: calc((444px - 16px) / 2);
+  .advantageLi:nth-child(2n + 1) {
+    width: 234px;
   }
 }
 
