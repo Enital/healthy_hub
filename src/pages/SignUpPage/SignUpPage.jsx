@@ -17,22 +17,37 @@ const SignUpPage = () => {
           <h2 className={css.subtitle}>
             You need to register to use the service
           </h2>
-          <form>
+          <form className={css.form}>
             <label>
-              <input type="text" name="name" placeholder="Name" />
+              <input
+                className={css.input}
+                type="text"
+                name="name"
+                placeholder="Name"
+              />
             </label>
             <label>
-              <input type="email" name="email" placeholder="E-mail" />
+              <input
+                className={css.input}
+                type="email"
+                name="email"
+                placeholder="E-mail"
+              />
             </label>
             <label>
-              <input type="password" name="password" placeholder="Password" />
+              <input
+                className={css.input}
+                type="password"
+                name="password"
+                placeholder="Password"
+              />
             </label>
             <NavLink className={css.signupBtn} to="">
               Sign up
             </NavLink>
           </form>
-          <div>
-            <p> Do you already have an account?</p>
+          <div className={css.questionTrumb}>
+            <p className={css.question}> Do you already have an account?</p>
             <NavLink className={css.signinBtn} to="/signin">
               Sign in
             </NavLink>
