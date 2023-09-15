@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/healthy_hub/static/css/main.3792abfb.css",
-    "main.js": "/healthy_hub/static/js/main.bc168b5e.js",
+    "main.css": "/healthy_hub/static/css/main.58596d12.css",
+    "main.js": "/healthy_hub/static/js/main.ecb5d925.js",
     "static/media/illustration-sport-and-fitness-tracker.svg": "/healthy_hub/static/media/illustration-sport-and-fitness-tracker.4780f75d78cadf44bd20b7157691242e.svg",
     "index.html": "/healthy_hub/index.html",
-    "main.3792abfb.css.map": "/healthy_hub/static/css/main.3792abfb.css.map",
-    "main.bc168b5e.js.map": "/healthy_hub/static/js/main.bc168b5e.js.map"
+    "main.58596d12.css.map": "/healthy_hub/static/css/main.58596d12.css.map",
+    "main.ecb5d925.js.map": "/healthy_hub/static/js/main.ecb5d925.js.map"
   },
   "entrypoints": [
-    "static/css/main.3792abfb.css",
-    "static/js/main.bc168b5e.js"
+    "static/css/main.58596d12.css",
+    "static/js/main.ecb5d925.js"
   ]
 }
