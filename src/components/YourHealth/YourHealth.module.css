@@ -1,0 +1,143 @@
+/* MOBILE */
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 24px 0;
+}
+
+.img {
+  width: 300px;
+  height: 296px;
+  margin-bottom: 24px;
+}
+
+.title {
+  color: var(--color-primary-white, #fff);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  color: var(--color-primary-gray, #b6b6b6);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.33;
+  margin-bottom: 24px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+
+  color: var(--color-primary-white, #fff);
+  font-size: 14px;
+  line-height: 1.43;
+}
+
+.input {
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: 1px solid var(--color-primary-green-lite, #e3ffa8);
+  background: var(--color-primary-black-2, #0f0f0f);
+  color: var(--color-primary-grey, #b6b6b6);
+  font-size: 14px;
+  line-height: 1.43;
+  margin-bottom: 12px;
+}
+
+.NextBtn {
+  display: block;
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 12px;
+  text-decoration: none;
+  background: var(--color-primary-green-lite, #e3ffa8);
+  color: var(--color-primary-black-2, #0f0f0f);
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.43;
+}
+
+.BackBtn {
+  display: block;
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 12px;
+  text-decoration: none;
+  background: inherit;
+  color: var(--color-primary-grey, #b6b6b6);
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.43;
+}
+
+/* TABLET */
+@media screen and (min-width: 834px) {
+  .wrapper {
+    padding: 40px 0;
+  }
+
+  .img {
+    width: 380px;
+    height: 376px;
+    margin-bottom: 80px;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 30px;
+    line-height: 1.2;
+  }
+
+  .subtitle {
+    width: 444px;
+    text-align: center;
+    font-size: 22px;
+    line-height: 1.45;
+  }
+}
+
+/* DESKTOP */
+@media screen and (min-width: 1440px) {
+  .wrapper {
+    flex-direction: row;
+    column-gap: 104px;
+    align-items: center;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .img {
+    width: 592px;
+    height: 588px;
+    margin-bottom: 0;
+  }
+
+  .title {
+    text-align: start;
+  }
+
+  .subtitle {
+    text-align: start;
+  }
+
+  .NextBtn {
+    width: 212px;
+  }
+}
