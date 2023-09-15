@@ -1,33 +1,29 @@
 :root {
   /* Font colors */
-  --primary-white: #ffffff;
-  --primary-gray: #b6b6b6;
+  --color-primary-white: #ffffff;
+  --color-primary-gray: #b6b6b6;
 
   /* Background colors */
-  --primary-black: #050505;
-  --primary-green-light: #e3ffa8;
+  --color-primary-black: #050505;
+  --color-primary-green-lite: #e3ffa8;
 
   /* Water indicator */
-  --primary-violet: #b6c3ff;
+  --color-primary-violet: #b6c3ff;
 
   /* Food indicator*/
-  --primary-light-green: #45ffbc;
+  --color-primary-light-green: #45ffbc;
 
   /* Modal */
-  --primary-black-2: #0f0f0f;
+  --color-primary-black-2: #0f0f0f;
 
   /* Secondary */
-  --secondary-gray-1: #292928;
-  --secondary-pink: #ffc4f7;
-  --secondary-yellow: #fff3b7;
+  --color-secondary-gray-1: #292928;
+  --color-secondary-pink: #ffc4f7;
+  --color-secondary-yellow: #fff3b7;
 
   /* Fonts */
   --main-font: 'Poppins', sans-serif;
 
   /* Animation */
   --transition-dur-and-func: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-body {
-  font-family: 'Poppins', sans-serif;
 }

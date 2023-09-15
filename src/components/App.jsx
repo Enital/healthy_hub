@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Layout from '../components/Layout/Layout.jsx';
 import OnePage from '../pages/OnePage/OnePage.jsx';
-import SignUp from '../pages/SignUp/SignUp.jsx';
+import SignUpPage from '../pages/SignUpPage/SignUpPage.jsx';
 import SignIn from '../pages/SignIn/SignIn.jsx';
 import ForgotPassword from '../pages/ForgotPassword/ForgotPassword.jsx';
 import Main from '../pages/Main/Main.jsx';
@@ -23,7 +23,9 @@ function App() {
         <Route index element={!isAuth ? <OnePage /> : <Main />} />
         <Route
           path="signup"
-          element={<RestrictedRoute redirectTo="/" component={<SignUp />} />}
+          element={
+            <RestrictedRoute redirectTo="/" component={<SignUpPage />} />
+          }
         />
         <Route
           path="signin"

@@ -1,16 +1,16 @@
 @import-normalize; /* bring in normalize.css styles */
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: black;
   color: white;
-
-  
 }
 
 code {
@@ -18,7 +18,43 @@ code {
     monospace;
 }
 
-h1,h2,h3,h4,h5,h6{
-    padding:0;
-    margin: 0;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li {
+  padding: 0;
+  margin: 0;
+}
+
+/* MOBILE */
+
+.container {
+  width: 320px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* TABLET */
+@media screen and (min-width: 834px) {
+  .container {
+    width: 834px;
+    padding-left: 27px;
+    padding-right: 27px;
+  }
+}
+
+/* DESKTOP */
+@media screen and (min-width: 1440px) {
+  .container {
+    width: 1440px;
+    padding-left: 34px;
+    padding-right: 34px;
+  }
 }
