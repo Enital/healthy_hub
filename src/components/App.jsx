@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Layout from '../components/Layout/Layout.jsx';
-import OnePage from '../pages/OnePage/OnePage.jsx';
+// import OnePage from '../pages/OnePage/OnePage.jsx';
 import SignUpPage from '../pages/SignUpPage/SignUpPage.jsx';
 import SignIn from '../pages/SignIn/SignIn.jsx';
 import ForgotPassword from '../pages/ForgotPassword/ForgotPassword.jsx';
@@ -15,12 +15,13 @@ import RestrictedRoute from './RestrictedRoute/RestrictedRoute.jsx';
 function App() {
   // useEffect для перевірки чи зареєстрований юзер при перезавантаженні сторінки
 
-  let isAuth = false; // замінити на значення зі стейту
+  // let isAuth = false; // замінити на значення зі стейту
 
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={!isAuth ? <OnePage /> : <Main />} />
+        <Route index element={<Main />} />
+        {/* !isAuth ? <OnePage />  */}
         <Route
           path="signup"
           element={
@@ -37,7 +38,6 @@ function App() {
             <RestrictedRoute redirectTo="/" component={<ForgotPassword />} />
           }
         />
-
         <Route
           path="dashboard"
           element={
