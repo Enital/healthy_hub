@@ -4,7 +4,7 @@ import css from './SignUpForm.module.css';
 
 function SignUpForm() {
   return (
-    <>
+    <div className={css.wrapper}>
       <img
         className={css.img}
         src={SportAndFitnessTrackerIMG}
@@ -51,7 +51,7 @@ function SignUpForm() {
           </NavLink>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

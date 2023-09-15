@@ -1,12 +1,12 @@
 import SignUpForm from 'components/SignUpForm/SignUpForm';
-import YourGoal from 'components/YourGoal/SelectGenderAge';
-import SelectGenderAge from 'components/YourGoal/SelectGenderAge';
+import YourGoal from 'components/SelectGenderAge/SelectGenderAge';
+import SelectGenderAge from 'components/SelectGenderAge/SelectGenderAge';
 
 const SignUpPage = () => {
   return (
     <div className="container">
-      {/* <SignUpForm /> */}
-      {/* <YourGoal /> */}
+      <SignUpForm />
+      <YourGoal />
       <SelectGenderAge />
     </div>
   );
