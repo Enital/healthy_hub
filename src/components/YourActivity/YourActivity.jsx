@@ -18,11 +18,16 @@ function YourActivity() {
         <form className={css.form}>
           <div className={css.wrappers}>
             <label className={css.label}>
-              <input type="radio" name="coefficient" value="1.2" />
+              <input
+                type="radio"
+                name="coefficient"
+                value="1.2"
+                defaultChecked
+              />
               1.2 - if you do not have physical activity and sedentary work
             </label>
             <label className={css.label}>
-              <input type="radio" name="coefficient" value="1,375" checked />
+              <input type="radio" name="coefficient" value="1,375" />
               1,375 - if you do short runs or light gymnastics 1-3 times a week
             </label>
             <label className={css.label}>

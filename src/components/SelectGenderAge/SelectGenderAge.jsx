@@ -23,7 +23,7 @@ function SelectGenderAge() {
               Male
             </label>
             <label className={css.label}>
-              <input type="radio" name="sex" value="female" checked />
+              <input type="radio" name="sex" value="female" defaultChecked />
               Female
             </label>
           </div>

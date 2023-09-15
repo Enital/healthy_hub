@@ -18,11 +18,11 @@ function YourGoal() {
         <form className={css.form}>
           <div className={css.wrappers}>
             <label className={css.label}>
-              <input type="radio" name="goal" value="lose" />
+              <input type="radio" name="goal" value="lose" defaultChecked />
               Lose Fat
             </label>
             <label className={css.label}>
-              <input type="radio" name="goal" value="maintain" checked />
+              <input type="radio" name="goal" value="maintain" />
               Maintain
             </label>
             <label className={css.label}>
