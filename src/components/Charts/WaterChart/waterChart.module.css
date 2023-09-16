@@ -1,0 +1,24 @@
+.waterChart{
+  padding: 10px;
+  height: 382px;
+  width: 696px;
+  background-color: #0F0F0F;
+  border-radius: 8px;
+  /* border: solid 1px white; */
+}
+.dashboardTitle{
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 32px;
+}
+.chartTitle{
+  padding-right: 20px;
+}
+.chartSubtitle{
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
