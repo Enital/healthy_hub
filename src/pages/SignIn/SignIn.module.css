@@ -5,18 +5,18 @@
     flex-direction: column;
     padding: 24px 0;
   }
-  
-  .img {
-    width: 300px;
-    height: 296px;
-    margin-bottom: 24px;
-  }
-  .content {
+  .navigation {
     display: flex;
     justify-content: center;
     text-decoration: none;
     list-style: none;
     margin-bottom: 40px;
+  }
+  
+  .img {
+    width: 300px;
+    height: 296px;
+    margin-bottom: 24px;
   }
   
   .title {
@@ -95,9 +95,10 @@
     .wrapper {
       padding: 40px 0;
     }
-    .content {
-      margin-bottom: 60px;
-    }
+    .navigation {
+        margin-bottom: 80px;
+      }
+    
     .img {
       width: 380px;
       height: 376px;
@@ -188,5 +189,8 @@
       width: 212px;
       margin: 0;
     }
+    .navigation {
+        text-align: start;
+      }
   }
   
