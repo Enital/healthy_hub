@@ -1,4 +1,4 @@
-export default function DailyGoal() {
+export default function dailyGoal() {
   return (
     <div>
       <h3>Daily goal</h3>

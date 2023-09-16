@@ -1,8 +1,8 @@
-export default function Food() {
+export default function food() {
   return (
     <div>
       <h3>Food</h3>
-      <div>food</div>
+      <div>graph</div>
     </div>
   );
 }
