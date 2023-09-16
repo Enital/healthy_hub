@@ -14,15 +14,13 @@ const SignUpPage = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [gender, setGender] = useState('Female');
-  const [age, setAge] = useState(28);
-  const [height, setHeight] = useState(173);
-  const [weight, setWeight] = useState(60);
-  const [activity, setActivity] = useState(1.725);
-  const [goal, setGoal] = useState('Maintain');
+  const [gender, setGender] = useState('');
+  const [age, setAge] = useState('');
+  const [height, setHeight] = useState('');
+  const [weight, setWeight] = useState('');
+  const [goal, setGoal] = useState('');
 
   const haldleForm1 = event => {
-    console.log(event);
     event.preventDefault();
     setName(event.target.name.value);
     setEmail(event.target.email.value);
@@ -30,23 +28,21 @@ const SignUpPage = () => {
     nextPage();
   };
   const haldleForm2 = event => {
-    console.log(event);
     event.preventDefault();
+    setGoal(event.target.goal.value);
     nextPage();
   };
   const haldleForm3 = event => {
-    console.log(event);
     event.preventDefault();
+    setGender(event.target.gender.value);
+    setAge(event.target.age.value);
     nextPage();
   };
   const haldleForm4 = event => {
-    console.log(event);
     event.preventDefault();
+    setHeight(event.target.height.value);
+    setWeight(event.target.weight.value);
     nextPage();
-  };
-  const haldleForm5 = event => {
-    console.log(event);
-    event.preventDefault();
   };
 
   return (
@@ -60,7 +56,6 @@ const SignUpPage = () => {
       {page === 5 && (
         <YourActivity
           onBackPage={backPage}
-          onForm={haldleForm5}
           name={name}
           email={email}
           password={password}
@@ -68,7 +63,6 @@ const SignUpPage = () => {
           age={age}
           height={height}
           weight={weight}
-          activity={activity}
           goal={goal}
         />
       )}

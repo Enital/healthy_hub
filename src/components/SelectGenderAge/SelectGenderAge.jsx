@@ -18,11 +18,11 @@ function SelectGenderAge({ onForm, onBackPage }) {
           <p>Gender</p>
           <div className={css.wrappers}>
             <label className={css.label}>
-              <input type="radio" name="sex" value="male" />
+              <input type="radio" name="gender" value="male" />
               Male
             </label>
             <label className={css.label}>
-              <input type="radio" name="sex" value="female" defaultChecked />
+              <input type="radio" name="gender" value="female" defaultChecked />
               Female
             </label>
           </div>
@@ -31,7 +31,7 @@ function SelectGenderAge({ onForm, onBackPage }) {
             <input
               className={css.input}
               type="text"
-              name="name"
+              name="age"
               placeholder="Enter your age"
             />
           </label>

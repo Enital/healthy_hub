@@ -20,7 +20,7 @@ function YourHealth({ onForm, onBackPage }) {
             <input
               className={css.input}
               type="text"
-              name="name"
+              name="height"
               placeholder="Enter your height"
             />
           </label>
@@ -29,7 +29,7 @@ function YourHealth({ onForm, onBackPage }) {
             <input
               className={css.input}
               type="text"
-              name="name"
+              name="weight"
               placeholder="Enter your weight"
             />
           </label>

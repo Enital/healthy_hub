@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
 import activityIMG from './../../images/img/illustration-activity.svg';
 import css from './YourActivity.module.css';
-import { NavLink } from 'react-router-dom';
+// import { useState } from 'react';
 
 function YourActivity({
   onBackPage,
@@ -13,9 +13,14 @@ function YourActivity({
   age,
   height,
   weight,
-  activity,
   goal,
 }) {
+  // const [activity, setActivity] = useState(1.725);
+  // const haldleForm5 = event => {
+  //   event.preventDefault();
+  //   setActivity(event.target.activity.value);
+  // };
+
   const dispatch = useDispatch();
 
   const handleSubmit = e => {
@@ -30,10 +35,11 @@ function YourActivity({
         age,
         height,
         weight,
-        activity,
+        activity: e.target.activity.value,
         goal,
       })
     );
+    console.log(e.target.activity.value);
     form.reset();
   };
 
@@ -52,28 +58,23 @@ function YourActivity({
         <form className={css.form} onSubmit={handleSubmit}>
           <div className={css.wrappers}>
             <label className={css.label}>
-              <input
-                type="radio"
-                name="coefficient"
-                value="1.2"
-                defaultChecked
-              />
+              <input type="radio" name="activity" value={1.2} defaultChecked />
               1.2 - if you do not have physical activity and sedentary work
             </label>
             <label className={css.label}>
-              <input type="radio" name="coefficient" value="1,375" />
+              <input type="radio" name="activity" value={1.375} />
               1,375 - if you do short runs or light gymnastics 1-3 times a week
             </label>
             <label className={css.label}>
-              <input type="radio" name="coefficient" value="1.55" />
+              <input type="radio" name="activity" value={1.55} />
               1.55 - if you play sports with average loads 3-5 times a week
             </label>
             <label className={css.label}>
-              <input type="radio" name="coefficient" value="1,725" />
+              <input type="radio" name="activity" value={1.725} />
               1,725 ​​- if you train fully 6-7 times a week
             </label>
             <label className={css.label}>
-              <input type="radio" name="coefficient" value="1.9" />
+              <input type="radio" name="activity" value={1.9} />
               1.9 - if your work is related to physical labor, you train 2 times
               a day and include strength exercises in your training program
             </label>
