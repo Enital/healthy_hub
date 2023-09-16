@@ -24,17 +24,17 @@ function App() {
         <Route
           path="signup"
           element={
-            <RestrictedRoute redirectTo="/" component={<SignUpPage />} />
+            <RestrictedRoute redirectTo="/signup" component={<SignUpPage />} />
           }
         />
         <Route
           path="signin"
-          element={<RestrictedRoute redirectTo="/" component={<SignIn />} />}
+          element={<RestrictedRoute redirectTo="/mainpage" component={<SignIn />} />}
         />
         <Route
           path="forgot-password"
           element={
-            <RestrictedRoute redirectTo="/" component={<ForgotPassword />} />
+            <RestrictedRoute redirectTo="/forgot-password" component={<ForgotPassword />} />
           }
         />
         <Route

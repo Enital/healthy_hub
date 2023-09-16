@@ -156,7 +156,7 @@ function SignIn({ onForm }) {
              Sign in
           </button>
            <div className={css.forgotYourPassword}>
-             <NavLink className={css.forgotPassword} to="/forgotpassword">
+             <NavLink className={css.forgotPassword} to="/forgot-password">
              Forgot your password?
              </NavLink>
            </div>
