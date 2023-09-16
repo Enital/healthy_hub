@@ -15,6 +15,7 @@ import { useAuth } from 'redux/auth/useAuth.js';
 
 function App() {
   // useEffect для перевірки чи зареєстрований юзер при перезавантаженні сторінки
+
   const { isLoggedIn } = useAuth();
 
   return (
