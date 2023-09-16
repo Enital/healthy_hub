@@ -1,8 +1,7 @@
-import { NavLink } from 'react-router-dom';
 import bodyParametersIMG from './../../images/img/illustration-body-parameters.svg';
 import css from './YourHealth.module.css';
 
-function YourHealth() {
+function YourHealth({ onNextPage, onBackPage }) {
   return (
     <div className={css.wrapper}>
       <img
@@ -34,12 +33,12 @@ function YourHealth() {
               placeholder="Enter your weight"
             />
           </label>
-          <NavLink className={css.NextBtn} to="">
+          <button className={css.NextBtn} onClick={onNextPage}>
             Next
-          </NavLink>
-          <NavLink className={css.BackBtn} to="">
+          </button>
+          <button className={css.BackBtn} onClick={onBackPage}>
             Back
-          </NavLink>
+          </button>
         </form>
       </div>
     </div>

@@ -1,8 +1,7 @@
-import { NavLink } from 'react-router-dom';
 import genderAndAgeIMG from './../../images/img/illustration-gender-and-age.svg';
 import css from './SelectGenderAge.module.css';
 
-function SelectGenderAge() {
+function SelectGenderAge({ onNextPage, onBackPage }) {
   return (
     <div className={css.wrapper}>
       <img
@@ -36,12 +35,12 @@ function SelectGenderAge() {
               placeholder="Enter your age"
             />
           </label>
-          <NavLink className={css.NextBtn} to="">
+          <button className={css.NextBtn} onClick={onNextPage}>
             Next
-          </NavLink>
-          <NavLink className={css.BackBtn} to="">
+          </button>
+          <button className={css.BackBtn} onClick={onBackPage}>
             Back
-          </NavLink>
+          </button>
         </form>
       </div>
     </div>

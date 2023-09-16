@@ -1,8 +1,7 @@
-import { NavLink } from 'react-router-dom';
 import summerHikingIMG from './../../images/img/illustration-summer-hiking.svg';
 import css from './YourGoal.module.css';
 
-function YourGoal() {
+function YourGoal({ onNextPage }) {
   return (
     <div className={css.wrapper}>
       <img
@@ -30,9 +29,9 @@ function YourGoal() {
               Gain Muscle
             </label>
           </div>
-          <NavLink className={css.NextBtn} to="">
+          <button className={css.NextBtn} onClick={onNextPage}>
             Next
-          </NavLink>
+          </button>
         </form>
       </div>
     </div>

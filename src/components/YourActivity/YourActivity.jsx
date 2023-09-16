@@ -1,8 +1,41 @@
-import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { register } from 'redux/auth/operations';
 import activityIMG from './../../images/img/illustration-activity.svg';
 import css from './YourActivity.module.css';
 
-function YourActivity() {
+function YourActivity({
+  onBackPage,
+  name,
+  email,
+  password,
+  gender,
+  age,
+  height,
+  weight,
+  activity,
+  goal,
+}) {
+  const dispatch = useDispatch();
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    dispatch(
+      register({
+        name,
+        email,
+        password,
+        gender,
+        age,
+        height,
+        weight,
+        activity,
+        goal,
+      })
+    );
+    form.reset();
+  };
+
   return (
     <div className={css.wrapper}>
       <img
@@ -15,7 +48,7 @@ function YourActivity() {
         <h2 className={css.subtitle}>
           To correctly calculate calorie and water intake
         </h2>
-        <form className={css.form}>
+        <form className={css.form} onSubmit={handleSubmit}>
           <div className={css.wrappers}>
             <label className={css.label}>
               <input
@@ -44,12 +77,12 @@ function YourActivity() {
               a day and include strength exercises in your training program
             </label>
           </div>
-          <NavLink className={css.NextBtn} to="">
+          <button className={css.NextBtn} type="submit">
             Next
-          </NavLink>
-          <NavLink className={css.BackBtn} to="">
+          </button>
+          <button className={css.BackBtn} onClick={onBackPage}>
             Back
-          </NavLink>
+          </button>
         </form>
       </div>
     </div>
