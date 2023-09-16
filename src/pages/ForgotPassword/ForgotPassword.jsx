@@ -1,7 +1,8 @@
 import { NavLink } from 'react-router-dom';
 import SportAndFitnessTrackerIMG from './../../images/img/illustration-sport-and-fitness-tracker.svg';
-import css from './ForgotPasswort.module.css';
-function ForgotPasswort() {
+import css from './ForgotPassword.module.css';
+
+function ForgotPassword() {
     return (
       <div className={css.wrapper}>
         <img
@@ -38,4 +39,4 @@ function ForgotPasswort() {
     );
   }
   
-  export default ForgotPasswort;
+  export default ForgotPassword;
