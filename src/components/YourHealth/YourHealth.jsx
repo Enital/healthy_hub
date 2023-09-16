@@ -1,7 +1,7 @@
 import bodyParametersIMG from './../../images/img/illustration-body-parameters.svg';
 import css from './YourHealth.module.css';
 
-function YourHealth({ onNextPage, onBackPage }) {
+function YourHealth({ onForm, onBackPage }) {
   return (
     <div className={css.wrapper}>
       <img
@@ -14,7 +14,7 @@ function YourHealth({ onNextPage, onBackPage }) {
         <h2 className={css.subtitle}>
           Enter your parameters for correct performance tracking
         </h2>
-        <form className={css.form}>
+        <form className={css.form} onSubmit={onForm}>
           <label className={css.label}>
             Height
             <input
@@ -33,10 +33,10 @@ function YourHealth({ onNextPage, onBackPage }) {
               placeholder="Enter your weight"
             />
           </label>
-          <button className={css.NextBtn} onClick={onNextPage}>
+          <button className={css.NextBtn} type="submit">
             Next
           </button>
-          <button className={css.BackBtn} onClick={onBackPage}>
+          <button className={css.BackBtn} onClick={onBackPage} type="button">
             Back
           </button>
         </form>

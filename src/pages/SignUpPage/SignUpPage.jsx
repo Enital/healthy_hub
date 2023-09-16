@@ -11,9 +11,9 @@ const SignUpPage = () => {
   const nextPage = () => setPage(page + 1);
   const backPage = () => setPage(page - 1);
 
-  const [name, setName] = useState('Random Name');
-  const [email, setEmail] = useState('email.com');
-  const [password, setPassword] = useState('Qwerty+1234');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [gender, setGender] = useState('Female');
   const [age, setAge] = useState(28);
   const [height, setHeight] = useState(173);
@@ -21,17 +21,46 @@ const SignUpPage = () => {
   const [activity, setActivity] = useState(1.725);
   const [goal, setGoal] = useState('Maintain');
 
+  const haldleForm1 = event => {
+    console.log(event);
+    event.preventDefault();
+    setName(event.target.name.value);
+    setEmail(event.target.email.value);
+    setPassword(event.target.password.value);
+    nextPage();
+  };
+  const haldleForm2 = event => {
+    console.log(event);
+    event.preventDefault();
+    nextPage();
+  };
+  const haldleForm3 = event => {
+    console.log(event);
+    event.preventDefault();
+    nextPage();
+  };
+  const haldleForm4 = event => {
+    console.log(event);
+    event.preventDefault();
+    nextPage();
+  };
+  const haldleForm5 = event => {
+    console.log(event);
+    event.preventDefault();
+  };
+
   return (
     <div className="container">
-      {page === 1 && <SignUpForm onNextPage={nextPage} />}
-      {page === 2 && <YourGoal onNextPage={nextPage} />}
+      {page === 1 && <SignUpForm onForm={haldleForm1} />}
+      {page === 2 && <YourGoal onForm={haldleForm2} />}
       {page === 3 && (
-        <SelectGenderAge onNextPage={nextPage} onBackPage={backPage} />
+        <SelectGenderAge onForm={haldleForm3} onBackPage={backPage} />
       )}
-      {page === 4 && <YourHealth onNextPage={nextPage} onBackPage={backPage} />}
+      {page === 4 && <YourHealth onForm={haldleForm4} onBackPage={backPage} />}
       {page === 5 && (
         <YourActivity
           onBackPage={backPage}
+          onForm={haldleForm5}
           name={name}
           email={email}
           password={password}

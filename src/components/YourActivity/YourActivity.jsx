@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
 import activityIMG from './../../images/img/illustration-activity.svg';
 import css from './YourActivity.module.css';
+import { NavLink } from 'react-router-dom';
 
 function YourActivity({
   onBackPage,

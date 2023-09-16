@@ -4,7 +4,7 @@ import css from './SignUpForm.module.css';
 
 import { useState } from 'react';
 
-function SignUpForm({ onNextPage }) {
+function SignUpForm({ onForm }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -39,7 +39,7 @@ function SignUpForm({ onNextPage }) {
         <h2 className={css.subtitle}>
           You need to register to use the service
         </h2>
-        <form className={css.form}>
+        <form className={css.form} onSubmit={onForm}>
           <label>
             <input
               className={css.input}
@@ -70,7 +70,7 @@ function SignUpForm({ onNextPage }) {
               onChange={handleChange}
             />
           </label>
-          <button className={css.signupBtn} onClick={onNextPage}>
+          <button className={css.signupBtn} type="submit">
             Sign up
           </button>
         </form>

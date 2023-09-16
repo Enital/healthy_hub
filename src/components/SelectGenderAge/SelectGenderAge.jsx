@@ -1,7 +1,7 @@
 import genderAndAgeIMG from './../../images/img/illustration-gender-and-age.svg';
 import css from './SelectGenderAge.module.css';
 
-function SelectGenderAge({ onNextPage, onBackPage }) {
+function SelectGenderAge({ onForm, onBackPage }) {
   return (
     <div className={css.wrapper}>
       <img
@@ -14,7 +14,7 @@ function SelectGenderAge({ onNextPage, onBackPage }) {
         <h2 className={css.subtitle}>
           Choose a goal so that we can help you effectively
         </h2>
-        <form className={css.form}>
+        <form className={css.form} onSubmit={onForm}>
           <p>Gender</p>
           <div className={css.wrappers}>
             <label className={css.label}>
@@ -35,10 +35,10 @@ function SelectGenderAge({ onNextPage, onBackPage }) {
               placeholder="Enter your age"
             />
           </label>
-          <button className={css.NextBtn} onClick={onNextPage}>
+          <button className={css.NextBtn} type="submit">
             Next
           </button>
-          <button className={css.BackBtn} onClick={onBackPage}>
+          <button className={css.BackBtn} onClick={onBackPage} type="button">
             Back
           </button>
         </form>
