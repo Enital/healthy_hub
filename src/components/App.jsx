@@ -4,7 +4,7 @@ import Layout from '../components/Layout/Layout.jsx';
 import SignUpPage from '../pages/SignUpPage/SignUpPage.jsx';
 import SignIn from '../pages/SignIn/SignIn.jsx';
 import ForgotPassword from '../pages/ForgotPassword/ForgotPassword.jsx';
-import Main from '../pages/Main/Main.jsx';
+// import Main from '../pages/Main/Main.jsx';
 import Dashboard from '../pages/Dashboard/Dashboard.jsx';
 import Diary from '../pages/Diary/Diary.jsx';
 import RecommendedFood from '../pages/RecommendedFood/RecommendedFood.jsx';
@@ -20,7 +20,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<Main />} />
+        <Route index element={<Dashboard />} />
         {/* !isAuth ? <OnePage />  */}
         <Route
           path="signup"
