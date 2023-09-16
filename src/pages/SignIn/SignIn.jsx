@@ -1,28 +1,43 @@
 import { NavLink } from 'react-router-dom';
 import SportAndFitnessTrackerIMG from './../../images/img/illustration-sport-and-fitness-tracker.svg';
 import css from './SignIn.module.css';
+import { Notify } from 'notiflix';
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { logIn } from 'redux/auth/operations';
+import { authReducer } from 'redux/auth/authSlice';
 
-import { useState } from 'react';
-
-function SignIn ({ onForm }) {
-  
+export const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleChange = event => {
-    const { name, value } = event.target;
+  const error = useSelector(state => state.authReducer.error);
+  const dispatch = useDispatch();
 
-    switch (name) {
-      case 'email':
-        setEmail(value);
-        break;
-      case 'password':
-        setPassword(value);
-        break;
-      default:
-        return;
-    }
+  const onFormSubmit = e => {
+    e.preventDefault();
+
+    const userCredentials = {
+      email,
+      password,
+    };
+
+    dispatch(logIn(userCredentials));
+    setEmail('');
+    setPassword('');
   };
+
+  useEffect(() => {
+    if (!error) return;
+
+    if (error === 'Request failed with status code 400') {
+      Notify.failure('Authorization error. Please try other credentials.');
+    } else {
+      Notify.failure(error);
+    }
+
+    dispatch(authReducer.actions.setError(null));
+  }, [error, dispatch]);
 
   return (
     <div className={css.wrapper}>
@@ -36,7 +51,7 @@ function SignIn ({ onForm }) {
         <h2 className={css.subtitle}>
         You need to login to use the service
         </h2>
-        <form className={css.form} onSubmit={onForm}>
+        <form className={css.form} onSubmit={onFormSubmit}>
           <label>
             <input
               className={css.input}
@@ -44,7 +59,7 @@ function SignIn ({ onForm }) {
               name="email"
               placeholder="E-mail"
               value={email}
-              onChange={handleChange}
+              onChange={e => setEmail(e.target.value)}
             />
           </label>
           <label>
@@ -54,7 +69,7 @@ function SignIn ({ onForm }) {
               name="password"
               placeholder="Password"
               value={password}
-              onChange={handleChange}
+              onChange={e => setPassword(e.target.value)}
             />
           </label>
           <button className={css.signinBtn} type="submit">
