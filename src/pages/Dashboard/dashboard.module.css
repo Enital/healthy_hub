@@ -18,3 +18,12 @@
   height: 50px;
   width: 620px;
 }
+.chartContainer{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  /* padding: 30px;
+  background-color: #0F0F0F; */
+  border-radius: 8px;
+
+}
