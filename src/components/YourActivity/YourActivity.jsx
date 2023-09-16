@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
 import activityIMG from './../../images/img/illustration-activity.svg';
 import css from './YourActivity.module.css';
-// import { useState } from 'react';
+import { useState } from 'react';
 
 function YourActivity({
   onBackPage,
@@ -15,16 +15,12 @@ function YourActivity({
   weight,
   goal,
 }) {
-  // const [activity, setActivity] = useState(1.725);
-  // const haldleForm5 = event => {
-  //   event.preventDefault();
-  //   setActivity(event.target.activity.value);
-  // };
-
+  const [activity, setActivity] = useState(1.725);
   const dispatch = useDispatch();
 
   const handleSubmit = e => {
     e.preventDefault();
+    setActivity(e.target.activity.value);
     const form = e.currentTarget;
     dispatch(
       register({
@@ -35,11 +31,10 @@ function YourActivity({
         age,
         height,
         weight,
-        activity: e.target.activity.value,
+        activity,
         goal,
       })
     );
-    console.log(e.target.activity.value);
     form.reset();
   };
 
