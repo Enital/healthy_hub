@@ -11,16 +11,19 @@ import RecommendedFood from '../pages/RecommendedFood/RecommendedFood.jsx';
 import ProfileSettings from '../pages/ProfileSettings/ProfileSettings.jsx';
 import PrivateRoute from './PrivateRoute/PrivateRoute.jsx';
 import RestrictedRoute from './RestrictedRoute/RestrictedRoute.jsx';
+import { useAuth } from 'redux/auth/useAuth.js';
 
 function App() {
   // useEffect для перевірки чи зареєстрований юзер при перезавантаженні сторінки
 
-  let isAuth = false; // замінити на значення зі стейту
+  const { isLoggedIn } = useAuth();
 
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={!isAuth ? <OnePage /> : <Main />} />
+
+        <Route index element={!isLoggedIn ? <OnePage /> : <Main />} />
+
         <Route
           path="signup"
           element={

@@ -48,6 +48,7 @@ function SignUpForm({ onForm }) {
               placeholder="Name"
               value={name}
               onChange={handleChange}
+              required
             />
           </label>
           <label>
@@ -58,6 +59,7 @@ function SignUpForm({ onForm }) {
               placeholder="E-mail"
               value={email}
               onChange={handleChange}
+              required
             />
           </label>
           <label>
@@ -68,6 +70,9 @@ function SignUpForm({ onForm }) {
               placeholder="Password"
               value={password}
               onChange={handleChange}
+              required
+              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,16}"
+              title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
             />
           </label>
           <button className={css.signupBtn} type="submit">
