@@ -1,4 +1,4 @@
-.diaryMain{
+.diaryMain {
   height: 540px;
   width: 164px;
 }
@@ -11,103 +11,105 @@
 }
 .overlay {
   position: fixed;
-  top: 212px;
-  left: 79px;
-  width: 676px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
   height: 408px;
   border-radius: 12px;
-  background-color: rgba(15, 15, 15, 1); 
+  background-color: rgba(15, 15, 15, 1);
   z-index: 1000; /* Підняти поверх інших елементів */
   display: none; /* По замовчуванню невидимий */
+  overflow-y: auto;
 }
-.nameDish {
-  border: 1px solid rgba(227, 255, 168, 1);
-  border-radius: 12px;
-  width: 255px;
+
+.img {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-left: 25px;
+  width: 268px;
   height: 36px;
-  font-size: 14px;
-  line-height: 20px;
-  color: rgba(182, 182, 182, 1);
-  font: Poppins;
-  padding-top: 5px;
-  padding-left: 10px;
-  gap: 10px;
-  
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 36px;
+  color: rgba(255, 255, 255, 1);
 }
-.nameCarbonoh {
-  border: 1px solid rgba(227, 255, 168, 1);
-  border-radius: 12px;
-  width: 100px;
-  height: 36px;
-  font-size: 14px;
-  line-height: 20px;
-  color: rgba(182, 182, 182, 1);
-  font: Poppins;
-  padding-top: 5px;
-  padding-left: 10px;
-  gap: 10px;
-  
+
+.breakfast {
+  vertical-align: middle;
+  margin-left: 25px;
+  height: 32px;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 32px;
+  color: rgba(255, 255, 255, 1);
 }
-.nameProtein {
-  border: 1px solid rgba(227, 255, 168, 1);
-  border-radius: 12px;
-  width: 86px;
-  height: 36px;
-  font-size: 14px;
-  line-height: 20px;
-  color: rgba(182, 182, 182, 1);
-  font: Poppins;
-  padding-top: 5px;
-  padding-left: 10px;
-  gap: 10px;
-  
+.nameBreakfast {
+  width: 104px;
+  height: 32px;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 32px;
+  color: rgba(255, 255, 255, 1);
 }
-.nameFat {
-  border: 1px solid rgba(227, 255, 168, 1);
-  border-radius: 12px;
-  width: 61px;
-  height: 36px;
-  font-size: 14px;
-  line-height: 20px;
-  color: rgba(182, 182, 182, 1);
-  font: Poppins;
-  padding-top: 5px;
-  padding-left: 10px;
-  gap: 10px;
-  
+.flexContainer {
+  display: flex;
+  align-items: center; /* Вирівнювання по вертикалі по центру */
+  gap: 10px; /* Відступ між елементами */
 }
-.nameCalories {
-  border: 1px solid rgba(227, 255, 168, 1);
-  border-radius: 12px;
-  width: 78px;
-  height: 36px;
-  font-size: 14px;
-  line-height: 20px;
-  color: rgba(182, 182, 182, 1);
-  font: Poppins;
-  padding-top: 5px;
-  padding-left: 10px;
-  gap: 10px;
-  
-}
+
 .add {
-  width: 16px;
-  height: 16px;
+  font-size: 16px;
+  margin-left: 25px;
+  vertical-align: middle; /* Вирівнювання тексту по вертикалі */
 }
+
 .addMore {
-  width: 128px;
   height: 20px;
-  font-weight: 500px;
+  font-weight: 500;
   font-size: 14px;
   line-height: 20px;
   color: rgba(227, 255, 168, 1);
+  background: rgba(15, 15, 15, 1);
+  border: 1px solid transparent;
+  display: inline-block; /* Це робить, що елементи розташовані на одному рівні */
+  margin-top: 25px;
 }
-/* .buttonConfirm {
+
+.remove {
+  background-color: rgba(15, 15, 15, 1);
+  color: rgba(227, 255, 168, 1);
+  font-size: 14px;
+  line-height: 20px;
+  border: 1px solid transparent;
+
+  margin-left: 570px;
+}
+.cancel {
+  color: rgba(182, 182, 182, 1);
+  font-size: 14px;
+  line-height: 20px;
+  border: 1px solid transparent;
+  background-color: rgba(15, 15, 15, 1);
+   /* margin-left: 100px; */
+  /* margin-top: 140px;  */
+}
+.confirm {
+  width: 192px;
+  height: 20px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba(15, 15, 15, 1);
+  background-color: rgba(227, 255, 168, 1);
+  border-radius: 12px;
   display: flex;
-  justify-content: space-between;
-  height: 36px;
-  width: 416px;
-  gap: 12px;
-  top: 560px;
-  left: 315px;
-} */
+  justify-content: center; /* Вирівнювання тексту по горизонталі по центру */
+  align-items: center; /* Вирівнювання тексту по вертикалі по центру */
+margin-left: 450px;
+}
+.buttonConfirm {
+  display: flex;
+  align-items: center; /* Вирівнювання по вертикалі по центру */
+  gap: 10px; /* Відступ між елементами */
+}
