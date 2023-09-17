@@ -1,8 +1,7 @@
-import { NavLink } from 'react-router-dom';
 import bodyParametersIMG from './../../images/img/illustration-body-parameters.svg';
 import css from './YourHealth.module.css';
 
-function YourHealth() {
+function YourHealth({ onForm, onBackPage }) {
   return (
     <div className={css.wrapper}>
       <img
@@ -15,13 +14,13 @@ function YourHealth() {
         <h2 className={css.subtitle}>
           Enter your parameters for correct performance tracking
         </h2>
-        <form className={css.form}>
+        <form className={css.form} onSubmit={onForm}>
           <label className={css.label}>
             Height
             <input
               className={css.input}
               type="text"
-              name="name"
+              name="height"
               placeholder="Enter your height"
             />
           </label>
@@ -30,16 +29,16 @@ function YourHealth() {
             <input
               className={css.input}
               type="text"
-              name="name"
+              name="weight"
               placeholder="Enter your weight"
             />
           </label>
-          <NavLink className={css.NextBtn} to="">
+          <button className={css.NextBtn} type="submit">
             Next
-          </NavLink>
-          <NavLink className={css.BackBtn} to="">
+          </button>
+          <button className={css.BackBtn} onClick={onBackPage} type="button">
             Back
-          </NavLink>
+          </button>
         </form>
       </div>
     </div>

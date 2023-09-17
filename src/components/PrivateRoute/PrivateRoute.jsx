@@ -1,11 +1,11 @@
 import { Navigate } from 'react-router-dom';
+import { useAuth } from '../../redux/auth/useAuth';
 
-const PrivateRoute = ({ redirectTo = '/', component }) => {
-  // треба перевірити чи авторизований користувач(чи є токен у глобальному стейті)
+const PrivateRoute = ({ component: Component, redirectTo = '/' }) => {
+  const { isLoggedIn, isRefreshing } = useAuth();
+  const shouldRedirect = !isLoggedIn && !isRefreshing;
 
-  // змінити умову для авторизованого чи неавторизованого користувача(!auth)
-  const shouldRedirect = true; //замінити на значення зі стейту
-  return shouldRedirect ? <Navigate to={redirectTo} /> : component;
+  return shouldRedirect ? <Navigate to={redirectTo} /> : Component;
 };
 
 export default PrivateRoute;

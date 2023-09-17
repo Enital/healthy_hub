@@ -1,8 +1,7 @@
-import { NavLink } from 'react-router-dom';
 import summerHikingIMG from './../../images/img/illustration-summer-hiking.svg';
 import css from './YourGoal.module.css';
 
-function YourGoal() {
+function YourGoal({ onForm }) {
   return (
     <div className={css.wrapper}>
       <img
@@ -15,7 +14,7 @@ function YourGoal() {
         <h2 className={css.subtitle}>
           Choose a goal so that we can help you effectively
         </h2>
-        <form className={css.form}>
+        <form className={css.form} onSubmit={onForm}>
           <div className={css.wrappers}>
             <label className={css.label}>
               <input type="radio" name="goal" value="lose" defaultChecked />
@@ -30,9 +29,9 @@ function YourGoal() {
               Gain Muscle
             </label>
           </div>
-          <NavLink className={css.NextBtn} to="">
+          <button className={css.NextBtn} type="submit">
             Next
-          </NavLink>
+          </button>
         </form>
       </div>
     </div>
