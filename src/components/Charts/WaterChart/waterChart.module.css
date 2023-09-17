@@ -1,10 +1,11 @@
 .waterChart{
   height: 382px;
   width: 696px;
-  padding: 10px;
-  background-color: #0F0F0F;
-  border-radius: 8px;
-  /* border: solid 1px white; */
+}
+.chart{
+background-color: #0F0F0F;
+border-radius: 8px;
+padding: 24px 25px 20px 20px;
 }
 .dashboardTitle{
   display: flex;
@@ -13,6 +14,7 @@
   font-size: 22px;
   font-weight: 400;
   line-height: 32px;
+  margin-bottom: 9px;
 }
 .chartTitle{
   padding-right: 20px;

@@ -21,6 +21,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
+
         <Route index element={!isLoggedIn ? <OnePage /> : <Main />} />
 
         <Route
@@ -31,7 +32,10 @@ function App() {
         />
         <Route
           path="signin"
-          element={<RestrictedRoute redirectTo="/" component={<SignIn />} />}
+          element={
+            <RestrictedRoute redirectTo="/" component={<SignIn />} />
+          }
+
         />
         <Route
           path="forgot-password"
