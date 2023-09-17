@@ -2,7 +2,7 @@ import React from 'react';
 import CaloriesChart from 'components/Charts/CaloriesChart/CaloriesChart';
 import WaterChart from 'components/Charts/WaterChart/WaterChart';
 import WeightChart from 'components/Charts/WeightChart/WeightChart';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 // import { BsArrowLeft } from 'react-icons/bs';
 
 import css from './dashboard.module.css';
