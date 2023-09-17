@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import DailyGoal from 'components/DailyGoal/dailyGoal';
-import Water from 'components/Water/water';
-import Food from 'components/Food/food';
+import DailyGoal from 'components/dailyGoal/dailyGoal';
+import Water from 'components/water/water';
+import Food from 'components/food/food';
 
 const Today = () => {
   return (
