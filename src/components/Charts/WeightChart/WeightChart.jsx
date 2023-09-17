@@ -1,4 +1,5 @@
 import React from 'react';
+import BuildWeightChart from './BuildWeightChart';
 
 import css from './weightChart.module.css';
 
@@ -85,7 +86,9 @@ const WeightChart = () => {
         <p className={css.chartTitle}>Weight</p>
         <p className={css.chartSubtitle}>Average value: {average} kg</p>
       </div>
-      <div className={css.chart}></div>
+      <div className={css.chart}>
+        <BuildWeightChart />
+      </div>
     </div>
   );
 };

@@ -147,7 +147,7 @@ export const options = {
   },
   plugins: {
     legend: {
-      position: 'top',
+      display: false,
     },
     tooltip: {
       cornerRadius: 8,

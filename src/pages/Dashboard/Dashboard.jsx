@@ -57,19 +57,21 @@ function getMonth() {
 
 const Dashboard = () => {
   return (
-    <div className={css.dashboardContainer}>
-      <div className={css.dashboardTitle}>
-        {/* <Link className={css.btnDiary} to={'/'}> */}
-        {/* <BsArrowLeft size="1.5rem" /> */}
-        {/* </Link> */}
-        <p>Last month</p>
-        <p>{getMonth()}</p>
+    <div>
+      <div className={css.dashboardContainer}>
+        <div className={css.dashboardTitle}>
+          {/* <Link className={css.btnDiary} to={'/'}> */}
+          {/* <BsArrowLeft size="1.5rem" /> */}
+          {/* </Link> */}
+          <p>Last month</p>
+          <p>{getMonth()}</p>
+        </div>
+        <div className={css.chartContainer}>
+          <CaloriesChart />
+          <WaterChart />
+        </div>
+        <WeightChart />
       </div>
-      <div className={css.chartContainer}>
-        <CaloriesChart />
-        <WaterChart />
-      </div>
-      <WeightChart />
     </div>
   );
 };
