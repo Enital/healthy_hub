@@ -1,8 +1,7 @@
-import { NavLink } from 'react-router-dom';
 import genderAndAgeIMG from './../../images/img/illustration-gender-and-age.svg';
 import css from './SelectGenderAge.module.css';
 
-function SelectGenderAge() {
+function SelectGenderAge({ onForm, onBackPage }) {
   return (
     <div className={css.wrapper}>
       <img
@@ -15,15 +14,15 @@ function SelectGenderAge() {
         <h2 className={css.subtitle}>
           Choose a goal so that we can help you effectively
         </h2>
-        <form className={css.form}>
+        <form className={css.form} onSubmit={onForm}>
           <p>Gender</p>
           <div className={css.wrappers}>
             <label className={css.label}>
-              <input type="radio" name="sex" value="male" />
+              <input type="radio" name="gender" value="male" />
               Male
             </label>
             <label className={css.label}>
-              <input type="radio" name="sex" value="female" defaultChecked />
+              <input type="radio" name="gender" value="female" defaultChecked />
               Female
             </label>
           </div>
@@ -32,16 +31,16 @@ function SelectGenderAge() {
             <input
               className={css.input}
               type="text"
-              name="name"
+              name="age"
               placeholder="Enter your age"
             />
           </label>
-          <NavLink className={css.NextBtn} to="">
+          <button className={css.NextBtn} type="submit">
             Next
-          </NavLink>
-          <NavLink className={css.BackBtn} to="">
+          </button>
+          <button className={css.BackBtn} onClick={onBackPage} type="button">
             Back
-          </NavLink>
+          </button>
         </form>
       </div>
     </div>
