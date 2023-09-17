@@ -104,6 +104,10 @@ input {
   outline: none;
 }
 
+button {
+  border: none;
+}
+
 input[type='radio'] {
   position: relative;
   height: 12px;
