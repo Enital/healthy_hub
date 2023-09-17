@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/healthy_hub/static/css/main.934666c2.css",
-    "main.js": "/healthy_hub/static/js/main.f7530722.js",
+    "main.css": "/healthy_hub/static/css/main.a70f0e96.css",
+    "main.js": "/healthy_hub/static/js/main.18ef3fbf.js",
     "static/media/illustration-body-parameters.svg": "/healthy_hub/static/media/illustration-body-parameters.af4c9999a54395709595ad545417e26b.svg",
     "static/media/illustration-activity.svg": "/healthy_hub/static/media/illustration-activity.7d6bd15bd303decdaa5c6d2988d256a7.svg",
     "static/media/illustration-summer-hiking.svg": "/healthy_hub/static/media/illustration-summer-hiking.9a42b1dac9243322ec953b0f98bfb17b.svg",
@@ -10,11 +10,11 @@
     "index.html": "/healthy_hub/index.html",
     "static/media/milk.svg": "/healthy_hub/static/media/milk.22591ba28b2802fad7cc43d9df873ca1.svg",
     "static/media/bubble.svg": "/healthy_hub/static/media/bubble.def62834876d170a381e2ea3cf15a89a.svg",
-    "main.934666c2.css.map": "/healthy_hub/static/css/main.934666c2.css.map",
-    "main.f7530722.js.map": "/healthy_hub/static/js/main.f7530722.js.map"
+    "main.a70f0e96.css.map": "/healthy_hub/static/css/main.a70f0e96.css.map",
+    "main.18ef3fbf.js.map": "/healthy_hub/static/js/main.18ef3fbf.js.map"
   },
   "entrypoints": [
-    "static/css/main.934666c2.css",
-    "static/js/main.f7530722.js"
+    "static/css/main.a70f0e96.css",
+    "static/js/main.18ef3fbf.js"
   ]
 }
