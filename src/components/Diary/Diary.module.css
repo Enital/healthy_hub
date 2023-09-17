@@ -1,0 +1,152 @@
+.containerDiary {
+    padding-top: 16px;
+    padding-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.diary {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.targetMeal {
+    width: 500px;
+}
+
+.recordMealIcon {
+    stroke: #e3ffa8;
+}
+
+@media screen and (min-width: 834px) {
+    .diary {
+        display: block;
+
+
+    }
+
+    .containerDiary {
+        padding-top: 24px;
+    }
+
+    .foodIMG {
+        margin-bottom: 0;
+    }
+
+    .containerLis {
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 6px;
+        justify-content: space-between;
+    }
+
+    .titleTab {
+        font-size: 22px;
+        line-height: 32px;
+    }
+
+    .listTab {
+        width: 362px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .containerDiary {
+        padding-top: 20px;
+        padding-bottom: 52px;
+    }
+
+    .diary {
+        display: flex;
+        column-gap: 20px;
+
+
+    }
+
+    .tableRow {
+        flex-wrap: nowrap;
+    }
+}
+
+.foodIMG {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+
+
+.btnNav {
+    display: flex;
+    margin-bottom: 16px;
+    align-items: center;
+}
+
+.btnDiary {
+    display: flex;
+}
+
+.textBtn {
+    /* width: 79px;
+    height: 36px; */
+    width: 63px;
+    height: 30px;
+    font-size: 24px;
+    line-height: 30px;
+    display: flex;
+    margin-left: 12px;
+    font-weight: 500;
+    align-items: center;
+}
+
+.container {
+    align-items: center;
+}
+
+.containerLis {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+}
+
+
+
+.titleTab {
+    width: 148px;
+    height: 32px;
+    gap: 12px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+    display: flex;
+    align-items: center;
+}
+
+
+
+.listTab {
+    display: flex;
+    width: 178px;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+
+.itemTab {
+    display: inline-block;
+    line-height: 20px;
+    font-size: 14px;
+    margin-right: 20px;
+}
+
+.tableRow {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
