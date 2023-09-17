@@ -1,7 +1,11 @@
 import summerHikingIMG from './../../images/img/illustration-summer-hiking.svg';
 import css from './YourGoal.module.css';
-
-function YourGoal({ onForm }) {
+import { useState } from 'react';
+function YourGoal({ onForm, goal }) {
+  const [goalValue, setGoal] = useState(goal);
+  const handleChangeGoal = e => {
+    setGoal(e.target.value);
+  };
   return (
     <div className={css.wrapper}>
       <img
@@ -17,15 +21,33 @@ function YourGoal({ onForm }) {
         <form className={css.form} onSubmit={onForm}>
           <div className={css.wrappers}>
             <label className={css.label}>
-              <input type="radio" name="goal" value="lose" defaultChecked />
+              <input
+                type="radio"
+                name="goal"
+                value="lose"
+                checked={goalValue === 'lose'}
+                onChange={handleChangeGoal}
+              />
               Lose Fat
             </label>
             <label className={css.label}>
-              <input type="radio" name="goal" value="maintain" />
+              <input
+                type="radio"
+                name="goal"
+                value="maintain"
+                checked={goalValue === 'maintain'}
+                onChange={handleChangeGoal}
+              />
               Maintain
             </label>
             <label className={css.label}>
-              <input type="radio" name="goal" value="gain" />
+              <input
+                type="radio"
+                name="goal"
+                value="gain"
+                checked={goalValue === 'gain'}
+                onChange={handleChangeGoal}
+              />
               Gain Muscle
             </label>
           </div>

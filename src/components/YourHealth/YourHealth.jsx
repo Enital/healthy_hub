@@ -1,7 +1,15 @@
 import bodyParametersIMG from './../../images/img/illustration-body-parameters.svg';
 import css from './YourHealth.module.css';
-
-function YourHealth({ onForm, onBackPage }) {
+import { useState } from 'react';
+function YourHealth({ onForm, onBackPage, height, weight }) {
+  const [heightValue, setHeight] = useState(height);
+  const handleChangeHeight = e => {
+    setHeight(e.target.value);
+  };
+  const [weightValue, setWeight] = useState(weight);
+  const handleChangeWeight = e => {
+    setWeight(e.target.value);
+  };
   return (
     <div className={css.wrapper}>
       <img
@@ -22,6 +30,8 @@ function YourHealth({ onForm, onBackPage }) {
               type="text"
               name="height"
               placeholder="Enter your height"
+              value={heightValue}
+              onChange={handleChangeHeight}
             />
           </label>
           <label className={css.label}>
@@ -31,6 +41,8 @@ function YourHealth({ onForm, onBackPage }) {
               type="text"
               name="weight"
               placeholder="Enter your weight"
+              value={weightValue}
+              onChange={handleChangeWeight}
             />
           </label>
           <button className={css.NextBtn} type="submit">
