@@ -193,7 +193,7 @@ const RecordMealModal = ({
 
   return (
     <Modal
-      className={`${css.recordMealModal} ${a.scaleInCenter}`}
+      // className={`${css.recordMealModal} ${a.scaleInCenter}`}
       isOpen={recordMealModalOpen}
       onRequestClose={onCloseButtonClick}
       style={customStyles}
@@ -263,7 +263,7 @@ const RecordMealModal = ({
             <ButtonLoader />
           ) : (
             <button
-              className={`${css.recordMealModalConfirmBtn} ${a.hoverYellowBtn}`}
+              // className={`${css.recordMealModalConfirmBtn} ${a.hoverYellowBtn}`}
               onClick={handleSubmit}
               type="submit"
               disabled={submitButtonDisabled}
@@ -273,7 +273,7 @@ const RecordMealModal = ({
           )}
 
           <button
-            className={`${css.recordMealModalCancelBtn} ${a.hoverCloseBtn}`}
+            // className={`${css.recordMealModalCancelBtn} ${a.hoverCloseBtn}`}
             type="button"
             onClick={onCloseButtonClick}
           >

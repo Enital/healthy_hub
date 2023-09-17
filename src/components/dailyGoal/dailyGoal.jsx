@@ -1,7 +1,7 @@
 import React from 'react';
-import bubble from './../../images/icons/bubble.svg';
+// import bubble from './../../images/icons/bubble.svg';
 
-import milk from './../../images/icons/milk.svg';
+// import milk from './../../images/icons/milk.svg';
 
 export default function DailyGoal() {
 
