@@ -113,7 +113,7 @@ const UpdateMealModal = ({
 
   return (
     <Modal
-      className={`${css.recordMealModal} ${a.scaleInCenter}`}
+      // className={`${css.recordMealModal} ${a.scaleInCenter}`}
       isOpen={updateMealModalOpen}
       onRequestClose={handleCloseModal}
       style={customStyles}
@@ -170,14 +170,14 @@ const UpdateMealModal = ({
         )}
         <div className={css.recordMealModalBtnContainer}>
           <button
-            className={`${css.recordMealModalConfirmBtn} ${a.hoverYellowBtn}`}
+            // className={`${css.recordMealModalConfirmBtn} ${a.hoverYellowBtn}`}
             onClick={handleClick}
             // type="button"
           >
             Confirm
           </button>
           <button
-            className={`${css.recordMealModalCancelBtn} ${a.hoverCloseBtn}`}
+            // className={`${css.recordMealModalCancelBtn} ${a.hoverCloseBtn}`}
             type="button"
             onClick={() => {
               setUpdateMealModalOpen(false);
