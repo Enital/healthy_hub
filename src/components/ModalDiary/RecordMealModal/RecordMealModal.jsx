@@ -8,8 +8,7 @@ import Dinner from '../../../images/illustration/dinner-image.svg';
 import Snack from '../../../images/illustration/snack-image.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateFoodOperations } from 'redux/user/userOperations';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import Notiflix from 'notiflix';
 import ButtonLoader from 'components/Loader/ButtonLoader';
 
 const imageObject = { Breakfast, Lunch, Dinner, Snack };
@@ -113,11 +112,7 @@ const RecordMealModal = ({
       .unwrap()
       .then(() => onCloseButtonClick())
       .catch(e => {
-        toast.error(e.message, {
-          theme: 'dark',
-          autoClose: 2000,
-          hideProgressBar: true,
-        });
+        Notiflix.Notify.failure(e.message);
       });
   };
 
@@ -204,7 +199,6 @@ const RecordMealModal = ({
       style={customStyles}
       contentLabel="Example Modal"
     >
-      <ToastContainer />
       <h3 className={css.recordMealModalTitle}>Record your meal</h3>
       <div className={css.recordMealModalMealImageContainer}>
         <img
