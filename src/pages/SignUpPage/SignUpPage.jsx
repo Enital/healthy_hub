@@ -3,7 +3,8 @@ import YourGoal from 'components/YourGoal/YourGoal';
 import SelectGenderAge from 'components/SelectGenderAge/SelectGenderAge';
 import YourHealth from 'components/YourHealth/YourHealth';
 import YourActivity from 'components/YourActivity/YourActivity';
-
+import { useDispatch } from 'react-redux';
+import { register } from 'redux/auth/operations';
 import { useState } from 'react';
 
 const SignUpPage = () => {
@@ -19,6 +20,7 @@ const SignUpPage = () => {
   const [height, setHeight] = useState('');
   const [weight, setWeight] = useState('');
   const [goal, setGoal] = useState('');
+  const [activity2, setActivity] = useState('1.2');
 
   const haldleForm1 = event => {
     event.preventDefault();
@@ -45,25 +47,53 @@ const SignUpPage = () => {
     nextPage();
   };
 
+  const dispatch = useDispatch();
+
+  const handleSubmit5 = event => {
+    event.preventDefault();
+    setActivity(event.target.activity.value);
+    const form = event.currentTarget;
+    const activity = Number(activity2)
+    dispatch(
+      register({
+        name,
+        email,
+        password,
+        gender,
+        age,
+        height,
+        weight,
+        activity,
+        goal,
+      })
+    );
+    form.reset();
+  };
   return (
     <div className="container">
       {page === 1 && <SignUpForm onForm={haldleForm1} />}
-      {page === 2 && <YourGoal onForm={haldleForm2} />}
+      {page === 2 && <YourGoal onForm={haldleForm2} goal={goal} />}
       {page === 3 && (
-        <SelectGenderAge onForm={haldleForm3} onBackPage={backPage} />
+        <SelectGenderAge
+          onForm={haldleForm3}
+          onBackPage={backPage}
+          gender={gender}
+          age={age}
+        />
       )}
-      {page === 4 && <YourHealth onForm={haldleForm4} onBackPage={backPage} />}
+      {page === 4 && (
+        <YourHealth
+          onForm={haldleForm4}
+          onBackPage={backPage}
+          height={height}
+          weight={weight}
+        />
+      )}
       {page === 5 && (
         <YourActivity
           onBackPage={backPage}
-          name={name}
-          email={email}
-          password={password}
-          gender={gender}
-          age={age}
-          height={height}
-          weight={weight}
-          goal={goal}
+          onForm={handleSubmit5}
+          activity={activity2}
         />
       )}
     </div>
