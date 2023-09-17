@@ -1,10 +1,10 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Layout from '../components/Layout/Layout.jsx';
-import OnePage from '../pages/OnePage/OnePage.jsx';
+// import OnePage from '../pages/OnePage/OnePage.jsx';
 import SignUpPage from '../pages/SignUpPage/SignUpPage.jsx';
 import SignIn from '../pages/SignIn/SignIn.jsx';
 import ForgotPassword from '../pages/ForgotPassword/ForgotPassword.jsx';
-import Main from '../pages/Main/Main.jsx';
+// import Main from '../pages/Main/Main.jsx';
 import Dashboard from '../pages/Dashboard/Dashboard.jsx';
 import Diary from '../pages/Diary/Diary.jsx';
 import RecommendedFood from '../pages/RecommendedFood/RecommendedFood.jsx';
@@ -21,9 +21,8 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-
-        <Route index element={!isLoggedIn ? <OnePage /> : <Main />} />
-
+        {/* <Route index element={!isLoggedIn ? <OnePage /> : <Main />} /> */}
+        <Route index element={<Dashboard />} />
         <Route
           path="signup"
           element={
@@ -32,12 +31,17 @@ function App() {
         />
         <Route
           path="signin"
-          element={<RestrictedRoute redirectTo="/mainpage" component={<SignIn />} />}
+          element={
+            <RestrictedRoute redirectTo="/mainpage" component={<SignIn />} />
+          }
         />
         <Route
           path="forgot-password"
           element={
-            <RestrictedRoute redirectTo="/forgot-password" component={<ForgotPassword />} />
+            <RestrictedRoute
+              redirectTo="/forgot-password"
+              component={<ForgotPassword />}
+            />
           }
         />
         <Route
