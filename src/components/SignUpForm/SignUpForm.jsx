@@ -2,16 +2,12 @@ import { NavLink } from 'react-router-dom';
 import SportAndFitnessTrackerIMG from './../../images/img/illustration-sport-and-fitness-tracker.svg';
 import css from './SignUpForm.module.css';
 
-import { useDispatch } from 'react-redux';
 import { useState } from 'react';
-import { register } from 'redux/auth/operations';
 
-function SignUpForm() {
+function SignUpForm({ onForm }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  const dispatch = useDispatch();
 
   const handleChange = event => {
     const { name, value } = event.target;
@@ -31,25 +27,6 @@ function SignUpForm() {
     }
   };
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    dispatch(
-      register({
-        name,
-        email,
-        password,
-        gender: 'Female',
-        age: 28,
-        height: 173,
-        weight: 60,
-        activity: 1.725,
-        goal: 'Maintain',
-      })
-    );
-    form.reset();
-  };
-
   return (
     <div className={css.wrapper}>
       <img
@@ -62,7 +39,7 @@ function SignUpForm() {
         <h2 className={css.subtitle}>
           You need to register to use the service
         </h2>
-        <form className={css.form} onSubmit={handleSubmit}>
+        <form className={css.form} onSubmit={onForm}>
           <label>
             <input
               className={css.input}
@@ -71,6 +48,7 @@ function SignUpForm() {
               placeholder="Name"
               value={name}
               onChange={handleChange}
+              required
             />
           </label>
           <label>
@@ -81,6 +59,7 @@ function SignUpForm() {
               placeholder="E-mail"
               value={email}
               onChange={handleChange}
+              required
             />
           </label>
           <label>
@@ -91,6 +70,9 @@ function SignUpForm() {
               placeholder="Password"
               value={password}
               onChange={handleChange}
+              required
+              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,16}"
+              title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
             />
           </label>
           <button className={css.signupBtn} type="submit">
