@@ -17,14 +17,12 @@ import { useEffect } from 'react';
 import { refreshUser } from 'redux/auth/operations.js';
 
 function App() {
-  // useEffect для перевірки чи зареєстрований юзер при перезавантаженні сторінки
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
 
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
-  //
 
   const { isLoggedIn } = useAuth();
 
