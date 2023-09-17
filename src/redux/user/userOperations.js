@@ -3,7 +3,6 @@ import axios from 'axios';
 
 axios.defaults.baseURL = ' https://goit-healthy-hub.onrender.com/api/user';
 
-
 export function setHeadersToken(token) {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 }
