@@ -12,13 +12,25 @@ import ProfileSettings from '../pages/ProfileSettings/ProfileSettings.jsx';
 import PrivateRoute from './PrivateRoute/PrivateRoute.jsx';
 import RestrictedRoute from './RestrictedRoute/RestrictedRoute.jsx';
 import { useAuth } from 'redux/auth/useAuth.js';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { refreshUser } from 'redux/auth/operations.js';
 
 function App() {
   // useEffect для перевірки чи зареєстрований юзер при перезавантаженні сторінки
+  const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+  //
 
   const { isLoggedIn } = useAuth();
 
-  return (
+  return isRefreshing ? (
+    <b>Refreshing user...</b>
+  ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={!isLoggedIn ? <OnePage /> : <Main />} />
