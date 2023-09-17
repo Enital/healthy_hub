@@ -21,23 +21,22 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-
         <Route index element={!isLoggedIn ? <OnePage /> : <Main />} />
 
         <Route
           path="signup"
           element={
-            <RestrictedRoute redirectTo="/signup" component={<SignUpPage />} />
+            <RestrictedRoute redirectTo="/" component={<SignUpPage />} />
           }
         />
         <Route
           path="signin"
-          element={<RestrictedRoute redirectTo="/mainpage" component={<SignIn />} />}
+          element={<RestrictedRoute redirectTo="/" component={<SignIn />} />}
         />
         <Route
           path="forgot-password"
           element={
-            <RestrictedRoute redirectTo="/forgot-password" component={<ForgotPassword />} />
+            <RestrictedRoute redirectTo="/" component={<ForgotPassword />} />
           }
         />
         <Route
