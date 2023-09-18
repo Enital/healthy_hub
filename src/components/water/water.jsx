@@ -5,16 +5,13 @@ import AddWaterModal from 'components/addWaterModal/addWaterModal';
 
 export default function Water() {
   const [openModal, setOpenModal] = useState(false);
-  const [closeModal, setCloseModal] = useState(false);
   const { items } = useSelector(selectGoals);
 
   const openModalHendler = () => {
     setOpenModal(true);
-    setCloseModal(false);
   };
 
   const closeModalHendler = () => {
-    setCloseModal(true);
     setOpenModal(false);
   };
 
