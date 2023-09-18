@@ -1,0 +1,207 @@
+.buttons{
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    margin: 0 auto;
+    width: 90%;
+  }
+  .profile-settings{
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.5;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    margin-left: 10px;
+    margin-top: 76px;
+  }
+  .settings-stats{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  .profile-form{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .settings-download-photo{
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+    margin-bottom: 40px;
+  }
+  .input-text{
+    width: 95%;
+    border: 1px solid #B6B6B6;
+    border-radius: 12px;
+    padding: 8px 10px;
+    margin-bottom: 40px;
+    margin-top: 12px;
+  }
+  .settings-genders{
+    display: flex;
+    gap: 12px;
+    margin-bottom: 40px;
+    margin-top: 12px;
+  }
+  .gender{
+    display: flex;
+    gap: 8px;
+  }
+  .gender p{
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+  }
+  .radio-settings{
+    display: flex;
+    gap: 8px;
+  }
+  .setting-activity{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  .settings-saveBTN{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 12px;
+    border: none;
+    background-color: #E3FFA8;
+  }
+  .settings-cancelBTN{
+    margin-top: 12px;
+    margin-bottom: 40px;
+    border: none;
+    background-color: transparent;
+    color: #B6B6B6;
+  }
+  .settings-buttonSAVE-text{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.4;
+    background-color: #E3FFA8;
+    color: #0F0F0F;
+  }
+  .settings-buttonCANCELED-text{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  .photo{
+    margin: 0 auto;
+    background-color: red;
+    width: 300px;
+    height: 300px;
+  }
+  /* TABLET */
+  @media screen and (min-width: 834px) {
+    .container {
+      width: 834px;
+      padding-left: 27px;
+      padding-right: 27px;
+      margin: 0 auto;
+    }
+    .profile-form{
+      margin: 0;
+    }
+    .profile-settings{
+      margin-left: 0;
+      font-size: 30px;
+      line-height: 1.2;
+      margin-top: 124px;
+    }
+    .input-text{
+      width: 212px;
+      margin-bottom: 0;
+    }
+    .settings-inputs{
+      display: flex;
+      margin: 0 auto;
+      width: 70%;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .setting-activity{
+      width: 580px;
+      margin: 0 auto;
+    }
+    .settings-saveBTN{
+      width: 212px;
+    }
+    .settings-cancelBTN{
+      width: 212px;
+    }
+    .buttons{
+      position: absolute;
+      top: 120px;
+      right: 27px;
+      flex-direction: row-reverse;
+      width: 470px;
+      height: 36px;
+      gap: 12px;
+    }
+    .setting-activity{
+      margin-bottom: 250px;
+    }
+    .photo{
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+    .settings-download-photo{
+      margin-bottom: 0;
+    }
+    /* .profile-settings */
+  }
+  
+  /* DESKTOP */
+  @media screen and (min-width: 1440px) {
+    .container {
+      width: 1440px;
+      padding-left: 34px;
+      padding-right: 34px;
+    }
+    .profile-form{
+      display: flex;
+      width: 700px;
+      flex-direction: column;
+      margin-top: 100px;
+      margin-left: 600px;
+    }
+    .settings-inputs{
+      width: 600px;
+      margin-top: 70px;
+      gap: 60px;
+      row-gap: 40px;
+    }
+    .container{
+      display: flex;
+      flex-direction: row; 
+    }
+    .setting-activity{
+      margin-bottom: 10px;
+      margin-top: 40px;
+    }
+    .profile-settings{
+      height: max-content;
+    }
+    .photo{
+      width: 600px;
+      height: 600px;
+      position: absolute;
+      bottom: 100px;
+      left: 50px;
+    }
+    .profile-settings{
+      width: 300px;
+      margin-top: 120px;
+      margin-left: 15px;
+    }
+    .buttons{
+      right: 52px
+    }
+  }
