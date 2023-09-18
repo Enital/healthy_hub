@@ -134,6 +134,8 @@
     flex-direction: row;
     column-gap: 104px;
     align-items: center;
+    padding-left: 116px;
+    padding-right: 116px;
   }
 
   .content {
@@ -146,7 +148,6 @@
     width: 592px;
     height: 588px;
     margin-bottom: 0;
-    margin-left: 116px;
   }
 
   .title {
