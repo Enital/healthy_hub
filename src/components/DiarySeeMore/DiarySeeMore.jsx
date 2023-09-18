@@ -1,5 +1,5 @@
 import React from 'react';
-import s from './Diary.module.css';
+import s from './DiarySeeMore.module.css';
 import { BsArrowLeft } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -9,7 +9,7 @@ import RecordMealModal from 'components/ModalDiary/RecordMealModal/RecordMealMod
 import UpdateMealModal from 'components/ModalDiary/UpdateMealModal/UpdateMealModal';
 import DiaryTable from 'components/Table/Table';
 
-const Diary = () => {
+const DiarySeeMore = () => {
   const [recordMealModalOpen, setRecordMealModalOpen] = useState(false);
   const [updateMealModalOpen, setUpdateMealModalOpen] = useState(false);
 
@@ -77,4 +77,4 @@ const Diary = () => {
   );
 };
 
-export default Diary;
+export default DiarySeeMore;
