@@ -8,7 +8,40 @@
 }
 .diary {
   margin-right: 10px;
+  width: 57px;
+  height: 32px;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 32px;
+  color: rgba(255, 255, 255, 1);
+  margin-left: 25px;
 }
+.seeMore {
+width: auto; /* Змінимо ширину на auto, щоб текст міг розтягнутися на всю доступну ширину */
+height: 22px;
+font-weight: 500;
+font-size: 16px;
+line-height: 22px;
+white-space: nowrap; /* Заборонити перенос тексту на новий рядок */
+}
+.breakfastImage {
+  width: 36px;
+  height: 36px;
+  margin-left: 25px;
+}
+.diaryBreakfast {
+  width: 100px;
+  height: 24px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  color: rgba(255, 255, 255, 1);
+  margin-left: 25px;
+}
+.divBreakfast {
+  display: flex;
+}
+/* ////////////////////////////////////// */
 .overlay {
   position: fixed;
   top: 50%;

@@ -25,12 +25,12 @@ const DiaryOnMain = () => {
     <div className={css.diaryMain}>
       <div className={css.link}>
         <h2 className={css.diary}>Diary</h2>
-        <Link to="/see-more">See More</Link>
+        <Link to="/see-more" className={css.seeMore}>See More</Link>
       </div>
 
-      <div>
-        <img src={breakfastImage} alt="Breakfast" />
-        <h2>Breakfast</h2>
+      <div className={css.divBreakfast}>
+        <img className={css.breakfastImage} src={breakfastImage} alt="Breakfast" />
+        <h2 className={css.diaryBreakfast}>Breakfast</h2>
         <button onClick={openModal}> + Record your meal</button>
         <MealModal isOpen={isModalOpen} onClose={closeModal} />
       </div>
