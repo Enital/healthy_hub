@@ -4,6 +4,7 @@ import css from './ForgotPassword.module.css';
 
 function ForgotPassword() {
     return (
+      <div className={css.container}>
       <div className={css.wrapper}>
         <img
           className={css.img}
@@ -35,6 +36,7 @@ function ForgotPassword() {
             </NavLink>
           </div>
         </div>
+      </div>
       </div>
     );
   }

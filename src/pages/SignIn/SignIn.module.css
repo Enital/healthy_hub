@@ -143,6 +143,11 @@
   
   /* DESKTOP */
   @media screen and (min-width: 1440px) {
+    .container {
+      width: 1440px;
+      padding-left: 34px;
+      padding-right: 34px;
+    }
     .wrapper {
       flex-direction: row;
       column-gap: 104px;
@@ -179,7 +184,7 @@
       font-size: 14px;
       line-height: 1.43;
       color: var(--color-primary-gray, #b6b6b6);
-      margin-bottom: 212px;
+      text-decoration: none;
     }
     .signupBtn {
       width: 122px;
@@ -188,6 +193,7 @@
     .form {
       width: 212px;
       margin: 0;
+      margin-bottom: 212px;
     }
     .navigation {
         text-align: start;

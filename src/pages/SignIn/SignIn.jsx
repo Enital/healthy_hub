@@ -40,6 +40,7 @@ function SignIn() {
   };
 
   return (
+    <div className="container">
     <div className={css.wrapper}>
       <img
         className={css.img}
@@ -86,6 +87,7 @@ function SignIn() {
           </NavLink>
         </div>
       </div>
+    </div>
     </div>
   );
 }
