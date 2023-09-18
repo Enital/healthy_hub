@@ -30,9 +30,9 @@ function ForgotPassword() {
     );
     form.reset();
   };
-      fetch("http://goit-healthy-hub.onrender.com/api/auth/restore/"), {
-      method: "POST",
-    }}
+  //   fetch("http://goit-healthy-hub.onrender.com/api/auth/restore/"), {
+  //   method: "POST",
+  // };
     return (
       <div className={css.container}>
       <div className={css.wrapper}>
