@@ -3,7 +3,6 @@ import axios from 'axios';
 
 axios.defaults.baseURL = ' https://goit-healthy-hub.onrender.com/api/user';
 
-
 export function setHeadersToken(token) {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 }
@@ -33,6 +32,14 @@ export const updateFoodOperations = createAsyncThunk(
     }
   }
 );
+
+
+
+// export async function updateFoodApi(id, body) {
+//   const { data } = await axios.put(`/food-intake/${id}`, body);
+//   return data;
+// }
+
 
 export const updateUserFoodOperation = createAsyncThunk(
   'user/update-food',

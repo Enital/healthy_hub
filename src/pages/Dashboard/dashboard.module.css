@@ -1,29 +1,19 @@
-.chart{
-  display: flex;
-  flex-direction: row;
-  height: 313px;
-  width: 620px;
-  font-family: sans-serif;
-  text-align: center;
-  background-color: #0F0F0F;
-  border-radius: 8px;
-}
-.chartView{
-  margin-top: auto;
-  margin-bottom: auto;
-  height: 382px;
-  width: 676px;
-}
-.weightChart{
-  height: 50px;
-  width: 620px;
+.dashboardContainer{
+  padding: 20px;
+  /* border: solid 1px red; */
 }
 .chartContainer{
   display:flex;
   flex-direction: row;
   align-items: center;
+  margin-top: 16px;
   /* padding: 30px;
   background-color: #0F0F0F; */
   border-radius: 8px;
+}
 
+.dashboardTitle{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

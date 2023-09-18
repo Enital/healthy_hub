@@ -1,4 +1,194 @@
-.diaryMain{
-  height: 540px;
-  width: 164px;
+
+ 
+.link {
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
+}
+.diary {
+  margin-right: 10px;
+  width: 57px;
+  height: 32px;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 32px;
+  color: rgba(255, 255, 255, 1);
+  margin-left: 25px;
+}
+.seeMore {
+width: auto; /* Змінимо ширину на auto, щоб текст міг розтягнутися на всю доступну ширину */
+height: 22px;
+font-weight: 500;
+font-size: 16px;
+line-height: 22px;
+white-space: nowrap; /* Заборонити перенос тексту на новий рядок */
+}
+.breakfastImage {
+  width: 36px;
+  height: 36px;
+  margin-left: 25px;
+  margin-right: 10px;
+}
+.diaryBreakfast {
+  width: 100px;
+  height: 24px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  color: rgba(255, 255, 255, 1);
+  margin-left: 25px;
+  margin-right: 10px;
+}
+
+/* ////////////////////////////////////// */
+.overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 408px;
+  border-radius: 12px;
+  background-color: rgba(15, 15, 15, 1);
+  z-index: 1000; /* Підняти поверх інших елементів */
+  display: none; /* По замовчуванню невидимий */
+  overflow-y: auto;
+}
+
+.img {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-left: 25px;
+  width: 268px;
+  height: 36px;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 36px;
+  color: rgba(255, 255, 255, 1);
+}
+
+.breakfast {
+  vertical-align: middle;
+  margin-left: 25px;
+  height: 32px;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 32px;
+  color: rgba(255, 255, 255, 1);
+}
+.nameBreakfast {
+  width: 104px;
+  height: 32px;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 32px;
+  color: rgba(255, 255, 255, 1);
+}
+.flexContainer {
+  display: flex;
+  align-items: center; /* Вирівнювання по вертикалі по центру */
+  gap: 10px; /* Відступ між елементами */
+  display: inline-flex;
+}
+.containerLabel {
+  display: inline-flex;
+}
+.add {
+  font-size: 16px;
+  margin-left: 25px;
+  vertical-align: middle; /* Вирівнювання тексту по вертикалі */
+}
+
+.addMore {
+  height: 20px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba(227, 255, 168, 1);
+  background: rgba(15, 15, 15, 1);
+  border: 1px solid transparent;
+  display: inline-block; /* Це робить, що елементи розташовані на одному рівні */
+  margin-top: 25px;
+}
+
+.remove {
+  background-color: rgba(15, 15, 15, 1);
+  color: rgba(227, 255, 168, 1);
+  font-size: 14px;
+  line-height: 20px;
+  border: 1px solid transparent;
+
+  ;
+}
+.cancel {
+  color: rgba(182, 182, 182, 1);
+  font-size: 14px;
+  line-height: 20px;
+  border: 1px solid transparent;
+  background-color: rgba(15, 15, 15, 1);
+   /* margin-left: 100px; */
+  /* margin-top: 140px;  */
+}
+.confirm {
+  width: 192px;
+  height: 20px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba(15, 15, 15, 1);
+  background-color: rgba(227, 255, 168, 1);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center; /* Вирівнювання тексту по горизонталі по центру */
+  align-items: center; /* Вирівнювання тексту по вертикалі по центру */
+margin-left: 450px;
+}
+.buttonConfirm {
+  display: flex;
+  align-items: center; /* Вирівнювання по вертикалі по центру */
+  gap: 10px; /* Відступ між елементами */
+}
+
+.seeMore {
+width: auto; /* Змінимо ширину на auto, щоб текст міг розтягнутися на всю доступну ширину */
+height: 22px;
+font-weight: 500;
+font-size: 16px;
+line-height: 22px;
+white-space: nowrap; /* Заборонити перенос тексту на новий рядок */
+}
+.breakfastImage {
+  width: 36px;
+  height: 36px;
+  margin-left: 25px;
+}
+.diaryBreakfast {
+  width: 100px;
+  height: 24px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  color: rgba(255, 255, 255, 1);
+  margin-left: 25px;
+}
+.divBreakfast {
+  display: flex;
+  margin-top: 20px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.openModal {
+   width: 150px; 
+  
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba(227, 255, 168, 1);
+  background-color: black;
+  border: 1px solid transparent;
+  padding: 5px 10px; /* Додайте відступи для кнопки */
+  cursor: pointer; /* Змінюємо курсор на вказівник на кнопці */
+  justify-content: center;
+  text-align: center;
+  
 }

@@ -10,6 +10,7 @@ import UpdateMealModal from 'components/ModalDiary/UpdateMealModal/UpdateMealMod
 import DiaryTable from 'components/Table/Table';
 
 const Diary = () => {
+
   const [recordMealModalOpen, setRecordMealModalOpen] = useState(false);
   const [updateMealModalOpen, setUpdateMealModalOpen] = useState(false);
 

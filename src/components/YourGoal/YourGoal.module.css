@@ -31,7 +31,7 @@
 .form {
   display: flex;
   flex-direction: column;
-  row-gap: 24px;
+  row-gap: 12px;
 }
 
 .label {
@@ -50,6 +50,22 @@
   text-decoration: none;
   background: var(--color-primary-green-lite, #e3ffa8);
   color: var(--color-primary-black-2, #0f0f0f);
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.43;
+  margin-top: 12px;
+}
+
+.BackBtn {
+  display: block;
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 12px;
+  text-decoration: none;
+  background: inherit;
+  color: var(--color-primary-grey, #b6b6b6);
+  border: none;
   text-align: center;
   font-size: 14px;
   font-weight: 500;
@@ -94,6 +110,8 @@
     flex-direction: row;
     column-gap: 104px;
     align-items: center;
+    padding-left: 116px;
+    padding-right: 116px;
   }
 
   .content {
