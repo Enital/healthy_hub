@@ -1,7 +1,5 @@
-.diaryMain {
-  height: 540px;
-  width: 164px;
-}
+
+ 
 .link {
   display: flex;
   align-items: center;
@@ -174,10 +172,11 @@ white-space: nowrap; /* Заборонити перенос тексту на н
   display: flex;
   margin-top: 20px;
   align-items: center;
+  margin-bottom: 20px;
 }
 .openModal {
    width: 150px; 
-  height: 20px;
+  
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
@@ -186,5 +185,7 @@ white-space: nowrap; /* Заборонити перенос тексту на н
   border: 1px solid transparent;
   padding: 5px 10px; /* Додайте відступи для кнопки */
   cursor: pointer; /* Змінюємо курсор на вказівник на кнопці */
+  justify-content: center;
+  text-align: center;
   
 }
