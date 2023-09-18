@@ -88,8 +88,11 @@ white-space: nowrap; /* Заборонити перенос тексту на н
   display: flex;
   align-items: center; /* Вирівнювання по вертикалі по центру */
   gap: 10px; /* Відступ між елементами */
+  display: inline-flex;
 }
-
+.containerLabel {
+  display: inline-flex;
+}
 .add {
   font-size: 16px;
   margin-left: 25px;
