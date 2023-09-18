@@ -11,7 +11,7 @@ const AddWaterModal = ({ closeModal }) => {
 
   useEffect(() => {
     dispatch(addWater(number));
-  }, [number]);
+  }, [dispatch, number]);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -40,7 +40,6 @@ const AddWaterModal = ({ closeModal }) => {
           <label style={{ color: 'blue' }}>
             How much water
             <input
-              // ref={inputRef}
               type="number"
               name="number"
               placeholder="Enter milliliters"
