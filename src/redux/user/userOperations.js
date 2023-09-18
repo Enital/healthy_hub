@@ -15,10 +15,6 @@ export async function setFoodIntake(body) {
   const { data } = await axios.post('/food-intake', body);
   return data;
 }
-export async function updateFoodApi(id, body) {
-  const { data } = await axios.put(`user/food-intake/${id}`, body);
-  return data;
-}
 
 export const updateFoodOperations = createAsyncThunk(
   'user/foodUpdate',
@@ -33,13 +29,10 @@ export const updateFoodOperations = createAsyncThunk(
   }
 );
 
-
-
-// export async function updateFoodApi(id, body) {
-//   const { data } = await axios.put(`/food-intake/${id}`, body);
-//   return data;
-// }
-
+export async function updateFoodApi(id, body) {
+  const { data } = await axios.put(`/food-intake/${id}`, body);
+  return data;
+}
 
 export const updateUserFoodOperation = createAsyncThunk(
   'user/update-food',
