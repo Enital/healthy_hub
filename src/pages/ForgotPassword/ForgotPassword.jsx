@@ -3,7 +3,8 @@ import SportAndFitnessTrackerIMG from './../../images/img/illustration-sport-and
 import css from './ForgotPassword.module.css';
 
 function ForgotPassword() {
-    return (
+  return (
+    <div className="container">
       <div className={css.wrapper}>
         <img
           className={css.img}
@@ -13,7 +14,7 @@ function ForgotPassword() {
         <div className={css.content}>
           <h1 className={css.title}>Forgot your password</h1>
           <h2 className={css.subtitle}>
-          We will send you an email with recovery instructions
+            We will send you an email with recovery instructions
           </h2>
           <form className={css.form}>
             <label>
@@ -36,7 +37,8 @@ function ForgotPassword() {
           </div>
         </div>
       </div>
-    );
-  }
-  
-  export default ForgotPassword;
+    </div>
+  );
+}
+
+export default ForgotPassword;
