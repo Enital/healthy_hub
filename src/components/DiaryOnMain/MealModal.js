@@ -31,6 +31,11 @@ const MealModal = ({ isOpen, onClose }) => {
     setInputFields(newInputFields);
   };
 
+  const handleConfirm = () => {
+    const dataToSend = inputFields;
+    const backendUrl = 'http:'
+  }
+
   return (
     <div className={css.overlay} style={{ display: isOpen ? 'block' : 'none' }}>
       <div>
@@ -181,7 +186,7 @@ const MealModal = ({ isOpen, onClose }) => {
         
         <img className={css.add} src={add} alt="add" />
         <button className={css.addMore} type="button" onClick={handleAddField}>
-          Add more
+          + Add more
         </button>
       </div>
       <div className={css.buttonConfirm}>
