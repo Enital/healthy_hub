@@ -118,7 +118,7 @@ white-space: nowrap; /* Заборонити перенос тексту на н
   line-height: 20px;
   border: 1px solid transparent;
 
-  margin-left: 570px;
+  ;
 }
 .cancel {
   color: rgba(182, 182, 182, 1);
