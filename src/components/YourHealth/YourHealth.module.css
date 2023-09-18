@@ -116,6 +116,8 @@
     flex-direction: row;
     column-gap: 104px;
     align-items: center;
+    padding-left: 116px;
+    padding-right: 116px;
   }
 
   .content {
