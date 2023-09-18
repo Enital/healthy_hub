@@ -39,8 +39,9 @@ const MealModal = ({ isOpen, onClose }) => {
         <img className={css.breakfast} src={breakfast} alt="breakfast" />
         <h2 className={css.nameBreakfast}>Breakfast</h2>
         </div>
+        
         {inputFields.map((field, index) => (
-          <div key={index}>
+          <div className={css.containerLabel} key={index}>
             <label htmlFor={`productName${index}`}></label>
             <input
               style={{
@@ -52,7 +53,7 @@ const MealModal = ({ isOpen, onClose }) => {
                 lineHeight: '20px',
                 color: 'rgba(182, 182, 182, 1)',
                 fontFamily: 'Poppins',
-                marginTop: '25px',
+                
                 paddingLeft: '10px',
                 gap: '10px',
                 background: 'black',
@@ -173,8 +174,11 @@ const MealModal = ({ isOpen, onClose }) => {
                 Remove
               </button>
             )}
+           
           </div>
+          
         ))}
+        
         <img className={css.add} src={add} alt="add" />
         <button className={css.addMore} type="button" onClick={handleAddField}>
           Add more
