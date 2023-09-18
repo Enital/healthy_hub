@@ -1,18 +1,7 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import css from './addWaterModal.module.css';
-import { addWater } from 'redux/usersGoal/operations';
-import { useEffect, useState } from 'react';
 
-const AddWaterModal = ({ closeModal }) => {
-  const [number, setNumber] = useState();
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(addWater(number));
-  }, [dispatch, number]);
-
+const AddWaterModal = ({ closeModal, changeNumber }) => {
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.currentTarget;
@@ -21,9 +10,10 @@ const AddWaterModal = ({ closeModal }) => {
       alert('The entered number must be greater than zero :)');
       return;
     }
-    console.log(login);
-    setNumber(login);
+
+    changeNumber(login);
     form.reset();
+    closeModal();
   };
 
   const handleOverlyClick = e => {
