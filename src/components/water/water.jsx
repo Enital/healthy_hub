@@ -43,7 +43,7 @@ export default function Water() {
     <div>
       <h2>Water</h2>
       <div>
-        <div>graphic</div>
+        <div>fff</div>
         <div>
           <h3>Water consumption</h3>
           <div>
