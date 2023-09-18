@@ -19,26 +19,10 @@ const authPersistConfig = {
   whitelist: ['token'],
 };
 
-// const middleware = [
-//   ...getDefaultMiddleware({
-//     serializableCheck: {
-//       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-//     },
-//   }),
-// ];
-
-// export const store = configureStore({
-//   reducer: {
-//     auth: persistReducer(authPersistConfig, authReducer),
-//     middleware,
-//     devTools: process.env.NODE_ENV === 'development',
-//   },
-// });
-
-const persistedReducer = persistReducer(authPersistConfig, authReducer);
-
 export const store = configureStore({
-  reducer: persistedReducer,
+  reducer: {
+    auth: persistReducer(authPersistConfig, authReducer),
+  },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
