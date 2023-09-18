@@ -53,7 +53,7 @@ const SignUpPage = () => {
     event.preventDefault();
     setActivity(event.target.activity.value);
     const form = event.currentTarget;
-    const activity = Number(activity2)
+    const activity = Number(activity2);
     dispatch(
       register({
         name,
@@ -72,7 +72,9 @@ const SignUpPage = () => {
   return (
     <div className="container">
       {page === 1 && <SignUpForm onForm={haldleForm1} />}
-      {page === 2 && <YourGoal onForm={haldleForm2} goal={goal} />}
+      {page === 2 && (
+        <YourGoal onForm={haldleForm2} onBackPage={backPage} goal={goal} />
+      )}
       {page === 3 && (
         <SelectGenderAge
           onForm={haldleForm3}

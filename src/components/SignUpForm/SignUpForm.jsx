@@ -76,7 +76,7 @@ function SignUpForm({ onForm }) {
             />
           </label>
           <button className={css.signupBtn} type="submit">
-            Sign up
+            Next
           </button>
         </form>
         <div className={css.questionTrumb}>

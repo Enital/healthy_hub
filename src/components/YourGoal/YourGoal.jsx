@@ -1,7 +1,8 @@
 import summerHikingIMG from './../../images/img/illustration-summer-hiking.svg';
 import css from './YourGoal.module.css';
 import { useState } from 'react';
-function YourGoal({ onForm, goal }) {
+
+function YourGoal({ onForm, onBackPage, goal }) {
   const [goalValue, setGoal] = useState(goal);
   const handleChangeGoal = e => {
     setGoal(e.target.value);
@@ -53,6 +54,9 @@ function YourGoal({ onForm, goal }) {
           </div>
           <button className={css.NextBtn} type="submit">
             Next
+          </button>
+          <button className={css.BackBtn} onClick={onBackPage} type="button">
+            Back
           </button>
         </form>
       </div>

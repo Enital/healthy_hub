@@ -69,7 +69,7 @@ function YourActivity({ onBackPage, onForm, activity }) {
             </label>
           </div>
           <button className={css.NextBtn} type="submit">
-            Next
+            Sign Up
           </button>
           <button className={css.BackBtn} onClick={onBackPage}>
             Back

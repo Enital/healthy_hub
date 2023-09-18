@@ -31,7 +31,7 @@
 .form {
   display: flex;
   flex-direction: column;
-  row-gap: 24px;
+  row-gap: 12px;
 }
 
 .wrappers {
@@ -60,6 +60,7 @@
   font-size: 14px;
   font-weight: 500;
   line-height: 1.43;
+  margin-top: 12px;
 }
 
 .BackBtn {
