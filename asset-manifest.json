@@ -1,21 +1,26 @@
 {
   "files": {
-    "main.css": "/healthy_hub/static/css/main.7bd57654.css",
-    "main.js": "/healthy_hub/static/js/main.a15533dd.js",
+    "main.css": "/healthy_hub/static/css/main.0333cd2a.css",
+    "main.js": "/healthy_hub/static/js/main.4954aba8.js",
+    "static/media/breakfast-image.svg": "/healthy_hub/static/media/breakfast-image.757cefa61c13942dffbdf20f2c19304b.svg",
+    "static/media/snack-image.svg": "/healthy_hub/static/media/snack-image.a52f73890dfdeaafbe54a211e6abbca9.svg",
     "static/media/illustration-body-parameters.svg": "/healthy_hub/static/media/illustration-body-parameters.af4c9999a54395709595ad545417e26b.svg",
     "static/media/illustration-activity.svg": "/healthy_hub/static/media/illustration-activity.7d6bd15bd303decdaa5c6d2988d256a7.svg",
     "static/media/illustration-summer-hiking.svg": "/healthy_hub/static/media/illustration-summer-hiking.9a42b1dac9243322ec953b0f98bfb17b.svg",
     "static/media/illustration-gender-and-age.svg": "/healthy_hub/static/media/illustration-gender-and-age.9133dfe8b1a04bcab138bb768a302abd.svg",
+    "static/media/dinner-image.svg": "/healthy_hub/static/media/dinner-image.0b21c33b6a6f661fb4cc5d906b4b820f.svg",
+    "static/media/lunch-image.svg": "/healthy_hub/static/media/lunch-image.ce1d1c9da68a61e93c49b276ff94bd3d.svg",
     "static/media/illustration-sport-and-fitness-tracker.svg": "/healthy_hub/static/media/illustration-sport-and-fitness-tracker.4780f75d78cadf44bd20b7157691242e.svg",
     "index.html": "/healthy_hub/index.html",
     "static/media/milk.svg": "/healthy_hub/static/media/milk.22591ba28b2802fad7cc43d9df873ca1.svg",
     "static/media/bubble.svg": "/healthy_hub/static/media/bubble.def62834876d170a381e2ea3cf15a89a.svg",
     "static/media/arrow-right.svg": "/healthy_hub/static/media/arrow-right.f8c65c9eedf20fcbfb05ca325d61d0df.svg",
-    "main.7bd57654.css.map": "/healthy_hub/static/css/main.7bd57654.css.map",
-    "main.a15533dd.js.map": "/healthy_hub/static/js/main.a15533dd.js.map"
+    "static/media/add.svg": "/healthy_hub/static/media/add.3549f83e53c7836e8602dd5b93eb076d.svg",
+    "main.0333cd2a.css.map": "/healthy_hub/static/css/main.0333cd2a.css.map",
+    "main.4954aba8.js.map": "/healthy_hub/static/js/main.4954aba8.js.map"
   },
   "entrypoints": [
-    "static/css/main.7bd57654.css",
-    "static/js/main.a15533dd.js"
+    "static/css/main.0333cd2a.css",
+    "static/js/main.4954aba8.js"
   ]
 }
