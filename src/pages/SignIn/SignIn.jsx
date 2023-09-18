@@ -40,50 +40,52 @@ function SignIn() {
   };
 
   return (
-    <div className={css.wrapper}>
-      <img
-        className={css.img}
-        src={SportAndFitnessTrackerIMG}
-        alt="illustration-sport-and-fitness-tracker"
-      />
-      <div className={css.content}>
-        <h1 className={css.title}>Sign in</h1>
-        <h2 className={css.subtitle}>You need to login to use the service</h2>
-        <form className={css.form} onSubmit={handleSubmit}>
-          <label>
-            <input
-              className={css.input}
-              type="email"
-              name="email"
-              placeholder="E-mail"
-              value={email}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            <input
-              className={css.input}
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={password}
-              onChange={handleChange}
-            />
-          </label>
-          <button className={css.signinBtn} type="submit">
-            Sign in
-          </button>
-          <div className={css.forgotYourPassword}>
-            <NavLink className={css.forgotPassword} to="/forgot-password">
-              Forgot your password?
+    <div className="container">
+      <div className={css.wrapper}>
+        <img
+          className={css.img}
+          src={SportAndFitnessTrackerIMG}
+          alt="illustration-sport-and-fitness-tracker"
+        />
+        <div className={css.content}>
+          <h1 className={css.title}>Sign in</h1>
+          <h2 className={css.subtitle}>You need to login to use the service</h2>
+          <form className={css.form} onSubmit={handleSubmit}>
+            <label>
+              <input
+                className={css.input}
+                type="email"
+                name="email"
+                placeholder="E-mail"
+                value={email}
+                onChange={handleChange}
+              />
+            </label>
+            <label>
+              <input
+                className={css.input}
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={password}
+                onChange={handleChange}
+              />
+            </label>
+            <button className={css.signinBtn} type="submit">
+              Sign in
+            </button>
+            <div className={css.forgotYourPassword}>
+              <NavLink className={css.forgotPassword} to="/forgot-password">
+                Forgot your password?
+              </NavLink>
+            </div>
+          </form>
+          <div className={css.questionTrumb}>
+            <p className={css.question}> If you don't have an account yet</p>
+            <NavLink className={css.signupBtn} to="/signup">
+              Sign up
             </NavLink>
           </div>
-        </form>
-        <div className={css.questionTrumb}>
-          <p className={css.question}> If you don't have an account yet</p>
-          <NavLink className={css.signupBtn} to="/signup">
-            Sign up
-          </NavLink>
         </div>
       </div>
     </div>
