@@ -88,8 +88,8 @@ function SignUpForm({ onForm, name2, email2, password2 }) {
               placeholder="Name"
               value={name}
               onChange={handleChange}
-              pattern="[A-Za-z\s]{1,25}" 
-              title="Введіть ваше ім'я, використовуючи тільки літери та пробіли [A-Z]" 
+              pattern="[A-Za-z\s]{1,25}"
+              title="Введіть ваше ім'я, використовуючи тільки літери та пробіли [A-Z]"
               required
             />
             {/* <FromError name="name" /> */}
