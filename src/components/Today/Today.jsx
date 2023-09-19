@@ -7,6 +7,7 @@ import Water from 'components/water/water';
 import Food from 'components/food/food';
 import arrow from '../../images/icons/arrow-right.svg';
 import { fetchGoals } from 'redux/usersGoal/operations';
+import css from './today.module.css';
 
 const Today = () => {
   const dispatch = useDispatch();
@@ -16,13 +17,15 @@ const Today = () => {
   }, [dispatch]);
 
   return (
-    <div className="today">
-      <div>
-        <h2>Today</h2>
+    <div>
+      <div className={css.mainHead}>
+        <h1 className={css.todayHead}>Today</h1>
 
-        <div>
-          <Link to="">On the way to the goal</Link>
-          <img src={arrow} alt="arrow" />
+        <div className={css.linkWrapper}>
+          <Link className={css.todayLink} to="">
+            On the way to the goal
+          </Link>
+          <img className={css.imgToday} src={arrow} alt="arrow" />
         </div>
       </div>
       <div>

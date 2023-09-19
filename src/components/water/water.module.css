@@ -1,0 +1,151 @@
+.progress {
+  position: relative;
+  width: 64px;
+  height: 176px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  background-color: black;
+  border-radius: 20px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.progress > .progressBar {
+  width: 100% !important;
+  position: absolute;
+  bottom: 0;
+}
+
+.progressBar {
+  width: 0;
+  border-radius: 20px;
+  text-align: center;
+  background-color: #b6c3ff;
+  -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  -webkit-transition: width 0.6s ease;
+  -o-transition: width 0.6s ease;
+  transition: width 0.6s ease;
+}
+.srOnly {
+  position: relative;
+  z-index: 20;
+  /* top: -20px; */
+  color: #fff;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 600;
+}
+
+.waterProgressBar {
+  font-family: sans-serif;
+  text-align: center;
+  width: 80px;
+  height: 192px;
+  padding: 8px;
+  background-color: black;
+  border-radius: 20px;
+  margin-right: 20px;
+}
+.waterWindow {
+  width: 300px;
+  height: 254px;
+  background-color: #050505;
+}
+.waterWrapper {
+  margin-top: 6px;
+  display: flex;
+  width: 100%;
+  height: 224px;
+  background-color: #0f0f0f;
+  border-radius: 12px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 12px;
+  padding-right: 22px;
+}
+
+.head {
+  color: var(--color-primary-white, #fff);
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+.consumption {
+  margin-top: 38px;
+  color: var(--color-primary-white, #fff);
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px;
+}
+.waterGoal {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+  color: var(--color-primary-white, #fff);
+  font-family: Poppins;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 34px;
+}
+.waterSpan {
+  margin-left: 8px;
+  color: var(--color-primary-grey, #b6b6b6);
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+.left {
+  margin-top: 8px;
+  color: var(--color-primary-white, #fff);
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+.waterSpan2 {
+  margin-left: 4px;
+  color: var(--color-primary-grey, #b6b6b6);
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+.leftSpan {
+  margin-left: 4px;
+  color: var(--color-primary-grey, #b6b6b6);
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+}
+.waterbutton {
+  justify-content: center;
+  width: 166px;
+  height: 36px;
+  margin-top: 16px;
+  display: flex;
+  padding: 8px 10px;
+  align-items: center;
+  border-radius: 12px;
+  background: var(--color-primary-green-lite, #e3ffa8);
+  color: var(--color-primary-black-2, #0f0f0f);
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+}
+.waterImg {
+  margin-top: 2px;
+  margin-right: 8px;
+}
