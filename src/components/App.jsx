@@ -8,7 +8,7 @@ import Main from '../pages/Main/Main.jsx';
 import Dashboard from '../pages/Dashboard/Dashboard.jsx';
 import Diary from '../pages/Diary/Diary.jsx';
 import RecommendedFood from '../pages/RecommendedFood/RecommendedFood.jsx';
-import ProfileSettings from '../pages/ProfileSettings/ProfileSettings.jsx';
+import SettingsPage from '../pages/SettingsPage/SettingsPage.jsx';
 import PrivateRoute from './PrivateRoute/PrivateRoute.jsx';
 import RestrictedRoute from './RestrictedRoute/RestrictedRoute.jsx';
 import { useAuth } from 'redux/auth/useAuth.js';
@@ -31,9 +31,8 @@ function App() {
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
-
         <Route index element={!isLoggedIn ? <OnePage /> : <Main />} />
-       
+
         <Route
           path="signup"
           element={
@@ -42,10 +41,7 @@ function App() {
         />
         <Route
           path="signin"
-          element={
-            <RestrictedRoute redirectTo="/" component={<SignIn />} />
-          }
-
+          element={<RestrictedRoute redirectTo="/" component={<SignIn />} />}
         />
         <Route
           path="forgot-password"
@@ -75,10 +71,7 @@ function App() {
         <Route
           path="settings"
           element={
-            <PrivateRoute
-              redirectTo="/signin"
-              component={<ProfileSettings />}
-            />
+            <PrivateRoute redirectTo="/signin" component={<SettingsPage />} />
           }
         />
         <Route path="*" element={<Navigate to="/" replace />} />
