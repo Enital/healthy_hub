@@ -3,7 +3,7 @@
     flex-direction: column;
     width: max-content;
     margin: 0 auto;
-    width: 90%;
+    /* width: 90%; */
   }
   .profile-settings{
     font-weight: 500;
@@ -129,6 +129,8 @@
     .setting-activity{
       width: 580px;
       margin: 0 auto;
+
+      margin-bottom: 250px;
     }
     .settings-saveBTN{
       width: 212px;
@@ -144,9 +146,6 @@
       width: 470px;
       height: 36px;
       gap: 12px;
-    }
-    .setting-activity{
-      margin-bottom: 250px;
     }
     .photo{
       margin-top: 30px;
@@ -164,6 +163,9 @@
       width: 1440px;
       padding-left: 34px;
       padding-right: 34px;
+
+      display: flex;
+      flex-direction: row;
     }
     .profile-form{
       display: flex;
@@ -178,17 +180,11 @@
       gap: 60px;
       row-gap: 40px;
     }
-    .container{
-      display: flex;
-      flex-direction: row; 
-    }
     .setting-activity{
       margin-bottom: 10px;
       margin-top: 40px;
     }
-    .profile-settings{
-      height: max-content;
-    }
+  
     .photo{
       width: 600px;
       height: 600px;
@@ -197,6 +193,8 @@
       left: 50px;
     }
     .profile-settings{
+      height: max-content;
+
       width: 300px;
       margin-top: 120px;
       margin-left: 15px;
