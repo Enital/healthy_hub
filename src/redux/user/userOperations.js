@@ -28,3 +28,24 @@ export const updateFoodOperations = createAsyncThunk(
     }
   }
 );
+
+export async function updateFoodApi(id, body) {
+  const { data } = await axios.put(`/food-intake/${id}`, body);
+  return data;
+}
+
+export const updateUserFoodOperation = createAsyncThunk(
+  'user/update-food',
+  async (body, { rejectWithValue, getState }) => {
+    try {
+      setHeadersToken(getState().auth.token);
+
+      const id = getState().user.id;
+      const data = await updateFoodApi(id, body);
+
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);

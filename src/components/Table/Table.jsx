@@ -2,7 +2,7 @@ import React from 'react';
 import s from './Table.module.css';
 import Icons from '../../images/icons/symbol-defs.svg';
 import { useMediaQuery } from 'react-responsive';
-import * as mob from '../../images/img';
+import * as mob from '../../images/illustration';
 import { nanoid } from 'nanoid';
 const DiaryTable = ({
   mealType,

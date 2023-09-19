@@ -79,12 +79,6 @@ function SignIn() {
               Forgot your password?
             </NavLink>
           </div>
-        </form>
-        <div className={css.questionTrumb}>
-          <p className={css.question}> If you don't have an account yet</p>
-          <NavLink className={css.signupBtn} to="/signup">
-            Sign up
-          </NavLink>
         </div>
       </div>
     </div>

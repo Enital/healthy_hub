@@ -1,10 +1,136 @@
 .header{
-    height: 40px;
+    width: 100%;
+    height: 100px;
     max-width: 99vw;
-    padding: 10px;
     margin-bottom: 10px;
     display: flex;
     flex-direction: row;
+    background: var(--color-primary-black-2, #0F0F0F);
+}
 
-    box-shadow: rgba(255, 255, 255, 0.75) 0px 1px 2px 0px, rgba(255, 255, 255, 0.75) 0px 1px 3px 1px;
+.headline{
+    font-family: var(--main-font 'Poppins', sans-serif);
+    color: var(--color-primary-grey, #B6B6B6);
+    font-weight: 700;
+    font-size: 22px;
+    margin: 34px 0px 34px 34px;
+    line-height: 32px;
+}
+
+.link{
+    text-decoration: none;
+}
+
+.navigation {
+    margin: 40px 68px 40px 0px;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: right;
+}
+
+.authLink {
+    color: var(--color-primary-white, #FFF);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.activeAuthLink {
+    color: var(--color-primary-green-lite, #E3FFA8);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    
+}
+
+.divider{
+    margin: 0px 2px 0px 2px;
+    color: var(--color-primary-white, #FFF);
+font-family: Poppins;
+font-size: 14px;
+font-weight: 400;
+line-height: 20px; 
+}
+
+.userProfile{
+    margin-left: 6px;
+}
+
+@media (min-width: 834px) and (max-width: 932px) {
+    /*планшет */
+    .header{
+        width: 100%;
+        height: 100px;
+        max-width: 99vw;
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: row;
+        background: var(--color-primary-black-2, #0F0F0F);
+    }
+    .headline{
+        color: var(--color-primary-grey, #B6B6B6);
+        font-family: var(--main-font 'Poppins', sans-serif);
+        font-size: 22px;
+        font-weight: 700;
+        line-height: 32px;
+        margin: 27px 0px 34px 27px;
+    }
+    .navigation {
+        margin: 40px 61px 40px 0px;
+        margin-left: auto;
+        display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px; 
+    }
+    .authLink {
+        color: var(--color-primary-white, #FFF);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        text-decoration: none;
+    }
+}
+
+@media (min-width: 378px) and (max-width: 768px) {
+    /* телефон  */
+    .header{
+        width: 100%;
+        height: 60px;
+        max-width: 99vw;
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: row;
+        background: var(--color-primary-black-2, #0F0F0F);
+    }
+    .headline{
+        color: var(--color-primary-grey, #B6B6B6);
+        font-family: var(--main-font 'Poppins', sans-serif);
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 22px;
+        margin: 19px 0px 19px 10px;
+    }
+    .navigation {
+        margin: 22px 42px 22px 0px;
+        margin-left: auto;
+        display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+    .authLink {
+        color: var(--color-primary-white, #FFF);
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 16px;
+        text-decoration: none;
+    }
 }

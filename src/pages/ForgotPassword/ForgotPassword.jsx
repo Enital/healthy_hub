@@ -44,7 +44,7 @@ function ForgotPassword() {
         <div className={css.content}>
           <h1 className={css.title}>Forgot your password</h1>
           <h2 className={css.subtitle}>
-          We will send you an email with recovery instructions
+            We will send you an email with recovery instructions
           </h2>
           <form className={css.form} onSubmit={handleSubmit}>
             <label>
