@@ -25,9 +25,9 @@ const AddWaterModal = ({ closeModal, changeNumber }) => {
   return (
     <div className={css.modalOverly} onClick={handleOverlyClick}>
       <div className={css.modalContent}>
-        <h1 style={{ color: 'red' }}>Add water intake</h1>
+        <h1 className={css.modalHead}>Add water intake</h1>
         <form onSubmit={handleSubmit}>
-          <label style={{ color: 'blue' }}>
+          <label className={css.modalLable}>
             How much water
             <input
               type="number"

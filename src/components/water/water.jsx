@@ -44,6 +44,7 @@ export default function Water() {
   const progress = Math.round((waterUsed / waterGoal) * 100);
 
   let walue = -20;
+
   switch (progress) {
     case 91:
       walue = -18;
@@ -73,7 +74,7 @@ export default function Water() {
       walue = -5;
       break;
     case 100:
-      walue = -3;
+      walue = 1;
       break;
     default:
       walue = -20;
