@@ -6,6 +6,7 @@
   padding-right: 10px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 60px;
 }
 
 /* TABLET */
@@ -14,6 +15,7 @@
     width: 834px;
     padding-left: 27px;
     padding-right: 27px;
+    margin-bottom: 40px;
   }
 }
 
@@ -25,5 +27,6 @@
     padding-right: 34px;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 52px;
   }
 }
