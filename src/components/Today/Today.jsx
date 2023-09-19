@@ -22,7 +22,7 @@ const Today = () => {
         <h1 className={css.todayHead}>Today</h1>
 
         <div className={css.linkWrapper}>
-          <Link className={css.todayLink} to="">
+          <Link className={css.todayLink} to="/dashboard">
             On the way to the goal
           </Link>
           <img className={css.imgToday} src={arrow} alt="arrow" />
