@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 // useLocation, useEffect
 
-import './SettingsPage.css';
+import css from './settingsPage.module.css';
 
 function Settings() {
   // const location = useLocation();
@@ -92,39 +92,39 @@ function Settings() {
   // }
 
   return (
-    <div className="container">
-      <p className="profile-settings">Profile setting</p>
-      <div className="photo"></div>
-      <form className="profile-form">
-        <div className="settings-inputs">
+    <div className={css.container}>
+      <p className={css.profileSettings}>Profile setting</p>
+      <div className={css.photo}></div>
+      <form className={css.profileForm}>
+        <div className={css.settingsInputs}>
           <div>
-            <p className="settings-stats">Your name</p>
+            <p className={css.settingsStats}>Your name</p>
             <input
               name="name"
               placeholder="Enter your name"
               type="text"
-              className="input-text"
-              defaulValue={name}
+              className={css.inputText}
+              defaultValue={name}
               onChange={handleNameChange}
             />
           </div>
           <div>
-            <p className="settings-stats">Your photo</p>
+            <p className={css.settingsStats}>Your photo</p>
             <div>
-              <div className="settings-download-photo">
+              <div className={css.settingsDownloadPhoto}>
                 <p>p</p>
                 {/* <input onChange={(e) => setImage(e.target.files)} type="file" /> */}
               </div>
             </div>
           </div>
           <div>
-            <p className="settings-stats">Your age</p>
+            <p className={css.settingsStats}>Your age</p>
             <input
               type="text"
               name="age"
               placeholder="Enter your age"
-              className="input-text"
-              defaulValue={age}
+              className={css.inputText}
+              defaultValue={age}
               onChange={handleAgeChange}
               onKeyDown={e => {
                 // Дозволити тільки цифри та клавіші видалення (Backspace, Delete)
@@ -139,9 +139,9 @@ function Settings() {
             />
           </div>
           <div>
-            <p className="settings-stats">Gender</p>
-            <div className="settings-genders">
-              <div className="gender">
+            <p className={css.settingsStats}>Gender</p>
+            <div className={css.settingsGenders}>
+              <div className={css.gender}>
                 <input
                   type="radio"
                   name="gender"
@@ -151,7 +151,7 @@ function Settings() {
                 />
                 <p>Male</p>
               </div>
-              <div className="gender">
+              <div className={css.gender}>
                 <input
                   type="radio"
                   name="gender"
@@ -164,13 +164,13 @@ function Settings() {
             </div>
           </div>
           <div>
-            <p className="settings-stats">Height</p>
+            <p className={css.settingsStats}>Height</p>
             <input
               type="text"
               name="height"
               placeholder="Enter your height"
-              className="input-text"
-              defaulValue={height}
+              className={css.inputText}
+              defaultValue={height}
               onChange={handleHeightChange}
               onKeyDown={e => {
                 // Дозволити тільки цифри та клавіші видалення (Backspace, Delete)
@@ -185,13 +185,13 @@ function Settings() {
             />
           </div>
           <div>
-            <p className="settings-stats">Weight</p>
+            <p className={css.settingsStats}>Weight</p>
             <input
               type="text"
               name="weight"
               placeholder="Enter your weight"
-              className="input-text"
-              defaulValue={weight}
+              className={css.inputText}
+              defaultValue={weight}
               onChange={handleWeightChange}
               onKeyDown={e => {
                 // Дозволити тільки цифри та клавіші видалення (Backspace, Delete)
@@ -206,9 +206,9 @@ function Settings() {
             />
           </div>
         </div>
-        <div className="setting-activity">
+        <div className={css.settingActivity}>
           <p>Your activity</p>
-          <div className="radio-settings">
+          <div className={css.radioSettings}>
             <input
               type="radio"
               name="activity"
@@ -218,7 +218,7 @@ function Settings() {
             />{' '}
             1.2 - if you do not have physical activity and sedentary work
           </div>
-          <div className="radio-settings">
+          <div className={css.radioSettings}>
             <input
               type="radio"
               name="activity"
@@ -228,7 +228,7 @@ function Settings() {
             />{' '}
             1,375 - if you do short runs or light gymnastics 1-3 times a week
           </div>
-          <div className="radio-settings">
+          <div className={css.radioSettings}>
             <input
               type="radio"
               name="activity"
@@ -238,7 +238,7 @@ function Settings() {
             />{' '}
             1.55 - if you play sports with average loads 3-5 times a week
           </div>
-          <div className="radio-settings">
+          <div className={css.radioSettings}>
             <input
               type="radio"
               name="activity"
@@ -248,7 +248,7 @@ function Settings() {
             />{' '}
             1,725 ​​- if you train fully 6-7 times a week
           </div>
-          <div className="radio-settings">
+          <div className={css.radioSettings}>
             <input
               type="radio"
               name="activity"
@@ -270,12 +270,12 @@ function Settings() {
           <p>My weight is {savedWeight}</p>
           <p>My activity is {savedActivity}</p> */}
         </div>
-        <div className="buttons">
-          <button className="settings-saveBTN" onClick={handleSave}>
-            <p className="settings-buttonSAVE-text">Save</p>
+        <div className={css.buttons}>
+          <button className={css.settingsSaveBTN} onClick={handleSave}>
+            <p className={css.settingsButtonSAVEText}>Save</p>
           </button>
-          <button className="settings-cancelBTN">
-            <p className="settings-buttonCANCELED-text">Cancel</p>
+          <button className={css.settingsCancelBTN}>
+            <p className={css.settingsButtonCANCELEDText}>Cancel</p>
           </button>
         </div>
       </form>

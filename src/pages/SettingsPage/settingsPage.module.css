@@ -1,0 +1,237 @@
+.buttons {
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  margin: 0 auto;
+  /* width: 90%; */
+}
+
+.profileSettings {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.5;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-left: 10px;
+  margin-top: 76px;
+}
+
+.settingsStats {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.profileForm {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.settingsDownloadPhoto {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  margin-bottom: 40px;
+}
+
+.inputText {
+  width: 95%;
+  border: 1px solid #b6b6b6;
+  border-radius: 12px;
+  padding: 8px 10px;
+  margin-bottom: 40px;
+  margin-top: 12px;
+}
+
+.settingsGenders {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 40px;
+  margin-top: 12px;
+}
+
+.gender {
+  display: flex;
+  gap: 8px;
+}
+
+.gender p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.radioSettings {
+  display: flex;
+  gap: 8px;
+}
+
+.settingActivity {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.settingsSaveBTN {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: none;
+  background-color: #e3ffa8;
+}
+
+.settingsCancelBTN {
+  margin-top: 12px;
+  margin-bottom: 40px;
+  border: none;
+  background-color: transparent;
+  color: #b6b6b6;
+}
+
+.settingsButtonSAVEText {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.4;
+  background-color: #e3ffa8;
+  color: #0f0f0f;
+}
+
+.settingsButtonCANCELEDText {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.photo {
+  margin: 0 auto;
+  background-color: red;
+  width: 300px;
+  height: 300px;
+}
+
+/* TABLET */
+@media screen and (min-width: 834px) {
+  .container {
+    width: 834px;
+    padding-left: 27px;
+    padding-right: 27px;
+    margin: 0 auto;
+  }
+
+  .profileForm {
+    margin: 0;
+  }
+
+  .profileSettings {
+    margin-left: 0;
+    font-size: 30px;
+    line-height: 1.2;
+    margin-top: 124px;
+  }
+
+  .inputText {
+    width: 212px;
+    margin-bottom: 0;
+  }
+
+  .settingsInputs {
+    display: flex;
+    margin: 0 auto;
+    width: 70%;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .settingActivity {
+    width: 580px;
+    margin: 0 auto;
+
+    margin-bottom: 250px;
+  }
+
+  .settingsSaveBTN {
+    width: 212px;
+  }
+
+  .settingsCancelBTN {
+    width: 212px;
+  }
+
+  .buttons {
+    position: absolute;
+    top: 120px;
+    right: 27px;
+    flex-direction: row-reverse;
+    width: 470px;
+    height: 36px;
+    gap: 12px;
+  }
+
+  .photo {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .settingsDownloadPhoto {
+    margin-bottom: 0;
+  }
+
+  /* .profile-settings */
+}
+
+/* DESKTOP */
+@media screen and (min-width: 1440px) {
+  .container {
+    width: 1440px;
+    padding-left: 34px;
+    padding-right: 34px;
+
+    display: flex;
+    flex-direction: row;
+  }
+
+  .profileForm {
+    display: flex;
+    width: 700px;
+    flex-direction: column;
+    margin-top: 100px;
+    margin-left: 600px;
+  }
+
+  .settingsInputs {
+    width: 600px;
+    margin-top: 70px;
+    gap: 60px;
+    row-gap: 40px;
+  }
+
+  .settingActivity {
+    margin-bottom: 10px;
+    margin-top: 40px;
+  }
+
+  .photo {
+    width: 600px;
+    height: 600px;
+    position: absolute;
+    bottom: 100px;
+    left: 50px;
+  }
+
+  .profileSettings {
+    height: max-content;
+
+    width: 300px;
+    margin-top: 120px;
+    margin-left: 15px;
+  }
+
+  .buttons {
+    right: 52px;
+  }
+}
