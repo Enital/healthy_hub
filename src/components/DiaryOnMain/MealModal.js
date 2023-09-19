@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import breakfast from '../../images/illustration/breakfast-image.svg';
-import add from '../../images/icons/add.svg';
+//import add from '../../images/icons/add.svg';
 import css from './diaryOnMain.module.css';
 import { useDispatch } from 'react-redux';
 import { fetchGoalsConfirm } from 'redux/usersGoal/operations';
@@ -214,7 +214,7 @@ const MealModal = ({ isOpen, onClose }) => {
           </div>
         ))}
 
-        <img className={css.add} src={add} alt="add" />
+        {/* <img className={css.add} src={add} alt="add" /> */}
         <button className={css.addMore} type="button" onClick={handleAddField}>
           + Add more
         </button>
