@@ -1,20 +1,80 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import {
+  getFoodIntake,
+  getMonthStatistic,
+  setFoodIntake,
+  setHeadersToken,
+  setWaterIntake,
+  updateFoodApi,
+  updateGoalApi,
+  updateSettingsApi,
+  updateWeightApi,
+} from './userApi';
 
-axios.defaults.baseURL = ' https://goit-healthy-hub.onrender.com/api/user';
+export const updateGoalOperation = createAsyncThunk(
+  'user/goal',
+  async (body, { rejectWithValue, getState }) => {
+    try {
+      setHeadersToken(getState().auth.token);
+      const data = await updateGoalApi(body);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
 
-export function setHeadersToken(token) {
-  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-}
+export const updateWeightOperation = createAsyncThunk(
+  'user/weight',
+  async (body, { rejectWithValue, getState }) => {
+    try {
+      setHeadersToken(getState().auth.token);
+      const data = await updateWeightApi(body);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
 
-export function unSetHeadersToken() {
-  axios.defaults.headers.common.Authorization = ``;
-}
+export const updateSettingsOperations = createAsyncThunk(
+  'user/settings',
+  async (body, { rejectWithValue, getState }) => {
+    try {
+      setHeadersToken(getState().auth.token);
+      const data = await updateSettingsApi(body);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
 
-export async function setFoodIntake(body) {
-  const { data } = await axios.post('/food-intake', body);
-  return data;
-}
+export const getDefaultWaterAndCalories = createAsyncThunk(
+  'user/waterCalories',
+  async (_, { rejectWithValue, getState }) => {
+    try {
+      setHeadersToken(getState().auth.token);
+      const data = await getFoodIntake();
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const updateWaterOperations = createAsyncThunk(
+  'user/waterUpdate',
+  async (body, { rejectWithValue, getState }) => {
+    try {
+      setHeadersToken(getState().auth.token);
+      const data = await setWaterIntake(body);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
 
 export const updateFoodOperations = createAsyncThunk(
   'user/foodUpdate',
@@ -29,10 +89,31 @@ export const updateFoodOperations = createAsyncThunk(
   }
 );
 
-export async function updateFoodApi(id, body) {
-  const { data } = await axios.put(`/food-intake/${id}`, body);
-  return data;
-}
+export const getMonthAllStatistic = createAsyncThunk(
+  'user/statistics',
+  async (body, { rejectWithValue, getState }) => {
+    try {
+      setHeadersToken(getState().auth.token);
+      const data = await getMonthStatistic(body);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const getYearAllStatistic = createAsyncThunk(
+  'user/statistic-year',
+  async (body, { rejectWithValue, getState }) => {
+    try {
+      setHeadersToken(getState().auth.token);
+      const data = await getMonthStatistic(body);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
 
 export const updateUserFoodOperation = createAsyncThunk(
   'user/update-food',
