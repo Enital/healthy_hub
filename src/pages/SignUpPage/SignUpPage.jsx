@@ -74,14 +74,12 @@ const SignUpPage = () => {
   return (
     <div className="container">
       {page === 1 && (
-        
-          <SignUpForm
-            onForm={haldleForm1}
-            name2={name}
-            email2={email}
-            password2={password}
-          />
-         
+        <SignUpForm
+          onForm={haldleForm1}
+          name2={name}
+          email2={email}
+          password2={password}
+        />
       )}
       {page === 2 && (
         <YourGoal onForm={haldleForm2} onBackPage={backPage} goal={goal} />

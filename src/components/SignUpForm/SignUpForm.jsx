@@ -4,7 +4,7 @@ import css from './SignUpForm.module.css';
 import { useState } from 'react';
 // import { Formik, Form, Field, ErrorMessage } from 'formik';
 // import * as yup from 'yup';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+// import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 function SignUpForm({ onForm, name2, email2, password2 }) {
   const [name, setName] = useState(name2);
@@ -88,6 +88,9 @@ function SignUpForm({ onForm, name2, email2, password2 }) {
               placeholder="Name"
               value={name}
               onChange={handleChange}
+              pattern="[A-Za-z\s]{1,25}" 
+              title="Введіть ваше ім'я, використовуючи тільки літери та пробіли [A-Z]" 
+              required
             />
             {/* <FromError name="name" /> */}
           </label>
@@ -99,7 +102,9 @@ function SignUpForm({ onForm, name2, email2, password2 }) {
               placeholder="E-mail"
               value={email}
               onChange={handleChange}
+              pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
               required
+              title="Введіть вашу адресу електронної пошти у форматі example@example.com"
             />
             {/* <FromError name="email" /> */}
           </label>
@@ -113,7 +118,7 @@ function SignUpForm({ onForm, name2, email2, password2 }) {
               id="myInput"
               onChange={handleChange}
               pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,16}$"
-              title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 to 16 characters"
+              title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
               required
             />
             {/* <FromError name="password" /> */}
