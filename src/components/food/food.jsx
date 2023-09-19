@@ -1,7 +1,12 @@
 import React from 'react';
-import { DoughnutChart } from '../Charts/DoughnutChart/DoughnutChart';
 import { selectGoals } from 'redux/usersGoal/selectors';
 import { useSelector } from 'react-redux';
+import {
+  CircularProgressbar,
+  buildStyles,
+  CircularProgressbarWithChildren,
+} from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 export default function Food() {
   const { items } = useSelector(selectGoals);
@@ -18,6 +23,12 @@ export default function Food() {
   const goalFat = items.total.fat.goal;
   const usedFat = items.total.fat.used;
 
+  const percentСarbohydrates = Math.round(
+    (usedСarbohydrates / goalСarbohydrates) * 100
+  );
+  const percentProtein = Math.round((usedProtein / goalProtein) * 100);
+  const percentFat = Math.round((usedFat / goalFat) * 100);
+
   function leftNutrient(goal, used) {
     return goal - used;
   }
@@ -28,12 +39,43 @@ export default function Food() {
 
       <div>
         <div style={{ width: '168px', height: '168px' }}>
-          {DoughnutChart(usedCalories, totalCalories)}
+          <CircularProgressbarWithChildren
+            strokeWidth={10}
+            value={usedCalories}
+            maxValue={`${totalCalories}`}
+            styles={buildStyles({
+              pathColor: '#45FFBC',
+              trailColor: '#292928',
+            })}
+          >
+            <h3 style={{ fontSize: 42, fontWeight: 400, color: '#FFFFFF' }}>
+              {usedCalories}
+            </h3>
+            <p
+              style={{
+                fontSize: 14,
+                fontWeight: 400,
+                color: '#B6B6B6',
+              }}
+            >
+              calories
+            </p>
+          </CircularProgressbarWithChildren>
         </div>
         <div>
           <div>
             <div style={{ width: '48px', height: '48px' }}>
-              {DoughnutChart(usedСarbohydrates, goalСarbohydrates)}
+              <CircularProgressbar
+                strokeWidth={10}
+                value={percentСarbohydrates}
+                text={`${percentСarbohydrates}%`}
+                styles={buildStyles({
+                  textColor: '#B6B6B6',
+                  pathColor: '#FFC4F7',
+                  trailColor: '#292928',
+                  textSize: '32px',
+                })}
+              />
             </div>
             <div>
               <h3>Carbonohidrates</h3>
@@ -45,7 +87,17 @@ export default function Food() {
               </div>
             </div>
             <div style={{ width: '48px', height: '48px' }}>
-              {DoughnutChart(usedProtein, goalProtein)}
+              <CircularProgressbar
+                strokeWidth={10}
+                value={percentProtein}
+                text={`${percentProtein}%`}
+                styles={buildStyles({
+                  textColor: '#B6B6B6',
+                  pathColor: '#FFF3B7',
+                  trailColor: '#292928',
+                  textSize: '32px',
+                })}
+              />
             </div>
             <div>
               <h3>Protein</h3>
@@ -55,7 +107,17 @@ export default function Food() {
               </div>
             </div>
             <div style={{ width: '48px', height: '48px' }}>
-              {DoughnutChart(usedFat, goalFat)}
+              <CircularProgressbar
+                strokeWidth={10}
+                value={percentFat}
+                text={`${percentFat}%`}
+                styles={buildStyles({
+                  textColor: '#B6B6B6',
+                  pathColor: '#45FFBC',
+                  trailColor: '#292928',
+                  textSize: '32px',
+                })}
+              />
             </div>
             <div>
               <h3>Fat</h3>

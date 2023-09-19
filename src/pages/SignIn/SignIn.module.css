@@ -5,6 +5,7 @@
   flex-direction: column;
   padding: 24px 0;
 }
+
 .navigation {
   display: flex;
   justify-content: center;
@@ -34,11 +35,13 @@
   line-height: 1.33;
   margin-bottom: 24px;
 }
+
 .form {
   display: flex;
   flex-direction: column;
   row-gap: 16px;
 }
+
 .input {
   width: 100%;
   padding: 8px 10px;
@@ -70,12 +73,22 @@
   line-height: 1.43;
   margin-bottom: 80px;
 }
+
+.forgotPassword {
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.43;
+  color: var(--color-primary-gray, #b6b6b6);
+  text-decoration: none;
+}
+
 .question {
   color: var(--color-primary-grey, #b6b6b6);
   font-size: 14px;
   line-height: 1.43;
   margin-bottom: 16px;
 }
+
 .signupBtn {
   display: block;
   width: 142px;
@@ -130,6 +143,14 @@
     width: 122px;
   }
 
+  .forgotPassword {
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.43;
+    color: var(--color-primary-gray, #b6b6b6);
+    text-decoration: none;
+  }
+
   .questionTrumb {
     display: flex;
     align-items: center;
@@ -143,6 +164,121 @@
 
 /* DESKTOP */
 @media screen and (min-width: 1440px) {
+  .container {
+    width: 1440px;
+    padding-left: 34px;
+    padding-right: 34px;
+  }
+
+  .wrapper {
+    flex-direction: row;
+    column-gap: 104px;
+    align-items: end;
+    padding-left: 116px;
+    padding-right: 116px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .img {
+    width: 592px;
+    height: 588px;
+    margin-bottom: 0;
+  }
+
+  .title {
+    text-align: start;
+  }
+
+  .subtitle {
+    text-align: start;
+  }
+
+  .signinBtn {
+    width: 212px;
+    margin-bottom: 20px;
+  }
+
+  .forgotPassword {
+    width: 192px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.43;
+    color: var(--color-primary-gray, #b6b6b6);
+    text-decoration: none;
+  }
+
+  .signupBtn {
+    width: 122px;
+  }
+
+  .form {
+    width: 212px;
+    margin: 0;
+    margin-bottom: 212px;
+  }
+  .navigation {
+    text-align: start;
+  }
+}
+
+/* TABLET */
+/* @media screen and (min-width: 834px) {
+  .wrapper {
+    padding: 40px 0;
+  }
+  .navigation {
+    margin-bottom: 80px;
+  }
+
+  .img {
+    width: 380px;
+    height: 376px;
+    margin-bottom: 60px;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 30px;
+    line-height: 1.2;
+  }
+
+  .subtitle {
+    width: 444px;
+    text-align: center;
+    font-size: 22px;
+    line-height: 1.45;
+  }
+  .form {
+    width: 380px;
+    margin: 0 auto;
+  }
+  .signinBtn {
+    width: 380px;
+    margin-bottom: 290px;
+  }
+
+  .signupBtn {
+    width: 122px;
+  }
+
+  .questionTrumb {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .question {
+    margin-bottom: 0;
+  }
+} */
+
+/* DESKTOP */
+/* @media screen and (min-width: 1440px) {
   .wrapper {
     flex-direction: row;
     column-gap: 104px;
@@ -194,4 +330,4 @@
   .navigation {
     text-align: start;
   }
-}
+} */

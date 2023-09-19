@@ -24,6 +24,7 @@ const goalSlice = createSlice({
       state.isLoading = false;
       state.error = null;
       state.items = action.payload;
+      console.log(state.items.total.water.used);
     },
     [fetchGoals.rejected]: handleRejected,
 
@@ -34,6 +35,8 @@ const goalSlice = createSlice({
       state.isLoading = false;
       state.error = null;
       state.items.total.water.used = action.payload.water;
+      console.log(action.payload.water);
+      console.log(state.items.total.water.used);
     },
     [addWater.rejected]: handleRejected,
   },
