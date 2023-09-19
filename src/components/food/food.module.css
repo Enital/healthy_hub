@@ -1,0 +1,79 @@
+.foodWrapper {
+  width: 300px;
+  height: 410px;
+}
+.foodHead {
+  color: var(--color-primary-white, #fff);
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  margin-bottom: 6px;
+}
+.graphWrapper {
+  width: 300px;
+  height: 380;
+  background-color: #0f0f0f;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 12px;
+  border-radius: 12px;
+}
+
+.totalCalorieWrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+  margin-top: 12px;
+}
+.carboWrapper,
+.protWrapper,
+.fatWrapper {
+  display: flex;
+  align-items: center;
+}
+.protWrapper {
+}
+.fatWrapper {
+}
+.itemWrapper {
+  margin-left: 12px;
+}
+.nutritionWrapper {
+  display: flex;
+  margin-top: 2px;
+}
+.calorieHead {
+  color: var(--color-primary-white, #fff);
+
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  margin-bottom: 2px;
+}
+.goalWrapper,
+.leftWrapper {
+  color: var(--color-primary-white, #fff);
+
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+.leftWrapper {
+  margin-left: 12px;
+}
+.carboSpan {
+  color: var(--color-primary-grey, #b6b6b6);
+
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  margin-left: 4px;
+}

@@ -4,59 +4,13 @@ import Icons from '../../images/icons/symbol-defs.svg';
 import { useMediaQuery } from 'react-responsive';
 import * as mob from '../../images/illustration';
 import { nanoid } from 'nanoid';
-const DiaryTable = ({
-  mealType,
-  mealData,
-  onRecordMealButtonClick,
-  onUpdateMealButtonClick,
-  setFoodName,
-}) => {
+
+const onEditButtonClick = name => {
+  document.body.style.overflow = 'hidden';
+};
+
+const DiaryTable = ({ mealType, mealData, onRecordMealButtonClick }) => {
   const isMobile = useMediaQuery({ maxWidth: 833 });
-
-  function calculateSum(meal) {
-    return meal.reduce(
-      (acc, mealItem) => {
-        acc.carbonohidratesSum += Number(mealItem.carbonohidrates);
-        acc.proteinSum += Number(mealItem.protein);
-        acc.fatSum += Number(mealItem.fat);
-        return acc;
-      },
-      { carbonohidratesSum: 0, proteinSum: 0, fatSum: 0 }
-    );
-  }
-
-  const sum = calculateSum(mealData);
-
-  function makeNewMealsArray(mealsArray) {
-    const newArray =
-      mealsArray.length <= 3
-        ? [
-            ...mealsArray,
-            ...Array(1).fill({
-              showButton: true,
-            }),
-            ...Array(3 - mealsArray.length).fill({
-              foodName: '',
-              carbonohidrates: '',
-              fat: '',
-              protein: '',
-            }),
-          ]
-        : [
-            ...mealsArray,
-            ...Array(1).fill({
-              showButton: true,
-            }),
-          ];
-    return newArray;
-  }
-
-  const onEditButtonClick = name => {
-    document.body.style.overflow = 'hidden';
-
-    setFoodName(name);
-    onUpdateMealButtonClick(mealType);
-  };
 
   return (
     <>
@@ -71,40 +25,37 @@ const DiaryTable = ({
           <div className={s.descriptionWrap}>
             <p className={s.mealAdditionalInfoDescription}>
               Carbonohidrates:
-              <span className={s.mealAdditionalInfoValue}>
-                {sum.carbonohidratesSum}
-              </span>
+              <span className={s.mealAdditionalInfoValue}>Sum Value</span>
             </p>
 
             <p className={s.mealAdditionalInfoDescription}>
               Protein:
-              <span className={s.mealAdditionalInfoValue}>
-                {sum.proteinSum}
-              </span>
+              <span className={s.mealAdditionalInfoValue}>Sum Value</span>
             </p>
 
             <p className={s.mealAdditionalInfoDescription}>
               Fat:
-              <span className={s.mealAdditionalInfoValue}>{sum.fatSum}</span>
+              <span className={s.mealAdditionalInfoValue}>Sum Value</span>
             </p>
           </div>
         </div>
 
-        <ol className={`${s.table}  ${s.sideBarBox}`}>
-          {makeNewMealsArray(mealData).map(el => {
-            return !el.showButton ? (
+        <ol className={`${s.table} ${s.sideBarBox}`}>
+          {mealData.map(item => {
+            return !item.showButton ? (
               <li key={nanoid()} className={s.mealItem}>
                 <div className={s.mealWrap}>
                   <div className={s.mealNameWrap}>
-                    <p className={s.foodName}>{el.foodName}</p>
-                    {el.foodName && isMobile && (
+                    <p className={s.foodName}>{item.foodName}</p>
+                    {item.foodName && isMobile && (
                       <button
                         className={s.btnEdit}
-                        onClick={() => onEditButtonClick(el.foodName)}
+                        onClick={() => onEditButtonClick(item.foodName)}
                       >
                         <svg
                           width="16px"
                           height="16px"
+                          onEditButtonClick
                           className={s.recordMealIcon}
                         >
                           <use xlinkHref={`${Icons}#pencil`} />
@@ -115,11 +66,11 @@ const DiaryTable = ({
                   </div>
 
                   <div className={s.mealNutritionalWrap}>
-                    {Object.keys(el)
+                    {Object.keys(item)
                       .slice(1)
                       .map(
                         key =>
-                          el.foodName && (
+                          item.foodName && (
                             <p key={key} className={s.numWrap}>
                               {isMobile ? (
                                 <span>
@@ -127,18 +78,18 @@ const DiaryTable = ({
                                     {key.slice(0, 1).toUpperCase()}
                                     {key.slice(1, 4)}.:
                                   </span>
-                                  &nbsp;{el[key]}
+                                  &nbsp;{item[key]}
                                 </span>
                               ) : (
-                                el[key]
+                                item[key]
                               )}
                             </p>
                           )
                       )}
 
-                    {el.foodName && !isMobile && (
+                    {item.foodName && !isMobile && (
                       <button
-                        onClick={() => onEditButtonClick(el.foodName)}
+                        onClick={() => onEditButtonClick(item.foodName)}
                         className={s.btnEdit}
                       >
                         <svg

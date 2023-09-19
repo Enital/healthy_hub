@@ -1,0 +1,31 @@
+.mainHead {
+  display: flex;
+  width: 300px;
+  margin-bottom: 20px;
+  justify-content: space-between;
+}
+.linkWrapper {
+  display: flex;
+  align-items: center;
+}
+.todayLink {
+  color: var(--color-primary-grey, #b6b6b6);
+  text-align: right;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  text-decoration: none;
+}
+.imgToday {
+  margin-left: 6px;
+}
+.todayHead {
+  color: var(--color-primary-white, #fff);
+  font-family: Poppins;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 30px;
+}

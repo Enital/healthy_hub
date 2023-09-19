@@ -7,6 +7,7 @@ import {
   CircularProgressbarWithChildren,
 } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import css from './food.module.css';
 
 export default function Food() {
   const { items } = useSelector(selectGoals);
@@ -34,10 +35,10 @@ export default function Food() {
   }
 
   return (
-    <div>
-      <h3>Food</h3>
+    <div className={css.foodWrapper}>
+      <h2 className={css.foodHead}>Food</h2>
 
-      <div>
+      <div className={css.graphWrapper}>
         <div style={{ width: '168px', height: '168px' }}>
           <CircularProgressbarWithChildren
             strokeWidth={10}
@@ -62,8 +63,9 @@ export default function Food() {
             </p>
           </CircularProgressbarWithChildren>
         </div>
-        <div>
-          <div>
+
+        <div className={css.totalCalorieWrapper}>
+          <div className={css.carboWrapper}>
             <div style={{ width: '48px', height: '48px' }}>
               <CircularProgressbar
                 strokeWidth={10}
@@ -77,15 +79,23 @@ export default function Food() {
                 })}
               />
             </div>
-            <div>
-              <h3>Carbonohidrates</h3>
-              <div>
-                <p>Goal:{goalСarbohydrates}</p>
-                <p>
-                  left: {leftNutrient(goalСarbohydrates, usedСarbohydrates)}
+            <div className={css.itemWrapper}>
+              <h3 className={css.calorieHead}>Carbonohidrates</h3>
+              <div className={css.nutritionWrapper}>
+                <p className={css.goalWrapper}>
+                  Goal:
+                  <span className={css.carboSpan}>{goalСarbohydrates}</span>
+                </p>
+                <p className={css.leftWrapper}>
+                  left:
+                  <span className={css.carboSpan}>
+                    {leftNutrient(goalСarbohydrates, usedСarbohydrates)}
+                  </span>
                 </p>
               </div>
             </div>
+          </div>
+          <div className={css.protWrapper}>
             <div style={{ width: '48px', height: '48px' }}>
               <CircularProgressbar
                 strokeWidth={10}
@@ -99,13 +109,22 @@ export default function Food() {
                 })}
               />
             </div>
-            <div>
-              <h3>Protein</h3>
-              <div>
-                <p>Goal: {goalProtein}</p>
-                <p>left: {leftNutrient(goalProtein, usedProtein)}</p>
+            <div className={css.itemWrapper}>
+              <h3 className={css.calorieHead}>Protein</h3>
+              <div className={css.nutritionWrapper}>
+                <p className={css.goalWrapper}>
+                  Goal: <span className={css.carboSpan}>{goalProtein}</span>
+                </p>
+                <p className={css.leftWrapper}>
+                  left:{' '}
+                  <span className={css.carboSpan}>
+                    {leftNutrient(goalProtein, usedProtein)}
+                  </span>
+                </p>
               </div>
             </div>
+          </div>
+          <div className={css.fatWrapper}>
             <div style={{ width: '48px', height: '48px' }}>
               <CircularProgressbar
                 strokeWidth={10}
@@ -119,11 +138,18 @@ export default function Food() {
                 })}
               />
             </div>
-            <div>
-              <h3>Fat</h3>
-              <div>
-                <p>Goal: {goalFat}</p>
-                <p>left: {leftNutrient(goalFat, usedFat)}</p>
+            <div className={css.itemWrapper}>
+              <h3 className={css.calorieHead}>Fat</h3>
+              <div className={css.nutritionWrapper}>
+                <p className={css.goalWrapper}>
+                  Goal: <span className={css.carboSpan}>{goalFat}</span>
+                </p>
+                <p className={css.leftWrapper}>
+                  left:{' '}
+                  <span className={css.carboSpan}>
+                    {leftNutrient(goalFat, usedFat)}
+                  </span>
+                </p>
               </div>
             </div>
           </div>

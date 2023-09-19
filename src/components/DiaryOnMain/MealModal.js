@@ -1,9 +1,20 @@
 import React, { useState } from 'react';
 import breakfast from '../../images/illustration/breakfast-image.svg';
-import add from '../../images/icons/add.svg';
+//import add from '../../images/icons/add.svg';
 import css from './diaryOnMain.module.css';
+import { useDispatch } from 'react-redux';
+import { fetchGoalsConfirm } from 'redux/usersGoal/operations';
 
 const MealModal = ({ isOpen, onClose }) => {
+  const dispatch = useDispatch();
+  const [placeholderData, setPlaceholderData] = useState({
+    name: '',
+    carbonoh: '',
+    protein: '',
+    fat: '',
+    calories: '',
+  });
+
   const initialInputFields = [
     { name: '', carbonoh: '', protein: '', fat: '', calories: '' },
   ];
@@ -23,6 +34,32 @@ const MealModal = ({ isOpen, onClose }) => {
     const newInputFields = [...inputFields];
     newInputFields[index][name] = value;
     setInputFields(newInputFields);
+
+    //update placeholder
+    setPlaceholderData(prevData => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  
+
+  const handleConfirm = async () => {
+    try {
+      await dispatch(fetchGoalsConfirm(placeholderData));
+
+      setPlaceholderData({
+        name: '',
+        carbonoh: '',
+        protein: '',
+        fat: '',
+        calories: '',
+      });
+
+      // onClose();
+    } catch (error) {
+      console.error('Помилка під час відправки на бекенд:', error);
+    }
   };
 
   const handleRemoveField = index => {
@@ -36,10 +73,10 @@ const MealModal = ({ isOpen, onClose }) => {
       <div>
         <h2 className={css.img}>Record your meal</h2>
         <div className={css.flexContainer}>
-        <img className={css.breakfast} src={breakfast} alt="breakfast" />
-        <h2 className={css.nameBreakfast}>Breakfast</h2>
+          <img className={css.breakfast} src={breakfast} alt="breakfast" />
+          <h2 className={css.nameBreakfast}>Breakfast</h2>
         </div>
-        
+
         {inputFields.map((field, index) => (
           <div className={css.containerLabel} key={index}>
             <label htmlFor={`productName${index}`}></label>
@@ -53,7 +90,7 @@ const MealModal = ({ isOpen, onClose }) => {
                 lineHeight: '20px',
                 color: 'rgba(182, 182, 182, 1)',
                 fontFamily: 'Poppins',
-                
+
                 paddingLeft: '10px',
                 gap: '10px',
                 background: 'black',
@@ -174,23 +211,44 @@ const MealModal = ({ isOpen, onClose }) => {
                 Remove
               </button>
             )}
-           
           </div>
-          
         ))}
-        
-        <img className={css.add} src={add} alt="add" />
+
+        {/* <img className={css.add} src={add} alt="add" /> */}
         <button className={css.addMore} type="button" onClick={handleAddField}>
-          Add more
+          + Add more
         </button>
       </div>
       <div className={css.buttonConfirm}>
         <button className={css.cancel} onClick={onClose}>
           Cancel
         </button>
-        <button className={css.confirm}>Confirm</button>
+        <button className={css.confirm} onClick={handleConfirm}>Confirm</button>
       </div>
     </div>
   );
 };
 export default MealModal;
+
+
+
+// {
+//     breakfast: [
+//         { qwe: 23, name: 'Apple', calories: 52, carbohydrates: 14, protein: 0.3, fat: 0.2 },
+//         { name: 'Strawberries', calories: 32, carbohydrates: 7.68, protein: 0.67, fat: 0.3 },
+//     ],
+//     lunch: [
+//         { name: 'Spinach', calories: 23, carbohydrates: 3.6, protein: 2.9, fat: 0.4 },
+//         { name: 'Kale', calories: 49, carbohydrates: 8.8, protein: 3.3, fat: 0.9 },
+//         { name: 'Quinoa', calories: 120, carbohydrates: 21.3, protein: 4.4, fat: 1.9 },
+//     ],
+//     dinner: [
+//         { name: 'Greek Yogurt', calories: 59, carbohydrates: 3.6, protein: 10, fat: 0.4 },
+//         { name: 'Chicken Breast', calories: 165, carbohydrates: 0, protein: 31, fat: 3.6 },
+//     ],
+//     snack: [
+//         { name: 'Spinach', calories: 23, carbohydrates: 3.6, protein: 2.9, fat: 0.4 },
+//         { name: 'Kale', calories: 49, carbohydrates: 8.8, protein: 3.3, fat: 0.9 },
+//         { name: 'Quinoa', calories: 120, carbohydrates: 21.3, protein: 4.4, fat: 1.9 },
+//     ],
+// },

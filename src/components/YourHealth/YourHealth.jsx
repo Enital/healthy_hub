@@ -27,22 +27,28 @@ function YourHealth({ onForm, onBackPage, height, weight }) {
             Height
             <input
               className={css.input}
-              type="text"
+              type="number"
               name="height"
-              placeholder="Enter your height"
+              placeholder="Enter your height (in cm)"
               value={heightValue}
               onChange={handleChangeHeight}
+              min="0"
+              max="300"
+              required
             />
           </label>
           <label className={css.label}>
             Weight
             <input
               className={css.input}
-              type="text"
+              type="number"
               name="weight"
-              placeholder="Enter your weight"
+              placeholder="Enter your weight (in kg)"
               value={weightValue}
               onChange={handleChangeWeight}
+              min="0" 
+              max="300" 
+              required
             />
           </label>
           <button className={css.NextBtn} type="submit">

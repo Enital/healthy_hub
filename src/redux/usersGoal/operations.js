@@ -36,3 +36,21 @@ export const addWater = createAsyncThunk(
     }
   }
 );
+
+// diaryOnMain
+export const fetchGoalsConfirm = createAsyncThunk(
+  'user/food-intake',
+  async (quantity, thunkAPI) => {
+    try {
+      setHeadersToken(thunkAPI.getState().auth.token);
+      const response = await axios.post('/user/food-intake', {
+        food: quantity,
+      });
+      console.log(response.data);
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+

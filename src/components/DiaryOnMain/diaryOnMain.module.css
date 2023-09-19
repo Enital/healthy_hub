@@ -1,9 +1,26 @@
+/* mobile menu 0- 767 */
 
- 
+@media screen and (max-width: 349px) {
+  .containerDiary {
+    width: 300px; 
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .divBreakfastModal {
+   
+    margin-top: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+}
+
+/* 768+ */
+@media screen and (min-width: 350px) {
 .link {
   display: flex;
   align-items: center;
   margin-top: 25px;
+  margin-left: 25px;
 }
 .diary {
   margin-right: 10px;
@@ -16,12 +33,12 @@
   margin-left: 25px;
 }
 .seeMore {
-width: auto; /* Змінимо ширину на auto, щоб текст міг розтягнутися на всю доступну ширину */
-height: 22px;
-font-weight: 500;
-font-size: 16px;
-line-height: 22px;
-white-space: nowrap; /* Заборонити перенос тексту на новий рядок */
+  width: auto;
+  height: 22px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  white-space: nowrap; /* Prohibit text wrapping on a new line */
 }
 .breakfastImage {
   width: 36px;
@@ -46,12 +63,12 @@ white-space: nowrap; /* Заборонити перенос тексту на н
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 700px;
+
   height: 408px;
   border-radius: 12px;
   background-color: rgba(15, 15, 15, 1);
-  z-index: 1000; /* Підняти поверх інших елементів */
-  display: none; /* По замовчуванню невидимий */
+  z-index: 1000;
+  display: none; /* Invisible by default*/
   overflow-y: auto;
 }
 
@@ -86,17 +103,13 @@ white-space: nowrap; /* Заборонити перенос тексту на н
 }
 .flexContainer {
   display: flex;
-  align-items: center; /* Вирівнювання по вертикалі по центру */
-  gap: 10px; /* Відступ між елементами */
+  align-items: center;
+  gap: 10px;
   display: inline-flex;
+  margin-bottom: 25px;
 }
 .containerLabel {
   display: inline-flex;
-}
-.add {
-  font-size: 16px;
-  margin-left: 25px;
-  vertical-align: middle; /* Вирівнювання тексту по вертикалі */
 }
 
 .addMore {
@@ -107,8 +120,9 @@ white-space: nowrap; /* Заборонити перенос тексту на н
   color: rgba(227, 255, 168, 1);
   background: rgba(15, 15, 15, 1);
   border: 1px solid transparent;
-  display: inline-block; /* Це робить, що елементи розташовані на одному рівні */
+  display: inline-block; /* elements are located on the same level*/
   margin-top: 25px;
+  margin-left: 25px;
 }
 
 .remove {
@@ -117,8 +131,6 @@ white-space: nowrap; /* Заборонити перенос тексту на н
   font-size: 14px;
   line-height: 20px;
   border: 1px solid transparent;
-
-  ;
 }
 .cancel {
   color: rgba(182, 182, 182, 1);
@@ -126,8 +138,6 @@ white-space: nowrap; /* Заборонити перенос тексту на н
   line-height: 20px;
   border: 1px solid transparent;
   background-color: rgba(15, 15, 15, 1);
-   /* margin-left: 100px; */
-  /* margin-top: 140px;  */
 }
 .confirm {
   width: 192px;
@@ -139,23 +149,27 @@ white-space: nowrap; /* Заборонити перенос тексту на н
   background-color: rgba(227, 255, 168, 1);
   border-radius: 12px;
   display: flex;
-  justify-content: center; /* Вирівнювання тексту по горизонталі по центру */
-  align-items: center; /* Вирівнювання тексту по вертикалі по центру */
-margin-left: 450px;
+  justify-content: center; /*Align text horizontally in the center */
+  align-items: center;
+  margin-left: 80px;
+  /* margin: 0; */
 }
 .buttonConfirm {
   display: flex;
-  align-items: center; /* Вирівнювання по вертикалі по центру */
-  gap: 10px; /* Відступ між елементами */
+  align-items: center; /* Align vertically in the center */
+  gap: 10px;
+  margin-top: 130px;
+  margin-left: 300px;
 }
 
 .seeMore {
-width: auto; /* Змінимо ширину на auto, щоб текст міг розтягнутися на всю доступну ширину */
-height: 22px;
-font-weight: 500;
-font-size: 16px;
-line-height: 22px;
-white-space: nowrap; /* Заборонити перенос тексту на новий рядок */
+  width: auto; /* Let's change the width to auto so that the text can stretch to the entire available width */
+  height: 22px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  white-space: nowrap; /* 
+  Prohibit text wrapping on a new line */
 }
 .breakfastImage {
   width: 36px;
@@ -178,17 +192,18 @@ white-space: nowrap; /* Заборонити перенос тексту на н
   margin-bottom: 20px;
 }
 .openModal {
-   width: 150px; 
-  
+  width: 150px;
+
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
   color: rgba(227, 255, 168, 1);
   background-color: black;
   border: 1px solid transparent;
-  padding: 5px 10px; /* Додайте відступи для кнопки */
-  cursor: pointer; /* Змінюємо курсор на вказівник на кнопці */
+  padding: 5px 10px;
+  cursor: pointer;
   justify-content: center;
   text-align: center;
-  
 }
+}
+
