@@ -4,11 +4,15 @@ import css from './RecommendedFood.module.css';
 import { useEffect, useState } from 'react';
 import getRecomendations from '../../redux/products/operations';
 
+import { useSelector } from 'react-redux';
+
 const RecommendedFood = () => {
   const [recomendations, setRecomendations] = useState([]);
+  const token = useSelector(state => state.auth.token);
+
 
   useEffect(() => {
-    getRecomendations(10)
+    getRecomendations(token, 10)
       .then(data => {
         setRecomendations(data);
       })
