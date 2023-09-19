@@ -25,7 +25,7 @@ const RecFoodOnMain = () => {
         <RecommendedFoodList products={recomendations} />
       </div>
       <NavLink className={css.link} to="/recommended-food">
-        Sign in &#8594;
+        See more &#8594;
       </NavLink>
     </div>
   );
