@@ -1,6 +1,5 @@
 .mainHead {
   display: flex;
-  width: 300px;
   margin-bottom: 20px;
   justify-content: space-between;
 }
@@ -28,4 +27,32 @@
   font-style: normal;
   font-weight: 500;
   line-height: 30px;
+}
+@media screen and (min-width: 834px) {
+  .componentWrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .todayHead {
+    line-height: 36px;
+    font-size: 30px;
+  }
+  .todayLink {
+    line-height: 22px;
+    font-size: 16px;
+  }
+  .mainHead {
+    margin-bottom: 24px;
+  }
+  .dailyGoal {
+    margin-right: 20px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .mainHead {
+    margin-bottom: 16px;
+  }
+  .waterGoal {
+    margin-right: 20px;
+  }
 }
