@@ -1,5 +1,5 @@
 import RecommendedFoodList from 'components/RecommendedFoodList/RecommendedFoodList';
-import css from './RecFoodOnMain.module.css';
+import css from './recFoodOnMain.module.css';
 import { useEffect, useState } from 'react';
 import getRecomendations from '../../redux/products/operations';
 
