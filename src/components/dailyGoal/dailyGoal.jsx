@@ -3,6 +3,7 @@ import bubble from './../../images/icons/bubble.svg';
 import milk from './../../images/icons/milk.svg';
 import { selectGoals } from 'redux/usersGoal/selectors';
 import { useSelector } from 'react-redux';
+import css from './dailyGoal.module.css';
 
 export default function DailyGoal() {
   const { items } = useSelector(selectGoals);
@@ -12,23 +13,27 @@ export default function DailyGoal() {
   }
   const waterGoal = items.total.water.goal;
   const caloriesGoal = items.total.calories.goal;
-  return (
-    <div>
-      <h3>Daily goal</h3>
 
-      <div>
-        <div>
+  return (
+    <div className={css.dailyWindow}>
+      <h3 className={css.dailyHead}>Daily goal</h3>
+
+      <div className={css.dailyWrapper}>
+        <div className={css.bubbleWrapper}>
           <img src={bubble} alt="illustration" />
-          <div>
-            <h3>Calories</h3>
-            <p>{caloriesGoal}</p>
+          <div className={css.caloriesWrapper}>
+            <h3 className={css.caloriesHead}>Calories</h3>
+            <p className={css.calories}>{caloriesGoal}</p>
           </div>
         </div>
-        <div>
+        <div className={css.milkWrapper}>
           <img src={milk} alt="illustration" />
-          <div>
-            <h3>Water</h3>
-            <p>{waterGoal} ml</p>
+          <div className={css.waterWrapper}>
+            <h3 className={css.waterHead}>Water</h3>
+            <p className={css.water}>
+              {waterGoal}
+              <span className={css.waterSpan}>ml</span>
+            </p>
           </div>
         </div>
       </div>

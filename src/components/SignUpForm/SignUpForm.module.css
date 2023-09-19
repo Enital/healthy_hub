@@ -71,7 +71,7 @@
   row-gap: 16px;
 }
 
-.input {
+.input {  position: relative;
   width: 100%;
   padding: 8px 10px;
   border-radius: 12px;
@@ -200,4 +200,18 @@
   .question {
     width: 238px;
   }
+}
+
+.label{
+  position: relative;
+}
+
+.checkbox {
+  position: absolute;
+  appearance: revert;
+  cursor: pointer;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%) 
+
 }

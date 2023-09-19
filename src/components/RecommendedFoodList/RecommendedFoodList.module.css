@@ -14,7 +14,7 @@
   background: var(--color-primary-black-2, #0f0f0f);
   list-style: none;
   width: 300px;
-  padding: 20px 80px 20px 24px;
+  padding: 20px 24px;
 }
 
 .name {
@@ -46,13 +46,13 @@
 
   .item {
     width: 380px;
-    padding: 20px 160px 20px 24px;
+    padding: 20px 24px;
   }
 }
 /* DESKTOP */
 @media screen and (min-width: 1440px) {
   .item {
     width: 328px;
-    padding: 20px 108px 20px 24px;
+    padding: 20px 24px;
   }
 }

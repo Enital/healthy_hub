@@ -1,29 +1,35 @@
 /* MOBILE */
 
 .lowContainer {
-  width: 320px;
-  padding-left: 10px;
-  padding-right: 10px;
+  width: 300px;
+  /* width: 320px; */
+  /* padding-left: 10px;
+  padding-right: 10px; */
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 60px;
 }
 
 /* TABLET */
 @media screen and (min-width: 834px) {
   .lowContainer {
-    width: 834px;
-    padding-left: 27px;
-    padding-right: 27px;
+    width: 780px;
+    /* width: 834px; */
+    /* padding-left: 27px;
+    padding-right: 27px; */
+    margin-bottom: 40px;
   }
 }
 
 /* DESKTOP */
 @media screen and (min-width: 1440px) {
   .lowContainer {
-    width: 1440px;
-    padding-left: 34px;
-    padding-right: 34px;
+    width: 1372px;
+    /* width: 1440px; */
+    /* padding-left: 34px;
+    padding-right: 34px; */
     display: flex;
     justify-content: space-between;
+    margin-bottom: 52px;
   }
 }

@@ -15,11 +15,11 @@ const SignUpPage = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [gender, setGender] = useState('');
+  const [goal, setGoal] = useState('lose');
+  const [gender, setGender] = useState('male');
   const [age, setAge] = useState('');
   const [height, setHeight] = useState('');
   const [weight, setWeight] = useState('');
-  const [goal, setGoal] = useState('');
   const [activity2, setActivity] = useState('1.2');
 
   const haldleForm1 = event => {
@@ -30,6 +30,7 @@ const SignUpPage = () => {
     nextPage();
   };
   const haldleForm2 = event => {
+    console.log(event);
     event.preventDefault();
     setGoal(event.target.goal.value);
     nextPage();
@@ -69,9 +70,19 @@ const SignUpPage = () => {
     );
     form.reset();
   };
+
   return (
     <div className="container">
-      {page === 1 && <SignUpForm onForm={haldleForm1} />}
+      {page === 1 && (
+        
+          <SignUpForm
+            onForm={haldleForm1}
+            name2={name}
+            email2={email}
+            password2={password}
+          />
+         
+      )}
       {page === 2 && (
         <YourGoal onForm={haldleForm2} onBackPage={backPage} goal={goal} />
       )}
