@@ -22,16 +22,22 @@ const Today = () => {
         <h1 className={css.todayHead}>Today</h1>
 
         <div className={css.linkWrapper}>
-          <Link className={css.todayLink} to="">
+          <Link className={css.todayLink} to="/dashboard">
             On the way to the goal
           </Link>
           <img className={css.imgToday} src={arrow} alt="arrow" />
         </div>
       </div>
-      <div>
-        <DailyGoal />
-        <Water />
-        <Food />
+      <div className={css.componentWrapper}>
+        <div className={css.dailyGoal}>
+          <DailyGoal />
+        </div>
+        <div className={css.waterGoal}>
+          <Water />
+        </div>
+        <div className={css.foodGoal}>
+          <Food />
+        </div>
       </div>
     </div>
   );
