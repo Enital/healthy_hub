@@ -199,3 +199,28 @@ const MealModal = ({ isOpen, onClose }) => {
   );
 };
 export default MealModal;
+
+
+// Марія, ось приклад об'єкту, який треба передати для додавання їжі.
+//  Всі поля не обов'язкові, тобто можно передати лише одне блюдо, можна відразу кілька:
+
+// {
+//     breakfast: [
+//         { qwe: 23, name: 'Apple', calories: 52, carbohydrates: 14, protein: 0.3, fat: 0.2 },
+//         { name: 'Strawberries', calories: 32, carbohydrates: 7.68, protein: 0.67, fat: 0.3 },
+//     ],
+//     lunch: [
+//         { name: 'Spinach', calories: 23, carbohydrates: 3.6, protein: 2.9, fat: 0.4 },
+//         { name: 'Kale', calories: 49, carbohydrates: 8.8, protein: 3.3, fat: 0.9 },
+//         { name: 'Quinoa', calories: 120, carbohydrates: 21.3, protein: 4.4, fat: 1.9 },
+//     ],
+//     dinner: [
+//         { name: 'Greek Yogurt', calories: 59, carbohydrates: 3.6, protein: 10, fat: 0.4 },
+//         { name: 'Chicken Breast', calories: 165, carbohydrates: 0, protein: 31, fat: 3.6 },
+//     ],
+//     snack: [
+//         { name: 'Spinach', calories: 23, carbohydrates: 3.6, protein: 2.9, fat: 0.4 },
+//         { name: 'Kale', calories: 49, carbohydrates: 8.8, protein: 3.3, fat: 0.9 },
+//         { name: 'Quinoa', calories: 120, carbohydrates: 21.3, protein: 4.4, fat: 1.9 },
+//     ],
+// },
