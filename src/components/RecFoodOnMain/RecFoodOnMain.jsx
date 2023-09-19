@@ -1,5 +1,5 @@
 import RecommendedFoodList from 'components/RecommendedFoodList/RecommendedFoodList';
-import css from './RecFoodOnMain.module.css';
+import css from './recFoodOnMain.module.css';
 import { useEffect, useState } from 'react';
 import getRecomendations from '../../redux/products/operations';
 
@@ -25,7 +25,7 @@ const RecFoodOnMain = () => {
         <RecommendedFoodList products={recomendations} />
       </div>
       <NavLink className={css.link} to="/recommended-food">
-        Sign in &#8594;
+        See more &#8594;
       </NavLink>
     </div>
   );
