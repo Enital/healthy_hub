@@ -22,7 +22,7 @@ const DiaryOnMain = () => {
 
 
   return (
-    <div>
+    <div className='css.containerDiary'>
       <div className={css.link}>
         <h2 className={css.diary}>Diary</h2>
         <Link to="/diary" className={css.seeMore}>See More</Link>
@@ -31,7 +31,9 @@ const DiaryOnMain = () => {
       <div className={css.divBreakfast}>
         <img className={css.breakfastImage} src={breakfastImage} alt="Breakfast" />
         <h2 className={css.diaryBreakfast}>Breakfast</h2>
+        <div className={css.divBreakfastModal}>
         <button className={css.openModal} onClick={openModal}> + Record your meal</button>
+        </div>
         </div>
         <MealModal isOpen={isModalOpen} onClose={closeModal} />
       
