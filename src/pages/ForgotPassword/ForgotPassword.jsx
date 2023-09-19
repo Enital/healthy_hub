@@ -2,39 +2,26 @@ import { NavLink } from 'react-router-dom';
 import SportAndFitnessTrackerIMG from './../../images/img/illustration-sport-and-fitness-tracker.svg';
 import css from './ForgotPassword.module.css';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { logIn } from 'redux/auth/operations';
-
+import axios from 'axios';
+axios.defaults.baseURL = 'https://goit-healthy-hub.onrender.com/api';
 
 function ForgotPassword() {
   const [email, setEmail] = useState('');
-  const handleChange = event => {
-    const { name, value } = event.target;
 
-    switch (name) {
-      case 'email':
-        setEmail(value);
-        break;
-      default:
-        return;
-    }
-  };
-  const dispatch = useDispatch();
-  const handleSubmit = e => {
+  async function handleSubmit(e) {
     e.preventDefault();
-    const form = e.currentTarget;
-    dispatch(
-      logIn({
-        email,
-      })
-    );
-    form.reset();
-  };
-  //   fetch("http://goit-healthy-hub.onrender.com/api/auth/restore/"), {
-  //   method: "POST",
-  // };
-    return (
-      <div className={css.container}>
+    try {
+      const res = await axios.post('auth/restore', {
+        email: email,
+      });
+      return res.data;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  return (
+    <div className={css.container}>
       <div className={css.wrapper}>
         <img
           className={css.img}
@@ -54,12 +41,12 @@ function ForgotPassword() {
                 name="email"
                 placeholder="E-mail"
                 value={email}
-                onChange={handleChange}  
+                onChange={e => setEmail(e.target.value)}
               />
             </label>
-            <NavLink className={css.send} >
+            <button className={css.send} type="submit">
               Send
-            </NavLink>
+            </button>
           </form>
           <div className={css.navigation}>
             <p className={css.question}> Do you already have an account?</p>
@@ -69,8 +56,8 @@ function ForgotPassword() {
           </div>
         </div>
       </div>
-      </div>
-    );
-  }
-  
-  export default ForgotPassword;
+    </div>
+  );
+}
+
+export default ForgotPassword;
