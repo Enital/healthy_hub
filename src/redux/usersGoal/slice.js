@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchGoals, addWater } from './operations';
+import { fetchGoalsConfirm } from './operations';
 
 const handlePending = state => {
   state.isLoading = true;
@@ -39,6 +40,17 @@ const goalSlice = createSlice({
       console.log(state.items.total.water.used);
     },
     [addWater.rejected]: handleRejected,
+
+    //addFood
+    [fetchGoalsConfirm.pending]: handlePending,
+    [fetchGoalsConfirm.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.items.total.food.used = action.payload.food;
+      console.log(action.payload.food);
+      console.log(state.items.total.food.used);
+    },
+    [fetchGoalsConfirm.rejected]: handleRejected,
   },
 });
 

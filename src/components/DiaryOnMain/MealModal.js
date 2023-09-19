@@ -2,8 +2,19 @@ import React, { useState } from 'react';
 import breakfast from '../../images/illustration/breakfast-image.svg';
 import add from '../../images/icons/add.svg';
 import css from './diaryOnMain.module.css';
+import { useDispatch } from 'react-redux';
+import { fetchGoalsConfirm } from 'redux/usersGoal/operations';
 
 const MealModal = ({ isOpen, onClose }) => {
+  const dispatch = useDispatch();
+  const [placeholderData, setPlaceholderData] = useState({
+    name: '',
+    carbonoh: '',
+    protein: '',
+    fat: '',
+    calories: '',
+  });
+
   const initialInputFields = [
     { name: '', carbonoh: '', protein: '', fat: '', calories: '' },
   ];
@@ -23,6 +34,32 @@ const MealModal = ({ isOpen, onClose }) => {
     const newInputFields = [...inputFields];
     newInputFields[index][name] = value;
     setInputFields(newInputFields);
+
+    //update placeholder
+    setPlaceholderData(prevData => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  
+
+  const handleConfirm = async () => {
+    try {
+      await dispatch(fetchGoalsConfirm(placeholderData));
+
+      setPlaceholderData({
+        name: '',
+        carbonoh: '',
+        protein: '',
+        fat: '',
+        calories: '',
+      });
+
+      // onClose();
+    } catch (error) {
+      console.error('Помилка під час відправки на бекенд:', error);
+    }
   };
 
   const handleRemoveField = index => {
@@ -31,20 +68,15 @@ const MealModal = ({ isOpen, onClose }) => {
     setInputFields(newInputFields);
   };
 
-  const handleConfirm = () => {
-    const dataToSend = inputFields;
-    const backendUrl = 'http:'
-  }
-
   return (
     <div className={css.overlay} style={{ display: isOpen ? 'block' : 'none' }}>
       <div>
         <h2 className={css.img}>Record your meal</h2>
         <div className={css.flexContainer}>
-        <img className={css.breakfast} src={breakfast} alt="breakfast" />
-        <h2 className={css.nameBreakfast}>Breakfast</h2>
+          <img className={css.breakfast} src={breakfast} alt="breakfast" />
+          <h2 className={css.nameBreakfast}>Breakfast</h2>
         </div>
-        
+
         {inputFields.map((field, index) => (
           <div className={css.containerLabel} key={index}>
             <label htmlFor={`productName${index}`}></label>
@@ -58,7 +90,7 @@ const MealModal = ({ isOpen, onClose }) => {
                 lineHeight: '20px',
                 color: 'rgba(182, 182, 182, 1)',
                 fontFamily: 'Poppins',
-                
+
                 paddingLeft: '10px',
                 gap: '10px',
                 background: 'black',
@@ -179,11 +211,9 @@ const MealModal = ({ isOpen, onClose }) => {
                 Remove
               </button>
             )}
-           
           </div>
-          
         ))}
-        
+
         <img className={css.add} src={add} alt="add" />
         <button className={css.addMore} type="button" onClick={handleAddField}>
           + Add more
@@ -193,7 +223,7 @@ const MealModal = ({ isOpen, onClose }) => {
         <button className={css.cancel} onClick={onClose}>
           Cancel
         </button>
-        <button className={css.confirm}>Confirm</button>
+        <button className={css.confirm} onClick={handleConfirm}>Confirm</button>
       </div>
     </div>
   );
@@ -201,8 +231,6 @@ const MealModal = ({ isOpen, onClose }) => {
 export default MealModal;
 
 
-// Марія, ось приклад об'єкту, який треба передати для додавання їжі.
-//  Всі поля не обов'язкові, тобто можно передати лише одне блюдо, можна відразу кілька:
 
 // {
 //     breakfast: [
