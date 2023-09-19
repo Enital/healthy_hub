@@ -6,7 +6,7 @@ import recomendations from './goit-healthy-hub-db.recomendations';
 const RecommendedFood = () => {
   return (
     <div className="container">
-      <h1 className={css.title}>Recommented food</h1>
+      <h1 className={css.title}>Recommended food</h1>
       <div className={css.wrapper}>
         <img
           className={css.img}
