@@ -5,7 +5,7 @@ function RecommendedFoodList({ products }) {
     <ul className={css.list}>
       {products.map(product => {
         return (
-          <li className={css.item} key={product._id.$oid}>
+          <li key={product._id} className={css.item}>
             <img
               width="46px"
               height="46px"

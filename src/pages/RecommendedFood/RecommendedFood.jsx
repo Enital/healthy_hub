@@ -1,9 +1,20 @@
 import RecommendedFoodList from 'components/RecommendedFoodList/RecommendedFoodList';
 import ketogenicDietIMG from './../../images/img/illustration-ketogenic-diet.svg';
 import css from './RecommendedFood.module.css';
-import recomendations from './goit-healthy-hub-db.recomendations';
+import { useEffect, useState } from 'react';
+import getRecomendations from '../../redux/products/operations';
 
 const RecommendedFood = () => {
+  const [recomendations, setRecomendations] = useState([]);
+
+  useEffect(() => {
+    getRecomendations(10)
+      .then(data => {
+        setRecomendations(data);
+      })
+      .catch(err => console.error('error:' + err));
+  }, []);
+
   return (
     <div className="container">
       <h1 className={css.title}>Recommended food</h1>
