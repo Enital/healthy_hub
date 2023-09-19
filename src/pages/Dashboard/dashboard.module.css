@@ -7,13 +7,52 @@
   flex-direction: row;
   align-items: center;
   margin-top: 16px;
-  /* padding: 30px;
-  background-color: #0F0F0F; */
   border-radius: 8px;
 }
-
 .dashboardTitle{
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
+}
+.dashboardTitleP{
+  font-size: 32px;
+}
+.dashboardTitleUl{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.btnToMain{
+  padding-right: 12px;
+}
+.month{
+  font-size: 24px;
+}
+/* MOBILE  */
+
+.container {
+  width: 320px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* TABLET */
+@media screen and (min-width: 834px) {
+  .container {
+    width: 834px;
+    padding-left: 27px;
+    padding-right: 27px;
+  }
+}
+
+/* DESKTOP */
+@media screen and (min-width: 1440px) {
+  .container {
+    width: 1440px;
+    padding-left: 34px;
+    padding-right: 34px;
+  }
 }
