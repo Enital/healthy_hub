@@ -1,0 +1,81 @@
+.dailyWindow {
+  width: 300px;
+  height: 242px;
+}
+.dailyHead {
+  color: var(--color-primary-white, #fff);
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+.dailyWrapper {
+  width: 300px;
+  height: 200px;
+  background-color: #0f0f0f;
+  border-radius: 12px;
+  margin-top: 6px;
+  padding: 12px 16px;
+}
+.bubbleWrapper,
+.milkWrapper {
+  display: flex;
+  align-items: center;
+}
+.caloriesWrapper {
+  margin-left: 20px;
+}
+.caloriesHead {
+  color: var(--color-primary-grey, #b6b6b6);
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+}
+.calories {
+  color: var(--color-primary-white, #fff);
+  margin-top: 4px;
+  font-family: Poppins;
+  font-size: 34px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 38px;
+}
+.milkWrapper {
+  margin-top: 20px;
+}
+.waterWrapper {
+  margin-left: 20px;
+}
+.waterHead {
+  color: var(--color-primary-grey, #b6b6b6);
+
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+}
+.water {
+  display: flex;
+  align-items: center;
+  color: var(--color-primary-white, #fff);
+  margin-top: 4px;
+  font-family: Poppins;
+  font-size: 34px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 38px;
+}
+.waterSpan {
+  margin-left: 4px;
+  color: var(--color-primary-grey, #b6b6b6);
+
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
