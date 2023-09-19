@@ -2,35 +2,27 @@ import { NavLink } from 'react-router-dom';
 import SportAndFitnessTrackerIMG from './../../images/img/illustration-sport-and-fitness-tracker.svg';
 import css from './ForgotPassword.module.css';
 import { useState } from 'react';
+import axios from 'axios';
+axios.defaults.baseURL = 'https://goit-healthy-hub.onrender.com/api';
 
 function ForgotPassword() {
   const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const handleSubmit = async (e) => {
+
+  async function handleSubmit(e) {
     e.preventDefault();
-
     try {
-      const response = await fetch('http://goit-healthy-hub.onrender.com/api/auth/restore/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email }),
+      const res = await axios.post('auth/restore', {
+        email: email,
       });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setMessage(data.message);
-      } else {
-        setMessage(data.error);
-      }
+      return res.data;
     } catch (error) {
-      console.error('Error:', error);
+      console.error(error);
     }
   }
-    return (
-      <div className={css.container}>
+
+  return (
+    <div className={css.container}>
+
       <div className={css.wrapper}>
         <img
           className={css.img}
@@ -50,12 +42,12 @@ function ForgotPassword() {
                 name="email"
                 placeholder="E-mail"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}  
+                onChange={e => setEmail(e.target.value)}
               />
             </label>
-            <NavLink className={css.send} >
+            <button className={css.send} type="submit">
               Send
-            </NavLink>
+            </button>
           </form>
           {message && <p>{message}</p>}
           <div className={css.navigation}>
@@ -66,8 +58,8 @@ function ForgotPassword() {
           </div>
         </div>
       </div>
-      </div>
-    );
-  }
-  
-  export default ForgotPassword;
+    </div>
+  );
+}
+
+export default ForgotPassword;
