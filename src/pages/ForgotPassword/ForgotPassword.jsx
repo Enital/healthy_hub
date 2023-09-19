@@ -2,9 +2,6 @@ import { NavLink } from 'react-router-dom';
 import SportAndFitnessTrackerIMG from './../../images/img/illustration-sport-and-fitness-tracker.svg';
 import css from './ForgotPassword.module.css';
 import { useState } from 'react';
-// import { useDispatch } from 'react-redux';
-// import { logIn } from 'redux/auth/operations';
-
 
 function ForgotPassword() {
   const [email, setEmail] = useState('');
@@ -13,7 +10,7 @@ function ForgotPassword() {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://goit-healthy-hub.onrender.com/api/auth/restore/forgotpassword', {
+      const response = await fetch('http://goit-healthy-hub.onrender.com/api/auth/restore/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -32,9 +29,6 @@ function ForgotPassword() {
       console.error('Error:', error);
     }
   }
-  //   fetch("http://goit-healthy-hub.onrender.com/api/auth/restore/"), {
-  //   method: "POST",
-  // };
     return (
       <div className={css.container}>
       <div className={css.wrapper}>

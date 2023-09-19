@@ -1,4 +1,9 @@
 /* MOBILE */
+.container {
+  width: 834px;
+  padding-left: 27px;
+  padding-right: 27px;
+}
 .wrapper {
   display: flex;
   align-items: center;
@@ -105,6 +110,11 @@
 
 /* TABLET */
 @media screen and (min-width: 834px) {
+  .container {
+    width: 834px;
+    padding-left: 27px;
+    padding-right: 27px;
+  }
   .wrapper {
     padding: 40px 0;
   }
