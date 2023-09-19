@@ -1,16 +1,14 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 // useLocation, useEffect
 
-import './Settings.css';
-
+import './SettingsPage.css';
 
 function Settings() {
-
   // const location = useLocation();
 
-  const [name, setName] = useState("");
-  const [age, setAge] = useState("");
+  const [name, setName] = useState('');
+  const [age, setAge] = useState('');
   // const [photo, setPhoto] = useState('');
   const [height, setHeight] = useState('');
   const [weight, setWeight] = useState('');
@@ -32,31 +30,31 @@ function Settings() {
   // setHeight(location.state.height);
   // // }, [])
 
-  const handleNameChange = (e) => {
+  const handleNameChange = e => {
     setName(e.target.value);
-  }
+  };
 
-  const handleAgeChange = (e) => {
+  const handleAgeChange = e => {
     setAge(e.target.value);
-  }
+  };
 
-  const handleHeightChange = (e) => {
+  const handleHeightChange = e => {
     setHeight(e.target.value);
-  }
+  };
 
-  const handleWeightChange = (e) => {
+  const handleWeightChange = e => {
     setWeight(e.target.value);
-  }
+  };
 
-  const handleActivityChange = (e) => {
+  const handleActivityChange = e => {
     setActivity(e.target.value);
-  }
+  };
 
-  const handleGenderChange = (e) => {
+  const handleGenderChange = e => {
     setGender(e.target.value);
-  }
+  };
 
-  const handleSave = (e) => {
+  const handleSave = e => {
     e.preventDefault();
 
     // Збереження ім'я та вік
@@ -72,7 +70,7 @@ function Settings() {
     // setAge("");
     // setHeight('');
     // setWeight('');
-  }
+  };
 
   // updateData = () => {
   //   console.log(name, age, height, weight);
@@ -95,63 +93,69 @@ function Settings() {
 
   return (
     <div className="container">
-      <p className='profile-settings'>Profile setting</p>
-      <div className='photo'></div>
-      <form className='profile-form'>
-        <div className='settings-inputs'>
+      <p className="profile-settings">Profile setting</p>
+      <div className="photo"></div>
+      <form className="profile-form">
+        <div className="settings-inputs">
           <div>
-            <p className='settings-stats'>Your name</p>
+            <p className="settings-stats">Your name</p>
             <input
-              name='name'
-              placeholder='Enter your name'
-              type='text'
-              className='input-text'
+              name="name"
+              placeholder="Enter your name"
+              type="text"
+              className="input-text"
               defaulValue={name}
               onChange={handleNameChange}
             />
           </div>
           <div>
-            <p className='settings-stats'>Your photo</p>
+            <p className="settings-stats">Your photo</p>
             <div>
-              <div className='settings-download-photo'>
+              <div className="settings-download-photo">
                 <p>p</p>
                 {/* <input onChange={(e) => setImage(e.target.files)} type="file" /> */}
               </div>
             </div>
           </div>
           <div>
-            <p className='settings-stats'>Your age</p>
+            <p className="settings-stats">Your age</p>
             <input
-              type='text'
-              name='age'
-              placeholder='Enter your age'
-              className='input-text'
+              type="text"
+              name="age"
+              placeholder="Enter your age"
+              className="input-text"
               defaulValue={age}
               onChange={handleAgeChange}
-              onKeyDown={(e) => {
+              onKeyDown={e => {
                 // Дозволити тільки цифри та клавіші видалення (Backspace, Delete)
-                if (!/^\d*$/.test(e.target.value + e.key) && e.key !== "Backspace" && e.key !== "Delete") {
+                if (
+                  !/^\d*$/.test(e.target.value + e.key) &&
+                  e.key !== 'Backspace' &&
+                  e.key !== 'Delete'
+                ) {
                   e.preventDefault();
                 }
               }}
             />
           </div>
           <div>
-            <p className='settings-stats'>Gender</p>
-            <div className='settings-genders'>
-              <div className='gender'>
-                <input type='radio'
-                  name='gender'
-                  value='Male'
+            <p className="settings-stats">Gender</p>
+            <div className="settings-genders">
+              <div className="gender">
+                <input
+                  type="radio"
+                  name="gender"
+                  value="Male"
                   checked={gender === 'Male'} // Перевірка, чи це обрана активність
                   onChange={handleGenderChange}
                 />
                 <p>Male</p>
               </div>
-              <div className='gender'>
-                <input type='radio'
-                  name='gender'
-                  value='Female'
+              <div className="gender">
+                <input
+                  type="radio"
+                  name="gender"
+                  value="Female"
                   checked={gender === 'Female'} // Перевірка, чи це обрана активність
                   onChange={handleGenderChange}
                 />
@@ -160,86 +164,100 @@ function Settings() {
             </div>
           </div>
           <div>
-            <p className='settings-stats'>Height</p>
+            <p className="settings-stats">Height</p>
             <input
-              type='text'
-              name='height'
-              placeholder='Enter your height'
-              className='input-text'
+              type="text"
+              name="height"
+              placeholder="Enter your height"
+              className="input-text"
               defaulValue={height}
               onChange={handleHeightChange}
-              onKeyDown={(e) => {
+              onKeyDown={e => {
                 // Дозволити тільки цифри та клавіші видалення (Backspace, Delete)
-                if (!/^\d*$/.test(e.target.value + e.key) && e.key !== "Backspace" && e.key !== "Delete") {
+                if (
+                  !/^\d*$/.test(e.target.value + e.key) &&
+                  e.key !== 'Backspace' &&
+                  e.key !== 'Delete'
+                ) {
                   e.preventDefault();
                 }
               }}
             />
           </div>
           <div>
-            <p className='settings-stats'>Weight</p>
+            <p className="settings-stats">Weight</p>
             <input
-              type='text'
-              name='weight'
-              placeholder='Enter your weight'
-              className='input-text'
+              type="text"
+              name="weight"
+              placeholder="Enter your weight"
+              className="input-text"
               defaulValue={weight}
               onChange={handleWeightChange}
-              onKeyDown={(e) => {
+              onKeyDown={e => {
                 // Дозволити тільки цифри та клавіші видалення (Backspace, Delete)
-                if (!/^\d*$/.test(e.target.value + e.key) && e.key !== "Backspace" && e.key !== "Delete") {
+                if (
+                  !/^\d*$/.test(e.target.value + e.key) &&
+                  e.key !== 'Backspace' &&
+                  e.key !== 'Delete'
+                ) {
                   e.preventDefault();
                 }
               }}
             />
           </div>
         </div>
-        <div className='setting-activity'>
+        <div className="setting-activity">
           <p>Your activity</p>
-          <div className='radio-settings'>
+          <div className="radio-settings">
             <input
-              type='radio'
-              name='activity'
-              value='1.2'
+              type="radio"
+              name="activity"
+              value="1.2"
               checked={activity === '1.2'} // Перевірка, чи це обрана активність
               onChange={handleActivityChange}
-            /> 1.2 - if you do not have physical activity and sedentary work
+            />{' '}
+            1.2 - if you do not have physical activity and sedentary work
           </div>
-          <div className='radio-settings'>
+          <div className="radio-settings">
             <input
-              type='radio'
-              name='activity'
-              value='1.375'
+              type="radio"
+              name="activity"
+              value="1.375"
               checked={activity === '1.375'} // Перевірка, чи це обрана активність
               onChange={handleActivityChange}
-            /> 1,375 - if you do short runs or light gymnastics 1-3 times a week
+            />{' '}
+            1,375 - if you do short runs or light gymnastics 1-3 times a week
           </div>
-          <div className='radio-settings'>
+          <div className="radio-settings">
             <input
-              type='radio'
-              name='activity'
-              value='1.55'
+              type="radio"
+              name="activity"
+              value="1.55"
               checked={activity === '1.55'} // Перевірка, чи це обрана активність
               onChange={handleActivityChange}
-            /> 1.55 - if you play sports with average loads 3-5 times a week
+            />{' '}
+            1.55 - if you play sports with average loads 3-5 times a week
           </div>
-          <div className='radio-settings'>
+          <div className="radio-settings">
             <input
-              type='radio'
-              name='activity'
-              value='1.725'
+              type="radio"
+              name="activity"
+              value="1.725"
               checked={activity === '1.725'} // Перевірка, чи це обрана активність
               onChange={handleActivityChange}
-            /> 1,725 ​​- if you train fully 6-7 times a week
+            />{' '}
+            1,725 ​​- if you train fully 6-7 times a week
           </div>
-          <div className='radio-settings'>
+          <div className="radio-settings">
             <input
-              type='radio'
-              name='activity'
-              value='1.9'
+              type="radio"
+              name="activity"
+              value="1.9"
               checked={activity === '1.9'} // Перевірка, чи це обрана активність
               onChange={handleActivityChange}
-            /> 1.9 - if your work is related to physical labor, you train 2 times a day and include strength exercises in your training program
+            />{' '}
+            1.9 - if your work is related to physical labor, you train 2 times a
+            day and include strength exercises in your training program
           </div>
         </div>
         <div>
@@ -252,13 +270,17 @@ function Settings() {
           <p>My weight is {savedWeight}</p>
           <p>My activity is {savedActivity}</p> */}
         </div>
-        <div className='buttons'>
-          <button className='settings-saveBTN' onClick={handleSave}><p className='settings-buttonSAVE-text'>Save</p></button>
-          <button className='settings-cancelBTN'><p className='settings-buttonCANCELED-text'>Cancel</p></button>
+        <div className="buttons">
+          <button className="settings-saveBTN" onClick={handleSave}>
+            <p className="settings-buttonSAVE-text">Save</p>
+          </button>
+          <button className="settings-cancelBTN">
+            <p className="settings-buttonCANCELED-text">Cancel</p>
+          </button>
         </div>
       </form>
     </div>
-  )
+  );
 }
 
-export default Settings
+export default Settings;
