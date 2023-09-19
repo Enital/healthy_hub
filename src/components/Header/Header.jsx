@@ -219,7 +219,7 @@ function Header() {
                   <div className={css.modalUserContent}>
                     <div className={css.settingElement}>
                       <img src={setting2Svg} alt="Setting Svg" className={css.setting2Svg} />
-                      <Link to="/setting" className={css.link}>
+                      <Link to="/settings" className={css.link}>
                         <p className={css.textLinkSetting}>Setting</p>
                       </Link>
                     </div>
