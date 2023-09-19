@@ -5,7 +5,7 @@ import css from './Main.module.css';
 
 const Main = () => {
   return (
-    <div class="container">
+    <div className="container">
        <Today />
       <div className={css.lowContainer}>
         <DiaryOnMain />
