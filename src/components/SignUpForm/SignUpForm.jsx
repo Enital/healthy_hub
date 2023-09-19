@@ -4,7 +4,7 @@ import css from './SignUpForm.module.css';
 import { useState } from 'react';
 // import { Formik, Form, Field, ErrorMessage } from 'formik';
 // import * as yup from 'yup';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+// import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 function SignUpForm({ onForm, name2, email2, password2 }) {
   const [name, setName] = useState(name2);
