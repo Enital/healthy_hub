@@ -22,7 +22,6 @@ function ForgotPassword() {
 
   return (
     <div className={css.container}>
-
       <div className={css.wrapper}>
         <img
           className={css.img}
@@ -49,7 +48,6 @@ function ForgotPassword() {
               Send
             </button>
           </form>
-          {message && <p>{message}</p>}
           <div className={css.navigation}>
             <p className={css.question}> Do you already have an account?</p>
             <NavLink className={css.signinBtn} to="/signin">
