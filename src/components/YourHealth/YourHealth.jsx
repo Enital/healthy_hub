@@ -46,8 +46,8 @@ function YourHealth({ onForm, onBackPage, height, weight }) {
               placeholder="Enter your weight (in kg)"
               value={weightValue}
               onChange={handleChangeWeight}
-              min="0" 
-              max="300" 
+              min="0"
+              max="300"
               required
             />
           </label>
