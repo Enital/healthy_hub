@@ -1,4 +1,53 @@
-.recFoodMain{
-  height: 540px;
-  width: 164px;
+/* MOBILE */
+
+.container {
+  width: 320px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title {
+  color: var(--color-primary-white, #fff);
+  font-size: 18px;
+  line-height: 1.33;
+  margin-bottom: 16px;
+}
+
+.link {
+  color: var(--color-primary-grey, #b6b6b6);
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.38;
+  text-decoration: none;
+  display: block;
+  margin-top: 16px;
+}
+
+/* TABLET */
+@media screen and (min-width: 834px) {
+  .container {
+    width: 834px;
+    padding-left: 27px;
+    padding-right: 27px;
+  }
+
+  .title {
+    color: var(--color-primary-white, #fff);
+    font-size: 22px;
+    line-height: 1.45;
+  }
+}
+
+/* DESKTOP */
+@media screen and (min-width: 1440px) {
+  .container {
+    width: 676px;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
