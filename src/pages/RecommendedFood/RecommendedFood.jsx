@@ -10,14 +10,13 @@ const RecommendedFood = () => {
   const [recomendations, setRecomendations] = useState([]);
   const token = useSelector(state => state.auth.token);
 
-
   useEffect(() => {
     getRecomendations(token, 10)
       .then(data => {
         setRecomendations(data);
       })
       .catch(err => console.error('error:' + err));
-  }, []);
+  }, [token]);
 
   return (
     <div className="container">
