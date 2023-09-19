@@ -25,9 +25,6 @@ const DiaryOnMain = () => {
         <Link to="/diary" className={css.seeMore}>
           See More
         </Link>
-        <Link to="/diary" className={css.seeMore}>
-          See More
-        </Link>
       </div>
 
       <div className={css.divBreakfast}>
