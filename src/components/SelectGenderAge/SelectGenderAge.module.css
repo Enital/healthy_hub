@@ -53,12 +53,12 @@
 
 .labelAge {
   display: flex;
+  align-items: flex-start;
   flex-direction: column;
   row-gap: 12px;
 }
 
 .input {
-  min-width: 300px;
   padding: 8px 10px;
   border-radius: 12px;
   width: 100%;
@@ -166,7 +166,15 @@
     gap: 16px;
   }
 
+  .input {
+    width: 212px;
+  }
+
   .NextBtn {
+    width: 212px;
+  }
+
+  .BackBtn {
     width: 212px;
   }
 }

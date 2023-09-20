@@ -64,9 +64,7 @@
   font-weight: 500;
   line-height: 1.43;
 }
-.form button:disabled {
-  background-color: #b6b6b6;
-}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -216,4 +214,30 @@
   right: 10px;
   top: 50%;
   transform: translateY(-50%);
+}
+
+input[type='checkbox']::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-primary-black-2, #0f0f0f);
+  background-image: url(../../images/icons/eye-off.svg);
+}
+
+input[type='checkbox']:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-primary-black-2, #0f0f0f);
+  background-image: url(../../images/icons/eye.svg);
+
+  visibility: visible;
 }

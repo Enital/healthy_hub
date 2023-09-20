@@ -40,14 +40,13 @@
   display: flex;
   flex-direction: column;
   row-gap: 12px;
-
+  align-items: flex-start;
   color: var(--color-primary-white, #fff);
   font-size: 14px;
   line-height: 1.43;
 }
 
 .input {
-  min-width: 300px;
   padding: 8px 10px;
   border-radius: 12px;
   width: 100%;

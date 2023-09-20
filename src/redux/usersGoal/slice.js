@@ -46,9 +46,9 @@ const goalSlice = createSlice({
     [fetchGoalsConfirm.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.items.total.food.used = action.payload.food;
-      console.log(action.payload.food);
-      console.log(state.items.total.food.used);
+      state.items.total.breakfast = action.payload.breakfast;
+      console.log(action.payload.breakfast);
+      console.log(state.items.total.breakfast);
     },
     [fetchGoalsConfirm.rejected]: handleRejected,
   },

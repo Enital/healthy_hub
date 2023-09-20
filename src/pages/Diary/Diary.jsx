@@ -5,16 +5,23 @@ import { Link } from 'react-router-dom';
 import RecordMealModal from 'components/ModalDiary/RecordMealModal/RecordMealModal';
 import UpdateMealModal from 'components/ModalDiary/UpdateMealModal/UpdateMealModal';
 import DiaryTable from 'components/Table/Table';
+import { useSelector } from 'react-redux';
 
 const Diary = () => {
   const [recordMealModalOpen, setRecordMealModalOpen] = useState(false);
   const [updateMealModalOpen, setUpdateMealModalOpen] = useState(false);
-  const [selectedMeal, setSelectedMeal] = useState('');
-  const [foodName, setFoodName] = useState('');
 
+  const [selectedMeal, setSelectedMeal] = useState('');
+  const breakfast = useSelector(state => state.user.breakfast);
+  const lunch = useSelector(state => state.user.lunch);
+  const dinner = useSelector(state => state.user.dinner);
+  const snack = useSelector(state => state.user.snack);
+
+  const [foodName, setFoodName] = useState('');
   const onRecordMealButtonClick = evt => {
     setSelectedMeal(evt.target.name);
     document.body.style.overflow = 'hidden';
+
     setRecordMealModalOpen(true);
   };
 
@@ -24,10 +31,10 @@ const Diary = () => {
   };
 
   const mealTypes = [
-    { type: 'Breakfast', data: [] }, // Замените пустой массив на данные, если они получаются откуда-либо ещё
-    { type: 'Dinner', data: [] }, // Замените пустой массив на данные, если они получаются откуда-либо ещё
-    { type: 'Lunch', data: [] }, // Замените пустой массив на данные, если они получаются откуда-либо ещё
-    { type: 'Snack', data: [] }, // Замените пустой массив на данные, если они получаются откуда-либо ещё
+    { type: 'Breakfast', data: breakfast },
+    { type: 'Dinner', data: dinner },
+    { type: 'Lunch', data: lunch },
+    { type: 'Snack', data: snack },
   ];
 
   const renderedDiaryTables = mealTypes.map(({ type, data }) => (

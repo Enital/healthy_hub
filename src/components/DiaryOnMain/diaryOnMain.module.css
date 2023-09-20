@@ -1,4 +1,4 @@
-/* mobile menu 0- 767 */
+/* mobile menu 0- 349 */
 
 @media screen and (max-width: 349px) {
   .containerDiary {
@@ -12,14 +12,42 @@
     align-items: center;
     margin-bottom: 20px;
   }
+  .diary {
+    margin-right: 10px;
+    width: 57px;
+    height: 32px;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 32px;
+    color: rgba(255, 255, 255, 1);
+    
+  }
+  .link {
+    display: flex;
+    align-items: center;
+  }
+  .openModal {
+    width: 150px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgba(227, 255, 168, 1);
+    background-color: black;
+    border: 1px solid transparent;
+    padding: 5px 10px;
+    cursor: pointer;
+    justify-content: center;
+    text-align: center;
+    display: block;
+  }
 }
 
-/* 768+ */
+
 @media screen and (min-width: 350px) {
 .link {
   display: flex;
   align-items: center;
-  margin-top: 25px;
+  /* margin-top: 25px; */
   margin-left: 25px;
 }
 .diary {
