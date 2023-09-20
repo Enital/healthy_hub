@@ -24,13 +24,17 @@ export default function Food() {
   const goalFat = items.total.fat.goal;
   const usedFat = items.total.fat.used;
 
-  const percentСarbohydrates = Math.round(
-    (usedСarbohydrates / goalСarbohydrates) * 100
-  );
-  const percentProtein = Math.round((usedProtein / goalProtein) * 100);
-  const percentFat = Math.round((usedFat / goalFat) * 100);
+  function percentNutrition(goal, used) {
+    if (used >= goal) {
+      return 100;
+    }
+    return Math.round((used / goal) * 100);
+  }
 
   function leftNutrient(goal, used) {
+    if (used >= goal) {
+      return 0;
+    }
     return goal - used;
   }
 
@@ -50,7 +54,7 @@ export default function Food() {
             })}
           >
             <h3 style={{ fontSize: 42, fontWeight: 400, color: '#FFFFFF' }}>
-              {usedCalories}
+              {usedCalories >= totalCalories ? 'DONE' : usedCalories}
             </h3>
             <p
               style={{
@@ -69,8 +73,11 @@ export default function Food() {
             <div style={{ width: '48px', height: '48px' }}>
               <CircularProgressbar
                 strokeWidth={10}
-                value={percentСarbohydrates}
-                text={`${percentСarbohydrates}%`}
+                value={percentNutrition(goalСarbohydrates, usedСarbohydrates)}
+                text={`${percentNutrition(
+                  goalСarbohydrates,
+                  usedСarbohydrates
+                )}%`}
                 styles={buildStyles({
                   textColor: '#B6B6B6',
                   pathColor: '#FFC4F7',
@@ -99,8 +106,8 @@ export default function Food() {
             <div style={{ width: '48px', height: '48px' }}>
               <CircularProgressbar
                 strokeWidth={10}
-                value={percentProtein}
-                text={`${percentProtein}%`}
+                value={percentNutrition(goalProtein, usedProtein)}
+                text={`${percentNutrition(goalProtein, usedProtein)}%`}
                 styles={buildStyles({
                   textColor: '#B6B6B6',
                   pathColor: '#FFF3B7',
@@ -128,8 +135,8 @@ export default function Food() {
             <div style={{ width: '48px', height: '48px' }}>
               <CircularProgressbar
                 strokeWidth={10}
-                value={percentFat}
-                text={`${percentFat}%`}
+                value={percentNutrition(goalFat, usedFat)}
+                text={`${percentNutrition(goalFat, usedFat)}%`}
                 styles={buildStyles({
                   textColor: '#B6B6B6',
                   pathColor: '#45FFBC',
