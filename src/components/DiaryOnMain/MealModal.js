@@ -1,22 +1,30 @@
 import React, { useState } from 'react';
 import breakfast from '../../images/illustration/breakfast-image.svg';
-//import add from '../../images/icons/add.svg';
+
 import css from './diaryOnMain.module.css';
 import { useDispatch } from 'react-redux';
 import { fetchGoalsConfirm } from 'redux/usersGoal/operations';
+
+// export const mealFields = {
+//   name: '',
+//   carbohydrates: 0,
+//   protein: 0,
+//   fat: 0,
+//   calories: 0,
+// };
 
 const MealModal = ({ isOpen, onClose }) => {
   const dispatch = useDispatch();
   const [placeholderData, setPlaceholderData] = useState({
     name: '',
-    carbonoh: '',
-    protein: '',
-    fat: '',
-    calories: '',
+    carbohydrates: 0,
+    protein: 0,
+    fat: 0,
+    calories: 0,
   });
 
   const initialInputFields = [
-    { name: '', carbonoh: '', protein: '', fat: '', calories: '' },
+    { name: '', carbohydrates: 0, protein: 0, fat: 0, calories: 0 },
   ];
 
   const [inputFields, setInputFields] = useState(initialInputFields);
@@ -25,7 +33,7 @@ const MealModal = ({ isOpen, onClose }) => {
   const handleAddField = () => {
     setInputFields([
       ...inputFields,
-      { name: '', carbonoh: '', protein: '', fat: '', calories: '' },
+      { name: '', carbohydrates: 0, protein: 0, fat: 0, calories: 0 },
     ]);
   };
 
@@ -48,13 +56,13 @@ const MealModal = ({ isOpen, onClose }) => {
     try {
       await dispatch(fetchGoalsConfirm(placeholderData));
 
-      setPlaceholderData({
-        name: '',
-        carbonoh: '',
-        protein: '',
-        fat: '',
-        calories: '',
-      });
+      // setPlaceholderData({
+      //   name: '',
+      //   carbonoh: '',
+      //   protein: '',
+      //   fat: '',
+      //   calories: '',
+      // });
 
       // onClose();
     } catch (error) {
@@ -77,8 +85,11 @@ const MealModal = ({ isOpen, onClose }) => {
           <h2 className={css.nameBreakfast}>Breakfast</h2>
         </div>
 
+
         {inputFields.map((field, index) => (
           <div className={css.containerLabel} key={index}>
+
+
             <label htmlFor={`productName${index}`}></label>
             <input
               style={{
@@ -104,7 +115,9 @@ const MealModal = ({ isOpen, onClose }) => {
               value={field.name}
               onChange={e => handleInputChange(index, e)}
             />
-            <label htmlFor={`carbonoh${index}`}></label>
+
+
+            <label htmlFor={`carbohydrates${index}`}></label>
             <input
               style={{
                 border: '1px solid rgba(227, 255, 168, 1)',
@@ -121,13 +134,15 @@ const MealModal = ({ isOpen, onClose }) => {
                 background: 'black',
                 marginRight: '10px',
               }}
-              placeholder="Carbonoh"
+              placeholder="carbohydrates"
               type="text"
-              id={`carbonoh${index}`}
-              name="carbonoh"
-              value={field.carbonoh}
+              id={`carbohydrates${index}`}
+              name="carbohydrates"
+              value={field.carbohydrates}
               onChange={e => handleInputChange(index, e)}
             />
+
+
             <label htmlFor={`protein${index}`}></label>
             <input
               style={{
@@ -152,6 +167,8 @@ const MealModal = ({ isOpen, onClose }) => {
               value={field.protein}
               onChange={e => handleInputChange(index, e)}
             />
+
+
             <label htmlFor={`fat${index}`}></label>
             <input
               style={{
@@ -214,7 +231,7 @@ const MealModal = ({ isOpen, onClose }) => {
           </div>
         ))}
 
-        {/* <img className={css.add} src={add} alt="add" /> */}
+       
         <button className={css.addMore} type="button" onClick={handleAddField}>
           + Add more
         </button>
@@ -229,6 +246,7 @@ const MealModal = ({ isOpen, onClose }) => {
   );
 };
 export default MealModal;
+
 
 
 
