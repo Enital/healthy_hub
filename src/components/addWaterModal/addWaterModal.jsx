@@ -2,14 +2,19 @@ import React from 'react';
 import css from './addWaterModal.module.css';
 import { ImCool } from 'react-icons/im';
 import Notiflix from 'notiflix';
+import { addWater } from 'redux/usersGoal/operations';
+import { useDispatch } from 'react-redux';
 
-const AddWaterModal = ({ closeModal, changeNumber, waterGoal, waterUsed }) => {
+const AddWaterModal = ({ closeModal, waterGoal, waterUsed }) => {
+  const dispatch = useDispatch();
+
   Notiflix.Notify.init({ zindex: 100000, position: 'center-top' });
 
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.currentTarget;
     const login = Number(form.elements.number.value);
+
     if (login <= 0) {
       Notiflix.Notify.failure(
         'The entered number must be greater than zero :)'
@@ -18,7 +23,7 @@ const AddWaterModal = ({ closeModal, changeNumber, waterGoal, waterUsed }) => {
       return;
     }
 
-    changeNumber(login);
+    dispatch(addWater(login));
     form.reset();
     closeModal();
   };
