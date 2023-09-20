@@ -6,6 +6,12 @@
   /* width: 90%; */
 }
 
+.dmcx{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .profileSettings {
   font-weight: 500;
   font-size: 24px;
@@ -109,7 +115,7 @@
 
 .photo {
   margin: 0 auto;
-  background-color: red;
+  background-color: transparent;
   width: 300px;
   height: 300px;
 }
@@ -199,8 +205,8 @@
     display: flex;
     width: 700px;
     flex-direction: column;
-    margin-top: 100px;
-    margin-left: 600px;
+    margin-top: 50px;
+    margin-left: 200px;
   }
 
   .settingsInputs {
@@ -218,17 +224,18 @@
   .photo {
     width: 600px;
     height: 600px;
-    position: absolute;
-    bottom: 100px;
-    left: 50px;
+    position: relative;
+    top: 20px;
+    left: 10px;
   }
 
   .profileSettings {
     height: max-content;
-
-    width: 300px;
-    margin-top: 120px;
-    margin-left: 15px;
+    display: block;
+    width: 220px;
+    position: absolute;
+    left: 30px;
+    margin-top: 20px;
   }
 
   .buttons {

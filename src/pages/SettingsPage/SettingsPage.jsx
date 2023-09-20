@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SettingsPageImg from './../../images/img/illustration-interactive-learning-experience.svg';
 
 // useLocation, useEffect
 
@@ -21,6 +22,11 @@ function Settings() {
   // const [savedHeight, setSavedHeight] = useState("");
   // const [savedWeight, setSavedWeight] = useState("");
   // const [savedGender, setSavedGender] = useState("");
+
+  // useEffect => (() => {
+  //   console.log(location);
+  // }, [])
+  // console.log(location);
 
   // useEffect => (() => {
   //   console.log(location);
@@ -94,7 +100,12 @@ function Settings() {
   return (
     <div className={css.container}>
       <p className={css.profileSettings}>Profile setting</p>
-      <div className={css.photo}></div>
+      <div className={css.dmcx}>
+      
+        {/* <div className={css.photo}></div> 
+      */}
+        <img src={SettingsPageImg} className={css.photo} alt='SettingsPagePhoto'/>
+      </div>
       <form className={css.profileForm}>
         <div className={css.settingsInputs}>
           <div>
