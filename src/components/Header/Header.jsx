@@ -34,6 +34,7 @@ function Header() {
   const userWeight = useSelector((state) => state.auth.user.weight);
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const userName = useSelector((state) => state.auth.user.name);
+  const avatarUrl = useSelector((state) => state.auth.user.avatarUrl);
 
   const date = new Date();
   const formatDate = format(date, 'dd.MM.yyyy');
@@ -57,25 +58,11 @@ function Header() {
     setSelectedGoal(goalEmoji);
   };
 
-  const getGoalNameFromEmoji = (emoji) => {
-    switch (emoji) {
-      case loseFatMenEmoji:
-        return 'Lose fat';
-      case maintakeMenEmoji:
-        return 'Maintain';
-      case gainMuscleEmoji:
-        return 'Gain Muscle';
-      default:
-        return '';
-    }
-  };
-
   const handleConfirmGoal = () => {
     if (!selectedGoal) {
       console.error('Ціль не обрана');
       return;
     }
-  
     axios
       .patch('/user/goal', { goal: selectedGoal })
       .then((response) => {
@@ -127,6 +114,7 @@ function Header() {
   // }
 
   return (
+    <div className="container">
     <header className={css.header}>
       <Link to='/WelcomePage' className={css.link}>
         <h1 className={css.headline}>HealthyHub</h1>
@@ -139,12 +127,20 @@ function Header() {
                 <h3 className={css.headlineGoal}>Goal</h3>
                 <img src={arrowDownSvg} alt="expend the list svg" className={css.openArrowDownGoalSvg} />
               </div>
-              {selectedGoal && (
-        <div>
-          <img src={selectedGoal} alt={`${getGoalNameFromEmoji(selectedGoal)} emoji`} className={css.goalEmoji} />
-          <p>{getGoalNameFromEmoji(selectedGoal)}</p>
-        </div>
-      )}
+              {user && user.goal && (
+              <div>
+                {user.goal === loseFatMenEmoji && (
+                  <img src={loseFatMenEmoji} alt="Lose fat emoji" className={css.goalEmoji} />
+                )}
+                {user.goal === maintakeMenEmoji && (
+                  <img src={maintakeMenEmoji} alt="Maintain emoji" className={css.goalEmoji} />
+                )}
+                {user.goal === gainMuscleEmoji && (
+                  <img src={gainMuscleEmoji} alt="Gain Muscle emoji" className={css.goalEmoji} />
+                )}
+                <p className={css.goalChosenName}>{user.goal}</p>
+              </div>
+            )}
               {isModalGoalOpen && (
                 <div>
                   <div className={css.modalGoalContent}>
@@ -211,9 +207,12 @@ function Header() {
                   </div>
                 </div>
               )}
-              <span>{userName}</span>
-              <img src={profileCircleSvg} alt="User" className={css.userProfile} />
-              <img src={arrowDownSvg} alt="expend the list svg" onClick={toggleModal} className={css.openArrowDownUserSvg} />
+              <div className={css.infoUserContent}>
+                <span>{userName}</span>
+              <img src={profileCircleSvg} alt="User" className={css.userProfileRegistration} />
+              <img src={arrowDownSvg} alt="expend the list svg" onClick={toggleModal}  />
+              </div>
+              
               {isModalUserOpen && (
                 <div>
                   <div className={css.modalUserContent}>
@@ -248,6 +247,7 @@ function Header() {
         )}
       </div>
     </header>
+    </div>
   );
 }
 
