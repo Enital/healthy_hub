@@ -71,7 +71,8 @@
   row-gap: 16px;
 }
 
-.input {  position: relative;
+.input {
+  position: relative;
   width: 100%;
   padding: 8px 10px;
   border-radius: 12px;
@@ -202,7 +203,7 @@
   }
 }
 
-.label{
+.label {
   position: relative;
 }
 
@@ -212,6 +213,5 @@
   cursor: pointer;
   right: 10px;
   top: 50%;
-  transform: translateY(-50%) 
-
+  transform: translateY(-50%);
 }

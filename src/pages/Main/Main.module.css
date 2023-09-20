@@ -1,23 +1,13 @@
 /* MOBILE */
-
 .lowContainer {
   width: 300px;
-  /* width: 320px; */
-  /* padding-left: 10px;
-  padding-right: 10px; */
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 60px;
+  margin: 20px auto 60px auto;
 }
 
 /* TABLET */
 @media screen and (min-width: 834px) {
   .lowContainer {
     width: 780px;
-    /* width: 834px; */
-    /* padding-left: 27px;
-    padding-right: 27px; */
     margin-bottom: 40px;
   }
 }
@@ -25,12 +15,9 @@
 /* DESKTOP */
 @media screen and (min-width: 1440px) {
   .lowContainer {
-    width: 1372px;
-    /* width: 1440px; */
-    /* padding-left: 34px;
-    padding-right: 34px; */
     display: flex;
     justify-content: space-between;
+    width: 1372px;
     margin-bottom: 52px;
   }
 }
