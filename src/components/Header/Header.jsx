@@ -34,7 +34,7 @@ function Header() {
   const userWeight = useSelector((state) => state.auth.user.weight);
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const userName = useSelector((state) => state.auth.user.name);
-  const avatarUrl = useSelector((state) => state.auth.user.avatarUrl);
+  //const avatarUrl = useSelector((state) => state.auth.user.avatarUrl);
 
   const date = new Date();
   const formatDate = format(date, 'dd.MM.yyyy');
