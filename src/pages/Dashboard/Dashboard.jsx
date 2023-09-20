@@ -2,9 +2,8 @@ import React from 'react';
 import CaloriesChart from 'components/Charts/CaloriesChart/CaloriesChart';
 import WaterChart from 'components/Charts/WaterChart/WaterChart';
 import WeightChart from 'components/Charts/WeightChart/WeightChart';
-// import { Link } from 'react-router-dom';
-// import { BsArrowLeft } from 'react-icons/bs';
-
+import { Link } from 'react-router-dom';
+import leftArrow from '../../images/icons/arrow-left.svg';
 import css from './dashboard.module.css';
 
 const data = new Date();
@@ -57,14 +56,16 @@ function getMonth() {
 
 const Dashboard = () => {
   return (
-    <div>
+    <div className={css.container}>
       <div className={css.dashboardContainer}>
         <div className={css.dashboardTitle}>
-          {/* <Link className={css.btnDiary} to={'/'}> */}
-          {/* <BsArrowLeft size="1.5rem" /> */}
-          {/* </Link> */}
-          <p>Last month</p>
-          <p>{getMonth()}</p>
+          <ul className={css.dashboardTitleUl}>
+            <Link className={css.btnToMain} to={'/'}>
+              <img src={leftArrow} alt="arrow" />
+            </Link>
+            <p className={css.dashboardTitleP}>Last month</p>
+          </ul>
+          <p className={css.month}>{getMonth()}</p>
         </div>
         <div className={css.chartContainer}>
           <CaloriesChart />

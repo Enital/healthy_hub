@@ -77,3 +77,31 @@
   line-height: 20px;
   margin-left: 4px;
 }
+@media screen and (min-width: 834px) {
+  .foodWrapper {
+    width: 780px;
+    height: 278px;
+  }
+  .foodHead {
+    font-size: 22px;
+    line-height: 32px;
+  }
+  .graphWrapper {
+    display: flex;
+    width: 780px;
+    height: 240px;
+    padding: 36px 40px;
+  }
+  .totalCalorieWrapper {
+    margin-top: 0px;
+    margin-left: 40px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .foodWrapper {
+    width: 560px;
+  }
+  .graphWrapper {
+    width: 560px;
+  }
+}

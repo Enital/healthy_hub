@@ -28,19 +28,15 @@ const DiaryOnMain = () => {
       </div>
 
       <div className={css.divBreakfast}>
-        <img
-          className={css.breakfastImage}
-          src={breakfastImage}
-          alt="Breakfast"
-        />
+        <img className={css.breakfastImage} src={breakfastImage} alt="Breakfast" />
         <h2 className={css.diaryBreakfast}>Breakfast</h2>
-
         <button className={css.openModal} onClick={openModal}>
           {' '}
           + Record your meal
         </button>
       </div>
       <MealModal isOpen={isModalOpen} onClose={closeModal} />
+
       <div className={css.divBreakfast}>
         <img className={css.breakfastImage} src={lunchImage} alt="Lunch" />
         <h2 className={css.diaryBreakfast}>Lunch</h2>
@@ -50,6 +46,7 @@ const DiaryOnMain = () => {
         </button>
       </div>
 
+
       <div className={css.divBreakfast}>
         <img className={css.breakfastImage} src={dinnerImage} alt="Dinner" />
         <h2 className={css.diaryBreakfast}>Dinner</h2>
@@ -58,6 +55,7 @@ const DiaryOnMain = () => {
           + Record your meal
         </button>
       </div>
+
 
       <div className={css.divBreakfast}>
         <img className={css.breakfastImage} src={snackImage} alt="Snack" />

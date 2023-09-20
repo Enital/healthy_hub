@@ -44,49 +44,52 @@ function SelectGenderAge({ onForm, onBackPage, age, gender }) {
           onSubmit={onForm}
           validationSchema={schema}
         > */}
-          <form className={css.form} onSubmit={onForm}>
-            <p>Gender</p>
-            <div className={css.wrappers}>
-              <label className={css.label}>
-                <input
-                  type="radio"
-                  name="gender"
-                  value="male"
-                  checked={genderValue === 'male'}
-                  onChange={handleChangeGender}
-                />
-                Male
-              </label>
-              <label className={css.label}>
-                <input
-                  type="radio"
-                  name="gender"
-                  value="female"
-                  checked={genderValue === 'female'}
-                  onChange={handleChangeGender}
-                />
-                Female
-              </label>
-            </div>
-            <label className={css.labelAge}>
-              Your age
+        <form className={css.form} onSubmit={onForm}>
+          <p>Gender</p>
+          <div className={css.wrappers}>
+            <label className={css.label}>
               <input
-                className={css.input}
-                type="text"
-                name="age"
-                placeholder="Enter your age"
-                value={ageValue}
-                onChange={handleChangeAge}
+                type="radio"
+                name="gender"
+                value="male"
+                checked={genderValue === 'male'}
+                onChange={handleChangeGender}
               />
-              {/* <FromError name="age" /> */}
+              Male
             </label>
-            <button className={css.NextBtn} type="submit">
-              Next
-            </button>
-            <button className={css.BackBtn} onClick={onBackPage} type="button">
-              Back
-            </button>
-          </form>
+            <label className={css.label}>
+              <input
+                type="radio"
+                name="gender"
+                value="female"
+                checked={genderValue === 'female'}
+                onChange={handleChangeGender}
+              />
+              Female
+            </label>
+          </div>
+          <label className={css.labelAge}>
+            Your age
+            <input
+              className={css.input}
+              type="number"
+              name="age"
+              placeholder="Enter your age"
+              value={ageValue}
+              onChange={handleChangeAge}
+              min="0" // Мінімальний допустимий вік
+              max="120" // Максимальний допустимий вік
+              required
+            />
+            {/* <FromError name="age" /> */}
+          </label>
+          <button className={css.NextBtn} type="submit">
+            Next
+          </button>
+          <button className={css.BackBtn} onClick={onBackPage} type="button">
+            Back
+          </button>
+        </form>
         {/* </Formik> */}
       </div>
     </div>
