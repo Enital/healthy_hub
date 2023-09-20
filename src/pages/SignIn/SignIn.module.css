@@ -119,6 +119,9 @@
   .wrapper {
     padding: 40px 0;
   }
+  .content {
+    width: 444px;
+  }
   .navigation {
     margin-bottom: 80px;
   }
@@ -221,6 +224,7 @@
     color: var(--color-primary-gray, #b6b6b6);
     text-decoration: none;
     align-items: center;
+    margin-bottom: 212px;
   }
 
   .signupBtn {
