@@ -1,14 +1,20 @@
 import React from 'react';
 import css from './addWaterModal.module.css';
 import { ImCool } from 'react-icons/im';
+import Notiflix from 'notiflix';
 
 const AddWaterModal = ({ closeModal, changeNumber, waterGoal, waterUsed }) => {
+  Notiflix.Notify.init({ zindex: 100000, position: 'center-top' });
+
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.currentTarget;
     const login = Number(form.elements.number.value);
     if (login === 0) {
-      alert('The entered number must be greater than zero :)');
+      Notiflix.Notify.failure(
+        'The entered number must be greater than zero :)'
+      );
+      // alert('The entered number must be greater than zero :)');
       return;
     }
 
