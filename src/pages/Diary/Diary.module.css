@@ -1,9 +1,14 @@
 .containerDiary {
-    padding-top: 16px;
+    /* padding-top: 16px;
     padding-bottom: 40px;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: column; */
+    width: 320px;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-left: auto;
+        margin-right: auto;
 }
 
 .diary {
@@ -28,7 +33,10 @@
     }
 
     .containerDiary {
-        padding-top: 24px;
+        /* padding-top: 24px; */
+        width: 834px;
+            padding-left: 27px;
+            padding-right: 27px;
     }
 
     .foodIMG {
@@ -54,8 +62,11 @@
 
 @media screen and (min-width: 1440px) {
     .containerDiary {
-        padding-top: 20px;
-        padding-bottom: 52px;
+        /* padding-top: 20px;
+        padding-bottom: 52px; */
+        width: 1440px;
+            padding-left: 34px;
+            padding-right: 34px;
     }
 
     .diary {
