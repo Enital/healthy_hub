@@ -9,6 +9,9 @@ import Snack from '../../../images/illustration/snack-image.svg';
 import { useSelector } from 'react-redux';
 import ButtonLoader from 'components/Loader/ButtonLoader';
 
+import { useDispatch } from 'react-redux';
+import { updateFoodOperations } from 'redux/user/userOperations';
+import { Notify } from 'notiflix';
 const imageObject = { Breakfast, Lunch, Dinner, Snack };
 
 export const customStyles = {
@@ -32,6 +35,8 @@ const RecordMealModal = ({
   const [proteinArr, setProteinArr] = useState(['']);
   const [fatArr, setFatArr] = useState(['']);
 
+  const dispatch = useDispatch();
+
   useEffect(() => {
     if (
       !productNameArr.includes('') &&
@@ -43,6 +48,33 @@ const RecordMealModal = ({
     } else {
       setSubmitButtonDisabled(true);
       return;
+    }
+
+    const arrLength = productNameArr.length;
+
+    for (let i = 0; i < arrLength; i++) {
+      const carbonohydratesElemBoolean =
+        parseFloat(carbonohidratesArr[i]) === 0;
+
+      const fatElemBoolean = parseFloat(fatArr[i]) === 0;
+
+      const proteinElemBoolean = parseFloat(proteinArr[i]) === 0;
+
+      const nameElemBoolean = productNameArr[i].trim() === '';
+
+      if (nameElemBoolean) {
+        i = arrLength + 1;
+        setSubmitButtonDisabled(true);
+      } else {
+        if (
+          carbonohydratesElemBoolean &&
+          fatElemBoolean &&
+          proteinElemBoolean
+        ) {
+          i = arrLength + 1;
+          setSubmitButtonDisabled(true);
+        } else setSubmitButtonDisabled(false);
+      }
     }
   }, [carbonohidratesArr, fatArr, productNameArr, proteinArr]);
 
@@ -63,6 +95,30 @@ const RecordMealModal = ({
     setCarbonohidratesArr(['']);
     setProteinArr(['']);
     setFatArr(['']);
+  };
+
+  const handleSubmit = evt => {
+    evt.preventDefault();
+    document.body.style.overflow = 'auto';
+
+    const sendedObj = {};
+    sendedObj[selectedMeal.toLowerCase()] = productNameArr.map((el, i) => ({
+      foodName: el.trim(),
+      carbonohidrates: `${carbonohidratesArr[i]}`,
+      fat: `${fatArr[i]}`,
+      protein: `${proteinArr[i]}`,
+    }));
+
+    dispatch(updateFoodOperations(sendedObj))
+      .unwrap()
+      .then(() => onCloseButtonClick())
+      .catch(e => {
+        Notify.error(e.message, {
+          theme: 'dark',
+          autoClose: 2000,
+          hideProgressBar: true,
+        });
+      });
   };
 
   const onNameChange = (evt, index) => {
@@ -142,6 +198,7 @@ const RecordMealModal = ({
 
   return (
     <Modal
+      className={`${css.recordMealModal} `}
       isOpen={recordMealModalOpen}
       onRequestClose={onCloseButtonClick}
       style={customStyles}
@@ -211,7 +268,8 @@ const RecordMealModal = ({
             <ButtonLoader />
           ) : (
             <button
-              onClick={onCloseButtonClick}
+              className={`${css.recordMealModalConfirmBtn} `}
+              onClick={handleSubmit}
               type="submit"
               disabled={submitButtonDisabled}
             >
@@ -219,7 +277,11 @@ const RecordMealModal = ({
             </button>
           )}
 
-          <button type="button" onClick={onCloseButtonClick}>
+          <button
+            className={`${css.recordMealModalCancelBtn} `}
+            type="button"
+            onClick={onCloseButtonClick}
+          >
             Cancel
           </button>
         </div>
