@@ -41,20 +41,7 @@ const DiaryOnMain = () => {
         </button>
       </div>
       <MealModal isOpen={isModalOpen} onClose={closeModal} />
-
       <div className={css.divBreakfast}>
-        <div className={css.divBreakfastModal}>
-          <button className={css.openModal} onClick={openModal}>
-            {' '}
-            + Record your meal
-          </button>{' '}
-        </div>
-      </div>
-      <MealModal isOpen={isModalOpen} onClose={closeModal} />
-
-      <div className={css.divBreakfast}>
-        {' '}
-        main
         <img className={css.breakfastImage} src={lunchImage} alt="Lunch" />
         <h2 className={css.diaryBreakfast}>Lunch</h2>
         <button className={css.openModal} onClick={openModal}>
