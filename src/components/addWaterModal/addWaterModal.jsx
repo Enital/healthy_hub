@@ -10,11 +10,11 @@ const AddWaterModal = ({ closeModal, changeNumber, waterGoal, waterUsed }) => {
     e.preventDefault();
     const form = e.currentTarget;
     const login = Number(form.elements.number.value);
-    if (login === 0) {
+    if (login <= 0) {
       Notiflix.Notify.failure(
         'The entered number must be greater than zero :)'
       );
-      // alert('The entered number must be greater than zero :)');
+
       return;
     }
 
