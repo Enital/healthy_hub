@@ -34,11 +34,28 @@
     color: rgba(227, 255, 168, 1);
     background-color: black;
     border: 1px solid transparent;
-    padding: 5px 10px;
+   
     cursor: pointer;
     justify-content: center;
     text-align: center;
     display: block;
+  }
+
+  .diaryMobile {
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .diaryBreakfast {
+    width: 100px;
+    height: 24px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    color: rgba(255, 255, 255, 1);
+    margin-left: 20px;
+    margin-right: 10px;
   }
 }
 
