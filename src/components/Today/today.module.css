@@ -8,6 +8,8 @@
   align-items: center;
 }
 .todayLink {
+  display: flex;
+  align-items: center;
   color: var(--color-primary-grey, #b6b6b6);
   text-align: right;
   font-family: Poppins;

@@ -24,8 +24,8 @@ const Today = () => {
         <div className={css.linkWrapper}>
           <Link className={css.todayLink} to="/dashboard">
             On the way to the goal
+            <img className={css.imgToday} src={arrow} alt="arrow" />
           </Link>
-          <img className={css.imgToday} src={arrow} alt="arrow" />
         </div>
       </div>
       <div className={css.componentWrapper}>
