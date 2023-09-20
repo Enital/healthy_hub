@@ -8,6 +8,7 @@ import Dinner from '../../../images/illustration/dinner-image.svg';
 import Snack from '../../../images/illustration/snack-image.svg';
 import { useSelector } from 'react-redux';
 import ButtonLoader from 'components/Loader/ButtonLoader';
+import { RiDeleteBin2Fill } from 'react-icons/ri';
 
 import { useDispatch } from 'react-redux';
 import { updateFoodOperations } from 'redux/user/userOperations';
@@ -28,7 +29,7 @@ const RecordMealModal = ({
 }) => {
   const isLoading = useSelector(state => state.user.isLoading);
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(true);
-  const [numberOfItems, setNumberOfItems] = useState([0]);
+  const [numberOfItems, setNumberOfItems] = useState(1);
 
   const [productNameArr, setProductNameArr] = useState(['']);
   const [carbonohidratesArr, setCarbonohidratesArr] = useState(['']);
@@ -36,6 +37,17 @@ const RecordMealModal = ({
   const [fatArr, setFatArr] = useState(['']);
 
   const dispatch = useDispatch();
+
+  const handleDeleteRow = index => {
+    if (numberOfItems > 1) {
+      const newNumberOfItems = numberOfItems - 1;
+      setNumberOfItems(newNumberOfItems);
+      setProductNameArr(prev => prev.filter((_, i) => i !== index));
+      setCarbonohidratesArr(prev => prev.filter((_, i) => i !== index));
+      setProteinArr(prev => prev.filter((_, i) => i !== index));
+      setFatArr(prev => prev.filter((_, i) => i !== index));
+    }
+  };
 
   useEffect(() => {
     if (
@@ -79,8 +91,8 @@ const RecordMealModal = ({
   }, [carbonohidratesArr, fatArr, productNameArr, proteinArr]);
 
   const onAddMoreButtonClick = () => {
-    const newValue = numberOfItems.length;
-    setNumberOfItems(prev => [...prev, newValue]);
+    const newValue = numberOfItems + 1;
+    setNumberOfItems(newValue);
     setProductNameArr(prev => [...prev, '']);
     setCarbonohidratesArr(prev => [...prev, '']);
     setProteinArr(prev => [...prev, '']);
@@ -89,7 +101,7 @@ const RecordMealModal = ({
 
   const onCloseButtonClick = () => {
     document.body.style.overflow = 'auto';
-    setNumberOfItems([0]);
+    setNumberOfItems(1);
     setRecordMealModalOpen(false);
     setProductNameArr(['']);
     setCarbonohidratesArr(['']);
@@ -195,7 +207,6 @@ const RecordMealModal = ({
       return resultArr;
     });
   };
-
   return (
     <Modal
       className={`${css.recordMealModal} `}
@@ -216,8 +227,8 @@ const RecordMealModal = ({
       </div>
       <form>
         <ul className={css.recordMealModalInputsList}>
-          {numberOfItems.map((el, i) => (
-            <li key={el} className={css.recordMealModalInputsListItem}>
+          {Array.from({ length: numberOfItems }, (_, i) => (
+            <li key={i} className={css.recordMealModalInputsListItem}>
               <input
                 placeholder="The name of the product or dish"
                 type="text"
@@ -250,6 +261,13 @@ const RecordMealModal = ({
                 value={fatArr[i]}
                 onChange={evt => onFatChange(evt, i)}
               />
+
+              {i > 0 && (
+                <RiDeleteBin2Fill
+                  style={{ top: 20, height: 40, cursor: 'pointer' }}
+                  onClick={() => handleDeleteRow(i)}
+                />
+              )}
             </li>
           ))}
         </ul>
