@@ -64,14 +64,17 @@
   font-weight: 500;
   line-height: 1.43;
 }
-
+.form button:disabled {
+  background-color: #b6b6b6;
+}
 .form {
   display: flex;
   flex-direction: column;
   row-gap: 16px;
 }
 
-.input {  position: relative;
+.input {
+  position: relative;
   width: 100%;
   padding: 8px 10px;
   border-radius: 12px;
@@ -202,7 +205,7 @@
   }
 }
 
-.label{
+.label {
   position: relative;
 }
 
@@ -212,6 +215,5 @@
   cursor: pointer;
   right: 10px;
   top: 50%;
-  transform: translateY(-50%) 
-
+  transform: translateY(-50%);
 }

@@ -27,7 +27,9 @@
   line-height: 1.33;
   margin-bottom: 24px;
 }
-
+.form button:disabled {
+  background-color: #b6b6b6;
+}
 .form {
   display: flex;
   flex-direction: column;
@@ -167,4 +169,11 @@
   .NextBtn {
     width: 212px;
   }
+}
+
+
+/* Стилізація стрілок в інпуті типу "number" */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+display: none;
 }

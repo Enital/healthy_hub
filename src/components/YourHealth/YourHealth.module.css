@@ -27,7 +27,9 @@
   line-height: 1.33;
   margin-bottom: 24px;
 }
-
+.form button:disabled {
+  background-color: #b6b6b6;
+}
 .form {
   display: flex;
   flex-direction: column;

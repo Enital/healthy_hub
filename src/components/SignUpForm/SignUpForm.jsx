@@ -1,67 +1,22 @@
 import { NavLink } from 'react-router-dom';
 import SportAndFitnessTrackerIMG from './../../images/img/illustration-sport-and-fitness-tracker.svg';
 import css from './SignUpForm.module.css';
-import { useState } from 'react';
-// import { Formik, Form, Field, ErrorMessage } from 'formik';
-// import * as yup from 'yup';
+import { useInput } from '../../hooks/useValidationForm';
 // import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-function SignUpForm({ onForm, name2, email2, password2 }) {
-  const [name, setName] = useState(name2);
-  const [email, setEmail] = useState(email2);
-  const [password, setPassword] = useState(password2);
-
-  const handleChange = event => {
-    const { name, value } = event.target;
-
-    switch (name) {
-      case 'name':
-        setName(value);
-        break;
-      case 'email':
-        setEmail(value);
-        break;
-      case 'password':
-        setPassword(value);
-        break;
-      default:
-        return;
-    }
-  };
-  function myFunction() {
+const SignUpForm = ({ onForm }) => {
+  const myFunction = () => {
     const x = document.getElementById('myInput');
     if (x.type === 'password') {
       x.type = 'text';
     } else {
       x.type = 'password';
     }
-  }
-  // const schema = yup.object().shape({
-  //   name: yup.string().required('Name is required'),
-  //   email: yup
-  //     .string()
-  //     .email('Invalid email format')
-  //     .required('Email is required'),
-  //   password: yup
-  //     .string()
-  //     .matches(
-  //       /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,16}$/,
-  //       'Password must meet the criteria (min. 6, max. 16 characters, at least 1 digit, 1 lowercase letter, and 1 uppercase letter)'
-  //     )
-  //     .required('Password is required'),
-  // });
+  };
+  const name = useInput('', { isEmpty: true, isName: true });
+  const email = useInput('', { isEmpty: true, isEmail: true });
+  const password = useInput('', { isEmpty: true, isPassword: true });
 
-  // const initialValues = {
-  //   name: '',
-  //   email: '',
-  //   password: '',
-  // };
-
-  // const FromError = ({ name }) => {
-  //   return (
-  //     <ErrorMessage name={name} render={message => Notify.failure(message)} />
-  //   );
-  // }
   return (
     <div className={css.wrapper}>
       <img
@@ -74,54 +29,72 @@ function SignUpForm({ onForm, name2, email2, password2 }) {
         <h2 className={css.subtitle}>
           You need to register to use the service
         </h2>
-        {/* <Formik
-          initialValues={initialValues}
-          onSubmit={onForm}
-          validationSchema={schema}
-        > */}
+
         <form className={css.form} onSubmit={onForm}>
+          {name.isDirty && name.isEmpty && (
+            <div style={{ color: 'red', fontSize: '10px' }}>
+              Please enter your name
+            </div>
+          )}
+          {name.isDirty && name.nameError && (
+            <div style={{ color: 'red', fontSize: '10px' }}>valid name</div>
+          )}
           <label>
             <input
               className={css.input}
               type="text"
               name="name"
               placeholder="Name"
-              value={name}
-              onChange={handleChange}
-              pattern="[A-Za-z\s]{1,25}" 
-              title="Введіть ваше ім'я, використовуючи тільки літери та пробіли [A-Z]" 
-              required
+              value={name.value}
+              onChange={e => name.onChange(e)}
+              onBlur={e => name.onBlur(e)}
             />
-            {/* <FromError name="name" /> */}
           </label>
+          {email.isDirty && email.isEmpty && (
+            <div style={{ color: 'red', fontSize: '10px' }}>
+              Please enter your e-mail address
+            </div>
+          )}
+          {email.isDirty && email.emailError && (
+            <div style={{ color: 'red', fontSize: '10px' }}>
+              Введіть вашу адресу
+            </div>
+          )}
           <label>
             <input
               className={css.input}
               type="email"
               name="email"
               placeholder="E-mail"
-              value={email}
-              onChange={handleChange}
-              pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
-              required
-              title="Введіть вашу адресу електронної пошти у форматі example@example.com"
+              value={email.value}
+              onChange={e => email.onChange(e)}
+              onBlur={e => email.onBlur(e)}
             />
-            {/* <FromError name="email" /> */}
           </label>
+          {password.isDirty && password.isEmpty && (
+            <div style={{ color: 'red', fontSize: '10px' }}>
+              Please create your own password
+            </div>
+          )}
+          {/* {password.isDirty && password.passwordError && (
+            <div style={{ color: 'red', fontSize: '10px' }}>
+              Must contain at least one number and one uppercase and lowercase
+              letter, and at least 8 or more characters
+            </div>
+          )} */}
           <label className={css.label}>
             <input
               className={css.input}
               type="password"
               name="password"
               placeholder="Password"
-              value={password}
+              value={password.value}
               id="myInput"
-              onChange={handleChange}
-              pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,16}$"
-              title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+              onChange={e => password.onChange(e)}
+              onBlur={e => password.onBlur(e)}
+              pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}'
               required
             />
-            {/* <FromError name="password" /> */}
             <input
               className={css.checkbox}
               type="checkbox"
@@ -129,11 +102,16 @@ function SignUpForm({ onForm, name2, email2, password2 }) {
               style={{ display: password ? 'block' : 'none' }}
             />
           </label>
-          <button className={css.signupBtn} type="submit">
+          <button
+            className={css.signupBtn}
+            type="submit"
+            disabled={
+              !name.inputValid || !password.inputValid || !email.inputValid
+            }
+          >
             Next
           </button>
         </form>
-        {/* </Formik> */}
         <div className={css.questionTrumb}>
           <p className={css.question}> Do you already have an account?</p>
           <NavLink className={css.signinBtn} to="/signin">
@@ -143,6 +121,6 @@ function SignUpForm({ onForm, name2, email2, password2 }) {
       </div>
     </div>
   );
-}
+};
 
 export default SignUpForm;
