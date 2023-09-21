@@ -26,7 +26,7 @@ function YourGoal({ onForm, onBackPage, goal }) {
                 type="radio"
                 name="goal"
                 value="lose"
-                checked={goalValue === 'lose'}
+                checked={goalValue === 'Lose fat'}
                 onChange={handleChangeGoal}
               />
               Lose Fat
@@ -36,7 +36,7 @@ function YourGoal({ onForm, onBackPage, goal }) {
                 type="radio"
                 name="goal"
                 value="maintain"
-                checked={goalValue === 'maintain'}
+                checked={goalValue === 'Maintain'}
                 onChange={handleChangeGoal}
               />
               Maintain
@@ -46,7 +46,7 @@ function YourGoal({ onForm, onBackPage, goal }) {
                 type="radio"
                 name="goal"
                 value="gain"
-                checked={goalValue === 'gain'}
+                checked={goalValue === 'Gain muscle'}
                 onChange={handleChangeGoal}
               />
               Gain Muscle
