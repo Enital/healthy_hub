@@ -123,13 +123,13 @@
     width: 444px;
   }
   .navigation {
-    margin-bottom: 80px;
+    margin-bottom: 60px;
   }
 
   .img {
-    width: 380px;
-    height: 376px;
-    margin-bottom: 60px;
+    width: 592px;
+    height: 588px;
+    margin-bottom: 0;
   }
 
   .title {
@@ -202,6 +202,7 @@
   .img {
     width: 592px;
     height: 588px;
+    margin-bottom: 0;
   }
 
   .title {
@@ -235,8 +236,8 @@
     width: 212px;
     margin: 0;
   }
+
   .navigation {
     text-align: start;
   }
 }
-
