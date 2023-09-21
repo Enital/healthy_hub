@@ -1,11 +1,14 @@
 /* mobile menu 0- 349 */
 
-@media screen and (max-width: 349px) {
+@media screen and (max-width: 300px) {
   .containerDiary {
-    width: 300px; 
+    width: 300px;
+    padding-left: 10px;
+    padding-right: 10px;
     margin-left: auto;
     margin-right: auto;
   }
+
   .divBreakfastModal {
    
     margin-top: 20px;
@@ -27,7 +30,7 @@
     align-items: center;
   }
   .openModal {
-    width: 150px;
+    /* width: 150px; */
     font-weight: 500;
     font-size: 14px;
     line-height: 20px;
@@ -59,13 +62,20 @@
   }
 }
 
-
-@media screen and (min-width: 350px) {
+/* ////////////////////////////////////////// */
+@media screen and (min-width: 301px) {
+  .containerDiary {
+    width: 518px;
+    
+    padding-right: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 .link {
   display: flex;
   align-items: center;
   /* margin-top: 25px; */
-  margin-left: 25px;
+  /* margin-left: 25px; */
 }
 .diary {
   margin-right: 10px;
@@ -75,7 +85,7 @@
   font-size: 22px;
   line-height: 32px;
   color: rgba(255, 255, 255, 1);
-  margin-left: 25px;
+  
 }
 .seeMore {
   width: auto;
@@ -88,7 +98,7 @@
 .breakfastImage {
   width: 36px;
   height: 36px;
-  margin-left: 25px;
+  /* margin-left: 25px; */
   margin-right: 10px;
 }
 .diaryBreakfast {
@@ -101,6 +111,12 @@
   margin-left: 25px;
   margin-right: 10px;
 }
+.diaryMobile {
+  display: flex;
+  margin-top: 20px;
+  align-items: center;
+ 
+}
 
 /* ////////////////////////////////////// */
 .overlay {
@@ -108,7 +124,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
   height: 408px;
   border-radius: 12px;
   background-color: rgba(15, 15, 15, 1);
@@ -219,7 +234,7 @@
 .breakfastImage {
   width: 36px;
   height: 36px;
-  margin-left: 25px;
+  
 }
 .diaryBreakfast {
   width: 100px;
@@ -232,13 +247,12 @@
 }
 .divBreakfast {
   display: flex;
-  margin-top: 20px;
+ 
   align-items: center;
   margin-bottom: 20px;
 }
 .openModal {
   width: 150px;
-
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
@@ -249,6 +263,8 @@
   cursor: pointer;
   justify-content: center;
   text-align: center;
+  white-space: nowrap;
+
 }
 }
 
