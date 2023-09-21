@@ -66,6 +66,8 @@ const DiaryOnMain = () => {
         </button>
       </div>
 
+     
+
       <div className={css.divBreakfast}>
       <div className={css.diaryMobile}>
         <img className={css.breakfastImage} src={snackImage} alt="Snack" />

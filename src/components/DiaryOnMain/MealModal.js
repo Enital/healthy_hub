@@ -5,13 +5,6 @@ import css from './diaryOnMain.module.css';
 import { useDispatch } from 'react-redux';
 import { fetchGoalsConfirm } from 'redux/usersGoal/operations';
 
-// export const mealFields = {
-//   name: '',
-//   carbohydrates: 0,
-//   protein: 0,
-//   fat: 0,
-//   calories: 0,
-// };
 
 const MealModal = ({ isOpen, onClose }) => {
   const dispatch = useDispatch();
@@ -24,7 +17,7 @@ const MealModal = ({ isOpen, onClose }) => {
   });
 
   const initialInputFields = [
-    { name: '', carbohydrates: 0, protein: 0, fat: 0, calories: 0 },
+    { name: '', carbohydrates: '', protein: '', fat: '', calories: '' },
   ];
 
   const [inputFields, setInputFields] = useState(initialInputFields);
@@ -54,9 +47,7 @@ const MealModal = ({ isOpen, onClose }) => {
 
   const handleConfirm = async () => {
     try {
-      await dispatch(fetchGoalsConfirm(placeholderData));
-
-  
+       await dispatch(fetchGoalsConfirm(placeholderData));
     } catch (error) {
       console.error('Помилка під час відправки на бекенд:', error);
     }
@@ -126,7 +117,7 @@ const MealModal = ({ isOpen, onClose }) => {
                 background: 'black',
                 marginRight: '10px',
               }}
-              placeholder="carbohydrates"
+              placeholder="carbonoh."
               type="text"
               id={`carbohydrates${index}`}
               name="carbohydrates"
@@ -220,6 +211,9 @@ const MealModal = ({ isOpen, onClose }) => {
                 Remove
               </button>
             )}
+
+
+            
           </div>
         ))}
 
@@ -242,23 +236,4 @@ export default MealModal;
 
 
 
-// {
-//     breakfast: [
-//         { qwe: 23, name: 'Apple', calories: 52, carbohydrates: 14, protein: 0.3, fat: 0.2 },
-//         { name: 'Strawberries', calories: 32, carbohydrates: 7.68, protein: 0.67, fat: 0.3 },
-//     ],
-//     lunch: [
-//         { name: 'Spinach', calories: 23, carbohydrates: 3.6, protein: 2.9, fat: 0.4 },
-//         { name: 'Kale', calories: 49, carbohydrates: 8.8, protein: 3.3, fat: 0.9 },
-//         { name: 'Quinoa', calories: 120, carbohydrates: 21.3, protein: 4.4, fat: 1.9 },
-//     ],
-//     dinner: [
-//         { name: 'Greek Yogurt', calories: 59, carbohydrates: 3.6, protein: 10, fat: 0.4 },
-//         { name: 'Chicken Breast', calories: 165, carbohydrates: 0, protein: 31, fat: 3.6 },
-//     ],
-//     snack: [
-//         { name: 'Spinach', calories: 23, carbohydrates: 3.6, protein: 2.9, fat: 0.4 },
-//         { name: 'Kale', calories: 49, carbohydrates: 8.8, protein: 3.3, fat: 0.9 },
-//         { name: 'Quinoa', calories: 120, carbohydrates: 21.3, protein: 4.4, fat: 1.9 },
-//     ],
-// },
+
