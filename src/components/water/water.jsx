@@ -2,30 +2,13 @@ import React from 'react';
 import { selectGoals } from 'redux/usersGoal/selectors';
 import { useSelector } from 'react-redux';
 import AddWaterModal from 'components/addWaterModal/addWaterModal';
-import { addWater } from 'redux/usersGoal/operations';
-import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 import css from './water.module.css';
 import addSvg from '../../images/icons/add.svg';
 
 export default function Water() {
-  const [number, setNumber] = useState();
-
   const [openModal, setOpenModal] = useState(false);
   const { items } = useSelector(selectGoals);
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (number === undefined) {
-      return;
-    }
-    dispatch(addWater(number));
-  }, [dispatch, number]);
-
-  const changeNumber = params => {
-    setNumber(params);
-  };
 
   const openModalHendler = () => {
     setOpenModal(true);
@@ -41,11 +24,16 @@ export default function Water() {
   const waterGoal = items.total.water.goal;
   const waterUsed = items.total.water.used;
 
-  const progress = Math.round((waterUsed / waterGoal) * 100);
+  function progress(used, goal) {
+    if (used >= goal) {
+      return 100;
+    }
+    return Math.round((waterUsed / waterGoal) * 100);
+  }
 
   let walue = -20;
 
-  switch (progress) {
+  switch (progress(waterUsed, waterGoal)) {
     case 91:
       walue = -18;
       break;
@@ -86,9 +74,14 @@ export default function Water() {
       <div className={css.waterWrapper}>
         <div className={css.waterProgressBar}>
           <div className={css.progress}>
-            <div className={css.progressBar} style={{ height: `${progress}%` }}>
+            <div
+              className={css.progressBar}
+              style={{
+                height: `${progress(waterUsed, waterGoal)}%`,
+              }}
+            >
               <span className={css.srOnly} style={{ top: `${walue}px` }}>
-                {`${progress}%`}
+                {`${progress(waterUsed, waterGoal)}%`}
               </span>
             </div>
           </div>
@@ -102,14 +95,17 @@ export default function Water() {
             </p>
             <p className={css.left}>
               left:
-              <span className={css.leftSpan}>{waterGoal - waterUsed}</span>
+              <span className={css.leftSpan}>
+                {waterGoal <= waterUsed ? 0 : waterGoal - waterUsed}
+              </span>
               <span className={css.waterSpan2}>ml</span>
             </p>
           </div>
           {openModal && (
             <AddWaterModal
               closeModal={closeModalHendler}
-              changeNumber={changeNumber}
+              waterGoal={waterGoal}
+              waterUsed={waterUsed}
             />
           )}
           <button className={css.waterbutton} onClick={openModalHendler}>

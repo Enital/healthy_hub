@@ -8,7 +8,11 @@ import Dinner from '../../../images/illustration/dinner-image.svg';
 import Snack from '../../../images/illustration/snack-image.svg';
 import { useSelector } from 'react-redux';
 import ButtonLoader from 'components/Loader/ButtonLoader';
+import { RiDeleteBin2Fill } from 'react-icons/ri';
 
+import { useDispatch } from 'react-redux';
+import { updateFoodOperations } from 'redux/user/userOperations';
+import { Notify } from 'notiflix';
 const imageObject = { Breakfast, Lunch, Dinner, Snack };
 
 export const customStyles = {
@@ -25,12 +29,25 @@ const RecordMealModal = ({
 }) => {
   const isLoading = useSelector(state => state.user.isLoading);
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(true);
-  const [numberOfItems, setNumberOfItems] = useState([0]);
+  const [numberOfItems, setNumberOfItems] = useState(1);
 
   const [productNameArr, setProductNameArr] = useState(['']);
   const [carbonohidratesArr, setCarbonohidratesArr] = useState(['']);
   const [proteinArr, setProteinArr] = useState(['']);
   const [fatArr, setFatArr] = useState(['']);
+
+  const dispatch = useDispatch();
+
+  const handleDeleteRow = index => {
+    if (numberOfItems > 1) {
+      const newNumberOfItems = numberOfItems - 1;
+      setNumberOfItems(newNumberOfItems);
+      setProductNameArr(prev => prev.filter((_, i) => i !== index));
+      setCarbonohidratesArr(prev => prev.filter((_, i) => i !== index));
+      setProteinArr(prev => prev.filter((_, i) => i !== index));
+      setFatArr(prev => prev.filter((_, i) => i !== index));
+    }
+  };
 
   useEffect(() => {
     if (
@@ -44,11 +61,38 @@ const RecordMealModal = ({
       setSubmitButtonDisabled(true);
       return;
     }
+
+    const arrLength = productNameArr.length;
+
+    for (let i = 0; i < arrLength; i++) {
+      const carbonohydratesElemBoolean =
+        parseFloat(carbonohidratesArr[i]) === 0;
+
+      const fatElemBoolean = parseFloat(fatArr[i]) === 0;
+
+      const proteinElemBoolean = parseFloat(proteinArr[i]) === 0;
+
+      const nameElemBoolean = productNameArr[i].trim() === '';
+
+      if (nameElemBoolean) {
+        i = arrLength + 1;
+        setSubmitButtonDisabled(true);
+      } else {
+        if (
+          carbonohydratesElemBoolean &&
+          fatElemBoolean &&
+          proteinElemBoolean
+        ) {
+          i = arrLength + 1;
+          setSubmitButtonDisabled(true);
+        } else setSubmitButtonDisabled(false);
+      }
+    }
   }, [carbonohidratesArr, fatArr, productNameArr, proteinArr]);
 
   const onAddMoreButtonClick = () => {
-    const newValue = numberOfItems.length;
-    setNumberOfItems(prev => [...prev, newValue]);
+    const newValue = numberOfItems + 1;
+    setNumberOfItems(newValue);
     setProductNameArr(prev => [...prev, '']);
     setCarbonohidratesArr(prev => [...prev, '']);
     setProteinArr(prev => [...prev, '']);
@@ -57,12 +101,36 @@ const RecordMealModal = ({
 
   const onCloseButtonClick = () => {
     document.body.style.overflow = 'auto';
-    setNumberOfItems([0]);
+    setNumberOfItems(1);
     setRecordMealModalOpen(false);
     setProductNameArr(['']);
     setCarbonohidratesArr(['']);
     setProteinArr(['']);
     setFatArr(['']);
+  };
+
+  const handleSubmit = evt => {
+    evt.preventDefault();
+    document.body.style.overflow = 'auto';
+
+    const sendedObj = {};
+    sendedObj[selectedMeal.toLowerCase()] = productNameArr.map((el, i) => ({
+      foodName: el.trim(),
+      carbonohidrates: `${carbonohidratesArr[i]}`,
+      fat: `${fatArr[i]}`,
+      protein: `${proteinArr[i]}`,
+    }));
+
+    dispatch(updateFoodOperations(sendedObj))
+      .unwrap()
+      .then(() => onCloseButtonClick())
+      .catch(e => {
+        Notify.error(e.message, {
+          theme: 'dark',
+          autoClose: 2000,
+          hideProgressBar: true,
+        });
+      });
   };
 
   const onNameChange = (evt, index) => {
@@ -139,9 +207,9 @@ const RecordMealModal = ({
       return resultArr;
     });
   };
-
   return (
     <Modal
+      className={`${css.recordMealModal} `}
       isOpen={recordMealModalOpen}
       onRequestClose={onCloseButtonClick}
       style={customStyles}
@@ -159,8 +227,8 @@ const RecordMealModal = ({
       </div>
       <form>
         <ul className={css.recordMealModalInputsList}>
-          {numberOfItems.map((el, i) => (
-            <li key={el} className={css.recordMealModalInputsListItem}>
+          {Array.from({ length: numberOfItems }, (_, i) => (
+            <li key={i} className={css.recordMealModalInputsListItem}>
               <input
                 placeholder="The name of the product or dish"
                 type="text"
@@ -193,6 +261,13 @@ const RecordMealModal = ({
                 value={fatArr[i]}
                 onChange={evt => onFatChange(evt, i)}
               />
+
+              {i > 0 && (
+                <RiDeleteBin2Fill
+                  style={{ top: 20, height: 40, cursor: 'pointer' }}
+                  onClick={() => handleDeleteRow(i)}
+                />
+              )}
             </li>
           ))}
         </ul>
@@ -211,7 +286,8 @@ const RecordMealModal = ({
             <ButtonLoader />
           ) : (
             <button
-              onClick={onCloseButtonClick}
+              className={`${css.recordMealModalConfirmBtn} `}
+              onClick={handleSubmit}
               type="submit"
               disabled={submitButtonDisabled}
             >
@@ -219,7 +295,11 @@ const RecordMealModal = ({
             </button>
           )}
 
-          <button type="button" onClick={onCloseButtonClick}>
+          <button
+            className={`${css.recordMealModalCancelBtn} `}
+            type="button"
+            onClick={onCloseButtonClick}
+          >
             Cancel
           </button>
         </div>

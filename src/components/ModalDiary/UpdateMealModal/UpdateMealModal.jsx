@@ -6,6 +6,10 @@ import Lunch from '../../../images/illustration/lunch-image.svg';
 import Dinner from '../../../images/illustration/dinner-image.svg';
 import Snack from '../../../images/illustration/snack-image.svg';
 
+import { useDispatch, useSelector } from 'react-redux';
+import { updateUserFoodOperation } from 'redux/user/userOperations';
+import { makeSelectMeal } from 'redux/user/userSelectors';
+
 export const customStyles = {
   overlay: {
     background: 'rgba(5, 5, 5, 0.8)',
@@ -20,18 +24,36 @@ const UpdateMealModal = ({
   selectedMeal,
   foodName,
 }) => {
+  const dispatch = useDispatch();
+  const selectMeal = makeSelectMeal();
+  const mealData = useSelector(state => selectMeal(state, selectedMeal));
+  const editMeal = mealData?.filter(el => el.foodName === foodName);
+
   const [validationText, setValidationText] = useState(false);
   const [form, setForm] = useState({
     foodName,
-    carbonohidrates: '',
-    protein: '',
-    fat: '',
+    carbonohidrates: editMeal[0]?.carbonohidrates || '',
+    protein: editMeal[0]?.protein || '',
+    fat: editMeal[0]?.fat || '',
   });
 
   useEffect(() => {
     if (updateMealModalOpen) {
-      // Добавьте здесь логику для загрузки данных, если это необходимо
-      // Например, вы можете использовать Redux для загрузки данных из хранилища
+      if (editMeal[0]) {
+        setForm({
+          foodName,
+          carbonohidrates: editMeal[0].carbonohidrates,
+          protein: editMeal[0].protein,
+          fat: editMeal[0].fat,
+        });
+      } else {
+        setForm({
+          foodName,
+          carbonohidrates: '',
+          protein: '',
+          fat: '',
+        });
+      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [updateMealModalOpen, foodName]);
@@ -39,7 +61,36 @@ const UpdateMealModal = ({
   const handleCloseModal = () => {
     setUpdateMealModalOpen(false);
     document.body.style.overflow = 'auto';
+
     setValidationText(false);
+  };
+
+  const foodSection = selectedMeal.toLowerCase();
+
+  const updateFood = {
+    [foodSection]: {
+      foodName,
+      carbonohidrates: form.carbonohidrates,
+      protein: form.protein,
+      fat: form.fat,
+    },
+  };
+
+  const handleClick = e => {
+    e.preventDefault();
+    if (form.carbonohidrates === '' || form.protein === '' || form.fat === '') {
+      setValidationText(true);
+      return;
+    }
+
+    dispatch(updateUserFoodOperation(updateFood));
+    setForm({
+      foodName,
+      carbonohidrates: '',
+      protein: '',
+      fat: '',
+    });
+    handleCloseModal();
   };
 
   const handleChange = e => {
@@ -61,27 +112,9 @@ const UpdateMealModal = ({
     }
   };
 
-  const handleClick = e => {
-    e.preventDefault();
-    if (form.carbonohidrates === '' || form.protein === '' || form.fat === '') {
-      setValidationText(true);
-      return;
-    }
-
-    // Здесь можно добавить логику для обновления данных, если это необходимо
-    // Например, вы можете использовать Redux для отправки данных в хранилище
-
-    setForm({
-      foodName,
-      carbonohidrates: '',
-      protein: '',
-      fat: '',
-    });
-    handleCloseModal();
-  };
-
   return (
     <Modal
+      className={`${css.recordMealModal} `}
       isOpen={updateMealModalOpen}
       onRequestClose={handleCloseModal}
       style={customStyles}
@@ -137,8 +170,22 @@ const UpdateMealModal = ({
           <p className={css.validationText}>Please fill in all fields </p>
         )}
         <div className={css.recordMealModalBtnContainer}>
-          <button onClick={handleClick}>Confirm</button>
-          <button type="button" onClick={handleCloseModal}>
+          <button
+            className={`${css.recordMealModalConfirmBtn}`}
+            onClick={handleClick}
+            // type="button"
+          >
+            Confirm
+          </button>
+          <button
+            className={`${css.recordMealModalCancelBtn} `}
+            type="button"
+            onClick={() => {
+              setUpdateMealModalOpen(false);
+              setValidationText(false);
+              document.body.style.overflow = 'auto';
+            }}
+          >
             Cancel
           </button>
         </div>

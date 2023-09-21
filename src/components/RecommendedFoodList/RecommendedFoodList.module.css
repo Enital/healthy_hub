@@ -1,5 +1,4 @@
 /* MOBILE */
-
 .list {
   display: flex;
   flex-direction: column;
@@ -49,6 +48,7 @@
     padding: 20px 24px;
   }
 }
+
 /* DESKTOP */
 @media screen and (min-width: 1440px) {
   .item {
