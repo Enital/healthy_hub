@@ -44,8 +44,17 @@ const MealModal = ({ isOpen, onClose }) => {
   const handleConfirm = async () => {
     try {
        await dispatch(fetchGoalsConfirm(placeholderData));
+        // clear
+      setInputFields(initialInputFields);
+      setPlaceholderData({
+        name: '',
+        carbohydrates: '',
+        protein: '',
+        fat: '',
+        calories: '',
+      });
     } catch (error) {
-      console.error('Помилка під час відправки на бекенд:', error);
+      console.error('Error sending to backend:', error);
     }
   };
 
@@ -55,8 +64,19 @@ const MealModal = ({ isOpen, onClose }) => {
     setInputFields(newInputFields);
   };
 
+  
+
   return (
     <div className={css.overlay} style={{ display: isOpen ? 'block' : 'none' }}>
+    
+       <div>
+      {/* {isOpen && (
+        <div className={css.modalBackdrop} onClick={onClose}>
+          <MealModal isOpen={isOpen} onClose={onClose} />
+        </div>
+      )} */}
+    </div>
+      <form onSubmit={handleConfirm}>
       <div>
         <h2 className={css.img}>Record your meal</h2>
         <div className={css.flexContainer}>
@@ -214,8 +234,9 @@ const MealModal = ({ isOpen, onClose }) => {
         <button className={css.cancel} onClick={onClose}>
           Cancel
         </button>
-        <button className={css.confirm} onClick={handleConfirm}>Confirm</button>
+        <button className={css.confirm} type='submit'>Confirm</button>
       </div>
+      </form>
     </div>
   );
 };

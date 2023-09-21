@@ -74,8 +74,7 @@
 .link {
   display: flex;
   align-items: center;
-  /* margin-top: 25px; */
-  /* margin-left: 25px; */
+ 
 }
 .diary {
   margin-right: 10px;
@@ -126,11 +125,27 @@
   transform: translate(-50%, -50%);
   height: 408px;
   border-radius: 12px;
-  background-color: rgba(15, 15, 15, 1);
+  background-color: rgba(0, 0, 0, 0.5); 
   z-index: 1000;
   display: none; /* Invisible by default*/
   overflow-y: auto;
+  cursor: pointer; 
+  backdrop-filter: #0f0f0f;;
 }
+
+/* .modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 999; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer; 
+} */
 
 .img {
   margin-top: 25px;
@@ -267,4 +282,8 @@
 margin-top: 20px;
 }
 }
+
+
+
+
 
