@@ -35,6 +35,7 @@ const RecordMealModal = ({
   const [carbonohidratesArr, setCarbonohidratesArr] = useState(['']);
   const [proteinArr, setProteinArr] = useState(['']);
   const [fatArr, setFatArr] = useState(['']);
+  const [caloriesArr, setCaloriesArr] = useState(['']);
 
   const dispatch = useDispatch();
 
@@ -46,6 +47,7 @@ const RecordMealModal = ({
       setCarbonohidratesArr(prev => prev.filter((_, i) => i !== index));
       setProteinArr(prev => prev.filter((_, i) => i !== index));
       setFatArr(prev => prev.filter((_, i) => i !== index));
+      setCaloriesArr(prev => prev.filter((_, i) => i !== index));
     }
   };
 
@@ -54,7 +56,8 @@ const RecordMealModal = ({
       !productNameArr.includes('') &&
       !carbonohidratesArr.includes('') &&
       !proteinArr.includes('') &&
-      !fatArr.includes('')
+      !fatArr.includes('') &&
+      !caloriesArr.includes('')
     ) {
       setSubmitButtonDisabled(false);
     } else {
@@ -69,6 +72,7 @@ const RecordMealModal = ({
         parseFloat(carbonohidratesArr[i]) === 0;
 
       const fatElemBoolean = parseFloat(fatArr[i]) === 0;
+      const caloriesElemBoolean = parseFloat(caloriesArr[i]) === 0;
 
       const proteinElemBoolean = parseFloat(proteinArr[i]) === 0;
 
@@ -81,14 +85,15 @@ const RecordMealModal = ({
         if (
           carbonohydratesElemBoolean &&
           fatElemBoolean &&
-          proteinElemBoolean
+          proteinElemBoolean &&
+          caloriesElemBoolean
         ) {
           i = arrLength + 1;
           setSubmitButtonDisabled(true);
         } else setSubmitButtonDisabled(false);
       }
     }
-  }, [carbonohidratesArr, fatArr, productNameArr, proteinArr]);
+  }, [carbonohidratesArr, fatArr, productNameArr, proteinArr, caloriesArr]);
 
   const onAddMoreButtonClick = () => {
     const newValue = numberOfItems + 1;
@@ -97,6 +102,7 @@ const RecordMealModal = ({
     setCarbonohidratesArr(prev => [...prev, '']);
     setProteinArr(prev => [...prev, '']);
     setFatArr(prev => [...prev, '']);
+    setCaloriesArr(prev => [...prev, '']);
   };
 
   const onCloseButtonClick = () => {
@@ -107,6 +113,7 @@ const RecordMealModal = ({
     setCarbonohidratesArr(['']);
     setProteinArr(['']);
     setFatArr(['']);
+    setCaloriesArr(['']);
   };
 
   const handleSubmit = evt => {
@@ -119,6 +126,7 @@ const RecordMealModal = ({
       carbonohidrates: `${carbonohidratesArr[i]}`,
       fat: `${fatArr[i]}`,
       protein: `${proteinArr[i]}`,
+      calories: `${caloriesArr[i]}`,
     }));
 
     dispatch(updateFoodOperations(sendedObj))
@@ -207,6 +215,25 @@ const RecordMealModal = ({
       return resultArr;
     });
   };
+  const onCaloriesChange = (evt, index) => {
+    let string = evt.target.value.replace(/[^\d]/g, '');
+    if (parseFloat(string) < 0) {
+      string = '0';
+    }
+
+    setCaloriesArr(prev => {
+      const resultArr = [];
+      for (let i = 0; i < prev.length; i++) {
+        if (i === index) {
+          resultArr[i] = string;
+        } else {
+          resultArr[i] = prev[i];
+        }
+      }
+
+      return resultArr;
+    });
+  };
   return (
     <Modal
       className={`${css.recordMealModal} `}
@@ -260,6 +287,14 @@ const RecordMealModal = ({
                 className={css.recordMealModalInput}
                 value={fatArr[i]}
                 onChange={evt => onFatChange(evt, i)}
+              />
+              <input
+                placeholder="Calories"
+                type="text"
+                maxLength="3"
+                className={css.recordMealModalInput}
+                value={caloriesArr[i]}
+                onChange={evt => onCaloriesChange(evt, i)}
               />
 
               {i > 0 && (
