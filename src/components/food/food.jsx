@@ -35,7 +35,7 @@ export default function Food() {
     if (used >= goal) {
       return 0;
     }
-    return goal - used;
+    return parseFloat((goal - used).toFixed(2));
   }
 
   return (
