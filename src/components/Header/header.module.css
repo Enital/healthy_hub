@@ -9,6 +9,7 @@ h1, h2, h3, h4, h5, h6, p, div, link {
     display: flex;
     flex-direction: row;
     background: var(--color-primary-black-2, #0F0F0F);
+    position: relative;
 }
 
 .headline{
@@ -17,6 +18,7 @@ h1, h2, h3, h4, h5, h6, p, div, link {
     font-size: 22px;
     margin: 34px 0px 34px 34px;
     line-height: 32px;
+    cursor: pointer;
 }
 
 .link{
@@ -71,6 +73,7 @@ h1, h2, h3, h4, h5, h6, p, div, link {
 
 .userProfileRegistration{
     margin: 0px 4px 0px 6px;
+    width: 28px;
 }
 
 .authenticatedNav{
@@ -95,18 +98,20 @@ h1, h2, h3, h4, h5, h6, p, div, link {
 .openArrowDownGoalSvg{
     position: absolute;
     top: 54px;
-    right: 498px;
+    right: 477px;
 }
 
 .goalChosenName{
-  position: absolute;
-  bottom: 29px;
-  top: 51px;
-  right: 524px;
-  color: var(--color-primary-white, #FFF);
+    position: absolute;
+    bottom: 29px;
+    top: 51px;
+    left: 792px;
+    color: var(--color-primary-white, #FFF);
     font-size: 14px;
     font-weight: 500;
     line-height: 20px;
+    text-align: start;
+    width: 90px;
 }
 
 .modalGoalContent {
@@ -171,7 +176,7 @@ h1, h2, h3, h4, h5, h6, p, div, link {
     position: absolute; 
     top: 100px;
     right: 36px;
-   
+    z-index: 99;
 }
 
 .sectionContentWeight{
@@ -294,12 +299,13 @@ h1, h2, h3, h4, h5, h6, p, div, link {
 }
 
 .goalEmoji{
-    width: 40px;
-    height: 40px;
-    border: 1px solid var(--secondary-color-grey-1, #292928);
-    background: rgba(255, 255, 255, 0.01);
     padding: 10px;
-    display: block;
+    border-radius: 12px;
+    border: 1px solid #5F5E5C;
+    background: rgba(255, 255, 255, 0.01);
+    position: absolute;
+    right:592px;
+    top: 26px;
 }
 
 .textEmojiGoal{
