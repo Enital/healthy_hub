@@ -63,6 +63,9 @@ li {
 a,
 button {
   cursor: pointer;
+  text-decoration: none;
+  font-family: inherit;
+  color: inherit;
 }
 
 /* MOBILE */
