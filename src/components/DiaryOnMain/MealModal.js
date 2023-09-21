@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import breakfast from '../../images/illustration/breakfast-image.svg';
-
 import css from './diaryOnMain.module.css';
 import { useDispatch } from 'react-redux';
 import { fetchGoalsConfirm } from 'redux/usersGoal/operations';
-
 
 const MealModal = ({ isOpen, onClose }) => {
   const dispatch = useDispatch();
@@ -43,8 +41,6 @@ const MealModal = ({ isOpen, onClose }) => {
     }));
   };
 
-  
-
   const handleConfirm = async () => {
     try {
        await dispatch(fetchGoalsConfirm(placeholderData));
@@ -68,10 +64,8 @@ const MealModal = ({ isOpen, onClose }) => {
           <h2 className={css.nameBreakfast}>Breakfast</h2>
         </div>
 
-
         {inputFields.map((field, index) => (
           <div className={css.containerLabel} key={index}>
-
 
             <label htmlFor={`productName${index}`}></label>
             <input
@@ -125,7 +119,6 @@ const MealModal = ({ isOpen, onClose }) => {
               onChange={e => handleInputChange(index, e)}
             />
 
-
             <label htmlFor={`protein${index}`}></label>
             <input
               style={{
@@ -150,7 +143,6 @@ const MealModal = ({ isOpen, onClose }) => {
               value={field.protein}
               onChange={e => handleInputChange(index, e)}
             />
-
 
             <label htmlFor={`fat${index}`}></label>
             <input
@@ -188,7 +180,6 @@ const MealModal = ({ isOpen, onClose }) => {
                 lineHeight: '20px',
                 color: 'rgba(182, 182, 182, 1)',
                 font: 'Poppins',
-
                 paddingLeft: '10px',
                 gap: '10px',
                 background: 'black',
@@ -212,12 +203,9 @@ const MealModal = ({ isOpen, onClose }) => {
               </button>
             )}
 
-
-            
           </div>
         ))}
-
-       
+ 
         <button className={css.addMore} type="button" onClick={handleAddField}>
           + Add more
         </button>
