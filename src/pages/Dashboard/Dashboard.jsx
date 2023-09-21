@@ -3,12 +3,17 @@ import CaloriesChart from 'components/Charts/CaloriesChart/CaloriesChart';
 import WaterChart from 'components/Charts/WaterChart/WaterChart';
 import WeightChart from 'components/Charts/WeightChart/WeightChart';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchGraph } from 'redux/dashboard/operations';
+
 import leftArrow from '../../images/icons/arrow-left.svg';
+
 import css from './dashboard.module.css';
 
 const data = new Date();
 const month = data.getMonth();
-// console.log(month);
+
 function getMonth() {
   let monthDate = '';
   switch (month) {
@@ -55,6 +60,11 @@ function getMonth() {
 }
 
 const Dashboard = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchGraph());
+  }, [dispatch]);
   return (
     <div className={css.container}>
       <div className={css.dashboardContainer}>
