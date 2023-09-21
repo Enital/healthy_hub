@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { format } from 'date-fns';
 import axios from 'axios';
 
+import profileCircleSvg from '../../images/icons/profile-circle.svg';
+
 import { logOut } from '../../redux/auth/operations';
 import { useAuth } from '../../redux/auth/useAuth';
 
