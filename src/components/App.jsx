@@ -15,6 +15,7 @@ import { useAuth } from 'redux/auth/useAuth.js';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { refreshUser } from 'redux/auth/operations.js';
+import Loader from './Loader/Loader.jsx';
 
 function App() {
   const dispatch = useDispatch();
@@ -27,7 +28,8 @@ function App() {
   const { isLoggedIn } = useAuth();
 
   return isRefreshing ? (
-    <b>Refreshing user...</b>
+    // <b>Refreshing user...</b>
+  <Loader/>
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
