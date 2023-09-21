@@ -28,8 +28,7 @@ function App() {
   const { isLoggedIn } = useAuth();
 
   return isRefreshing ? (
-    // <b>Refreshing user...</b>
-  <Loader/>
+    <Loader />
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>

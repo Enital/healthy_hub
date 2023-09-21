@@ -12,7 +12,7 @@ function Loader() {
         ariaLabel="vortex-loading"
         wrapperStyle={{}}
         wrapperClass="vortex-wrapper"
-        colors={['red', 'green', 'blue', 'yellow', 'orange', 'purple']}
+        colors={['#E3FFA8', '#B6B6B6', '#FFF', '#E3FFA8', '#B6B6B6', '#FFF']}
       />
     </div>
   );
