@@ -48,11 +48,11 @@ export const fetchGoalsConfirm = createAsyncThunk(
       const response = await axios.post('/user/food-intake', {
         breakfast: [
           {
-            name: 'Coffe',
-            calories: 10,
-            carbohydrates: 4,
-            protein: 0.2,
-            fat: 0.1,
+            name: 'name',
+            calories: calories,
+            carbohydrates: carbohydrates,
+            protein: protein,
+            fat: fat,
           },
         ],
       });

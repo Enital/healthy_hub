@@ -33,7 +33,7 @@ const MealModal = ({ isOpen, onClose }) => {
   const handleAddField = () => {
     setInputFields([
       ...inputFields,
-      { name: '', carbohydrates: 0, protein: 0, fat: 0, calories: 0 },
+      { name: '', carbohydrates: '', protein: '', fat: '', calories: '' },
     ]);
   };
 
