@@ -1,4 +1,7 @@
 import React from 'react';
+import { selectGraph } from 'redux/dashboard/selectors';
+import { useSelector } from 'react-redux';
+
 import { Line } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -183,7 +186,10 @@ export const options = {
 
 const average = Math.round(_.mean(data));
 
-const CaloriesChart = () => {
+export default function CaloriesChart() {
+  const { graphData } = useSelector(selectGraph);
+  console.log(graphData);
+
   return (
     <div className={css.caloriesChart}>
       <ul>
@@ -197,6 +203,6 @@ const CaloriesChart = () => {
       </ul>
     </div>
   );
-};
+}
 
-export default CaloriesChart;
+// export default CaloriesChart;

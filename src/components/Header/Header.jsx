@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import profileCircleSvg from '../../images/icons/profile-circle.svg';
 import { useSelector, useDispatch } from 'react-redux';
 import { format } from 'date-fns';
 import axios from 'axios';
+
+import profileCircleSvg from '../../images/icons/profile-circle.svg';
 
 import { logOut } from '../../redux/auth/operations';
 import { useAuth } from '../../redux/auth/useAuth';
@@ -24,18 +25,21 @@ import css from './header.module.css';
 function Header() {
   const dispatch = useDispatch();
 
+
   const [inputWeight, setInputWeight] = useState('');
-  console.log(inputWeight);
+  const [weight, setWeight] = useState('');
+  const [avatar, setAvatar] = useState('');
+  const [name, setName] = useState('');
+  console.log(avatar)
+  const [goal, setGoal] = useState('');
+
 
   const [activeLink, setActiveLink] = useState(null);
-
   const { user } = useAuth();
   const [selectedGoal, setSelectedGoal] = useState(null);
 
-  const userWeight = useSelector(state => state.auth.user.weight);
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
-  const userName = useSelector(state => state.auth.user.name);
-  //const avatarUrl = useSelector((state) => state.auth.user.avatarUrl);
+  // const name = useSelector(state => state.user.name);
 
   const date = new Date();
   const formatDate = format(date, 'dd.MM.yyyy');
@@ -47,13 +51,43 @@ function Header() {
   const handleClick = link => {
     setActiveLink(link);
   };
+  
+
+  // useEffect(() => {
+  //   if (user && user.goal) {
+  //     setSelectedGoal(user.goal);
+  //     console.log(user.goal);
+  //   }
+  // }, [user]);
+
+  const token = useSelector(state => state.auth.token);
+  axios.defaults.baseURL = 'https://goit-healthy-hub.onrender.com/api';
+
+  async function getUser(token) {
+    try {
+      const res = await axios.get('/auth/current', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      return res.data;
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   useEffect(() => {
-    if (user && user.goal) {
-      setSelectedGoal(user.goal);
-      console.log(user.goal);
-    }
-  }, [user]);
+    getUser(token)
+      .then(data => {
+        setWeight(data.weight);
+        setAvatar(data.avatar);
+        setGoal(data.goal);
+        setName(data.name)
+        console.log(data.name)
+        console.log(data);
+      })
+      .catch(err => console.error('error:' + err));
+  }, [token]);
 
   const handleGoalSelect = goalEmoji => {
     setSelectedGoal(goalEmoji);
@@ -90,6 +124,7 @@ function Header() {
       });
   };
 
+
   const openModalGoal = () => {
     setIsModalGoalOpen(true);
   };
@@ -110,17 +145,22 @@ function Header() {
     setIsModalUserOpen(!isModalUserOpen);
   };
 
+
   // if (user && user.goal) {
   //   console.log(user.goal);
   // }
-  console.log(user.goal === 'lose');
+
+  // console.log(user.goal === 'lose');
   return (
     <div className="container">
+      
       <header className={css.header}>
         <Link to="/WelcomePage" className={css.link}>
           <h1 className={css.headline}>HealthyHub</h1>
         </Link>
         <div className={css.navigation}>
+
+
           {isLoggedIn ? (
             <>
               <div className={css.authenticatedNav}>
@@ -132,32 +172,35 @@ function Header() {
                     className={css.openArrowDownGoalSvg}
                   />
                 </div>
-                {user && user.goal && (
+                {user && goal && (
                   <div>
-                    {user.goal === 'lose' && (
+                    {goal === 'Lose fat' && (
                       <img
                         src={loseFatMenEmoji}
                         alt="Lose fat emoji"
                         className={css.goalEmoji}
                       />
                     )}
-                    {user.goal === maintakeMenEmoji && (
+                    {goal === 'Maintain' && (
                       <img
                         src={maintakeMenEmoji}
                         alt="Maintain emoji"
                         className={css.goalEmoji}
                       />
                     )}
-                    {user.goal === gainMuscleEmoji && (
+                    {goal === 'Gain muscle' && (
                       <img
                         src={gainMuscleEmoji}
                         alt="Gain Muscle emoji"
                         className={css.goalEmoji}
                       />
                     )}
-                    <p className={css.goalChosenName}>{user.goal}</p>
+                    <p className={css.goalChosenName}>{goal}</p>
                   </div>
                 )}
+                
+
+
                 {isModalGoalOpen && (
                   <div>
                     <div className={css.modalGoalContent}>
@@ -217,6 +260,9 @@ function Header() {
                     </div>
                   </div>
                 )}
+
+
+
                 <img
                   src={waightEmoji}
                   alt="Waight Emoji"
@@ -224,13 +270,15 @@ function Header() {
                 />
                 <div className={css.weightElement} onClick={openModalWeight}>
                   <h3 className={css.headlineWeight}>Weight</h3>
-                  <p className={css.textWeightKg}>{userWeight} kg</p>
+                  <p className={css.textWeightKg}>{weight} kg</p>
                   <img
                     src={edit2Svg}
                     alt="expend the list svg"
                     className={css.edit2Svg}
                   />
                 </div>
+
+
 
                 {isModalWeightOpen && (
                   <div>
@@ -274,10 +322,13 @@ function Header() {
                     </div>
                   </div>
                 )}
+
+
+
                 <div className={css.infoUserContent}>
-                  <span>{userName}</span>
+                  <span>{name}</span>
                   <img
-                    src={profileCircleSvg}
+                    src={avatar}
                     alt="User"
                     className={css.userProfileRegistration}
                   />
@@ -287,6 +338,8 @@ function Header() {
                     onClick={toggleModal}
                   />
                 </div>
+
+
 
                 {isModalUserOpen && (
                   <div>
@@ -317,9 +370,16 @@ function Header() {
                     </div>
                   </div>
                 )}
+
+
+
               </div>
             </>
+
+            
           ) : (
+
+
             <>
               <Link
                 to="/signin"
