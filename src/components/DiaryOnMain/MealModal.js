@@ -17,10 +17,10 @@ const MealModal = ({ isOpen, onClose }) => {
   const dispatch = useDispatch();
   const [placeholderData, setPlaceholderData] = useState({
     name: '',
-    carbohydrates: 0,
-    protein: 0,
-    fat: 0,
-    calories: 0,
+    carbohydrates: '',
+    protein: '',
+    fat: '',
+    calories: '',
   });
 
   const initialInputFields = [
@@ -33,7 +33,7 @@ const MealModal = ({ isOpen, onClose }) => {
   const handleAddField = () => {
     setInputFields([
       ...inputFields,
-      { name: '', carbohydrates: 0, protein: 0, fat: 0, calories: 0 },
+      { name: '', carbohydrates: '', protein: '', fat: '', calories: '' },
     ]);
   };
 
@@ -56,15 +56,7 @@ const MealModal = ({ isOpen, onClose }) => {
     try {
       await dispatch(fetchGoalsConfirm(placeholderData));
 
-      // setPlaceholderData({
-      //   name: '',
-      //   carbonoh: '',
-      //   protein: '',
-      //   fat: '',
-      //   calories: '',
-      // });
-
-      // onClose();
+  
     } catch (error) {
       console.error('Помилка під час відправки на бекенд:', error);
     }

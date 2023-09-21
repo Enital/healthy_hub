@@ -27,13 +27,16 @@ const DiaryOnMain = () => {
         </Link>
       </div>
 
+
       <div className={css.divBreakfast}>
+      <div className={css.diaryMobile}>
         <img
           className={css.breakfastImage}
           src={breakfastImage}
           alt="Breakfast"
         />
         <h2 className={css.diaryBreakfast}>Breakfast</h2>
+        </div>
         <button className={css.openModal} onClick={openModal}>
           {' '}
           + Record your meal
@@ -42,8 +45,10 @@ const DiaryOnMain = () => {
       <MealModal isOpen={isModalOpen} onClose={closeModal} />
 
       <div className={css.divBreakfast}>
+      <div className={css.diaryMobile}>
         <img className={css.breakfastImage} src={lunchImage} alt="Lunch" />
         <h2 className={css.diaryBreakfast}>Lunch</h2>
+        </div>
         <button className={css.openModal} onClick={openModal}>
           {' '}
           + Record your meal
@@ -51,8 +56,10 @@ const DiaryOnMain = () => {
       </div>
 
       <div className={css.divBreakfast}>
+      <div className={css.diaryMobile}>
         <img className={css.breakfastImage} src={dinnerImage} alt="Dinner" />
         <h2 className={css.diaryBreakfast}>Dinner</h2>
+        </div>
         <button className={css.openModal} onClick={openModal}>
           {' '}
           + Record your meal
@@ -60,8 +67,10 @@ const DiaryOnMain = () => {
       </div>
 
       <div className={css.divBreakfast}>
+      <div className={css.diaryMobile}>
         <img className={css.breakfastImage} src={snackImage} alt="Snack" />
         <h2 className={css.diaryBreakfast}>Snack</h2>
+        </div>
         <button className={css.openModal} onClick={openModal}>
           {' '}
           + Record your meal
