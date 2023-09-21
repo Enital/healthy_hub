@@ -64,7 +64,8 @@
   border: 1px solid var(--color-primary-green-lite, #e3ffa8);
   background: var(--color-primary-black-2, #0f0f0f);
 }
-.modalBtnConfirm {
+.modalBtnConfirm,
+.modalBtnConfirmAlt {
   color: var(--color-primary-black-2, #0f0f0f);
   text-align: center;
 
@@ -81,7 +82,8 @@
   border: 1px solid var(--color-primary-green-lite, #e3ffa8);
   background: var(--color-primary-green-lite, #e3ffa8);
 }
-.modalBtnCancel {
+.modalBtnCancel,
+.modalBtnCancelAlt {
   width: 276px;
   height: 20px;
   background: var(--color-primary-black-2, #0f0f0f);
@@ -108,7 +110,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 300px;
-  height: 266px;
+  height: 350px;
   border-radius: 12px;
   background: var(--color-primary-black-2, #0f0f0f);
 }
@@ -119,7 +121,7 @@
   font-style: normal;
   font-weight: 500;
   line-height: 30px;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
 }
 .altText,
 .altText2 {
@@ -138,7 +140,16 @@
 }
 .icons {
   display: flex;
-  column-gap: 10px;
+  column-gap: 30px;
+}
+.modalBtnCancelAlt {
+  margin-bottom: 16px;
+}
+.iconItem:hover {
+  transform: rotate(-0.1turn);
+}
+.iconItem {
+  transition: transform 500ms;
 }
 
 @media screen and (min-width: 834px) {

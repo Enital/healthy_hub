@@ -2,30 +2,13 @@ import React from 'react';
 import { selectGoals } from 'redux/usersGoal/selectors';
 import { useSelector } from 'react-redux';
 import AddWaterModal from 'components/addWaterModal/addWaterModal';
-import { addWater } from 'redux/usersGoal/operations';
-import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 import css from './water.module.css';
 import addSvg from '../../images/icons/add.svg';
 
 export default function Water() {
-  const [number, setNumber] = useState();
-
   const [openModal, setOpenModal] = useState(false);
   const { items } = useSelector(selectGoals);
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (number === undefined) {
-      return;
-    }
-    dispatch(addWater(number));
-  }, [dispatch, number]);
-
-  const changeNumber = params => {
-    setNumber(params);
-  };
 
   const openModalHendler = () => {
     setOpenModal(true);
@@ -121,7 +104,6 @@ export default function Water() {
           {openModal && (
             <AddWaterModal
               closeModal={closeModalHendler}
-              changeNumber={changeNumber}
               waterGoal={waterGoal}
               waterUsed={waterUsed}
             />

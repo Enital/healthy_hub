@@ -74,10 +74,14 @@ function SignIn() {
             <button className={css.signinBtn} type="submit">
               Sign in
             </button>
-          </form>
-          <div className={css.forgotYourPassword}>
             <NavLink className={css.forgotPassword} to="/forgot-password">
               Forgot your password?
+            </NavLink>
+          </form>
+          <div className={css.questionTrumb}>
+            <p className={css.question}> Do you already have an account?</p>
+            <NavLink className={css.signupBtn} to="/signup">
+              Sign up
             </NavLink>
           </div>
         </div>

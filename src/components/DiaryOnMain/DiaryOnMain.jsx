@@ -19,7 +19,7 @@ const DiaryOnMain = () => {
   };
 
   return (
-    <div className="css.containerDiary">
+    <div className={css.containerDiary}>
       <div className={css.link}>
         <h2 className={css.diary}>Diary</h2>
         <Link to="/diary" className={css.seeMore}>
@@ -28,7 +28,11 @@ const DiaryOnMain = () => {
       </div>
 
       <div className={css.divBreakfast}>
-        <img className={css.breakfastImage} src={breakfastImage} alt="Breakfast" />
+        <img
+          className={css.breakfastImage}
+          src={breakfastImage}
+          alt="Breakfast"
+        />
         <h2 className={css.diaryBreakfast}>Breakfast</h2>
         <button className={css.openModal} onClick={openModal}>
           {' '}
@@ -36,18 +40,6 @@ const DiaryOnMain = () => {
         </button>
       </div>
       <MealModal isOpen={isModalOpen} onClose={closeModal} />
-
-      {/* <div className={css.divBreakfast}>
-        <div className={css.divBreakfastModal}>
-          <button className={css.openModal} onClick={openModal}>
-            {' '}
-           
-          </button>{' '}
-        </div>
-      </div>
-      <MealModal isOpen={isModalOpen} onClose={closeModal} /> */}
-
-
 
       <div className={css.divBreakfast}>
         <img className={css.breakfastImage} src={lunchImage} alt="Lunch" />
@@ -58,7 +50,6 @@ const DiaryOnMain = () => {
         </button>
       </div>
 
-
       <div className={css.divBreakfast}>
         <img className={css.breakfastImage} src={dinnerImage} alt="Dinner" />
         <h2 className={css.diaryBreakfast}>Dinner</h2>
@@ -67,7 +58,6 @@ const DiaryOnMain = () => {
           + Record your meal
         </button>
       </div>
-
 
       <div className={css.divBreakfast}>
         <img className={css.breakfastImage} src={snackImage} alt="Snack" />
