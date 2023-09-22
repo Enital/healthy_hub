@@ -64,9 +64,7 @@
   font-weight: 500;
   line-height: 1.43;
 }
-.form button:disabled {
-  background-color: #b6b6b6;
-}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -78,30 +76,7 @@
   width: 100%;
   padding: 8px 10px;
   border-radius: 12px;
-  border: 2px solid var(--color-primary-green-lite, #e3ffa8);
-  background: var(--color-primary-black-2, #0f0f0f);
-  color: var(--color-primary-white, #fff);
-  font-size: 14px;
-  line-height: 1.43;
-}
-.inputError {
-  position: relative;
-  width: 100%;
-  padding: 8px 10px;
-  border-radius: 12px;
-  border: 2px solid #e74a3b;
-  background: var(--color-primary-black-2, #0f0f0f);
-  color: var(--color-primary-white, #fff);
-  font-size: 14px;
-  line-height: 1.43;
-}
-
-.inputValid {
-  position: relative;
-  width: 100%;
-  padding: 8px 10px;
-  border-radius: 12px;
-  border: 2px solid #3cbc81;
+  border: 1px solid var(--color-primary-green-lite, #e3ffa8);
   background: var(--color-primary-black-2, #0f0f0f);
   color: var(--color-primary-white, #fff);
   font-size: 14px;
@@ -228,12 +203,17 @@
   }
 }
 
+.label {
+  position: relative;
+}
+
 .checkbox {
   position: absolute;
   appearance: revert;
   cursor: pointer;
-  right: 14px;
-  top: 14px;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 input[type='checkbox']::before {
@@ -260,48 +240,4 @@ input[type='checkbox']:checked::after {
   background-image: url(../../images/icons/eye.svg);
 
   visibility: visible;
-}
-.label {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.validError {
-  position: absolute;
-  top: 12px;
-  right: 5px;
-  transform: translate(-50%);
-  z-index: 10;
-}
-.validCorrect {
-  position: absolute;
-  top: 12px;
-  right: 5px;
-  transform: translate(-50%);z-index: 10;
-}
-
-.errorMessage {
-  color: #e74a3b;
-  text-align: center;
-  font-family: Poppins;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 14px;
-  margin-top: 4px;
-  margin-left: 10px;
-}
-
-.correctMessage {
-  color: #3cbc81;
-  text-align: center;
-  font-family: Poppins;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 14px;
-  margin-top: 4px;
-  margin-left: 10px;
 }

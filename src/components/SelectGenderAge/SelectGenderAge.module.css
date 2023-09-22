@@ -27,9 +27,7 @@
   line-height: 1.33;
   margin-bottom: 24px;
 }
-.form button:disabled {
-  background-color: #b6b6b6;
-}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -52,47 +50,22 @@
 }
 
 .labelAge {
-  position: relative;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  
+  row-gap: 12px;
 }
 
 .input {
-  position: relative;
-  width: 100%;
   padding: 8px 10px;
   border-radius: 12px;
-  border: 2px solid var(--color-primary-green-lite, #e3ffa8);
-  background: var(--color-primary-black-2, #0f0f0f);
-  color: var(--color-primary-white, #fff);
-  font-size: 14px;
-  line-height: 1.43;
-}
-.inputError {
-  position: relative;
   width: 100%;
-  padding: 8px 10px;
-  border-radius: 12px;
-  border: 2px solid
-  #E74A3B;
+  border: 1px solid var(--color-primary-green-lite, #e3ffa8);
   background: var(--color-primary-black-2, #0f0f0f);
-  color: var(--color-primary-white, #fff);
+  color: var(--color-primary-grey, #b6b6b6);
   font-size: 14px;
   line-height: 1.43;
-}
-
-.inputValid {
-  position: relative;
-  width: 100%;
-  padding: 8px 10px;
-  border-radius: 12px;
-  border: 2px solid #3cbc81;
-  background: var(--color-primary-black-2, #0f0f0f);
-  color: var(--color-primary-white, #fff);
-  font-size: 14px;
-  line-height: 1.43;
+  margin-bottom: 12px;
 }
 
 .NextBtn {
@@ -202,53 +175,4 @@
   .BackBtn {
     width: 212px;
   }
-}
-
-
-/* Стилізація стрілок в інпуті типу "number" */
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-display: none;
-}
-
-.validError {
-  position: absolute;
-  top: 42px;
-  right: 5px;
-  transform: translate(-50%);
-  z-index: 10;
-}
-.validCorrect {
-  position: absolute;
-  top: 42px;
-  right: 5px;
-  transform: translate(-50%);z-index: 10;
-}
-
-.errorMessage {
-  color: #e74a3b;
-  text-align: center;
-  font-family: Poppins;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 14px;
-  margin-top: 4px;
-  margin-left: 10px;
-}
-
-.correctMessage {
-  color: #3cbc81;
-  text-align: center;
-  font-family: Poppins;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 14px;
-  margin-top: 4px;
-  margin-left: 10px;
-}
-
-.ageLable{
-  margin-bottom: 12px;
 }
