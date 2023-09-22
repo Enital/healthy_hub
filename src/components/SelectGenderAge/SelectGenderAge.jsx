@@ -2,8 +2,11 @@ import { useState } from 'react';
 import genderAndAgeIMG from './../../images/img/illustration-gender-and-age.svg';
 import css from './SelectGenderAge.module.css';
 import { useInput } from '../../hooks/useValidationForm';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import validCorrect from '../../images/icons/validCorrect.svg';
+import validError from '../../images/icons/validError.svg';
 
-function SelectGenderAge({ onForm, onBackPage, gender }) {
+function SelectGenderAge({ onForm, onBackPage, gender, ageValue }) {
   const [genderValue, setGender] = useState(gender);
   const {
     value,
@@ -11,15 +14,14 @@ function SelectGenderAge({ onForm, onBackPage, gender }) {
     onBlur,
     isDirty,
     isEmpty,
-    maxLengthError,
     minLengthError,
+    maxLengthError,
     inputValid,
-  } = useInput('', { isEmpty: true, maxLength: 3, minLength: 1 });
+  } = useInput(ageValue, { isEmpty: true, minLength: 1, maxLength: 3 });
 
   const handleChangeGender = e => {
     setGender(e.target.value);
   };
-
   return (
     <div className={css.wrapper}>
       <img
@@ -57,18 +59,17 @@ function SelectGenderAge({ onForm, onBackPage, gender }) {
             </label>
           </div>
           <label className={css.labelAge}>
-            {isDirty && isEmpty && (
-              <div style={{ color: 'red' }}>Поле не може бути пустим</div>
-            )}
-            {isDirty && maxLengthError && (
-              <div style={{ color: 'red' }}>має біти максимум 4 символи</div>
-            )}
-            {isDirty && minLengthError && (
-              <div style={{ color: 'red' }}>має біти максимум 4 символи</div>
-            )}
-            Your age
+            <p className={css.ageLable}> Your age</p>
             <input
-              className={css.input}
+              className={`${css.input}${
+                (isDirty && maxLengthError) ||
+                (isDirty && minLengthError) ||
+                (isDirty && isEmpty)
+                  ? ` ${css.inputError}`
+                  : !maxLengthError && !minLengthError
+                  ? ` ${css.inputValid}`
+                  : ''
+              }`}
               type="number"
               name="age"
               placeholder="Enter your age"
@@ -77,6 +78,26 @@ function SelectGenderAge({ onForm, onBackPage, gender }) {
               onBlur={e => onBlur(e)}
               required
             />
+            {/* {((isDirty &&maxLengthError) || (isDirty &&minLengthError)) && (
+              <div className={css.errorMessage}>Password is secure</div>
+            )} */}
+
+            {(isDirty && maxLengthError) ||
+            (isDirty && minLengthError) ||
+            (isDirty && isEmpty) ? (
+              <>
+                <img src={validError} alt="Error" className={css.validError} />
+                <div className={css.errorMessage}>Not valid age*</div>
+              </>
+            ) : !maxLengthError && !minLengthError ? (
+              <img
+                src={validCorrect}
+                alt="Correct"
+                className={css.validCorrect}
+              />
+            ) : (
+              ''
+            )}
           </label>
           <button className={css.NextBtn} type="submit" disabled={!inputValid}>
             Next

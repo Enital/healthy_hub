@@ -1,9 +1,21 @@
 import bodyParametersIMG from './../../images/img/illustration-body-parameters.svg';
 import css from './YourHealth.module.css';
 import { useInput } from '../../hooks/useValidationForm';
-function YourHealth({ onForm, onBackPage }) {
-  const height = useInput('', { isEmpty: true, minLength: 1, maxLength: 3 });
-  const weight = useInput('', { isEmpty: true, minLength: 1, maxLength: 3 });
+// import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import validCorrect from '../../images/icons/validCorrect.svg';
+import validError from '../../images/icons/validError.svg';
+
+function YourHealth({ onForm, onBackPage, heightValue, weightValue }) {
+  const height = useInput(heightValue, {
+    isEmpty: true,
+    minLength: 2,
+    maxLength: 3,
+  });
+  const weight = useInput(weightValue, {
+    isEmpty: true,
+    minLength: 2,
+    maxLength: 3,
+  });
   return (
     <div className={css.wrapper}>
       <img
@@ -17,19 +29,27 @@ function YourHealth({ onForm, onBackPage }) {
           Enter your parameters for correct performance tracking
         </h2>
         <form className={css.form} onSubmit={onForm}>
-        {height.isDirty && height.isEmpty && (
-              <div style={{ color: 'red' }}>Поле не може бути пустим</div>
-            )}
-            {height.isDirty && height.maxLengthError && (
-              <div style={{ color: 'red' }}>має біти максимум 4 символи</div>
-            )}
-            {height.isDirty && height.minLengthError && (
-              <div style={{ color: 'red' }}>має біти максимум 4 символи</div>
-            )}
           <label className={css.label}>
-            Height
+            {/* {height.isDirty &&
+              height.maxLengthError &&
+              Notify.failure('Max 4 characters')}
+            {height.isDirty &&
+              height.minLengthError &&
+              Notify.failure('Min 2 characters')}
+            {height.isDirty &&
+              height.isEmpty &&
+              Notify.failure('The field cannot be empty')} */}
+             <p className={css.heightLabel}>Height</p>
             <input
-              className={css.input}
+              className={`${css.input}${
+                (height.isDirty && height.maxLengthError) ||
+                (height.isDirty && height.minLengthError) ||
+                (height.isDirty && height.isEmpty)
+                  ? ` ${css.inputError}`
+                  : !height.maxLengthError && !height.minLengthError
+                  ? ` ${css.inputValid}`
+                  : ''
+              }`}
               type="number"
               name="height"
               placeholder="Enter your height (in cm)"
@@ -38,28 +58,68 @@ function YourHealth({ onForm, onBackPage }) {
               onBlur={e => height.onBlur(e)}
               required
             />
+            {(height.isDirty && height.maxLengthError) ||
+            (height.isDirty && height.minLengthError) ||
+            (height.isDirty && height.isEmpty) ? (
+              <>
+                <img src={validError} alt="Error" className={css.validError} />
+                <div className={css.errorMessage}>Not valid height*</div>
+              </>
+            ) : !height.maxLengthError && !height.minLengthError ? (
+              <img
+                src={validCorrect}
+                alt="Correct"
+                className={css.validCorrect}
+              />
+            ) : (
+              ''
+            )}
           </label>
-          {weight.isDirty && weight.isEmpty && (
-              <div style={{ color: 'red' }}>Поле не може бути пустим</div>
-            )}
-            {weight.isDirty && weight.maxLengthError && (
-              <div style={{ color: 'red' }}>має біти максимум 4 символи</div>
-            )}
-            {weight.isDirty && weight.minLengthError && (
-              <div style={{ color: 'red' }}>має біти максимум 4 символи</div>
-            )}
           <label className={css.label}>
-            Weight
+            {/* {weight.isDirty &&
+              weight.maxLengthError &&
+              Notify.failure('Max 4 characters')}
+            {weight.isDirty &&
+              weight.minLengthError &&
+              Notify.failure('Min 2 characters')}
+            {weight.isDirty &&
+              weight.isEmpty &&
+              Notify.failure('The field cannot be empty')} */}
+             <p className={css.weightLabel}>Weight</p>
             <input
-              className={css.input}
+              className={`${css.input}${
+                (weight.isDirty && weight.maxLengthError) ||
+                (weight.isDirty && weight.minLengthError) ||
+                (weight.isDirty && weight.isEmpty)
+                  ? ` ${css.inputError}`
+                  : !weight.maxLengthError && !weight.minLengthError
+                  ? ` ${css.inputValid}`
+                  : ''
+              }`}
               type="number"
               name="weight"
-              placeholder="Enter your weight (in kg)"
+              placeholder="Enter weightyour weight (in kg)"
               value={weight.value}
               onChange={e => weight.onChange(e)}
               onBlur={e => weight.onBlur(e)}
               required
             />
+            {(weight.isDirty && weight.maxLengthError) ||
+            (weight.isDirty && weight.minLengthError) ||
+            (weight.isDirty && weight.isEmpty) ? (
+              <>
+              <img src={validError} alt="Error" className={css.validError} />
+              <div className={css.errorMessage}>Not valid weight*</div>
+            </>
+            ) : !weight.maxLengthError && !weight.minLengthError ? (
+              <img
+                src={validCorrect}
+                alt="Correct"
+                className={css.validCorrect}
+              />
+            ) : (
+              ''
+            )}
           </label>
           <button
             className={css.NextBtn}

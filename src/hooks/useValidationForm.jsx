@@ -8,7 +8,6 @@ export const useValidation = (value, validations) => {
   const [minLengthError, setMinLengthError] = useState(false);
   const [maxLengthError, setMaxLengthError] = useState(false);
   const [inputValid, setInputValid] = useState(false);
-  console.log(passwordError);
   useEffect(() => {
     for (const validation in validations) {
       switch (validation) {
@@ -36,13 +35,10 @@ export const useValidation = (value, validations) => {
           break;
 
         case 'isPassword':
-          const re = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
-          const paternPass = re.test(String(value).toLowerCase());
-          if (paternPass) {
-            setPasswordError(false);
-          } else {
-            setPasswordError(true);
-          }
+          const paternPassword = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+          paternPassword.test(String(value).toLowerCase())
+            ? setPasswordError(false)
+            : setPasswordError(true);
           break;
 
         case 'minLength':

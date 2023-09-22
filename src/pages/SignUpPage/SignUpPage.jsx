@@ -6,7 +6,14 @@ import YourActivity from 'components/YourActivity/YourActivity';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
 import { useState } from 'react';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
+Notify.init({
+  showOnlyTheLastOne: true,
+  cssAnimationStyle: 'from-bottom',
+  clickToClose: true,
+  messageMaxLength: 200,
+});
 const SignUpPage = () => {
   const [page, setPage] = useState(4);
   const nextPage = () => setPage(page + 1);
@@ -69,11 +76,19 @@ const SignUpPage = () => {
       })
     );
     form.reset();
+    Notify.success(`Hi, ${name}! Let's do this!`);
   };
 
   return (
     <div className="container">
-      {page === 1 && <SignUpForm onForm={haldleForm1} />}
+      {page === 1 && (
+        <SignUpForm
+          onForm={haldleForm1}
+          nameValue={name}
+          emailValue={email}
+          passwordValue={password}
+        />
+      )}
       {page === 2 && (
         <YourGoal onForm={haldleForm2} onBackPage={backPage} goal={goal} />
       )}
@@ -82,9 +97,17 @@ const SignUpPage = () => {
           onForm={haldleForm3}
           onBackPage={backPage}
           gender={gender}
+          ageValue={age}
         />
       )}
-      {page === 4 && <YourHealth onForm={haldleForm4} onBackPage={backPage} />}
+      {page === 4 && (
+        <YourHealth
+          onForm={haldleForm4}
+          onBackPage={backPage}
+          heightValue={height}
+          weightValue={weight}
+        />
+      )}
       {page === 5 && (
         <YourActivity
           onForm={handleSubmit5}
