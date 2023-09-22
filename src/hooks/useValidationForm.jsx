@@ -59,7 +59,7 @@ export const useValidation = (value, validations) => {
           return;
       }
     }
-  }, [value]);
+  }, [value, validations]);
 
   useEffect(() => {
     if (

@@ -15,7 +15,7 @@ Notify.init({
   messageMaxLength: 200,
 });
 const SignUpPage = () => {
-  const [page, setPage] = useState(4);
+  const [page, setPage] = useState(1);
   const nextPage = () => setPage(page + 1);
   const backPage = () => setPage(page - 1);
 
