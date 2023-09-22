@@ -2,22 +2,12 @@ import { useState } from 'react';
 import genderAndAgeIMG from './../../images/img/illustration-gender-and-age.svg';
 import css from './SelectGenderAge.module.css';
 import { useInput } from '../../hooks/useValidationForm';
-// import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import validCorrect from '../../images/icons/validCorrect.svg';
-import validError from '../../images/icons/validError.svg';
+import { messageErrorAge } from './InputValidation/messageErrorAge';
+
 
 function SelectGenderAge({ onForm, onBackPage, gender, ageValue }) {
   const [genderValue, setGender] = useState(gender);
-  const {
-    value,
-    onChange,
-    onBlur,
-    isDirty,
-    isEmpty,
-    minLengthError,
-    maxLengthError,
-    inputValid,
-  } = useInput(ageValue, { isEmpty: true, minLength: 1, maxLength: 3 });
+  const age = useInput(ageValue, { isEmpty: true, minLength: 1, maxLength: 3 });
 
   const handleChangeGender = e => {
     setGender(e.target.value);
@@ -62,44 +52,25 @@ function SelectGenderAge({ onForm, onBackPage, gender, ageValue }) {
             <p className={css.ageLable}> Your age</p>
             <input
               className={`${css.input}${
-                (isDirty && maxLengthError) ||
-                (isDirty && minLengthError) ||
-                (isDirty && isEmpty)
+                (age.isDirty && age.maxLengthError) ||
+                (age.isDirty && age.minLengthError) ||
+                (age.isDirty && age.isEmpty)
                   ? ` ${css.inputError}`
-                  : !maxLengthError && !minLengthError
+                  : !age.maxLengthError && !age.minLengthError
                   ? ` ${css.inputValid}`
                   : ''
               }`}
               type="number"
               name="age"
               placeholder="Enter your age"
-              value={value}
-              onChange={e => onChange(e)}
-              onBlur={e => onBlur(e)}
+              value={age.value}
+              onChange={e => age.onChange(e)}
+              onBlur={e => age.onBlur(e)}
               required
             />
-            {/* {((isDirty &&maxLengthError) || (isDirty &&minLengthError)) && (
-              <div className={css.errorMessage}>Password is secure</div>
-            )} */}
-
-            {(isDirty && maxLengthError) ||
-            (isDirty && minLengthError) ||
-            (isDirty && isEmpty) ? (
-              <>
-                <img src={validError} alt="Error" className={css.validError} />
-                <div className={css.errorMessage}>Not valid age*</div>
-              </>
-            ) : !maxLengthError && !minLengthError ? (
-              <img
-                src={validCorrect}
-                alt="Correct"
-                className={css.validCorrect}
-              />
-            ) : (
-              ''
-            )}
+            {messageErrorAge(age,'Not valid age*')}
           </label>
-          <button className={css.NextBtn} type="submit" disabled={!inputValid}>
+          <button className={css.NextBtn} type="submit" disabled={!age.inputValid}>
             Next
           </button>
           <button className={css.BackBtn} onClick={onBackPage} type="button">
