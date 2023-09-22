@@ -1,67 +1,25 @@
 import { NavLink } from 'react-router-dom';
 import SportAndFitnessTrackerIMG from './../../images/img/illustration-sport-and-fitness-tracker.svg';
 import css from './SignUpForm.module.css';
-import { useState } from 'react';
-// import { Formik, Form, Field, ErrorMessage } from 'formik';
-// import * as yup from 'yup';
+import { useInput } from '../../hooks/useValidationForm';
 // import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import validCorrect from '../../images/icons/validCorrect.svg';
+import validError from '../../images/icons/validError.svg';
 
-function SignUpForm({ onForm, name2, email2, password2 }) {
-  const [name, setName] = useState(name2);
-  const [email, setEmail] = useState(email2);
-  const [password, setPassword] = useState(password2);
+const SignUpForm = ({ onForm, nameValue, emailValue, passwordValue }) => {
+  const name = useInput(nameValue, { isEmpty: true, isName: true });
+  const email = useInput(emailValue, { isEmpty: true, isEmail: true });
+  const password = useInput(passwordValue, { isEmpty: true, isPassword: true });
 
-  const handleChange = event => {
-    const { name, value } = event.target;
-
-    switch (name) {
-      case 'name':
-        setName(value);
-        break;
-      case 'email':
-        setEmail(value);
-        break;
-      case 'password':
-        setPassword(value);
-        break;
-      default:
-        return;
-    }
-  };
-  function myFunction() {
+  const myFunction = () => {
     const x = document.getElementById('myInput');
     if (x.type === 'password') {
       x.type = 'text';
     } else {
       x.type = 'password';
     }
-  }
-  // const schema = yup.object().shape({
-  //   name: yup.string().required('Name is required'),
-  //   email: yup
-  //     .string()
-  //     .email('Invalid email format')
-  //     .required('Email is required'),
-  //   password: yup
-  //     .string()
-  //     .matches(
-  //       /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,16}$/,
-  //       'Password must meet the criteria (min. 6, max. 16 characters, at least 1 digit, 1 lowercase letter, and 1 uppercase letter)'
-  //     )
-  //     .required('Password is required'),
-  // });
+  };
 
-  // const initialValues = {
-  //   name: '',
-  //   email: '',
-  //   password: '',
-  // };
-
-  // const FromError = ({ name }) => {
-  //   return (
-  //     <ErrorMessage name={name} render={message => Notify.failure(message)} />
-  //   );
-  // }
   return (
     <div className={css.wrapper}>
       <img
@@ -74,54 +32,109 @@ function SignUpForm({ onForm, name2, email2, password2 }) {
         <h2 className={css.subtitle}>
           You need to register to use the service
         </h2>
-        {/* <Formik
-          initialValues={initialValues}
-          onSubmit={onForm}
-          validationSchema={schema}
-        > */}
+
         <form className={css.form} onSubmit={onForm}>
-          <label>
+          <label className={css.label}>
             <input
-              className={css.input}
+              className={`${css.input}${
+                name.isDirty && name.nameError ? ` ${css.inputError}` : ''
+              }${!name.nameError ? ` ${css.inputValid}` : ''}`}
               type="text"
               name="name"
               placeholder="Name"
-              value={name}
-              onChange={handleChange}
-              pattern="[A-Za-z\s]{1,25}"
-              title="Введіть ваше ім'я, використовуючи тільки літери та пробіли [A-Z]"
-              required
+              value={name.value}
+              onChange={e => name.onChange(e)}
+              onBlur={e => name.onBlur(e)}
             />
-            {/* <FromError name="name" /> */}
-          </label>
-          <label>
-            <input
-              className={css.input}
-              type="email"
-              name="email"
-              placeholder="E-mail"
-              value={email}
-              onChange={handleChange}
-              pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
-              required
-              title="Введіть вашу адресу електронної пошти у форматі example@example.com"
-            />
-            {/* <FromError name="email" /> */}
+            {name.isDirty && name.nameError && (
+              <div className={css.errorMessage}>Not valid name*</div>
+            )}
+            {(name.isDirty && name.nameError) ||
+            (name.isDirty && name.isEmpty) ? (
+              <img src={validError} alt="Error" className={css.validError} />
+            ) : !name.nameError ? (
+              <img
+                src={validCorrect}
+                alt="Correct"
+                className={css.validCorrect}
+              />
+            ) : (
+              ''
+            )}
           </label>
           <label className={css.label}>
             <input
-              className={css.input}
+              className={`${css.input}${
+                email.isDirty && email.emailError ? ` ${css.inputError}` : ''
+              }${!email.emailError ? ` ${css.inputValid}` : ''}`}
+              type="email"
+              name="email"
+              placeholder="E-mail"
+              value={email.value}
+              onChange={e => email.onChange(e)}
+              onBlur={e => email.onBlur(e)}
+            />
+            {email.isDirty && email.emailError && (
+              <div className={css.errorMessage}>Not valid e-mail*</div>
+            )}
+            {(email.isDirty && email.emailError) ||
+            (email.isDirty && email.isEmpty) ? (
+              <img src={validError} alt="Error" className={css.validError} />
+            ) : !email.emailError ? (
+              <img
+                src={validCorrect}
+                alt="Correct"
+                className={css.validCorrect}
+              />
+            ) : (
+              ''
+            )}
+          </label>
+          {/* {password.isDirty &&
+            password.passwordError &&
+            Notify.failure(
+              'Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters'
+            )} */}
+
+          <label className={css.label}>
+            {/* {password.isDirty &&
+              password.isEmpty &&
+              Notify.failure('Please create your own password')} */}
+            <input
+              className={`${css.input}${
+                password.isDirty && password.passwordError
+                  ? ` ${css.inputError}`
+                  : ''
+              }${!password.passwordError ? ` ${css.inputValid}` : ''}`}
               type="password"
               name="password"
               placeholder="Password"
-              value={password}
+              value={password.value}
               id="myInput"
-              onChange={handleChange}
-              pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,16}$"
-              title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-              required
+              onChange={e => password.onChange(e)}
+              onBlur={e => password.onBlur(e)}
+              // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+              // required
             />
-            {/* <FromError name="password" /> */}
+            {(password.isDirty && password.passwordError) ||
+            (password.isDirty && password.isEmpty) ? (
+              <>
+                <img src={validError} alt="Error" className={css.validError} />
+                <div className={css.errorMessage}>Enter a valid Password*</div>
+              </>
+            ) : !password.passwordError ? (
+              <>
+                <img
+                  src={validCorrect}
+                  alt="Correct"
+                  className={css.validCorrect}
+                />
+                <div className={css.correctMessage}>Password is secure</div>
+              </>
+            ) : (
+              ''
+            )}
+
             <input
               className={css.checkbox}
               type="checkbox"
@@ -129,11 +142,16 @@ function SignUpForm({ onForm, name2, email2, password2 }) {
               style={{ display: password ? 'block' : 'none' }}
             />
           </label>
-          <button className={css.signupBtn} type="submit">
+          <button
+            className={css.signupBtn}
+            type="submit"
+            disabled={
+              !name.inputValid || password.inputValid || !email.inputValid
+            }
+          >
             Next
           </button>
         </form>
-        {/* </Formik> */}
         <div className={css.questionTrumb}>
           <p className={css.question}> Do you already have an account?</p>
           <NavLink className={css.signinBtn} to="/signin">
@@ -143,6 +161,6 @@ function SignUpForm({ onForm, name2, email2, password2 }) {
       </div>
     </div>
   );
-}
+};
 
 export default SignUpForm;
