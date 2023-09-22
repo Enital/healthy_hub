@@ -46,18 +46,9 @@ export const fetchGoalsConfirm = createAsyncThunk(
     try {
       setHeadersToken(thunkAPI.getState().auth.token);
       const response = await axios.post('/user/food-intake-v2', {
-        breakfast: [
-          breakfast
-          // {
-          //   name: 'name',
-          //   calories: 10,
-          //   carbohydrates: 10,
-          //   protein: 10,
-          //   fat: 10,
-          // },
-        ],
+        breakfast: [breakfast],
       });
-      // console.log(response.data);
+
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

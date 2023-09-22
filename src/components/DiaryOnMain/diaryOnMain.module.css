@@ -124,7 +124,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 408px;
+  /* height: 408px; */
   border-radius: 12px;
   background-color: rgba(15, 15, 15, 1);
   z-index: 1000;
@@ -135,7 +135,7 @@
 .img {
   margin-top: 25px;
   margin-bottom: 25px;
-  margin-left: 25px;
+  
   width: 268px;
   height: 36px;
   font-weight: 500;
@@ -166,10 +166,11 @@
   align-items: center;
   gap: 10px;
   display: inline-flex;
-  margin-bottom: 25px;
+  
 }
 .containerLabel {
   display: inline-flex;
+  margin-bottom: 20px;
 }
 
 .addMore {
@@ -218,8 +219,9 @@
   display: flex;
   align-items: center; /* Align vertically in the center */
   gap: 10px;
-  margin-top: 130px;
+  margin-top: 110px;
   margin-left: 300px;
+  margin-bottom: 20px;
 }
 
 .seeMore {
@@ -249,7 +251,7 @@
   display: flex;
  
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .openModal {
   width: 150px;
@@ -267,4 +269,8 @@
 margin-top: 20px;
 }
 }
+
+
+
+
 

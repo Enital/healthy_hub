@@ -9,12 +9,15 @@ import MealModal from './MealModal';
 
 const DiaryOnMain = () => {
   const [isModalOpen, setModalOpen] = useState(false);
+  const [selectedMeal, setSelectedMeal] = useState('');
 
-  const openModal = () => {
+ const openModal = (mealName) => {
+    setSelectedMeal(mealName);
     setModalOpen(true);
   };
 
   const closeModal = () => {
+    setSelectedMeal('');
     setModalOpen(false);
   };
 
@@ -37,19 +40,19 @@ const DiaryOnMain = () => {
         />
         <h2 className={css.diaryBreakfast}>Breakfast</h2>
         </div>
-        <button className={css.openModal} onClick={openModal}>
+        <button className={css.openModal} onClick={() => openModal('Breakfast')}>
           {' '}
           + Record your meal
         </button>
       </div>
-      <MealModal isOpen={isModalOpen} onClose={closeModal} />
+      <MealModal isOpen={isModalOpen} onClose={closeModal} mealName={selectedMeal} />
 
       <div className={css.divBreakfast}>
       <div className={css.diaryMobile}>
         <img className={css.breakfastImage} src={lunchImage} alt="Lunch" />
         <h2 className={css.diaryBreakfast}>Lunch</h2>
         </div>
-        <button className={css.openModal} onClick={openModal}>
+        <button className={css.openModal} onClick={() => openModal('Lunch')}>
           {' '}
           + Record your meal
         </button>
@@ -60,7 +63,7 @@ const DiaryOnMain = () => {
         <img className={css.breakfastImage} src={dinnerImage} alt="Dinner" />
         <h2 className={css.diaryBreakfast}>Dinner</h2>
         </div>
-        <button className={css.openModal} onClick={openModal}>
+        <button className={css.openModal} onClick={() => openModal('Dinner')}>
           {' '}
           + Record your meal
         </button>
@@ -71,7 +74,7 @@ const DiaryOnMain = () => {
         <img className={css.breakfastImage} src={snackImage} alt="Snack" />
         <h2 className={css.diaryBreakfast}>Snack</h2>
         </div>
-        <button className={css.openModal} onClick={openModal}>
+        <button className={css.openModal} onClick={() => openModal('Snack')}>
           {' '}
           + Record your meal
         </button>
