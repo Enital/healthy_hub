@@ -2,12 +2,14 @@ import React from 'react';
 import CaloriesChart from 'components/Charts/CaloriesChart/CaloriesChart';
 import WaterChart from 'components/Charts/WaterChart/WaterChart';
 import WeightChart from 'components/Charts/WeightChart/WeightChart';
+import Modal from 'components/DashboardModal/DashboardModal';
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchGraph } from 'redux/dashboard/operations';
 
 import leftArrow from '../../images/icons/arrow-left.svg';
+import arrowDownSvg from '../../images/icons/arrow-down.svg';
 
 import css from './dashboard.module.css';
 
@@ -60,11 +62,31 @@ function getMonth() {
 }
 
 const Dashboard = () => {
+  const [showModal, setShowModal] = useState(false);
+  const [showMonth, setShowMonth] = useState(true);
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(fetchGraph());
   }, [dispatch]);
+
+  const [timeToggleBtn, setTimeToggleBtn] = useState(false);
+
+  const closeModal = () => {
+    if (showModal) {
+      setShowModal(false);
+    }
+  };
+
+  const toggleModal = () => {
+    setTimeToggleBtn(timeToggleBtn => !timeToggleBtn);
+    setShowModal(!showModal);
+  };
+
+  const handleOnClick = () => {
+    setShowMonth(!showMonth);
+    closeModal();
+  };
+
   return (
     <div className={css.container}>
       <div className={css.dashboardContainer}>
@@ -74,6 +96,31 @@ const Dashboard = () => {
               <img src={leftArrow} alt="arrow" />
             </Link>
             <p className={css.dashboardTitleP}>Last month</p>
+            <button
+              type="button"
+              className={css.toggleBtn}
+              onClick={toggleModal}
+            >
+              <img
+                src={arrowDownSvg}
+                alt="down arrow"
+                // className={css.arrowDownSvg}
+                style={{
+                  transform: timeToggleBtn ? 'rotate(180deg)' : 'rotate(0deg)',
+                }}
+              />
+            </button>
+            {showModal && (
+              <Modal onClose={closeModal}>
+                <button
+                  type="button"
+                  className={css.lastButton}
+                  onClick={handleOnClick}
+                >
+                  {showMonth ? 'Last year' : 'Last month'}
+                </button>
+              </Modal>
+            )}
           </ul>
           <p className={css.month}>{getMonth()}</p>
         </div>
