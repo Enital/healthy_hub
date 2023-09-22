@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import breakfast from '../../images/illustration/breakfast-image.svg';
-//import faTrash from '../../components/DiaryOnMain/img/basket.svg'
+
 import css from './diaryOnMain.module.css';
 import { useDispatch } from 'react-redux';
 import { fetchGoalsConfirm } from 'redux/usersGoal/operations';
@@ -43,41 +43,17 @@ const MealModal = ({ isOpen, onClose, mealName  }) => {
     }));
   };
 
-
-  
   
 
   const handleConfirm = async () => {
     try {
       await dispatch(fetchGoalsConfirm(placeholderData));
-      setPlaceholderData({
-        name: '',
-        carbohydrates: '',
-        protein: '',
-        fat: '',
-        calories: '',
-      });
-      
-      setInputFields(initialInputFields);
+
   
     } catch (error) {
       console.error('Помилка під час відправки на бекенд:', error);
     }
   };
-
-  // const handleConfirm = async () => {
-  //   try {
-  //     if (mealName === 'breakfast') {
-  //       await dispatch(fetchGoalsConfirm(placeholderData));
-  //     } else if (mealName === 'lunch') {
-  //       await dispatch(fetchGoalsLunchConfirm(placeholderData));
-  //     }
-
-  
-  //   } catch (error) {
-  //     console.error('Помилка під час відправки на бекенд:', error);
-  //   }
-  // };
 
   const handleRemoveField = index => {
     const newInputFields = [...inputFields];
@@ -234,8 +210,7 @@ const MealModal = ({ isOpen, onClose, mealName  }) => {
                 type="button"
                 onClick={() => handleRemoveField(index)}
               >
-                remove
-                {/* <svg icon={faTrash} /> */}
+                Remove
               </button>
             )}
           </div>
