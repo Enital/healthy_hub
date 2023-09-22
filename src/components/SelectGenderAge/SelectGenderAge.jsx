@@ -2,7 +2,7 @@ import { useState } from 'react';
 import genderAndAgeIMG from './../../images/img/illustration-gender-and-age.svg';
 import css from './SelectGenderAge.module.css';
 import { useInput } from '../../hooks/useValidationForm';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+// import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import validCorrect from '../../images/icons/validCorrect.svg';
 import validError from '../../images/icons/validError.svg';
 
