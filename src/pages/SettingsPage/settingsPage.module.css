@@ -6,6 +6,11 @@
   /* width: 90%; */
 }
 
+.inputText{
+  background-color: transparent;
+  color: #ffffff;
+}
+
 .dmcx{
   display: flex;
   align-items: center;
@@ -219,7 +224,9 @@
   .settingActivity {
     margin-bottom: 10px;
     margin-top: 40px;
-  }
+    margin-left: 0;
+    margin-right: 0;
+}
 
   .photo {
     width: 600px;
@@ -240,5 +247,11 @@
 
   .buttons {
     right: 52px;
+  }
+  .radioSettings{
+    width:fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
