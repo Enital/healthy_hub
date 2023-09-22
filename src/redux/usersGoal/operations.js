@@ -55,3 +55,20 @@ export const fetchGoalsConfirm = createAsyncThunk(
     }
   }
 );
+
+export const fetchGoalsLunchConfirm = createAsyncThunk(
+  'user/food-intake',
+  async (lunch, thunkAPI) => {
+    console.log(lunch);
+    try {
+      setHeadersToken(thunkAPI.getState().auth.token);
+      const response = await axios.post('/user/food-intake-v2', {
+        lunch: [lunch],
+      });
+
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
