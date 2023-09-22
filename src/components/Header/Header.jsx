@@ -127,6 +127,8 @@ function Header() {
 
   const openModalGoal = () => {
     setIsModalGoalOpen(true);
+    setIsModalWeightOpen(false); 
+    setIsModalUserOpen(false);
   };
 
   const closeModalGoal = () => {
@@ -135,6 +137,8 @@ function Header() {
 
   const openModalWeight = () => {
     setIsModalWeightOpen(true);
+    setIsModalGoalOpen(false); 
+    setIsModalUserOpen(false);
   };
 
   const closeModalWeight = () => {
@@ -143,8 +147,13 @@ function Header() {
 
   const toggleModal = () => {
     setIsModalUserOpen(!isModalUserOpen);
+    setIsModalGoalOpen(false); 
+    setIsModalWeightOpen(false);
   };
 
+  const closeModalUser = () => {
+    setIsModalUserOpen(false);
+  };
 
   // if (user && user.goal) {
   //   console.log(user.goal);
@@ -152,7 +161,7 @@ function Header() {
 
   // console.log(user.goal === 'lose');
   return (
-    <div className="container">
+    
       
       <header className={css.header}>
         <Link to="/WelcomePage" className={css.link}>
@@ -170,6 +179,8 @@ function Header() {
                     src={arrowDownSvg}
                     alt="expend the list svg"
                     className={css.openArrowDownGoalSvg}
+                    onClick={openModalGoal}
+
                   />
                 </div>
                 {user && goal && (
@@ -179,6 +190,7 @@ function Header() {
                         src={loseFatMenEmoji}
                         alt="Lose fat emoji"
                         className={css.goalEmoji}
+                        onClick={openModalGoal}
                       />
                     )}
                     {goal === 'Maintain' && (
@@ -186,6 +198,8 @@ function Header() {
                         src={maintakeMenEmoji}
                         alt="Maintain emoji"
                         className={css.goalEmoji}
+                        onClick={openModalGoal}
+
                       />
                     )}
                     {goal === 'Gain muscle' && (
@@ -193,9 +207,13 @@ function Header() {
                         src={gainMuscleEmoji}
                         alt="Gain Muscle emoji"
                         className={css.goalEmoji}
+                        onClick={openModalGoal}
+
                       />
                     )}
-                    <p className={css.goalChosenName}>{goal}</p>
+                    <p className={css.goalChosenName} 
+                        onClick={openModalGoal}
+                        >{goal}</p>
                   </div>
                 )}
                 
@@ -267,15 +285,19 @@ function Header() {
                   src={waightEmoji}
                   alt="Waight Emoji"
                   className={css.waightEmoji}
+                  onClick={openModalWeight}
                 />
-                <div className={css.weightElement} onClick={openModalWeight}>
+                <div className={css.weightSection} onClick={openModalWeight}>
                   <h3 className={css.headlineWeight}>Weight</h3>
-                  <p className={css.textWeightKg}>{weight} kg</p>
+                  
+                  <div className={css.weightElement}>
+                    <p className={css.textWeightKg}>{weight} kg</p>
                   <img
                     src={edit2Svg}
                     alt="expend the list svg"
-                    className={css.edit2Svg}
                   />
+                  </div>
+                  
                 </div>
 
 
@@ -351,7 +373,11 @@ function Header() {
                           className={css.setting2Svg}
                         />
                         <Link to="/settings" className={css.link}>
-                          <p className={css.textLinkSetting}>Setting</p>
+                          <p className={css.textLinkSetting} 
+                          onClick={() => {
+                            closeModalUser(); 
+                          }}
+                    >Setting</p>
                         </Link>
                       </div>
                       <div className={css.logOutElement}>
@@ -362,7 +388,10 @@ function Header() {
                         />
                         <p
                           className={css.textLinkLogOut}
-                          onClick={() => dispatch(logOut())}
+                          onClick={() => {
+                            closeModalUser(); 
+                            dispatch(logOut()); 
+                          }}
                         >
                           Log out
                         </p>
@@ -409,7 +438,7 @@ function Header() {
           )}
         </div>
       </header>
-    </div>
+    
   );
 }
 
