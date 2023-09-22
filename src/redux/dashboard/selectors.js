@@ -1,6 +1,6 @@
-export const selectGraph = state => {
+export const selectCharts = state => {
   return {
-    items: state.graph.items,
+    graph: state.graph.items,
     isLoading: state.graph.isLoading,
     error: state.graph.error,
   };
