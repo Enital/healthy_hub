@@ -49,6 +49,14 @@ const DiaryOnMain = () => {
     setModalOpen(false);
   };
 
+  const handleOnClose = e => {
+    if (e.code === 'Escape') {
+      closeModal();
+    }
+  };
+
+  window.addEventListener('keydown', handleOnClose);
+
   return (
     <div className={css.containerDiary}>
       <div className={css.link}>
@@ -91,6 +99,7 @@ const DiaryOnMain = () => {
         </span>
       </div>
       <MealModal
+        closeModal={closeModal}
         isOpen={isModalOpen}
         onClose={closeModal}
         mealName={selectedMeal}
