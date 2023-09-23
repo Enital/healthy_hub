@@ -23,7 +23,7 @@ const Dashboard = () => {
     dispatch(fetchGraph());
   }, [dispatch]);
 
-  const { items } = useSelector(selectCharts);
+  // const { items } = useSelector(selectCharts);
   // console.log(items);
   const [timeToggleBtn, setTimeToggleBtn] = useState(false);
 
