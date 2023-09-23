@@ -172,6 +172,7 @@
 
   .question {
     margin-bottom: 0;
+    padding-left: 42px;
   }
 }
 
@@ -225,6 +226,7 @@
 
   .question {
     width: 238px;
+    padding-left: 0;
   }
 }
 
