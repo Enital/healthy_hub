@@ -1,3 +1,4 @@
+
 /* mobile menu 0- 349 */
 
 .modalOverly {
@@ -11,7 +12,33 @@
 }
 
 @media screen and (max-width: 833px) {
-  
+  input::placeholder {
+width: 276px;
+  }
+  /* input::placeholder {
+    width: 276px;
+    height: 36px;
+  } */
+  .containerMobile {
+    width: 300px;
+    height: 558px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(15, 15, 15, 1);
+  }
+  .img {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    text-transform: capitalize;
+    width: 268px;
+    height: 36px;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 36px;
+    color: rgba(255, 255, 255, 1);
+  }
   .containerDiary {
     width: 300px;
     padding-left: 10px;
@@ -19,7 +46,17 @@
     margin-left: auto;
     margin-right: auto;
   }
-
+  .flexContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    display: inline-flex;
+  }
+  .containerLabel {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+  }
   .divBreakfastModal {
     margin-top: 20px;
     align-items: center;
@@ -80,10 +117,60 @@
   .carbonohidratesMobile {
     padding-bottom: 10px;
   }
+ 
+  .addMore {
+    height: 20px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgba(227, 255, 168, 1);
+    background: rgba(15, 15, 15, 1);
+    border: 1px solid transparent;
+    display: inline-block; /* elements are located on the same level*/
+    margin-top: 16px;
+    
+  }
+  .buttonConfirm {
+    display: flex;
+    flex-direction: column; /* Змінити напрямок на колонку */
+    justify-content: flex-start; /* Горизонтальне вирівнювання по лівому краю */
+    gap: 10px;
+    
+  }
+  .cancel {
+    color: rgba(182, 182, 182, 1);
+    font-size: 14px;
+    line-height: 20px;
+    border: 1px solid transparent;
+    background-color: rgba(15, 15, 15, 1);
+    margin-top: 25px;
+  }
+  .confirm {
+    width: 276px;
+    height: 20px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgba(15, 15, 15, 1);
+    background-color: rgba(227, 255, 168, 1);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center; /*Align text horizontally in the center */
+    align-items: center;
+    /* margin-left: 80px; */
+    /* margin: 0; */
+  }
 }
 
 /* ////////////////////////////////////////// */
 @media screen and (min-width: 834px) {
+  .containerDextop {
+    width: 676px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
   .containerDiary {
     width: 518px;
     padding-right: 10px;

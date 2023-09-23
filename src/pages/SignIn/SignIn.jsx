@@ -22,8 +22,8 @@ function SignIn() {
     const form = e.currentTarget;
     dispatch(
       logIn({
-        email: String(email),
-        password: String(password),
+        email: email.value,
+        password: password.value,
       })
     )
       .then(result => {

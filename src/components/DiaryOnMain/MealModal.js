@@ -60,19 +60,6 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
     }
   };
 
-  // const handleConfirm = async () => {
-  //   try {
-  //     if (mealName === 'breakfast') {
-  //       await dispatch(fetchGoalsConfirm(placeholderData));
-  //     } else if (mealName === 'lunch') {
-  //       await dispatch(fetchGoalsLunchConfirm(placeholderData));
-  //     }
-
-  //   } catch (error) {
-  //     console.error('Помилка під час відправки на бекенд:', error);
-  //   }
-  // };
-
   const handleRemoveField = index => {
     const newInputFields = [...inputFields];
     newInputFields.splice(index, 1);
@@ -86,12 +73,15 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
   };
 
   return (
+   
     <div className={css.modalOverly} onClick={handleOverlyClick}>
+      
       <div
         className={css.overlay}
         style={{ display: isOpen ? 'block' : 'none' }}
       >
-        <div>
+       
+        <div className={`${css.containerMobile} ${css.containerDextop}`}>
           <h2 className={css.img}>Record your meal</h2>
           <div className={css.flexContainer}>
             <img className={css.breakfast} src={breakfast} alt="breakfast" />
@@ -99,9 +89,12 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
           </div>
 
           {inputFields.map((field, index) => (
+            <form>
             <div className={css.containerLabel} key={index}>
               <label htmlFor={`productName${index}`}></label>
+              
               <input
+               className={`${css.placeholder} `}
                 style={{
                   border: '1px solid rgba(227, 255, 168, 1)',
                   borderRadius: '12px',
@@ -116,8 +109,10 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
                   gap: '10px',
                   background: 'black',
                   marginRight: '10px',
-                  marginLeft: '25px',
+                 
                 }}
+                
+
                 placeholder="The name of the product or dish"
                 type="text"
                 id={`productName${index}`}
@@ -203,6 +198,7 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
 
               <label htmlFor={`calories${index}`}></label>
               <input
+              className={css.placeholder}
                 style={{
                   border: '1px solid rgba(227, 255, 168, 1)',
                   borderRadius: '12px',
@@ -233,10 +229,11 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
                   onClick={() => handleRemoveField(index)}
                 >
                   remove
-                  {/* <svg icon={faTrash} /> */}
+                 
                 </button>
               )}
             </div>
+            </form>
           ))}
 
           <button
@@ -246,7 +243,7 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
           >
             + Add more
           </button>
-        </div>
+       
         <div className={css.buttonConfirm}>
           <button className={css.cancel} onClick={onClose}>
             Cancel
@@ -255,7 +252,8 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
             Confirm
           </button>
         </div>
-      </div>
+        </div>
+    </div>
     </div>
   );
 };
