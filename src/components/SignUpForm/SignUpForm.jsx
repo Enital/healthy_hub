@@ -2,9 +2,13 @@ import { NavLink } from 'react-router-dom';
 import SportAndFitnessTrackerIMG from './../../images/img/illustration-sport-and-fitness-tracker.svg';
 import css from './SignUpForm.module.css';
 import { useInput } from '../../hooks/useValidationForm';
-// import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import validCorrect from '../../images/icons/validCorrect.svg';
-import validError from '../../images/icons/validError.svg';
+import { messageErrorName } from './InputValidation/messageErrorName';
+import { cssValidName } from './InputValidation/messageErrorName';
+import { messageErrorEmail } from './InputValidation/messageErrorEmail';
+import { cssValidEmail } from './InputValidation/messageErrorEmail';
+import { messageErrorPassword } from './InputValidation/messageErrorPassword';
+import { cssValidPassword } from './InputValidation/messageErrorPassword';
+
 
 const SignUpForm = ({ onForm, nameValue, emailValue, passwordValue }) => {
   const name = useInput(nameValue, { isEmpty: true, isName: true });
@@ -36,9 +40,7 @@ const SignUpForm = ({ onForm, nameValue, emailValue, passwordValue }) => {
         <form className={css.form} onSubmit={onForm}>
           <label className={css.label}>
             <input
-              className={`${css.input}${
-                name.isDirty && name.nameError ? ` ${css.inputError}` : ''
-              }${!name.nameError ? ` ${css.inputValid}` : ''}`}
+              className={cssValidName(name)}
               type="text"
               name="name"
               placeholder="Name"
@@ -46,27 +48,11 @@ const SignUpForm = ({ onForm, nameValue, emailValue, passwordValue }) => {
               onChange={e => name.onChange(e)}
               onBlur={e => name.onBlur(e)}
             />
-            {name.isDirty && name.nameError && (
-              <div className={css.errorMessage}>Not valid name*</div>
-            )}
-            {(name.isDirty && name.nameError) ||
-            (name.isDirty && name.isEmpty) ? (
-              <img src={validError} alt="Error" className={css.validError} />
-            ) : !name.nameError ? (
-              <img
-                src={validCorrect}
-                alt="Correct"
-                className={css.validCorrect}
-              />
-            ) : (
-              ''
-            )}
+            {messageErrorName(name, 'Not valid name*')}
           </label>
           <label className={css.label}>
             <input
-              className={`${css.input}${
-                email.isDirty && email.emailError ? ` ${css.inputError}` : ''
-              }${!email.emailError ? ` ${css.inputValid}` : ''}`}
+              className={cssValidEmail(email)}
               type="email"
               name="email"
               placeholder="E-mail"
@@ -74,38 +60,16 @@ const SignUpForm = ({ onForm, nameValue, emailValue, passwordValue }) => {
               onChange={e => email.onChange(e)}
               onBlur={e => email.onBlur(e)}
             />
-            {email.isDirty && email.emailError && (
-              <div className={css.errorMessage}>Not valid e-mail*</div>
-            )}
-            {(email.isDirty && email.emailError) ||
-            (email.isDirty && email.isEmpty) ? (
-              <img src={validError} alt="Error" className={css.validError} />
-            ) : !email.emailError ? (
-              <img
-                src={validCorrect}
-                alt="Correct"
-                className={css.validCorrect}
-              />
-            ) : (
-              ''
-            )}
+            {messageErrorEmail(email, 'Not valid e-mail*')}
           </label>
-          {/* {password.isDirty &&
+          <label className={css.label}>
+            {/* {password.isDirty &&
             password.passwordError &&
             Notify.failure(
               'Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters'
             )} */}
-
-          <label className={css.label}>
-            {/* {password.isDirty &&
-              password.isEmpty &&
-              Notify.failure('Please create your own password')} */}
             <input
-              className={`${css.input}${
-                password.isDirty && password.passwordError
-                  ? ` ${css.inputError}`
-                  : ''
-              }${!password.passwordError ? ` ${css.inputValid}` : ''}`}
+              className={cssValidPassword(password)}
               type="password"
               name="password"
               placeholder="Password"
@@ -116,25 +80,11 @@ const SignUpForm = ({ onForm, nameValue, emailValue, passwordValue }) => {
               // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
               // required
             />
-            {(password.isDirty && password.passwordError) ||
-            (password.isDirty && password.isEmpty) ? (
-              <>
-                <img src={validError} alt="Error" className={css.validError} />
-                <div className={css.errorMessage}>Enter a valid Password*</div>
-              </>
-            ) : !password.passwordError ? (
-              <>
-                <img
-                  src={validCorrect}
-                  alt="Correct"
-                  className={css.validCorrect}
-                />
-                <div className={css.correctMessage}>Password is secure</div>
-              </>
-            ) : (
-              ''
+            {messageErrorPassword(
+              password,
+              'Enter a valid Password*',
+              'Password is secure'
             )}
-
             <input
               className={css.checkbox}
               type="checkbox"
