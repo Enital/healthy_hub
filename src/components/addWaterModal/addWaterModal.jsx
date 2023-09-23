@@ -27,6 +27,13 @@ const AddWaterModal = ({ closeModal, waterGoal, waterUsed }) => {
     form.reset();
     closeModal();
   };
+  const handleOnClose = e => {
+    if (e.code === 'Escape') {
+      closeModal();
+    }
+  };
+
+  window.addEventListener('keydown', handleOnClose);
 
   const handleOverlyClick = e => {
     if (e.currentTarget === e.target) {
