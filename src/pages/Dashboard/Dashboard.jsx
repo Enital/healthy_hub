@@ -5,8 +5,8 @@ import WeightChart from 'components/Charts/WeightChart/WeightChart';
 import Modal from 'components/DashboardModal/DashboardModal';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { selectCharts } from 'redux/dashboard/selectors';
+import { useDispatch } from 'react-redux';
+// import { selectCharts } from 'redux/dashboard/selectors';
 import { fetchGraph } from 'redux/dashboard/operations';
 
 import leftArrow from '../../images/icons/arrow-left.svg';
