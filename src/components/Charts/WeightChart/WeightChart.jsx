@@ -1,16 +1,19 @@
 import React from 'react';
-import { selectCharts } from 'redux/dashboard/selectors';
+// import { selectCharts } from 'redux/dashboard/selectors';
 import BuildWeightChart from './BuildWeightChart';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
 import css from './weightChart.module.css';
 
 const _ = require('lodash');
 
 export default function WeightChart() {
-  const { graph } = useSelector(selectCharts);
-
-  const data = graph.weight;
+  // const { items } = useSelector(selectCharts);
+  const data = [
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 89, 89, 90,
+  ];
+  // const data = items.weight;
 
   const average = Math.round(_.mean(data));
 

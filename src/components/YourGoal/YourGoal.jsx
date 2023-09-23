@@ -25,7 +25,7 @@ function YourGoal({ onForm, onBackPage, goal }) {
               <input
                 type="radio"
                 name="goal"
-                value="lose"
+                value="Lose fat"
                 checked={goalValue === 'Lose fat'}
                 onChange={handleChangeGoal}
               />
@@ -35,7 +35,7 @@ function YourGoal({ onForm, onBackPage, goal }) {
               <input
                 type="radio"
                 name="goal"
-                value="maintain"
+                value="Maintain"
                 checked={goalValue === 'Maintain'}
                 onChange={handleChangeGoal}
               />
@@ -45,7 +45,7 @@ function YourGoal({ onForm, onBackPage, goal }) {
               <input
                 type="radio"
                 name="goal"
-                value="gain"
+                value="Gain muscle"
                 checked={goalValue === 'Gain muscle'}
                 onChange={handleChangeGoal}
               />
