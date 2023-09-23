@@ -62,7 +62,7 @@ export default function Water() {
       walue = -5;
       break;
     case 100:
-      walue = 1;
+      walue = 3;
       break;
     default:
       walue = -20;

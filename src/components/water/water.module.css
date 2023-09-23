@@ -29,7 +29,6 @@
 .srOnly {
   position: relative;
   z-index: 20;
-  /* top: -20px; */
   color: #fff;
   font-size: 18px;
   line-height: 22px;
