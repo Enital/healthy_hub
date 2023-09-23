@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-//import { mealFields } from 'components/DiaryOnMain/MealModal';
 
 axios.defaults.baseURL = 'https://goit-healthy-hub.onrender.com/api';
 
@@ -42,8 +41,7 @@ export const addWater = createAsyncThunk(
 export const fetchGoalsConfirm = createAsyncThunk(
   'user/food-intake',
   async (data, thunkAPI) => {
-    const {placeholderData, mealName} = data
-    // console.log(breakfast);
+    const { placeholderData, mealName } = data;
     try {
       setHeadersToken(thunkAPI.getState().auth.token);
       const response = await axios.post('/user/food-intake-v2', {
@@ -56,5 +54,3 @@ export const fetchGoalsConfirm = createAsyncThunk(
     }
   }
 );
-
-
