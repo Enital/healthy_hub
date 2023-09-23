@@ -1,29 +1,19 @@
 import { NavLink } from 'react-router-dom';
 import SportAndFitnessTrackerIMG from './../../images/img/illustration-sport-and-fitness-tracker.svg';
 import css from './SignIn.module.css';
-
-import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
-
+import { useInput } from '../../hooks/useValidationForm';
+import { cssValidEmail } from '../../components/SignUpForm/InputValidation/messageErrorEmail';
+import { messageErrorEmail } from '../../components/SignUpForm/InputValidation/messageErrorEmail';
+import { messageErrorPassword } from '../..///components/SignUpForm//InputValidation/messageErrorPassword';
+import { cssValidPassword } from '../../components/SignUpForm/InputValidation/messageErrorPassword';
+import { seePassword } from '../../components/SignUpForm/seePassword';
+import { useState } from 'react';
 function SignIn() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleChange = event => {
-    const { name, value } = event.target;
-
-    switch (name) {
-      case 'email':
-        setEmail(value);
-        break;
-      case 'password':
-        setPassword(value);
-        break;
-      default:
-        return;
-    }
-  };
+  const [incorrect, setIncorrect] = useState(false);
+  const email = useInput('', { isEmpty: true, isEmail: true });
+  const password = useInput('', { isEmpty: true, isPassword: true });
 
   const dispatch = useDispatch();
 
@@ -32,10 +22,19 @@ function SignIn() {
     const form = e.currentTarget;
     dispatch(
       logIn({
-        email,
-        password,
+        email: String(email),
+        password: String(password),
       })
-    );
+    )
+      .then(result => {
+        console.log(result.payload);
+        if (result.payload === 'Request failed with status code 401') {
+          setIncorrect(true);
+        }
+      })
+      .catch(error => {
+        console.error(error);
+      });
     form.reset();
   };
 
@@ -51,27 +50,49 @@ function SignIn() {
           <h1 className={css.title}>Sign in</h1>
           <h2 className={css.subtitle}>You need to login to use the service</h2>
           <form className={css.form} onSubmit={handleSubmit}>
-            <label>
+            <label className={css.label}>
               <input
-                className={css.input}
+                className={cssValidEmail(email)}
                 type="email"
                 name="email"
                 placeholder="E-mail"
-                value={email}
-                onChange={handleChange}
-              />
+                value={email.value}
+                onChange={e => email.onChange(e)}
+                onBlur={e => email.onBlur(e)}
+              />{' '}
+              {messageErrorEmail(email, 'Not valid e-mail*')}
             </label>
-            <label>
+            <label className={css.label}>
               <input
-                className={css.input}
+                className={cssValidPassword(password)}
                 type="password"
                 name="password"
                 placeholder="Password"
-                value={password}
-                onChange={handleChange}
+                value={password.value}
+                id="myInput"
+                onChange={e => password.onChange(e)}
+                onBlur={e => password.onBlur(e)}
+              />
+              {messageErrorPassword(password, 'Enter a valid Password*', '')}
+              {incorrect &&
+                messageErrorPassword(
+                  password,
+                  
+                  'Incorrect email or password*','',
+                  true
+                )}
+              <input
+                className={css.checkbox}
+                type="checkbox"
+                onChange={seePassword}
+                style={{ display: password ? 'block' : 'none' }}
               />
             </label>
-            <button className={css.signinBtn} type="submit">
+            <button
+              className={css.signinBtn}
+              type="submit"
+              disabled={!password.inputValid || !email.inputValid}
+            >
               Sign in
             </button>
           </form>

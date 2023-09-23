@@ -279,7 +279,8 @@ input[type='checkbox']:checked::after {
   position: absolute;
   top: 12px;
   right: 5px;
-  transform: translate(-50%);z-index: 10;
+  transform: translate(-50%);
+  z-index: 10;
 }
 
 .errorMessage {

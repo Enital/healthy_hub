@@ -78,3 +78,16 @@ export const refreshUser = createAsyncThunk(
     }
   }
 );
+
+export const checkingRegistered = createAsyncThunk(
+  'auth/checking-registered',
+  async (body, thunkAPI) => {
+    try {
+      const res = await axios.post(`${path}/checking-registered`, body);
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+

@@ -8,21 +8,11 @@ import { messageErrorEmail } from './InputValidation/messageErrorEmail';
 import { cssValidEmail } from './InputValidation/messageErrorEmail';
 import { messageErrorPassword } from './InputValidation/messageErrorPassword';
 import { cssValidPassword } from './InputValidation/messageErrorPassword';
-
-
+import { seePassword } from './seePassword';
 const SignUpForm = ({ onForm, nameValue, emailValue, passwordValue }) => {
   const name = useInput(nameValue, { isEmpty: true, isName: true });
   const email = useInput(emailValue, { isEmpty: true, isEmail: true });
   const password = useInput(passwordValue, { isEmpty: true, isPassword: true });
-
-  const myFunction = () => {
-    const x = document.getElementById('myInput');
-    if (x.type === 'password') {
-      x.type = 'text';
-    } else {
-      x.type = 'password';
-    }
-  };
 
   return (
     <div className={css.wrapper}>
@@ -77,8 +67,6 @@ const SignUpForm = ({ onForm, nameValue, emailValue, passwordValue }) => {
               id="myInput"
               onChange={e => password.onChange(e)}
               onBlur={e => password.onBlur(e)}
-              // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-              // required
             />
             {messageErrorPassword(
               password,
@@ -88,7 +76,7 @@ const SignUpForm = ({ onForm, nameValue, emailValue, passwordValue }) => {
             <input
               className={css.checkbox}
               type="checkbox"
-              onChange={myFunction}
+              onChange={seePassword}
               style={{ display: password ? 'block' : 'none' }}
             />
           </label>
@@ -96,7 +84,7 @@ const SignUpForm = ({ onForm, nameValue, emailValue, passwordValue }) => {
             className={css.signupBtn}
             type="submit"
             disabled={
-              !name.inputValid || password.inputValid || !email.inputValid
+              !name.inputValid || !password.inputValid || !email.inputValid
             }
           >
             Next
