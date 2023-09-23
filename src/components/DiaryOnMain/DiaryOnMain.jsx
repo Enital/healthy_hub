@@ -7,35 +7,38 @@ import snackImage from '../../images/illustration/snack-image.svg';
 import React, { useState } from 'react';
 import MealModal from './MealModal';
 
-// import { selectGoals } from 'redux/usersGoal/selectors';
-// import { useSelector } from 'react-redux';
+ import { useSelector } from 'react-redux';
+import { selectGoals } from 'redux/usersGoal/selectors';
+
 
 const DiaryOnMain = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedMeal, setSelectedMeal] = useState('');
 
-  //const { items } = useSelector(selectGoals);
-
+  const { items } = useSelector(selectGoals);
+  if (Object.keys(items).length === 0) {
+    return;
+  }
   
-// const breakfastCalories = items.breakfast.calories;
-// const breakfastCarbohydrates = items.breakfast.carbohydrates;
-// const breakfastProtein = items.breakfast.protein;
-// const breakfastFat = items.breakfast.fat;
+const breakfastCalories = items.breakfast.calories;
+const breakfastCarbohydrates = items.breakfast.carbohydrates;
+const breakfastProtein = items.breakfast.protein;
+const breakfastFat = items.breakfast.fat;
 
-//  const lunchCalories = items.lunch.calories;
-//  const lunchCarbohydrates = items.lunch.carbohydrates;
-//  const lunchProtein = items.lunch.protein;
-//  const lunchFat = items.lunch.fat;
+ const lunchCalories = items.lunch.calories;
+ const lunchCarbohydrates = items.lunch.carbohydrates;
+ const lunchProtein = items.lunch.protein;
+ const lunchFat = items.lunch.fat;
 
-//  const dinnerCalories = items.dinner.calories;
-//  const dinnerCarbohydrates = items.dinner.carbohydrates;
-//  const dinnerProtein = items.dinner.protein;
-//  const dinnerFat = items.dinner.fat;
+ const dinnerCalories = items.dinner.calories;
+ const dinnerCarbohydrates = items.dinner.carbohydrates;
+ const dinnerProtein = items.dinner.protein;
+ const dinnerFat = items.dinner.fat;
 
-//  const snackCalories = items.snack.calories;
-//  const snackCarbohydrates = items.snack.carbohydrates;
-//  const snackProtein = items.snack.protein;
-//  const snackFat = items.snack.fat;
+ const snackCalories = items.snack.calories;
+ const snackCarbohydrates = items.snack.carbohydrates;
+ const snackProtein = items.snack.protein;
+ const snackFat = items.snack.fat;
 
  const openModal = (mealName) => {
     setSelectedMeal(mealName);
@@ -66,10 +69,22 @@ const DiaryOnMain = () => {
         />
         <h2 className={css.diaryBreakfast}>Breakfast</h2>
         </div>
-        <button className={css.openModal} onClick={() => openModal('breakfast')}>
-          {' '}
-          + Record your meal
-        </button>
+        <span>
+          {breakfastCalories > 0 ? (
+            <p>
+              Carbonohidrates:{breakfastCarbohydrates} Protein:
+              {breakfastProtein} Fat:{breakfastFat}
+            </p>
+          ) : (
+            <button
+              className={css.openModal}
+              onClick={() => openModal('breakfast')}
+            >
+              {' '}
+              + Record your meal
+            </button>
+          )}
+        </span>
       </div>
       <MealModal isOpen={isModalOpen} onClose={closeModal} mealName={selectedMeal} />
 
@@ -78,10 +93,22 @@ const DiaryOnMain = () => {
         <img className={css.breakfastImage} src={lunchImage} alt="Lunch" />
         <h2 className={css.diaryBreakfast}>Lunch</h2>
         </div>
-        <button className={css.openModal} onClick={() => openModal('lunch')}>
-          {' '}
-          + Record your meal
-        </button>
+        <span>
+          {lunchCalories > 0 ? (
+            <p>
+              Carbonohidrates:{lunchCarbohydrates} Protein:
+              {lunchProtein} Fat:{lunchFat}
+            </p>
+          ) : (
+            <button
+              className={css.openModal}
+              onClick={() => openModal('lunch')}
+            >
+              {' '}
+              + Record your meal
+            </button>
+          )}
+        </span>
       </div>
 
       <div className={css.divBreakfast}>
@@ -89,10 +116,22 @@ const DiaryOnMain = () => {
         <img className={css.breakfastImage} src={dinnerImage} alt="Dinner" />
         <h2 className={css.diaryBreakfast}>Dinner</h2>
         </div>
-        <button className={css.openModal} onClick={() => openModal('dinner')}>
-          {' '}
-          + Record your meal
-        </button>
+        <span>
+          {dinnerCalories > 0 ? (
+            <p>
+              Carbonohidrates:{dinnerCarbohydrates} Protein:
+              {dinnerProtein} Fat:{dinnerFat}
+            </p>
+          ) : (
+            <button
+              className={css.openModal}
+              onClick={() => openModal('dinner')}
+            >
+              {' '}
+              + Record your meal
+            </button>
+          )}
+        </span>
       </div>
 
       <div className={css.divBreakfast}>
@@ -100,10 +139,22 @@ const DiaryOnMain = () => {
         <img className={css.breakfastImage} src={snackImage} alt="Snack" />
         <h2 className={css.diaryBreakfast}>Snack</h2>
         </div>
-        <button className={css.openModal} onClick={() => openModal('snack')}>
-          {' '}
-          + Record your meal
-        </button>
+        <span>
+          {snackCalories > 0 ? (
+            <p>
+              Carbonohidrates:{snackCarbohydrates} Protein:
+              {snackProtein} Fat:{snackFat}
+            </p>
+          ) : (
+            <button
+              className={css.openModal}
+              onClick={() => openModal('snack')}
+            >
+              {' '}
+              + Record your meal
+            </button>
+          )}
+        </span>
       </div>
     </div>
   );
