@@ -24,6 +24,7 @@ const Dashboard = () => {
   }, [dispatch]);
 
   const { items } = useSelector(selectCharts);
+  // console.log(items);
   const [timeToggleBtn, setTimeToggleBtn] = useState(false);
 
   const closeModal = () => {
@@ -79,7 +80,8 @@ const Dashboard = () => {
               </Modal>
             )}
           </ul>
-          <p className={css.month}>{items.labels.monthLong}</p>
+          <p className={css.month}>September</p>
+          {/* {items.labels.monthLong} */}
         </div>
         <div className={css.chartContainer}>
           <CaloriesChart />
