@@ -8,9 +8,9 @@ import css from './weightChart.module.css';
 const _ = require('lodash');
 
 export default function WeightChart() {
-  const { graph } = useSelector(selectCharts);
+  const { items } = useSelector(selectCharts);
 
-  const data = graph.weight;
+  const data = items.weight;
 
   const average = Math.round(_.mean(data));
 
