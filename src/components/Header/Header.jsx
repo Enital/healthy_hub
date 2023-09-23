@@ -171,6 +171,8 @@ function Header() {
   // }
 
   return (
+    <div className="container" style={{ paddingLeft: 0,
+      paddingRight: 0 }}>
       <header className={css.header}>
         <Link to="/WelcomePage" className={css.link}>
           <h1 className={css.headline}>HealthyHub</h1>
@@ -516,6 +518,8 @@ function Header() {
           )}
         </div>
       </header>
+    </div>
+      
     
   );
 }
