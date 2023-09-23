@@ -5,7 +5,8 @@ import { useMediaQuery } from 'react-responsive';
 import * as mob from '../../images/illustration';
 import { nanoid } from 'nanoid';
 import MealModal from '../DiaryOnMain/MealModal';
-
+// import { useSelector } from 'react-redux';
+// import { selectGoals } from 'redux/usersGoal/selectors';
 const DiaryTable = ({
   mealType,
   mealData,
@@ -60,6 +61,31 @@ const DiaryTable = ({
   };
   const [mealModalOpen, setMealModalOpen] = useState(false);
   const [selectedFoodName, setSelectedFoodName] = useState('');
+
+  // const { items } = useSelector(selectGoals);
+  // if (Object.keys(items).length === 0) {
+  //   return;
+  // }
+
+  // const breakfastCalories = items.breakfast.calories;
+  // const breakfastCarbohydrates = items.breakfast.carbohydrates;
+  // const breakfastProtein = items.breakfast.protein;
+  // const breakfastFat = items.breakfast.fat;
+
+  // const lunchCalories = items.lunch.calories;
+  // const lunchCarbohydrates = items.lunch.carbohydrates;
+  // const lunchProtein = items.lunch.protein;
+  // const lunchFat = items.lunch.fat;
+
+  // const dinnerCalories = items.dinner.calories;
+  // const dinnerCarbohydrates = items.dinner.carbohydrates;
+  // const dinnerProtein = items.dinner.protein;
+  // const dinnerFat = items.dinner.fat;
+
+  // const snackCalories = items.snack.calories;
+  // const snackCarbohydrates = items.snack.carbohydrates;
+  // const snackProtein = items.snack.protein;
+  // const snackFat = items.snack.fat;
 
   const onRecordMealButtonClick = evt => {
     setSelectedFoodName(evt.target.name);
