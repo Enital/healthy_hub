@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { format } from 'date-fns';
 import axios from 'axios';
+import scrollLock from 'scroll-lock';
 
 import profileCircleSvg from '../../images/icons/profile-circle.svg';
 import menuSvg from '../../images/icons/menu.svg';
@@ -128,10 +129,13 @@ function Header() {
     setIsModalWeightOpen(false); 
     setIsModalUserOpen(false);
     closeModalMobile();
+    scrollLock.disablePageScroll(document.body);
   };
 
   const closeModalGoal = () => {
     setIsModalGoalOpen(false);
+     scrollLock.clearQueueScrollLocks();
+     scrollLock.enablePageScroll();
   };
 
   const openModalWeight = () => {
@@ -139,10 +143,14 @@ function Header() {
     setIsModalGoalOpen(false); 
     setIsModalUserOpen(false);
     closeModalMobile();
+    scrollLock.disablePageScroll(document.body);
+    
   };
 
   const closeModalWeight = () => {
     setIsModalWeightOpen(false);
+    scrollLock.clearQueueScrollLocks();
+    scrollLock.enablePageScroll();
   };
 
   const toggleModal = () => {
@@ -155,15 +163,19 @@ function Header() {
 
   const closeModalUser = () => {
     setIsModalUserOpen(false);
+    
   };
 
   const openModalMobile = () => {
     setIsModalMobileOpen(true);
     setIsModalUserOpen(false);
+    scrollLock.disablePageScroll(document.body);
   };
 
   const closeModalMobile = () => {
     setIsModalMobileOpen(false);
+    scrollLock.clearQueueScrollLocks();
+    scrollLock.enablePageScroll();
   };
 
   // if (user && user.goal) {
