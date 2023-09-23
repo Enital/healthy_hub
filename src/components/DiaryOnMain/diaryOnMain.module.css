@@ -1,6 +1,6 @@
 /* mobile menu 0- 349 */
 
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 833px) {
   .containerDiary {
     width: 300px;
     padding-left: 10px;
@@ -58,13 +58,23 @@
     margin-left: 20px;
     margin-right: 10px;
   }
+  .linkFoodMobile {
+    display: grid;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgba(255, 255, 255, 1);
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+  .carbonohidratesMobile {
+    padding-bottom: 10px;
+  }
 }
 
 /* ////////////////////////////////////////// */
-@media screen and (min-width: 301px) {
+@media screen and (min-width: 834px) {
   .containerDiary {
     width: 518px;
-
     padding-right: 10px;
     margin-left: 0;
     margin-right: 0;
