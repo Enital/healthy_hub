@@ -80,8 +80,7 @@ const Dashboard = () => {
               </Modal>
             )}
           </ul>
-          {/* <p className={css.month}>{graph.labels.monthLong}</p> */}
-          <p className={css.month}>{graph.beginDate}</p>
+          <p className={css.month}>{graph.labels.monthLong}</p>
         </div>
         <div className={css.chartContainer}>
           <CaloriesChart />

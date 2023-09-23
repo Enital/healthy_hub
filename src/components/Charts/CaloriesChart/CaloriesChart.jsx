@@ -195,7 +195,6 @@ const average = Math.round(_.mean(data));
 export default function CaloriesChart() {
   const { graph } = useSelector(selectCharts);
 
-  console.log(graph);
   const dataOne = {
     labels: graph.days,
     datasets,
