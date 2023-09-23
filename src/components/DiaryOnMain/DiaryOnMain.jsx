@@ -7,9 +7,35 @@ import snackImage from '../../images/illustration/snack-image.svg';
 import React, { useState } from 'react';
 import MealModal from './MealModal';
 
+// import { selectGoals } from 'redux/usersGoal/selectors';
+// import { useSelector } from 'react-redux';
+
 const DiaryOnMain = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedMeal, setSelectedMeal] = useState('');
+
+  //const { items } = useSelector(selectGoals);
+
+  
+// const breakfastCalories = items.breakfast.calories;
+// const breakfastCarbohydrates = items.breakfast.carbohydrates;
+// const breakfastProtein = items.breakfast.protein;
+// const breakfastFat = items.breakfast.fat;
+
+//  const lunchCalories = items.lunch.calories;
+//  const lunchCarbohydrates = items.lunch.carbohydrates;
+//  const lunchProtein = items.lunch.protein;
+//  const lunchFat = items.lunch.fat;
+
+//  const dinnerCalories = items.dinner.calories;
+//  const dinnerCarbohydrates = items.dinner.carbohydrates;
+//  const dinnerProtein = items.dinner.protein;
+//  const dinnerFat = items.dinner.fat;
+
+//  const snackCalories = items.snack.calories;
+//  const snackCarbohydrates = items.snack.carbohydrates;
+//  const snackProtein = items.snack.protein;
+//  const snackFat = items.snack.fat;
 
  const openModal = (mealName) => {
     setSelectedMeal(mealName);
