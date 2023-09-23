@@ -12,6 +12,7 @@
     @media (min-width: 834px) {
         width: 678px;
         padding: 24px;
+        
     }
 }
 
@@ -44,7 +45,7 @@
 }
 
 .recordMealModalInput {
-    width: 276px;
+    width: 255px;
     padding: 8px 10px;
     color: #fff;
 
@@ -58,13 +59,13 @@
     line-height: 1.42em;
 
     @media (min-width: 834px) {
-        width: 100px;
+        width: 75px;
     }
 }
 
 .recordMealModalInput:first-child {
     @media (min-width: 834px) {
-        width: 280px;
+        width: 255px;
     }
 }
 
@@ -88,6 +89,7 @@
     flex-direction: column;
     gap: 16px;
     margin-bottom: 24px;
+    width: 630px;
 }
 
 .recordMealModalInputsListItem {

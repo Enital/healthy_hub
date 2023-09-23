@@ -2,7 +2,7 @@ import RecommendedFoodList from 'components/RecommendedFoodList/RecommendedFoodL
 import ketogenicDietIMG from './../../images/img/illustration-ketogenic-diet.svg';
 import css from './RecommendedFood.module.css';
 import { useEffect, useState } from 'react';
-import getRecomendations from '../../redux/products/operations';
+import getRecomendations from '../../redux/helpers/getRecomendations';
 
 import { useSelector } from 'react-redux';
 

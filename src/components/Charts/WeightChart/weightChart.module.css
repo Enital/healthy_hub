@@ -1,6 +1,6 @@
-.weightChart{
-  height: 382px;
-  width: 676px;
+.weightChart {
+  height: 110px;
+  width: 1372px;
   /* padding: 10px; */
   margin-top: 40px;
   margin-right: 20px;
@@ -8,7 +8,8 @@
   /* border-radius: 8px; */
   /* border: solid 1px cyan; */
 }
-.dashboardTitle{
+
+.dashboardTitle {
   display: flex;
   flex-direction: row;
   align-items: baseline;
@@ -17,12 +18,34 @@
   line-height: 32px;
 }
 
-.chartTitle{
+.chartTitle {
   padding-right: 20px;
   margin-bottom: 6px;
 }
-.chartSubtitle{
+
+.chartSubtitle {
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
+}
+
+
+.list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item {
+  text-align: center;
+}
+
+.weightTitle {
+  font-size: 14px;
+  line-height: 1.43;
+  margin-bottom: 16px;
+}
+
+.dataTitle {
+  font-size: 10px;
+  line-height: 1.4;
 }

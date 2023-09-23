@@ -9,6 +9,7 @@ h1, h2, h3, h4, h5, h6, p, div, link {
     display: flex;
     flex-direction: row;
     background: var(--color-primary-black-2, #0F0F0F);
+    position: relative;
 }
 
 .headline{
@@ -17,6 +18,7 @@ h1, h2, h3, h4, h5, h6, p, div, link {
     font-size: 22px;
     margin: 34px 0px 34px 34px;
     line-height: 32px;
+    cursor: pointer;
 }
 
 .link{
@@ -30,6 +32,10 @@ h1, h2, h3, h4, h5, h6, p, div, link {
     align-items: center;
     justify-content: center;
     text-align: right;
+}
+
+.menuSvg{
+    display: none;
 }
 
 .authLink {
@@ -62,7 +68,8 @@ h1, h2, h3, h4, h5, h6, p, div, link {
     display: flex;
     align-items: center;
     position: absolute;
-    right: 72px;
+    right: 36px;
+    cursor: pointer;
 }
 
 .userProfile{
@@ -71,6 +78,7 @@ h1, h2, h3, h4, h5, h6, p, div, link {
 
 .userProfileRegistration{
     margin: 0px 4px 0px 6px;
+    width: 28px;
 }
 
 .authenticatedNav{
@@ -90,23 +98,27 @@ h1, h2, h3, h4, h5, h6, p, div, link {
     right: 512px;
     width: 68px;
     text-align: start;
+    cursor: pointer;
 }
 
 .openArrowDownGoalSvg{
     position: absolute;
     top: 54px;
-    right: 498px;
+    right: 480px;
 }
 
 .goalChosenName{
-  position: absolute;
-  bottom: 29px;
-  top: 51px;
-  right: 524px;
-  color: var(--color-primary-white, #FFF);
+    position: absolute;
+    bottom: 29px;
+    top: 51px;
+    right: 490px;
+    color: var(--color-primary-white, #FFF);
     font-size: 14px;
     font-weight: 500;
     line-height: 20px;
+    text-align: start;
+    width: 90px;
+    cursor: pointer;
 }
 
 .modalGoalContent {
@@ -128,6 +140,17 @@ h1, h2, h3, h4, h5, h6, p, div, link {
     top: 20px;
 }
 
+.modalMobileContent{
+    width: 300px;
+    height: 184px;
+    border-radius: 12px;
+    background: var(--color-primary-black-2, #0F0F0F);
+    box-shadow: 0px 4px 14px 0px rgba(227, 255, 168, 0.20);
+    position: absolute;
+    top: 60px;
+    left: 10px;
+}
+
 .headlineTarget{
     color: var(--color-primary-white, #FFF);
     top: 20px;
@@ -143,7 +166,9 @@ h1, h2, h3, h4, h5, h6, p, div, link {
     font-size: 14px;
     font-weight: 600;
     line-height: 20px;
-
+    width: 68px;
+    text-align: start;
+    cursor: pointer;
 }
 
 .textWeightKg{
@@ -153,12 +178,6 @@ h1, h2, h3, h4, h5, h6, p, div, link {
     line-height: 20px;
     text-align: end;
     margin-right: 12px;
-}
-
-.edit2Svg {
-    right: -14px;
-    top: 23px;
-    position: absolute;
 }
 
 .modalWeightContent{
@@ -171,7 +190,7 @@ h1, h2, h3, h4, h5, h6, p, div, link {
     position: absolute; 
     top: 100px;
     right: 36px;
-   
+    z-index: 99;
 }
 
 .sectionContentWeight{
@@ -199,7 +218,6 @@ h1, h2, h3, h4, h5, h6, p, div, link {
     position: absolute;
     top: 20px;
     left: 24px;
-
 }
 
 .dataToday{
@@ -294,12 +312,14 @@ h1, h2, h3, h4, h5, h6, p, div, link {
 }
 
 .goalEmoji{
-    width: 40px;
-    height: 40px;
-    border: 1px solid var(--secondary-color-grey-1, #292928);
-    background: rgba(255, 255, 255, 0.01);
     padding: 10px;
-    display: block;
+    border-radius: 12px;
+    border: 1px solid #5F5E5C;
+    background: rgba(255, 255, 255, 0.01);
+    position: absolute;
+    right:592px;
+    top: 26px;
+    cursor: pointer;
 }
 
 .textEmojiGoal{
@@ -326,20 +346,26 @@ h1, h2, h3, h4, h5, h6, p, div, link {
 
 .waightEmoji{
     position: absolute;
-    right: 380px;
+    right: 370px;
     padding: 10px;
     border-radius: 12px;
     border: 1px solid #5F5E5C;
     background: rgba(255, 255, 255, 0.01);
+    cursor: pointer;
+}
+
+.weightSection{
+    position: absolute;
+    right: 290px;
+    top: 29px;
+    width: 68px;
 }
 
 .weightElement{
-    position: absolute;
-    right: 314px;
-    padding-left: 16px;
-    top: 29px;
+    display: flex;
+    align-items: center;
     width: 68px;
-
+    cursor: pointer;
 }
 
 .settingElement{
@@ -361,6 +387,7 @@ h1, h2, h3, h4, h5, h6, p, div, link {
     top: 80px;
     right: 36px;
     padding: 24px;
+    z-index: 99;
 }
 
 .textLinkSetting{
@@ -388,13 +415,18 @@ h1, h2, h3, h4, h5, h6, p, div, link {
     gap: 8px;
 }
 
+.cancel{
+    display: none;
+}
+
+.cancelWeight{
+    display: none;
+}
 
 @media (min-width: 834px) and (max-width: 932px) {
-    /*планшет */
+    /*планшет ------------------------------------------------------------------------------------------------------------------------------*/
     .header{
-        width: 100%;
-        height: 100px;
-        max-width: 99vw;
+        height: 100%;
         margin-bottom: 10px;
         display: flex;
         flex-direction: row;
@@ -423,14 +455,110 @@ h1, h2, h3, h4, h5, h6, p, div, link {
         line-height: 20px;
         text-decoration: none;
     }
+    .infoUserContent{
+        display: flex;
+        align-items: center;
+        position: absolute;
+        right: 27px;
+        cursor: pointer;
+    }
+    .waightEmoji{
+        position: absolute;
+        right: 310px;
+        padding: 10px;
+        border-radius: 12px;
+        border: 1px solid #5F5E5C;
+        background: rgba(255, 255, 255, 0.01);
+        cursor: pointer;
+    } 
+    .weightSection{
+        position: absolute;
+        right: 230px;
+        top: 29px;
+    }
+    .goalEmoji{
+        padding: 10px;
+        border-radius: 12px;
+        border: 1px solid #5F5E5C;
+        background: rgba(255, 255, 255, 0.01);
+        position: absolute;
+        right:492px;
+        top: 26px;
+        cursor: pointer;
+    }
+    .headlineGoal{
+        color: var(--color-primary-white, #FFF);
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 20px;
+        position: absolute;
+        top: 29px;
+        right: 412px;
+        width: 68px;
+        text-align: start;
+        cursor: pointer;
+    }
+    .goalChosenName{
+        position: absolute;
+        bottom: 29px;
+        top: 51px;
+        right: 390px;
+        color: var(--color-primary-white, #FFF);
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px;
+        text-align: start;
+        width: 90px;
+        cursor: pointer;
+    }
+    .openArrowDownGoalSvg{
+        position: absolute;
+        top: 54px;
+        right: 380px;
+    }
+    .modalGoalContent {
+        background: var(--color-primary-black-2, #0F0F0F);
+        box-shadow: 0px 4px 14px 0px rgba(227, 255, 168, 0.20);
+        width: 392px;
+        height: 352px;
+        text-align: center;
+        border-radius: 12px;
+        position: absolute; 
+        top: 100px;
+        right: 148px;
+        z-index: 99;
+    }
+    .modalWeightContent{
+        background: var(--color-primary-black-2, #0F0F0F);
+        box-shadow: 0px 4px 14px 0px rgba(227, 255, 168, 0.20);
+        border-radius: 12px;
+        width: 392px;
+        height: 200px;
+        text-align: center;
+        position: absolute; 
+        top: 100px;
+        right: 148px;
+        z-index: 99;
+    }
+    .modalUserContent{
+        border-radius: 12px;
+        background: var(--color-primary-black-2, #0F0F0F);
+        box-shadow: 0px 4px 14px 0px rgba(227, 255, 168, 0.20);
+        width: 158px;
+        height: 104px;
+        text-align: center;
+        position: absolute; 
+        top: 80px;
+        right: 27px;
+        padding: 24px;
+        z-index: 99;
+    }
 }
 
-@media (min-width: 378px) and (max-width: 768px) {
-    /* телефон  */
+@media (min-width: 320px) and (max-width: 768px) {
+    /* телефон ------------------------------------------------------------------------------------------------------------------------------ */
     .header{
-        width: 100%;
-        height: 60px;
-        max-width: 99vw;
+        height: 100%;
         margin-bottom: 10px;
         display: flex;
         flex-direction: row;
@@ -447,8 +575,8 @@ h1, h2, h3, h4, h5, h6, p, div, link {
         margin: 22px 42px 22px 0px;
         margin-left: auto;
         display: flex;
-    align-items: center;
-    justify-content: center;
+        align-items: center;
+        justify-content: center;
     }
     .authLink {
         color: var(--color-primary-white, #FFF);
@@ -456,5 +584,276 @@ h1, h2, h3, h4, h5, h6, p, div, link {
         font-weight: 400;
         line-height: 16px;
         text-decoration: none;
+    }
+
+    .menuSvg{
+        display: block;
+        position: absolute;
+        left: 120px;
+    }
+    .mobileWeightGoalContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .weightSection,
+      .goalChosenName {
+        margin-top: 10px;
+      }
+      .infoUserContent{
+        display: flex;
+        align-items: center;
+        position: absolute;
+        right: 10px;
+        cursor: pointer;
+      }
+      .textWeightKg {
+        margin-right: 5px;
+      }
+      
+      .weightSection,
+      .headlineWeight,
+      .goalEmoji,
+      .goalChosenName,
+      .headlineGoal,
+      .openArrowDownGoalSvg,
+      .closeSvg,
+      .waightEmoji
+      {
+        display: none;
+      }
+      .goalEmojiMobile{
+        padding: 10px;
+        border-radius: 12px;
+        border: 1px solid #5F5E5C;
+        background: rgba(255, 255, 255, 0.01);
+        position: absolute;
+        left: 24px;
+        top: 24px;
+        cursor: pointer;
+      }
+      .headlineGoalMobile{
+        color: var(--color-primary-white, #FFF);
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 20px;
+        position: absolute;
+        top: 27px;
+        left: 84px;
+        width: 68px;
+        text-align: start;
+        cursor: pointer;
+    }
+    .goalChosenNameMobile{
+        position: absolute;
+        top: 49px;
+        left: 84px;
+        color: var(--color-primary-white, #FFF);
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px;
+        text-align: start;
+        width: 90px;
+        cursor: pointer;
+    }
+    .openarrowRightGoalSvgMobile{
+        position: absolute;
+        top: 51px;
+        left: 167px;
+    }
+    .waightEmojiMobile{
+        position: absolute;
+        left: 24px;
+        top: 112px;
+        padding: 10px;
+        border-radius: 12px;
+        border: 1px solid #5F5E5C;
+        background: rgba(255, 255, 255, 0.01);
+        cursor: pointer;
+    }
+    .headlineWeightMobile{
+        color: var(--color-primary-white, #FFF);
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 20px;
+        width: 68px;
+        text-align: start;
+        cursor: pointer;
+    }
+    .weightSectionMobile{
+        position: absolute;
+        left: 85px;
+        top: 119px;
+        width: 68px;
+    }
+    .weightElementMobile{
+        display: flex;
+        align-items: center;
+        width: 68px;
+        cursor: pointer;
+    }
+    .textWeightKgMobile{
+        color: var(--color-primary-grey, #B6B6B6);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        text-align: end;
+        margin-right: 12px;
+    }
+    .modalGoalContent{
+        background: var(--color-primary-black, #050505);
+        width: 320px;
+        height: 508px;
+        text-align: center;
+        border-radius: 0%;
+        position: absolute;
+        top: 60px;
+        right:0px;
+        z-index: 99;
+    }
+    .sectionChoiseGoal{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        position: absolute;
+        left: 10px;
+        top: 112px;
+    }
+    .modalGoalButton{
+        width: 300px;
+        color: var(--color-primary-black-2, #0F0F0F);
+        text-align: center;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px;
+        border-radius: 12px;
+        background: var(--color-primary-green-lite, #E3FFA8);
+        padding: 8px 10px;
+        border: none;
+    }
+    .headlineTarget{
+        color: var(--color-primary-white, #FFF);
+        top: 20px;
+        position: absolute;
+        left: 10px;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 24px;
+    }
+    .textUnderHeadlineTarget{
+        color: var(--color-primary-grey, #B6B6B6);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        position: absolute;
+        top: 52px;
+        left: 10px;
+        width: 284px;
+        text-align: left;
+    }
+    .cancel{
+        display: block;
+        width: 192px;
+        color: var(--color-primary-grey, #B6B6B6);
+        text-align: center;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        position: absolute;
+        right: 52px;
+        top: 220px;
+    }
+    .modalWeightContent{
+        background: var(--color-primary-black, #050505);
+        width: 320px;
+        height: 508px;
+        text-align: center;
+        border-radius: 0%;
+        position: absolute;
+        top: 60px;
+        right:0px;
+        z-index: 99;
+    }
+    .sectionContentWeight{
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        position: absolute;
+        top: 56px;
+        left: 10px;
+    }
+    .headlineEnter{
+        color: var(--color-primary-white, #FFF);
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 24px; 
+        position: absolute;
+        top: 24px;
+        left: 10px;
+    }
+    .inputWeight{
+        color: var(--color-primary-grey, #B6B6B6);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px; 
+        padding: 8px 10px;
+        gap: 10px;
+        border-radius: 12px;
+        border: 1px solid var(--color-primary-green-lite, #E3FFA8);
+        background: var(--color-primary-black-2, #0F0F0F);
+        width: 300px;
+        left: 0px;
+        position: absolute;
+    }
+    .buttonWeightConfirm{
+        color: var(--color-primary-black-2, #0F0F0F);
+        border-radius: 12px;
+        background: var(--color-primary-green-lite, #E3FFA8);
+        text-align: center;
+        width: 300px;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 20px;
+        padding: 8px 10px;
+        flex-direction: column;
+        align-items: center;
+        position:absolute;
+        gap: 10px;
+        left: 0px;
+        top: 130px;
+        margin-left: 0px;
+    }
+    .cancelWeight{
+        display: block;
+        width: 192px;
+        color: var(--color-primary-grey, #B6B6B6);
+        text-align: center;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        position: absolute;
+        right: 28px;
+        top: 180px;
+    }
+    .modalUserContent{
+        border-radius: 12px;
+        background: var(--color-primary-black-2, #0F0F0F);
+        box-shadow: 0px 4px 14px 0px rgba(227, 255, 168, 0.20);
+        width: 158px;
+        height: 104px;
+        text-align: center;
+        position: absolute; 
+        top: 54px;
+        right: 10px;
+        padding: 24px;
+        z-index: 99;
+    }
+    .closeMobileSvg{
+        position: absolute;
+        top:16px;
+        right:16px;
     }
 }
