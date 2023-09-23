@@ -74,8 +74,7 @@
 .link {
   display: flex;
   align-items: center;
-  /* margin-top: 25px; */
-  /* margin-left: 25px; */
+  margin-bottom: 25px;
 }
 .diary {
   margin-right: 10px;
@@ -113,7 +112,7 @@
 }
 .diaryMobile {
   display: flex;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   align-items: center;
  
 }
@@ -246,12 +245,12 @@
   line-height: 24px;
   color: rgba(255, 255, 255, 1);
   margin-left: 25px;
+  margin-right: 0;
 }
 .divBreakfast {
   display: flex;
- 
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 .openModal {
   width: 150px;
@@ -261,13 +260,18 @@
   color: rgba(227, 255, 168, 1);
   background-color: black;
   border: 1px solid transparent;
-  padding: 5px 10px;
+  /* padding: 5px 10px; */
   cursor: pointer;
   justify-content: center;
   text-align: center;
   white-space: nowrap;
-margin-top: 20px;
+/* margin-top: 20px; */
 }
+.carbonohidrates {
+  margin-right: 25px;
+  margin-left: 5px;
+}
+
 }
 
 

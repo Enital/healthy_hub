@@ -72,8 +72,9 @@ const breakfastFat = items.breakfast.fat;
         <span>
           {breakfastCalories > 0 ? (
             <p>
-              Carbonohidrates:{breakfastCarbohydrates} Protein:
-              {breakfastProtein} Fat:{breakfastFat}
+              <span className={css.carbonohidrates}>Carbonohidrates:{breakfastCarbohydrates}</span>
+              <span className={css.carbonohidrates}> Protein:{breakfastProtein}</span>
+               Fat:{breakfastFat}
             </p>
           ) : (
             <button
@@ -96,8 +97,9 @@ const breakfastFat = items.breakfast.fat;
         <span>
           {lunchCalories > 0 ? (
             <p>
-              Carbonohidrates:{lunchCarbohydrates} Protein:
-              {lunchProtein} Fat:{lunchFat}
+             <span className={css.carbonohidrates}> Carbonohidrates:{lunchCarbohydrates}</span>
+             <span className={css.carbonohidrates}> Protein:
+              {lunchProtein}</span> Fat:{lunchFat}
             </p>
           ) : (
             <button
@@ -119,8 +121,9 @@ const breakfastFat = items.breakfast.fat;
         <span>
           {dinnerCalories > 0 ? (
             <p>
-              Carbonohidrates:{dinnerCarbohydrates} Protein:
-              {dinnerProtein} Fat:{dinnerFat}
+              <span className={css.carbonohidrates}>Carbonohidrates:{dinnerCarbohydrates}</span>
+              <span className={css.carbonohidrates}> Protein:
+              {dinnerProtein}</span> Fat:{dinnerFat}
             </p>
           ) : (
             <button
@@ -142,8 +145,9 @@ const breakfastFat = items.breakfast.fat;
         <span>
           {snackCalories > 0 ? (
             <p>
-              Carbonohidrates:{snackCarbohydrates} Protein:
-              {snackProtein} Fat:{snackFat}
+              <span className={css.carbonohidrates}>Carbonohidrates:{snackCarbohydrates}</span>
+              <span className={css.carbonohidrates}> Protein:
+              {snackProtein}</span> Fat:{snackFat}
             </p>
           ) : (
             <button
