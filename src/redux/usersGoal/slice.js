@@ -31,6 +31,11 @@ const handleFetchGoalsConfirmFulfilled = (state, action) => {
     action.payload.total.carbohydrates.used;
   state.items.total.protein.used = action.payload.total.protein.used;
   state.items.total.fat.used = action.payload.total.fat.used;
+  // array of nutrients
+  state.items.breakfastDishes = action.payload.breakfastDishes;
+  state.items.lunchDishes = action.payload.lunchDishes;
+  state.items.dinnerDishes = action.payload.dinnerDishes;
+  state.items.snackDishes = action.payload.snackDishes;
 };
 
 const goalSlice = createSlice({
