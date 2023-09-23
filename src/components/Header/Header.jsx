@@ -212,7 +212,7 @@ function Header() {
                                 className={css.openarrowRightGoalSvgMobile}
                               />
                             </div>
-                            {token && goal && (
+                            {user && goal && (
                               <div>
                                 {goal === 'Lose fat' && (
                                   <img
@@ -261,7 +261,7 @@ function Header() {
                     onClick={openModalGoal}
                   />
                 </div>
-                {token && goal && (
+                {user && goal && (
                   <div>
                     {goal === 'Lose fat' && (
                       <img
