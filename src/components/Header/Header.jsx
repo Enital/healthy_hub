@@ -115,7 +115,6 @@ function Header() {
     axios
       .put('/user/weight', { weight: inputWeight })
       .then(response => {
-        alert('Вага успішно оновлена!');
         setInputWeight('');
       })
       .catch(error => {
@@ -213,7 +212,7 @@ function Header() {
                                 className={css.openarrowRightGoalSvgMobile}
                               />
                             </div>
-                            {user && goal && (
+                            {token && goal && (
                               <div>
                                 {goal === 'Lose fat' && (
                                   <img
@@ -262,7 +261,7 @@ function Header() {
                     onClick={openModalGoal}
                   />
                 </div>
-                {user && goal && (
+                {token && goal && (
                   <div>
                     {goal === 'Lose fat' && (
                       <img
