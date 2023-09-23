@@ -23,8 +23,7 @@ const Dashboard = () => {
     dispatch(fetchGraph());
   }, [dispatch]);
 
-  const { graph } = useSelector(selectCharts);
-
+  const { items } = useSelector(selectCharts);
   const [timeToggleBtn, setTimeToggleBtn] = useState(false);
 
   const closeModal = () => {
@@ -80,7 +79,7 @@ const Dashboard = () => {
               </Modal>
             )}
           </ul>
-          <p className={css.month}>{graph.labels.monthLong}</p>
+          <p className={css.month}>{items.labels.monthLong}</p>
         </div>
         <div className={css.chartContainer}>
           <CaloriesChart />

@@ -193,10 +193,10 @@ export const options = {
 const average = Math.round(_.mean(data));
 
 export default function CaloriesChart() {
-  const { graph } = useSelector(selectCharts);
+  const { items } = useSelector(selectCharts);
 
   const dataOne = {
-    labels: graph.days,
+    labels: items.days,
     datasets,
   };
   return (

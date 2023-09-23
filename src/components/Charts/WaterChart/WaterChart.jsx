@@ -24,8 +24,8 @@ ChartJS.register(
 );
 
 const WaterChart = () => {
-  const { graph } = useSelector(selectCharts);
-  const labels = graph.days;
+  const { items } = useSelector(selectCharts);
+  const labels = items.days;
   // const data = graph.water;
   let caption = 'K';
   const randomScaling = function () {
@@ -35,34 +35,34 @@ const WaterChart = () => {
   };
 
   const data = [
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
     randomScaling(),
     randomScaling(),
     randomScaling(),
@@ -91,8 +91,7 @@ const WaterChart = () => {
   };
 
   // #292928;
-  const newD = graph.water.filter(item => item !== 0);
-  console.log(newD);
+  const newWater = items.water.filter(item => item !== 0);
   const options = {
     responsive: true,
     scales: {
@@ -163,7 +162,7 @@ const WaterChart = () => {
     },
   };
 
-  const average = Math.round(_.mean(data));
+  const average = Math.round(_.mean(newWater));
 
   return (
     <div className={css.waterChart}>

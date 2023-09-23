@@ -5,10 +5,10 @@ import { useSelector } from 'react-redux';
 import css from './buildWeightChart.module.css';
 
 export default function BuildWeightChart() {
-  const { graph } = useSelector(selectCharts);
+  const { items } = useSelector(selectCharts);
 
-  const labels = graph.days;
-  const data = graph.weight;
+  const labels = items.days;
+  const data = items.weight;
   return (
     <>
       <div className={css.weightTable}>
