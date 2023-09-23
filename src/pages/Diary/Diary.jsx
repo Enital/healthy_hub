@@ -6,10 +6,10 @@ import DiaryTable from 'components/Table/Table';
 
 const Diary = () => {
   const mealTypes = [
-    { type: 'Breakfast', data: [] },
-    { type: 'Dinner', data: [] },
-    { type: 'Lunch', data: [] },
-    { type: 'Snack', data: [] },
+    { type: 'breakfast', data: [] },
+    { type: 'dinner', data: [] },
+    { type: 'lunch', data: [] },
+    { type: 'snack', data: [] },
   ];
 
   const renderedDiaryTables = mealTypes.map(({ type, data }) => (
