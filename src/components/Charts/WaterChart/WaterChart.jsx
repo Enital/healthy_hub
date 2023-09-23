@@ -91,7 +91,8 @@ const WaterChart = () => {
   };
 
   // #292928;
-
+  const newD = graph.water.filter(item => item !== 0);
+  console.log(newD);
   const options = {
     responsive: true,
     scales: {

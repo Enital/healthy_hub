@@ -53,6 +53,7 @@
   font-size: 14px;
   line-height: 1.43;
 }
+
 .inputError {
   position: relative;
   width: 100%;
@@ -133,9 +134,11 @@
   .wrapper {
     padding: 40px 0;
   }
+
   .content {
     width: 444px;
   }
+
   .navigation {
     margin-bottom: 60px;
   }
@@ -158,10 +161,12 @@
     font-size: 22px;
     line-height: 1.45;
   }
+
   .form {
     width: 380px;
     margin: 0 auto;
   }
+
   .signinBtn {
     width: 380px;
     margin-bottom: 10px;
@@ -241,6 +246,7 @@
   .signupBtn {
     width: 122px;
   }
+
   .form {
     width: 212px;
     margin: 0;
@@ -251,13 +257,14 @@
   }
 }
 
-  .navigation {
-    text-align: start;
-  }
-  .questionTrumb {
+.navigation {
+  text-align: start;
+}
+
+.questionTrumb {
   padding-left: 0;
-  }
-} */
+}
+
 
 .checkbox {
   position: absolute;
@@ -266,6 +273,7 @@
   right: 14px;
   top: 14px;
 }
+
 input[type='checkbox']::before {
   content: '';
   position: absolute;
@@ -291,6 +299,7 @@ input[type='checkbox']:checked::after {
 
   visibility: visible;
 }
+
 .label {
   position: relative;
   display: flex;
@@ -305,6 +314,7 @@ input[type='checkbox']:checked::after {
   transform: translate(-50%);
   z-index: 10;
 }
+
 .validCorrect {
   position: absolute;
   top: 12px;
@@ -336,6 +346,7 @@ input[type='checkbox']:checked::after {
   margin-top: 4px;
   margin-left: 10px;
 }
-form  button:disabled {
-    background-color: #b6b6b6;
-  }
+
+form button:disabled {
+  background-color: #b6b6b6;
+}
