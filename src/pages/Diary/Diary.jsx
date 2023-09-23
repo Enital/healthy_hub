@@ -1,40 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import s from './Diary.module.css';
 import { BsArrowLeft } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
-import RecordMealModal from 'components/ModalDiary/RecordMealModal/RecordMealModal';
-import UpdateMealModal from 'components/ModalDiary/UpdateMealModal/UpdateMealModal';
 import DiaryTable from 'components/Table/Table';
-import { useSelector } from 'react-redux';
 
 const Diary = () => {
-  const [recordMealModalOpen, setRecordMealModalOpen] = useState(false);
-  const [updateMealModalOpen, setUpdateMealModalOpen] = useState(false);
-
-  const [selectedMeal, setSelectedMeal] = useState('');
-  const breakfast = useSelector(state => state.user.breakfast);
-  const lunch = useSelector(state => state.user.lunch);
-  const dinner = useSelector(state => state.user.dinner);
-  const snack = useSelector(state => state.user.snack);
-
-  const [foodName, setFoodName] = useState('');
-  const onRecordMealButtonClick = evt => {
-    setSelectedMeal(evt.target.name);
-    document.body.style.overflow = 'hidden';
-
-    setRecordMealModalOpen(true);
-  };
-
-  const onUpdateMealButtonClick = meal => {
-    setSelectedMeal(meal);
-    setUpdateMealModalOpen(true);
-  };
-
   const mealTypes = [
-    { type: 'Breakfast', data: breakfast },
-    { type: 'Dinner', data: dinner },
-    { type: 'Lunch', data: lunch },
-    { type: 'Snack', data: snack },
+    { type: 'Breakfast', data: [] },
+    { type: 'Dinner', data: [] },
+    { type: 'Lunch', data: [] },
+    { type: 'Snack', data: [] },
   ];
 
   const renderedDiaryTables = mealTypes.map(({ type, data }) => (
@@ -42,28 +17,12 @@ const Diary = () => {
       key={type}
       mealType={type}
       mealData={data}
-      onRecordMealButtonClick={onRecordMealButtonClick}
-      onUpdateMealButtonClick={onUpdateMealButtonClick}
-      setFoodName={setFoodName}
+      setFoodName={() => {}}
     />
   ));
 
   return (
     <div className={s.containerDiary}>
-      <RecordMealModal
-        selectedMeal={selectedMeal}
-        recordMealModalOpen={recordMealModalOpen}
-        setRecordMealModalOpen={setRecordMealModalOpen}
-      />
-      {foodName && (
-        <UpdateMealModal
-          selectedMeal={selectedMeal}
-          updateMealModalOpen={updateMealModalOpen}
-          setUpdateMealModalOpen={setUpdateMealModalOpen}
-          foodName={foodName}
-        />
-      )}
-
       <div className={s.btnNav}>
         <Link className={s.btnDiary} to={'/'}>
           <BsArrowLeft size="1.5rem" />
