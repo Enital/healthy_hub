@@ -7,9 +7,8 @@ import snackImage from '../../images/illustration/snack-image.svg';
 import React, { useState } from 'react';
 import MealModal from './MealModal';
 
- import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectGoals } from 'redux/usersGoal/selectors';
-
 
 const DiaryOnMain = () => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -19,28 +18,28 @@ const DiaryOnMain = () => {
   if (Object.keys(items).length === 0) {
     return;
   }
-  
-const breakfastCalories = items.breakfast.calories;
-const breakfastCarbohydrates = items.breakfast.carbohydrates;
-const breakfastProtein = items.breakfast.protein;
-const breakfastFat = items.breakfast.fat;
 
- const lunchCalories = items.lunch.calories;
- const lunchCarbohydrates = items.lunch.carbohydrates;
- const lunchProtein = items.lunch.protein;
- const lunchFat = items.lunch.fat;
+  const breakfastCalories = items.breakfast.calories;
+  const breakfastCarbohydrates = items.breakfast.carbohydrates;
+  const breakfastProtein = items.breakfast.protein;
+  const breakfastFat = items.breakfast.fat;
 
- const dinnerCalories = items.dinner.calories;
- const dinnerCarbohydrates = items.dinner.carbohydrates;
- const dinnerProtein = items.dinner.protein;
- const dinnerFat = items.dinner.fat;
+  const lunchCalories = items.lunch.calories;
+  const lunchCarbohydrates = items.lunch.carbohydrates;
+  const lunchProtein = items.lunch.protein;
+  const lunchFat = items.lunch.fat;
 
- const snackCalories = items.snack.calories;
- const snackCarbohydrates = items.snack.carbohydrates;
- const snackProtein = items.snack.protein;
- const snackFat = items.snack.fat;
+  const dinnerCalories = items.dinner.calories;
+  const dinnerCarbohydrates = items.dinner.carbohydrates;
+  const dinnerProtein = items.dinner.protein;
+  const dinnerFat = items.dinner.fat;
 
- const openModal = (mealName) => {
+  const snackCalories = items.snack.calories;
+  const snackCarbohydrates = items.snack.carbohydrates;
+  const snackProtein = items.snack.protein;
+  const snackFat = items.snack.fat;
+
+  const openModal = mealName => {
     setSelectedMeal(mealName);
     setModalOpen(true);
   };
@@ -59,22 +58,26 @@ const breakfastFat = items.breakfast.fat;
         </Link>
       </div>
 
-
       <div className={css.divBreakfast}>
-      <div className={css.diaryMobile}>
-        <img
-          className={css.breakfastImage}
-          src={breakfastImage}
-          alt="Breakfast"
-        />
-        <h2 className={css.diaryBreakfast}>Breakfast</h2>
+        <div className={css.diaryMobile}>
+          <img
+            className={css.breakfastImage}
+            src={breakfastImage}
+            alt="Breakfast"
+          />
+          <h2 className={css.diaryBreakfast}>Breakfast</h2>
         </div>
         <span>
           {breakfastCalories > 0 ? (
-            <p>
-              <span className={css.carbonohidrates}>Carbonohidrates:{breakfastCarbohydrates}</span>
-              <span className={css.carbonohidrates}> Protein:{breakfastProtein}</span>
-               Fat:{breakfastFat}
+            <p className={css.linkFood}>
+              <span className={css.carbonohidrates}>
+                Carbonohidrates: {breakfastCarbohydrates}
+              </span>
+              <span className={css.carbonohidrates}>
+                {' '}
+                Protein: {breakfastProtein}
+              </span>
+              Fat: {breakfastFat}
             </p>
           ) : (
             <button
@@ -87,19 +90,29 @@ const breakfastFat = items.breakfast.fat;
           )}
         </span>
       </div>
-      <MealModal isOpen={isModalOpen} onClose={closeModal} mealName={selectedMeal} />
+      <MealModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        mealName={selectedMeal}
+      />
 
       <div className={css.divBreakfast}>
-      <div className={css.diaryMobile}>
-        <img className={css.breakfastImage} src={lunchImage} alt="Lunch" />
-        <h2 className={css.diaryBreakfast}>Lunch</h2>
+        <div className={css.diaryMobile}>
+          <img className={css.breakfastImage} src={lunchImage} alt="Lunch" />
+          <h2 className={css.diaryBreakfast}>Lunch</h2>
         </div>
         <span>
           {lunchCalories > 0 ? (
-            <p>
-             <span className={css.carbonohidrates}> Carbonohidrates:{lunchCarbohydrates}</span>
-             <span className={css.carbonohidrates}> Protein:
-              {lunchProtein}</span> Fat:{lunchFat}
+            <p className={css.linkFood}>
+              <span className={css.carbonohidrates}>
+                {' '}
+                Carbonohidrates: {lunchCarbohydrates}
+              </span>
+              <span className={css.carbonohidrates}>
+                {' '}
+                Protein: {lunchProtein}
+              </span>{' '}
+              Fat: {lunchFat}
             </p>
           ) : (
             <button
@@ -114,16 +127,21 @@ const breakfastFat = items.breakfast.fat;
       </div>
 
       <div className={css.divBreakfast}>
-      <div className={css.diaryMobile}>
-        <img className={css.breakfastImage} src={dinnerImage} alt="Dinner" />
-        <h2 className={css.diaryBreakfast}>Dinner</h2>
+        <div className={css.diaryMobile}>
+          <img className={css.breakfastImage} src={dinnerImage} alt="Dinner" />
+          <h2 className={css.diaryBreakfast}>Dinner</h2>
         </div>
         <span>
           {dinnerCalories > 0 ? (
-            <p>
-              <span className={css.carbonohidrates}>Carbonohidrates:{dinnerCarbohydrates}</span>
-              <span className={css.carbonohidrates}> Protein:
-              {dinnerProtein}</span> Fat:{dinnerFat}
+            <p className={css.linkFood}>
+              <span className={css.carbonohidrates}>
+                Carbonohidrates: {dinnerCarbohydrates}
+              </span>
+              <span className={css.carbonohidrates}>
+                {' '}
+                Protein: {dinnerProtein}
+              </span>{' '}
+              Fat: {dinnerFat}
             </p>
           ) : (
             <button
@@ -138,16 +156,21 @@ const breakfastFat = items.breakfast.fat;
       </div>
 
       <div className={css.divBreakfast}>
-      <div className={css.diaryMobile}>
-        <img className={css.breakfastImage} src={snackImage} alt="Snack" />
-        <h2 className={css.diaryBreakfast}>Snack</h2>
+        <div className={css.diaryMobile}>
+          <img className={css.breakfastImage} src={snackImage} alt="Snack" />
+          <h2 className={css.diaryBreakfast}>Snack</h2>
         </div>
         <span>
           {snackCalories > 0 ? (
-            <p>
-              <span className={css.carbonohidrates}>Carbonohidrates:{snackCarbohydrates}</span>
-              <span className={css.carbonohidrates}> Protein:
-              {snackProtein}</span> Fat:{snackFat}
+            <p className={css.linkFood}>
+              <span className={css.carbonohidrates}>
+                Carbonohidrates:{snackCarbohydrates}
+              </span>
+              <span className={css.carbonohidrates}>
+                {' '}
+                Protein: {snackProtein}
+              </span>{' '}
+              Fat: {snackFat}
             </p>
           ) : (
             <button
