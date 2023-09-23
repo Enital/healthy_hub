@@ -24,7 +24,7 @@ const SignUpPage = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [goal, setGoal] = useState('lose');
+  const [goal, setGoal] = useState('Lose fat');
   const [gender, setGender] = useState('male');
   const [age, setAge] = useState('');
   const [height, setHeight] = useState('');
