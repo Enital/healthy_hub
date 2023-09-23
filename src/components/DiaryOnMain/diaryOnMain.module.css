@@ -10,7 +10,6 @@
   }
 
   .divBreakfastModal {
-   
     margin-top: 20px;
     align-items: center;
     margin-bottom: 20px;
@@ -23,7 +22,6 @@
     font-size: 22px;
     line-height: 32px;
     color: rgba(255, 255, 255, 1);
-    
   }
   .link {
     display: flex;
@@ -37,7 +35,7 @@
     color: rgba(227, 255, 168, 1);
     background-color: black;
     border: 1px solid transparent;
-   
+
     cursor: pointer;
     justify-content: center;
     text-align: center;
@@ -66,215 +64,205 @@
 @media screen and (min-width: 301px) {
   .containerDiary {
     width: 518px;
-    
+
     padding-right: 10px;
     margin-left: 0;
     margin-right: 0;
   }
-.link {
-  display: flex;
-  align-items: center;
-  margin-bottom: 25px;
-}
-.diary {
-  margin-right: 10px;
-  width: 57px;
-  height: 32px;
-  font-weight: 400;
-  font-size: 22px;
-  line-height: 32px;
-  color: rgba(255, 255, 255, 1);
-  
-}
-.seeMore {
-  width: auto;
-  height: 22px;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 22px;
-  white-space: nowrap; /* Prohibit text wrapping on a new line */
-}
-.breakfastImage {
-  width: 36px;
-  height: 36px;
-  /* margin-left: 25px; */
-  margin-right: 10px;
-}
-.diaryBreakfast {
-  width: 100px;
-  height: 24px;
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 24px;
-  color: rgba(255, 255, 255, 1);
-  margin-left: 25px;
-  margin-right: 10px;
-}
-.diaryMobile {
-  display: flex;
-  /* margin-top: 20px; */
-  align-items: center;
- 
-}
+  .link {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+  .diary {
+    margin-right: 10px;
+    width: 57px;
+    height: 32px;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 32px;
+    color: rgba(255, 255, 255, 1);
+  }
+  .seeMore {
+    width: auto;
+    height: 22px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    white-space: nowrap; /* Prohibit text wrapping on a new line */
+  }
+  .breakfastImage {
+    width: 36px;
+    height: 36px;
+    /* margin-left: 25px; */
+    margin-right: 10px;
+  }
+  .diaryBreakfast {
+    width: 100px;
+    height: 24px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    color: rgba(255, 255, 255, 1);
+    margin-left: 25px;
+    margin-right: 10px;
+  }
+  .diaryMobile {
+    display: flex;
+    /* margin-top: 20px; */
+    align-items: center;
+  }
 
-/* ////////////////////////////////////// */
-.overlay {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  /* height: 408px; */
-  border-radius: 12px;
-  background-color: rgba(15, 15, 15, 1);
-  z-index: 1000;
-  display: none; /* Invisible by default*/
-  overflow-y: auto;
-}
+  /* ////////////////////////////////////// */
+  .overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* height: 408px; */
+    border-radius: 12px;
+    background-color: rgba(15, 15, 15, 1);
+    z-index: 1000;
+    display: none; /* Invisible by default*/
+    overflow-y: auto;
+  }
 
-.img {
-  margin-top: 25px;
-  margin-bottom: 25px;
-  text-transform: capitalize;
-  width: 268px;
-  height: 36px;
-  font-weight: 500;
-  font-size: 30px;
-  line-height: 36px;
-  color: rgba(255, 255, 255, 1);
-}
+  .img {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    text-transform: capitalize;
+    width: 268px;
+    height: 36px;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 36px;
+    color: rgba(255, 255, 255, 1);
+  }
 
-.breakfast {
-  vertical-align: middle;
-  margin-left: 25px;
-  height: 32px;
-  font-weight: 400;
-  font-size: 22px;
-  line-height: 32px;
-  color: rgba(255, 255, 255, 1);
-}
-.nameBreakfast {
-  width: 104px;
-  height: 32px;
-  font-weight: 400;
-  font-size: 22px;
-  line-height: 32px;
-  color: rgba(255, 255, 255, 1);
-}
-.flexContainer {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  display: inline-flex;
-  
-}
-.containerLabel {
-  display: inline-flex;
-  margin-bottom: 20px;
-}
+  .breakfast {
+    vertical-align: middle;
+    margin-left: 25px;
+    height: 32px;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 32px;
+    color: rgba(255, 255, 255, 1);
+  }
+  .nameBreakfast {
+    width: 104px;
+    height: 32px;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 32px;
+    color: rgba(255, 255, 255, 1);
+  }
+  .flexContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    display: inline-flex;
+  }
+  .containerLabel {
+    display: inline-flex;
+    margin-bottom: 20px;
+  }
 
-.addMore {
-  height: 20px;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 20px;
-  color: rgba(227, 255, 168, 1);
-  background: rgba(15, 15, 15, 1);
-  border: 1px solid transparent;
-  display: inline-block; /* elements are located on the same level*/
-  margin-top: 25px;
-  margin-left: 25px;
-}
+  .addMore {
+    height: 20px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgba(227, 255, 168, 1);
+    background: rgba(15, 15, 15, 1);
+    border: 1px solid transparent;
+    display: inline-block; /* elements are located on the same level*/
+    margin-top: 25px;
+    margin-left: 25px;
+  }
 
-.remove {
-  background-color: rgba(15, 15, 15, 1);
-  color: rgba(227, 255, 168, 1);
-  font-size: 14px;
-  line-height: 20px;
-  border: 1px solid transparent;
-}
-.cancel {
-  color: rgba(182, 182, 182, 1);
-  font-size: 14px;
-  line-height: 20px;
-  border: 1px solid transparent;
-  background-color: rgba(15, 15, 15, 1);
-}
-.confirm {
-  width: 192px;
-  height: 20px;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 20px;
-  color: rgba(15, 15, 15, 1);
-  background-color: rgba(227, 255, 168, 1);
-  border-radius: 12px;
-  display: flex;
-  justify-content: center; /*Align text horizontally in the center */
-  align-items: center;
-  margin-left: 80px;
-  /* margin: 0; */
-}
-.buttonConfirm {
-  display: flex;
-  align-items: center; /* Align vertically in the center */
-  gap: 10px;
-  margin-top: 110px;
-  margin-left: 300px;
-  margin-bottom: 20px;
-}
+  .remove {
+    background-color: rgba(15, 15, 15, 1);
+    color: rgba(227, 255, 168, 1);
+    font-size: 14px;
+    line-height: 20px;
+    border: 1px solid transparent;
+  }
+  .cancel {
+    color: rgba(182, 182, 182, 1);
+    font-size: 14px;
+    line-height: 20px;
+    border: 1px solid transparent;
+    background-color: rgba(15, 15, 15, 1);
+  }
+  .confirm {
+    width: 192px;
+    height: 20px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgba(15, 15, 15, 1);
+    background-color: rgba(227, 255, 168, 1);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center; /*Align text horizontally in the center */
+    align-items: center;
+    margin-left: 80px;
+    /* margin: 0; */
+  }
+  .buttonConfirm {
+    display: flex;
+    align-items: center; /* Align vertically in the center */
+    gap: 10px;
+    margin-top: 110px;
+    margin-left: 300px;
+    margin-bottom: 20px;
+  }
 
-.seeMore {
-  width: auto; /* Let's change the width to auto so that the text can stretch to the entire available width */
-  height: 22px;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 22px;
-  white-space: nowrap; /* 
+  .seeMore {
+    width: auto; /* Let's change the width to auto so that the text can stretch to the entire available width */
+    height: 22px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    white-space: nowrap; /* 
   Prohibit text wrapping on a new line */
+  }
+  .breakfastImage {
+    width: 36px;
+    height: 36px;
+  }
+  .diaryBreakfast {
+    width: 100px;
+    height: 24px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    color: rgba(255, 255, 255, 1);
+    margin-left: 25px;
+    margin-right: 0;
+  }
+  .divBreakfast {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .openModal {
+    width: 150px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgba(227, 255, 168, 1);
+    background-color: black;
+    border: 1px solid transparent;
+    /* padding: 5px 10px; */
+    cursor: pointer;
+    justify-content: center;
+    text-align: center;
+    white-space: nowrap;
+    /* margin-top: 20px; */
+  }
+  .carbonohidrates {
+    margin-right: 25px;
+    margin-left: 5px;
+  }
 }
-.breakfastImage {
-  width: 36px;
-  height: 36px;
-  
-}
-.diaryBreakfast {
-  width: 100px;
-  height: 24px;
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 24px;
-  color: rgba(255, 255, 255, 1);
-  margin-left: 25px;
-  margin-right: 0;
-}
-.divBreakfast {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-.openModal {
-  width: 150px;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 20px;
-  color: rgba(227, 255, 168, 1);
-  background-color: black;
-  border: 1px solid transparent;
-  /* padding: 5px 10px; */
-  cursor: pointer;
-  justify-content: center;
-  text-align: center;
-  white-space: nowrap;
-/* margin-top: 20px; */
-}
-.carbonohidrates {
-  margin-right: 25px;
-  margin-left: 5px;
-}
-
-}
-
-
-
-
-
