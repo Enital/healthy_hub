@@ -255,17 +255,15 @@
   .navigation {
     text-align: start;
   }
-}
 
-.navigation {
-  text-align: start;
-}
-
-.questionTrumb {
-  padding-left: 0;
+  .navigation {
+    text-align: start;
   }
 
-
+  .questionTrumb {
+    padding-left: 0;
+  }
+}
 
 .checkbox {
   position: absolute;
