@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import s from './Table.module.css';
 import Icons from '../../images/icons/symbol-defs.svg';
 import { useMediaQuery } from 'react-responsive';
 import * as mob from '../../images/illustration';
 import { nanoid } from 'nanoid';
+import MealModal from '../DiaryOnMain/MealModal';
 
 const DiaryTable = ({
   mealType,
   mealData,
-  onRecordMealButtonClick,
   onUpdateMealButtonClick,
   setFoodName,
 }) => {
@@ -57,6 +57,14 @@ const DiaryTable = ({
 
     setFoodName(name);
     onUpdateMealButtonClick(mealType);
+  };
+  const [mealModalOpen, setMealModalOpen] = useState(false);
+  const [selectedFoodName, setSelectedFoodName] = useState('');
+
+  const onRecordMealButtonClick = evt => {
+    setSelectedFoodName(evt.target.name);
+    document.body.style.overflow = 'hidden';
+    setMealModalOpen(true);
   };
 
   return (
@@ -167,6 +175,11 @@ const DiaryTable = ({
                   </svg>
                   Record your meal
                 </button>
+                <MealModal
+                  isOpen={mealModalOpen}
+                  onClose={() => setMealModalOpen(false)}
+                  mealName={selectedFoodName}
+                />
               </li>
             );
           })}
