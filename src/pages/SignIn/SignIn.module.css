@@ -249,10 +249,15 @@
   .navigation {
     text-align: start;
   }
+}
+
+  .navigation {
+    text-align: start;
+  }
   .questionTrumb {
   padding-left: 0;
   }
-}
+
 
 /* TABLET */
 /* @media screen and (min-width: 834px) {
