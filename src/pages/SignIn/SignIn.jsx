@@ -26,9 +26,8 @@ function SignIn() {
         password: password.value,
       })
     )
-      .then(result => {
-        console.log(result.payload);
-        if (result.payload === 'Request failed with status code 401') {
+      .then(response => {
+        if (response.payload === 'Request failed with status code 401') {
           setIncorrect(true);
         }
       })
