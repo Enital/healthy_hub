@@ -245,6 +245,7 @@
   line-height: 24px;
   color: rgba(255, 255, 255, 1);
   margin-left: 25px;
+  margin-right: 0;
 }
 .divBreakfast {
   display: flex;
@@ -259,7 +260,7 @@
   color: rgba(227, 255, 168, 1);
   background-color: black;
   border: 1px solid transparent;
-  padding: 5px 10px;
+  /* padding: 5px 10px; */
   cursor: pointer;
   justify-content: center;
   text-align: center;
@@ -268,7 +269,7 @@
 }
 .carbonohidrates {
   margin-right: 25px;
-  /* vertical-align: middle; */
+  margin-left: 5px;
 }
 
 }
