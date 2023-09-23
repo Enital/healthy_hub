@@ -9,7 +9,7 @@ import menuSvg from '../../images/icons/menu.svg';
 import arrowRightSvg from '../../images/icons/arrow-right.svg';
 
 import { logOut } from '../../redux/auth/operations';
-import { useAuth } from '../../redux/auth/useAuth';
+// import { useAuth } from '../../redux/auth/useAuth';
 
 import arrowDownSvg from '../../images/icons/arrow-down.svg';
 import closeCircleSvg from '../../images/icons/close-circle.svg';
@@ -36,7 +36,7 @@ function Header() {
 
 
   const [activeLink, setActiveLink] = useState(null);
-  const { user } = useAuth();
+  // const { user } = useAuth();
   const [selectedGoal, setSelectedGoal] = useState(null);
 
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
@@ -189,7 +189,6 @@ function Header() {
                           onClick={closeModalMobile}
                           className={css.closeMobileSvg}
                         />
-                        {/* Добавьте контейнер для элементов ваги и цели */}
                             <img
                               src={waightEmoji}
                               alt="Waight Emoji"
@@ -212,7 +211,7 @@ function Header() {
                                 className={css.openarrowRightGoalSvgMobile}
                               />
                             </div>
-                            {user && goal && (
+                            {token && goal && (
                               <div>
                                 {goal === 'Lose fat' && (
                                   <img
@@ -261,7 +260,7 @@ function Header() {
                     onClick={openModalGoal}
                   />
                 </div>
-                {user && goal && (
+                {token && goal && (
                   <div>
                     {goal === 'Lose fat' && (
                       <img
