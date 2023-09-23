@@ -14,6 +14,7 @@ export const fetchGraph = createAsyncThunk(
     try {
       setHeadersToken(thunkAPI.getState().auth.token);
       const response = await axios.get('/user/graph-v2?period=31');
+
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
