@@ -69,15 +69,15 @@ const DiaryOnMain = () => {
         </div>
         <span>
           {breakfastCalories > 0 ? (
-            <p>
+            <p className={css.linkFood}>
               <span className={css.carbonohidrates}>
-                Carbonohidrates:{breakfastCarbohydrates}
+                Carbonohidrates: {breakfastCarbohydrates}
               </span>
               <span className={css.carbonohidrates}>
                 {' '}
-                Protein:{breakfastProtein}
+                Protein: {breakfastProtein}
               </span>
-              Fat:{breakfastFat}
+              Fat: {breakfastFat}
             </p>
           ) : (
             <button
@@ -103,17 +103,16 @@ const DiaryOnMain = () => {
         </div>
         <span>
           {lunchCalories > 0 ? (
-            <p>
+            <p className={css.linkFood}>
               <span className={css.carbonohidrates}>
                 {' '}
-                Carbonohidrates:{lunchCarbohydrates}
+                Carbonohidrates: {lunchCarbohydrates}
               </span>
               <span className={css.carbonohidrates}>
                 {' '}
-                Protein:
-                {lunchProtein}
+                Protein: {lunchProtein}
               </span>{' '}
-              Fat:{lunchFat}
+              Fat: {lunchFat}
             </p>
           ) : (
             <button
@@ -134,16 +133,15 @@ const DiaryOnMain = () => {
         </div>
         <span>
           {dinnerCalories > 0 ? (
-            <p>
+            <p className={css.linkFood}>
               <span className={css.carbonohidrates}>
-                Carbonohidrates:{dinnerCarbohydrates}
+                Carbonohidrates: {dinnerCarbohydrates}
               </span>
               <span className={css.carbonohidrates}>
                 {' '}
-                Protein:
-                {dinnerProtein}
+                Protein: {dinnerProtein}
               </span>{' '}
-              Fat:{dinnerFat}
+              Fat: {dinnerFat}
             </p>
           ) : (
             <button
@@ -164,16 +162,15 @@ const DiaryOnMain = () => {
         </div>
         <span>
           {snackCalories > 0 ? (
-            <p>
+            <p className={css.linkFood}>
               <span className={css.carbonohidrates}>
                 Carbonohidrates:{snackCarbohydrates}
               </span>
               <span className={css.carbonohidrates}>
                 {' '}
-                Protein:
-                {snackProtein}
+                Protein: {snackProtein}
               </span>{' '}
-              Fat:{snackFat}
+              Fat: {snackFat}
             </p>
           ) : (
             <button
