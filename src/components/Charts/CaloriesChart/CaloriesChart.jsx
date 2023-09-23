@@ -24,38 +24,39 @@ ChartJS.register(
   Tooltip
 );
 
-const labels = [
-  '1',
-  '2',
-  '3',
-  '4',
-  '5',
-  '6',
-  '7',
-  '8',
-  '9',
-  '10',
-  '11',
-  '12',
-  '13',
-  '14',
-  '15',
-  '16',
-  '17',
-  '18',
-  '19',
-  '20',
-  '21',
-  '22',
-  '23',
-  '24',
-  '25',
-  '26',
-  '27',
-  '28',
-  '29',
-  '30',
-];
+// const labels = [
+//   '1',
+//   '2',
+//   '3',
+//   '4',
+//   '5',
+//   '6',
+//   '7',
+//   '8',
+//   '9',
+//   '10',
+//   '11',
+//   '12',
+//   '13',
+//   '14',
+//   '15',
+//   '16',
+//   '17',
+//   '18',
+//   '19',
+//   '20',
+//   '21',
+//   '22',
+//   '23',
+//   '24',
+//   '25',
+//   '26',
+//   '27',
+//   '28',
+//   '29',
+//   '30',
+//   '31',
+// ];
 
 const randomScaling = function () {
   return (
@@ -64,6 +65,7 @@ const randomScaling = function () {
 };
 
 const data = [
+  randomScaling(),
   randomScaling(),
   randomScaling(),
   randomScaling(),
@@ -113,12 +115,9 @@ const datasets = [
     pointBackgroundColor: '#E3FFA8',
   },
 ];
-const dataOne = {
-  labels,
-  datasets,
-};
 
 // #292928;
+let caption = 'K';
 
 export const options = {
   responsive: true,
@@ -136,6 +135,12 @@ export const options = {
       ticks: {
         stepSize: 1000,
         color: '#B6B6B6',
+        callback: function (value, index, ticks) {
+          if (String(value).length === 1) {
+            return value;
+          }
+          return String(value).slice(0, 1) + `${caption}`;
+        },
       },
     },
     x: {
@@ -144,6 +149,7 @@ export const options = {
       },
       ticks: {
         // stepSize: 1,
+        // padding: 6,
         color: '#B6B6B6',
       },
     },
@@ -188,19 +194,23 @@ const average = Math.round(_.mean(data));
 
 export default function CaloriesChart() {
   const { graph } = useSelector(selectCharts);
-  console.log(graph);
 
+  console.log(graph);
+  const dataOne = {
+    labels: graph.days,
+    datasets,
+  };
   return (
     <div className={css.caloriesChart}>
-      <ul>
-        <div className={css.dashboardTitle}>
-          <p className={css.chartTitle}>Calories</p>
-          <p className={css.chartSubtitle}>Average value: {average} cal</p>
-        </div>
-        <div className={css.chart}>
-          <Line options={options} data={dataOne} />
-        </div>
-      </ul>
+      {/* <ul> */}
+      <div className={css.dashboardTitle}>
+        <p className={css.chartTitle}>Calories</p>
+        <p className={css.chartSubtitle}>Average value: {average} cal</p>
+      </div>
+      <div className={css.chart}>
+        <Line options={options} data={dataOne} />
+      </div>
+      {/* </ul> */}
     </div>
   );
 }

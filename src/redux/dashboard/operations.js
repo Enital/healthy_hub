@@ -9,11 +9,11 @@ export function setHeadersToken(token) {
 }
 
 export const fetchGraph = createAsyncThunk(
-  'user/graph-v2?period=30',
+  'user/graph-v2?period=31',
   async (_, thunkAPI) => {
     try {
       setHeadersToken(thunkAPI.getState().auth.token);
-      const response = await axios.get('/user/graph-v2?period=30');
+      const response = await axios.get('/user/graph-v2?period=31');
 
       return response.data;
     } catch (e) {

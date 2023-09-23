@@ -15,7 +15,6 @@ const Modal = ({ onClose, children }) => {
       window.removeEventListener('keydown', handleOnClose);
     };
   }, [onClose]);
-  console.log(children);
   return <div className={css.modal}>{children}</div>;
 };
 

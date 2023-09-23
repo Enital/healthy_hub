@@ -1,46 +1,14 @@
 import React from 'react';
+import { selectCharts } from 'redux/dashboard/selectors';
+import { useSelector } from 'react-redux';
 
 import css from './buildWeightChart.module.css';
-const randomScaling = function () {
-  return (
-    (Math.random() > 0.5 ? 1.0 : 1.0) * Math.round(Math.random() * 10 + 60)
-  );
-};
 
-const data = [
-  randomScaling(),
-  randomScaling(),
-  randomScaling(),
-  randomScaling(),
-  randomScaling(),
-  randomScaling(),
-  randomScaling(),
-  randomScaling(),
-  randomScaling(),
-  randomScaling(),
-  randomScaling(),
-  randomScaling(),
-  randomScaling(),
-  randomScaling(),
-  randomScaling(),
-  randomScaling(),
-  randomScaling(),
-  randomScaling(),
-  randomScaling(),
-  randomScaling(),
-  randomScaling(),
-  randomScaling(),
-  randomScaling(),
-  randomScaling(),
-  randomScaling(),
-  randomScaling(),
-  randomScaling(),
-  randomScaling(),
-  randomScaling(),
-  randomScaling(),
-];
+export default function BuildWeightChart() {
+  const { graph } = useSelector(selectCharts);
 
-function BuildWeightChart() {
+  const labels = graph.days;
+  const data = graph.weight;
   return (
     <>
       <div className={css.weightTable}>
@@ -50,7 +18,7 @@ function BuildWeightChart() {
               <span>{item}</span>
             </p>
             <p className={css.tableDownRow}>
-              <span>{index + 1}</span>
+              <span>{labels[index]}</span>
             </p>
           </div>
         ))}
@@ -58,5 +26,3 @@ function BuildWeightChart() {
     </>
   );
 }
-
-export default BuildWeightChart;
