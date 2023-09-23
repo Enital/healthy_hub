@@ -5,11 +5,14 @@ import css from '../SignUpForm.module.css';
 export const messageErrorPassword = (
   inputName,
   messageError,
-  messageCorrect
+  messageCorrect,
+  errorMes
 ) => {
+  let error = errorMes;
   const password = inputName;
   return (password.isDirty && password.passwordError) ||
-    (password.isDirty && password.isEmpty) ? (
+    (password.isDirty && password.isEmpty) ||
+    error ? (
     <>
       {/* <img src={validError} alt="Error" className={css.validError} /> */}
       <div className={css.errorMessage}>{messageError}</div>
@@ -31,6 +34,8 @@ export const messageErrorPassword = (
 export const cssValidPassword = inputName => {
   const passwordInputName = inputName;
   return `${css.input}${
-    passwordInputName.isDirty && passwordInputName.passwordError ? ` ${css.inputError}` : ''
+    passwordInputName.isDirty && passwordInputName.passwordError
+      ? ` ${css.inputError}`
+      : ''
   }${!passwordInputName.passwordError ? ` ${css.inputValid}` : ''}`;
 };

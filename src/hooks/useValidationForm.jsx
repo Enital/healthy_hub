@@ -28,7 +28,8 @@ export const useValidation = (value, validations) => {
           }
           break;
         case 'isEmail':
-          const paternEmail = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}/;
+          const paternEmail =
+            /(?=.{1,256}$)[a-zA-Z0-9._%+-]+@(?:[a-zA-Z0-9-]+\.)+(?!-)[a-zA-Z]{2,63}/;
           paternEmail.test(String(value).toLowerCase())
             ? setEmailError(false)
             : setEmailError(true);
@@ -36,7 +37,7 @@ export const useValidation = (value, validations) => {
 
         case 'isPassword':
           const paternPassword = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
-          paternPassword.test(String(value).toLowerCase())
+          paternPassword.test(String(value))
             ? setPasswordError(false)
             : setPasswordError(true);
           break;

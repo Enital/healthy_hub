@@ -4,7 +4,7 @@ import SelectGenderAge from 'components/SelectGenderAge/SelectGenderAge';
 import YourHealth from 'components/YourHealth/YourHealth';
 import YourActivity from 'components/YourActivity/YourActivity';
 import { useDispatch } from 'react-redux';
-import { register } from 'redux/auth/operations';
+import { register, checkingRegistered } from 'redux/auth/operations';
 import { useState } from 'react';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
@@ -13,6 +13,8 @@ Notify.init({
   cssAnimationStyle: 'from-bottom',
   clickToClose: true,
   messageMaxLength: 200,
+  timeout: 5000,
+  width: '300px',
 });
 const SignUpPage = () => {
   const [page, setPage] = useState(1);
@@ -34,7 +36,14 @@ const SignUpPage = () => {
     setName(event.target.name.value);
     setEmail(event.target.email.value);
     setPassword(event.target.password.value);
-    nextPage();
+    dispatch(checkingRegistered({ email })).then(result => {
+      console.log('Результат checkingRegistered:', result);
+      if (result.payload.message === 'User not found') {
+        nextPage();
+      } else {
+        Notify.failure('There is already a user with such e-mail');
+      }
+    });
   };
   const haldleForm2 = event => {
     console.log(event);
