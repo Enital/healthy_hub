@@ -5,8 +5,7 @@ import css from './diaryOnMain.module.css';
 import { useDispatch } from 'react-redux';
 import { fetchGoalsConfirm } from 'redux/usersGoal/operations';
 
-
-const MealModal = ({ isOpen, onClose, mealName  }) => {
+const MealModal = ({ isOpen, onClose, mealName }) => {
   const dispatch = useDispatch();
   const [placeholderData, setPlaceholderData] = useState({
     name: '',
@@ -43,13 +42,9 @@ const MealModal = ({ isOpen, onClose, mealName  }) => {
     }));
   };
 
-
-  
-  
-
   const handleConfirm = async () => {
     try {
-      await dispatch(fetchGoalsConfirm(placeholderData));
+      await dispatch(fetchGoalsConfirm({ placeholderData, mealName }));
       setPlaceholderData({
         name: '',
         carbohydrates: '',
@@ -57,9 +52,9 @@ const MealModal = ({ isOpen, onClose, mealName  }) => {
         fat: '',
         calories: '',
       });
-      
+
       setInputFields(initialInputFields);
-  
+      onClose();
     } catch (error) {
       console.error('Помилка під час відправки на бекенд:', error);
     }
@@ -73,7 +68,6 @@ const MealModal = ({ isOpen, onClose, mealName  }) => {
   //       await dispatch(fetchGoalsLunchConfirm(placeholderData));
   //     }
 
-  
   //   } catch (error) {
   //     console.error('Помилка під час відправки на бекенд:', error);
   //   }
@@ -94,11 +88,8 @@ const MealModal = ({ isOpen, onClose, mealName  }) => {
           <h2 className={css.img}>{mealName}</h2>
         </div>
 
-
         {inputFields.map((field, index) => (
           <div className={css.containerLabel} key={index}>
-
-
             <label htmlFor={`productName${index}`}></label>
             <input
               style={{
@@ -125,7 +116,6 @@ const MealModal = ({ isOpen, onClose, mealName  }) => {
               onChange={e => handleInputChange(index, e)}
             />
 
-
             <label htmlFor={`carbohydrates${index}`}></label>
             <input
               style={{
@@ -151,7 +141,6 @@ const MealModal = ({ isOpen, onClose, mealName  }) => {
               onChange={e => handleInputChange(index, e)}
             />
 
-
             <label htmlFor={`protein${index}`}></label>
             <input
               style={{
@@ -176,7 +165,6 @@ const MealModal = ({ isOpen, onClose, mealName  }) => {
               value={field.protein}
               onChange={e => handleInputChange(index, e)}
             />
-
 
             <label htmlFor={`fat${index}`}></label>
             <input
@@ -241,7 +229,6 @@ const MealModal = ({ isOpen, onClose, mealName  }) => {
           </div>
         ))}
 
-       
         <button className={css.addMore} type="button" onClick={handleAddField}>
           + Add more
         </button>
@@ -250,14 +237,11 @@ const MealModal = ({ isOpen, onClose, mealName  }) => {
         <button className={css.cancel} onClick={onClose}>
           Cancel
         </button>
-        <button className={css.confirm} onClick={handleConfirm}>Confirm</button>
+        <button className={css.confirm} onClick={handleConfirm}>
+          Confirm
+        </button>
       </div>
     </div>
   );
 };
 export default MealModal;
-
-
-
-
-

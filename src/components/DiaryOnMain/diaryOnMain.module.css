@@ -135,7 +135,7 @@
 .img {
   margin-top: 25px;
   margin-bottom: 25px;
-  
+  text-transform: capitalize;
   width: 268px;
   height: 36px;
   font-weight: 500;

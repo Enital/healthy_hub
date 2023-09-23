@@ -41,12 +41,13 @@ export const addWater = createAsyncThunk(
 // diaryOnMain
 export const fetchGoalsConfirm = createAsyncThunk(
   'user/food-intake',
-  async (breakfast, thunkAPI) => {
-    console.log(breakfast);
+  async (data, thunkAPI) => {
+    const {placeholderData, mealName} = data
+    // console.log(breakfast);
     try {
       setHeadersToken(thunkAPI.getState().auth.token);
       const response = await axios.post('/user/food-intake-v2', {
-        breakfast: [breakfast],
+        [mealName]: [placeholderData],
       });
 
       return response.data;
@@ -56,19 +57,19 @@ export const fetchGoalsConfirm = createAsyncThunk(
   }
 );
 
-export const fetchGoalsLunchConfirm = createAsyncThunk(
-  'user/food-intake',
-  async (lunch, thunkAPI) => {
-    console.log(lunch);
-    try {
-      setHeadersToken(thunkAPI.getState().auth.token);
-      const response = await axios.post('/user/food-intake-v2', {
-        lunch: [lunch],
-      });
+// export const fetchGoalsLunchConfirm = createAsyncThunk(
+//   'user/food-intake',
+//   async (lunch, thunkAPI) => {
+//     console.log(lunch);
+//     try {
+//       setHeadersToken(thunkAPI.getState().auth.token);
+//       const response = await axios.post('/user/food-intake-v2', {
+//         lunch: [lunch],
+//       });
 
-      return response.data;
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
-    }
-  }
-);
+//       return response.data;
+//     } catch (e) {
+//       return thunkAPI.rejectWithValue(e.message);
+//     }
+//   }
+// );

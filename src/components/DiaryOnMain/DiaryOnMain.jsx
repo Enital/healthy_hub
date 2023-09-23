@@ -7,9 +7,35 @@ import snackImage from '../../images/illustration/snack-image.svg';
 import React, { useState } from 'react';
 import MealModal from './MealModal';
 
+// import { selectGoals } from 'redux/usersGoal/selectors';
+// import { useSelector } from 'react-redux';
+
 const DiaryOnMain = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedMeal, setSelectedMeal] = useState('');
+
+  //const { items } = useSelector(selectGoals);
+
+  
+// const breakfastCalories = items.breakfast.calories;
+// const breakfastCarbohydrates = items.breakfast.carbohydrates;
+// const breakfastProtein = items.breakfast.protein;
+// const breakfastFat = items.breakfast.fat;
+
+//  const lunchCalories = items.lunch.calories;
+//  const lunchCarbohydrates = items.lunch.carbohydrates;
+//  const lunchProtein = items.lunch.protein;
+//  const lunchFat = items.lunch.fat;
+
+//  const dinnerCalories = items.dinner.calories;
+//  const dinnerCarbohydrates = items.dinner.carbohydrates;
+//  const dinnerProtein = items.dinner.protein;
+//  const dinnerFat = items.dinner.fat;
+
+//  const snackCalories = items.snack.calories;
+//  const snackCarbohydrates = items.snack.carbohydrates;
+//  const snackProtein = items.snack.protein;
+//  const snackFat = items.snack.fat;
 
  const openModal = (mealName) => {
     setSelectedMeal(mealName);
@@ -40,7 +66,7 @@ const DiaryOnMain = () => {
         />
         <h2 className={css.diaryBreakfast}>Breakfast</h2>
         </div>
-        <button className={css.openModal} onClick={() => openModal('Breakfast')}>
+        <button className={css.openModal} onClick={() => openModal('breakfast')}>
           {' '}
           + Record your meal
         </button>
@@ -52,7 +78,7 @@ const DiaryOnMain = () => {
         <img className={css.breakfastImage} src={lunchImage} alt="Lunch" />
         <h2 className={css.diaryBreakfast}>Lunch</h2>
         </div>
-        <button className={css.openModal} onClick={() => openModal('Lunch')}>
+        <button className={css.openModal} onClick={() => openModal('lunch')}>
           {' '}
           + Record your meal
         </button>
@@ -63,7 +89,7 @@ const DiaryOnMain = () => {
         <img className={css.breakfastImage} src={dinnerImage} alt="Dinner" />
         <h2 className={css.diaryBreakfast}>Dinner</h2>
         </div>
-        <button className={css.openModal} onClick={() => openModal('Dinner')}>
+        <button className={css.openModal} onClick={() => openModal('dinner')}>
           {' '}
           + Record your meal
         </button>
@@ -74,7 +100,7 @@ const DiaryOnMain = () => {
         <img className={css.breakfastImage} src={snackImage} alt="Snack" />
         <h2 className={css.diaryBreakfast}>Snack</h2>
         </div>
-        <button className={css.openModal} onClick={() => openModal('Snack')}>
+        <button className={css.openModal} onClick={() => openModal('snack')}>
           {' '}
           + Record your meal
         </button>
