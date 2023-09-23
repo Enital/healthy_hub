@@ -41,12 +41,13 @@ export const addWater = createAsyncThunk(
 // diaryOnMain
 export const fetchGoalsConfirm = createAsyncThunk(
   'user/food-intake',
-  async (breakfast, thunkAPI) => {
+  async (data, thunkAPI) => {
+    const {placeholderData, mealName} = data
     // console.log(breakfast);
     try {
       setHeadersToken(thunkAPI.getState().auth.token);
       const response = await axios.post('/user/food-intake-v2', {
-        breakfast: [breakfast],
+        [mealName]: [placeholderData],
       });
 
       return response.data;

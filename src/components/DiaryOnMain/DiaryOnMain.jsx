@@ -40,7 +40,7 @@ const DiaryOnMain = () => {
         />
         <h2 className={css.diaryBreakfast}>Breakfast</h2>
         </div>
-        <button className={css.openModal} onClick={() => openModal('Breakfast')}>
+        <button className={css.openModal} onClick={() => openModal('breakfast')}>
           {' '}
           + Record your meal
         </button>
@@ -52,7 +52,7 @@ const DiaryOnMain = () => {
         <img className={css.breakfastImage} src={lunchImage} alt="Lunch" />
         <h2 className={css.diaryBreakfast}>Lunch</h2>
         </div>
-        <button className={css.openModal} onClick={() => openModal('Lunch')}>
+        <button className={css.openModal} onClick={() => openModal('lunch')}>
           {' '}
           + Record your meal
         </button>
@@ -63,7 +63,7 @@ const DiaryOnMain = () => {
         <img className={css.breakfastImage} src={dinnerImage} alt="Dinner" />
         <h2 className={css.diaryBreakfast}>Dinner</h2>
         </div>
-        <button className={css.openModal} onClick={() => openModal('Dinner')}>
+        <button className={css.openModal} onClick={() => openModal('dinner')}>
           {' '}
           + Record your meal
         </button>
@@ -74,7 +74,7 @@ const DiaryOnMain = () => {
         <img className={css.breakfastImage} src={snackImage} alt="Snack" />
         <h2 className={css.diaryBreakfast}>Snack</h2>
         </div>
-        <button className={css.openModal} onClick={() => openModal('Snack')}>
+        <button className={css.openModal} onClick={() => openModal('snack')}>
           {' '}
           + Record your meal
         </button>
