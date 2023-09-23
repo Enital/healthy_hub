@@ -4,27 +4,72 @@ import WaterChart from 'components/Charts/WaterChart/WaterChart';
 import WeightChart from 'components/Charts/WeightChart/WeightChart';
 import Modal from 'components/DashboardModal/DashboardModal';
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectCharts } from 'redux/dashboard/selectors';
-import { fetchGraph } from 'redux/dashboard/operations';
+import { useState } from 'react';
+// import { useDispatch } from 'react-redux';
+// import { fetchGraph } from 'redux/dashboard/operations';
 
 import leftArrow from '../../images/icons/arrow-left.svg';
 import arrowDownSvg from '../../images/icons/arrow-down.svg';
 
 import css from './dashboard.module.css';
 
+// const data = new Date();
+// const month = data.getMonth();
+
+// function getMonth() {
+//   let monthDate = '';
+//   switch (month) {
+//     case 0:
+//       monthDate = 'Jaunary';
+//       break;
+//     case 1:
+//       monthDate = 'February';
+//       break;
+//     case 2:
+//       monthDate = 'March';
+//       break;
+//     case 3:
+//       monthDate = 'April';
+//       break;
+//     case 4:
+//       monthDate = 'May';
+//       break;
+//     case 5:
+//       monthDate = 'June';
+//       break;
+//     case 6:
+//       monthDate = 'July';
+//       break;
+//     case 7:
+//       monthDate = 'August';
+//       break;
+//     case 8:
+//       monthDate = 'September';
+//       break;
+//     case 9:
+//       monthDate = 'October';
+//       break;
+//     case 10:
+//       monthDate = 'November';
+//       break;
+//     case 11:
+//       monthDate = 'December';
+//       break;
+//     default:
+//       console.log('Sorry');
+//   }
+//   return monthDate;
+// }
+
 const Dashboard = () => {
   const [showModal, setShowModal] = useState(false);
   const [showMonth, setShowMonth] = useState(true);
 
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchGraph());
-  }, [dispatch]);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(fetchGraph());
+  // }, [dispatch]);
 
-  const { items } = useSelector(selectCharts);
-  console.log(items);
   const [timeToggleBtn, setTimeToggleBtn] = useState(false);
 
   const closeModal = () => {
@@ -51,9 +96,7 @@ const Dashboard = () => {
             <Link className={css.btnToMain} to={'/'}>
               <img src={leftArrow} alt="arrow" />
             </Link>
-            <p className={css.dashboardTitleP}>
-              {showMonth ? 'Last month' : 'Last year'}
-            </p>
+            <p className={css.dashboardTitleP}>Last month</p>
             <button
               type="button"
               className={css.toggleBtn}
@@ -75,12 +118,12 @@ const Dashboard = () => {
                   className={css.lastButton}
                   onClick={handleOnClick}
                 >
-                  {showMonth ? 'Last month' : 'Last year'}
+                  {showMonth ? 'Last year' : 'Last month'}
                 </button>
               </Modal>
             )}
           </ul>
-          <p className={css.month}>{items.labels.monthLong}</p>
+          <p className={css.month}>September</p>
         </div>
         <div className={css.chartContainer}>
           <CaloriesChart />

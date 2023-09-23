@@ -1,6 +1,6 @@
 import React from 'react';
-import { selectCharts } from 'redux/dashboard/selectors';
-import { useSelector } from 'react-redux';
+// import { selectCharts } from 'redux/dashboard/selectors';
+// import { useSelector } from 'react-redux';
 import { Line } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -24,8 +24,8 @@ ChartJS.register(
 );
 
 const WaterChart = () => {
-  const { items } = useSelector(selectCharts);
-  const labels = items.days;
+  // const { items } = useSelector(selectCharts);
+  // const labels = items.days;
   // const data = graph.water;
   let caption = 'K';
   const randomScaling = function () {
@@ -85,13 +85,46 @@ const WaterChart = () => {
       pointBackgroundColor: '#E3FFA8',
     },
   ];
+  const labels = [
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '10',
+    '11',
+    '12',
+    '13',
+    '14',
+    '15',
+    '16',
+    '17',
+    '18',
+    '19',
+    '20',
+    '21',
+    '22',
+    '23',
+    '24',
+    '25',
+    '26',
+    '27',
+    '28',
+    '29',
+    '30',
+    '31',
+  ];
   const dataOne = {
     labels,
     datasets,
   };
 
   // #292928;
-  const newWater = items.water.filter(item => item !== 0);
+  // const newWater = items.water.filter(item => item !== 0);
   const options = {
     responsive: true,
     scales: {
@@ -162,7 +195,7 @@ const WaterChart = () => {
     },
   };
 
-  const average = Math.round(_.mean(newWater));
+  const average = Math.round(_.mean(data));
 
   return (
     <div className={css.waterChart}>
