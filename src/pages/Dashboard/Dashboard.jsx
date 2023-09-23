@@ -5,8 +5,8 @@ import WeightChart from 'components/Charts/WeightChart/WeightChart';
 import Modal from 'components/DashboardModal/DashboardModal';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-// import { selectCharts } from 'redux/dashboard/selectors';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectCharts } from 'redux/dashboard/selectors';
 import { fetchGraph } from 'redux/dashboard/operations';
 
 import leftArrow from '../../images/icons/arrow-left.svg';
@@ -23,8 +23,8 @@ const Dashboard = () => {
     dispatch(fetchGraph());
   }, [dispatch]);
 
-  // const { items } = useSelector(selectCharts);
-  // console.log(items);
+  const { items } = useSelector(selectCharts);
+  console.log(items);
   const [timeToggleBtn, setTimeToggleBtn] = useState(false);
 
   const closeModal = () => {
@@ -80,8 +80,7 @@ const Dashboard = () => {
               </Modal>
             )}
           </ul>
-          <p className={css.month}>September</p>
-          {/* {items.labels.monthLong} */}
+          <p className={css.month}>{items.labels.monthLong}</p>
         </div>
         <div className={css.chartContainer}>
           <CaloriesChart />
