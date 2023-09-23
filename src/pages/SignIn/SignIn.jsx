@@ -39,7 +39,7 @@ function SignIn() {
   };
 
   return (
-    <div className={css.container}>
+    <div className="container">
       <div className={css.wrapper}>
         <img
           className={css.img}
