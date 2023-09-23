@@ -1,7 +1,7 @@
 import RecommendedFoodList from 'components/RecommendedFoodList/RecommendedFoodList';
 import css from './recFoodOnMain.module.css';
 import { useEffect, useState } from 'react';
-import getRecomendations from '../../redux/products/operations';
+import getRecomendations from '../../redux/helpers/getRecomendations';
 
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';

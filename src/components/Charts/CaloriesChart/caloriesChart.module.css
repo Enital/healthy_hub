@@ -1,14 +1,20 @@
-.caloriesChart{
-  height: 382px;
-  width: 696px;
+.caloriesChart {
+  height: 422px;
+  width: 706px;
   margin-right: 20px;
+  /* border: solid 1px red; */
+  /* padding: 25px 20px 6px 14px; */
 }
-.chart{
-background-color: #0F0F0F;
-border-radius: 8px;
-padding: 24px 25px 20px 20px;
+
+.chart {
+  height: 382px;
+  width: 676px;
+  background-color: #0F0F0F;
+  border-radius: 8px;
+  padding: 18px 8px 22px 8px;
 }
-.dashboardTitle{
+
+.dashboardTitle {
   display: flex;
   flex-direction: row;
   align-items: baseline;
@@ -17,10 +23,12 @@ padding: 24px 25px 20px 20px;
   line-height: 32px;
   margin-bottom: 9px;
 }
-.chartTitle{
+
+.chartTitle {
   padding-right: 20px;
 }
-.chartSubtitle{
+
+.chartSubtitle {
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;

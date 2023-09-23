@@ -1,9 +1,4 @@
 /* MOBILE */
-.container {
-  width: 834px;
-  padding-left: 27px;
-  padding-right: 27px;
-}
 .wrapper {
   display: flex;
   align-items: center;
@@ -100,7 +95,7 @@
   font-size: 14px;
   font-weight: 500;
   line-height: 1.43;
-  margin-bottom: 80px;
+  margin-bottom: 10px;
 }
 
 .forgotPassword {
@@ -109,6 +104,7 @@
   line-height: 1.43;
   color: var(--color-primary-gray, #b6b6b6);
   text-decoration: none;
+  margin-bottom: 50px;
 }
 
 .question {
@@ -134,16 +130,14 @@
 
 /* TABLET */
 @media screen and (min-width: 834px) {
-  .container {
-    width: 834px;
-    padding-left: 27px;
-    padding-right: 27px;
-  }
   .wrapper {
     padding: 40px 0;
   }
+  .content {
+    width: 444px;
+  }
   .navigation {
-    margin-bottom: 80px;
+    margin-bottom: 60px;
   }
 
   .img {
@@ -170,7 +164,7 @@
   }
   .signinBtn {
     width: 380px;
-    margin-bottom: 290px;
+    margin-bottom: 10px;
   }
 
   .signupBtn {
@@ -178,17 +172,20 @@
   }
 
   .forgotPassword {
-    text-align: center;
+    align-items: center;
     font-size: 14px;
     line-height: 1.43;
     color: var(--color-primary-gray, #b6b6b6);
     text-decoration: none;
+    margin-bottom: 250px;
   }
 
   .questionTrumb {
     display: flex;
     align-items: center;
     gap: 16px;
+    padding-left: 32px;
+    white-space: nowrap;
   }
 
   .question {
@@ -198,12 +195,6 @@
 
 /* DESKTOP */
 @media screen and (min-width: 1440px) {
-  .container {
-    width: 1440px;
-    padding-left: 34px;
-    padding-right: 34px;
-  }
-
   .wrapper {
     flex-direction: row;
     column-gap: 104px;
@@ -239,11 +230,12 @@
 
   .forgotPassword {
     width: 192px;
-    text-align: center;
     font-size: 14px;
     line-height: 1.43;
     color: var(--color-primary-gray, #b6b6b6);
     text-decoration: none;
+    align-items: center;
+    margin-bottom: 212px;
   }
 
   .signupBtn {
@@ -252,11 +244,13 @@
   .form {
     width: 212px;
     margin: 0;
-    margin-bottom: 212px;
   }
 
   .navigation {
     text-align: start;
+  }
+  .questionTrumb {
+  padding-left: 0;
   }
 }
 

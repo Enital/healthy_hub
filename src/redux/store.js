@@ -13,6 +13,7 @@ import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/authSlice';
 import { userGoalReducer } from './usersGoal/slice';
 import userReducer from './user/userSlice';
+import { graphReducer } from './dashboard/slice';
 
 // Persisting token field from auth slice to localstorage
 const authPersistConfig = {
@@ -27,6 +28,11 @@ const userPersistConfig = {
   whitelist: ['breakfast', 'lunch', 'dinner', 'snack', 'id'],
 };
 
+const graphPersistConfig = {
+  key: 'graph',
+  storage,
+  whitelist: ['items'],
+};
 
 const persistedUserReducer = persistReducer(userPersistConfig, userReducer);
 
@@ -35,6 +41,7 @@ export const store = configureStore({
     auth: persistReducer(authPersistConfig, authReducer),
     goals: userGoalReducer,
     user: persistedUserReducer,
+    graph: persistReducer(graphPersistConfig, graphReducer),
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

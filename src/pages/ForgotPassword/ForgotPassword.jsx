@@ -48,7 +48,7 @@ function ForgotPassword() {
               Send
             </button>
           </form>
-          <div className={css.navigation}>
+          <div className={css.questionTrumb}>
             <p className={css.question}> Do you already have an account?</p>
             <NavLink className={css.signinBtn} to="/signin">
               Sign in
