@@ -23,7 +23,6 @@ const graphSlice = createSlice({
       state.isLoading = false;
       state.error = null;
       state.items = action.payload;
-      console.log(state.items.total.water.used);
     },
     [fetchGraph.rejected]: handleRejected,
   },

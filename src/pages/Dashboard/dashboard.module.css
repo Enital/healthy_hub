@@ -5,10 +5,10 @@
 
 .chartContainer {
   display: flex;
-  flex-direction: row;
+  /* flex-direction: row;
   align-items: center;
   margin-top: 16px;
-  border-radius: 8px;
+  border-radius: 8px; */
 }
 
 .dashboardTitle {
@@ -41,8 +41,6 @@
   background-color: transparent;
 }
 
-;
-
 .month {
   font-size: 24px;
 }
@@ -50,6 +48,22 @@
 .arrowDownSvg {
   margin-left: 12px;
 }
+
+.lastButton {
+  color: #FFF;
+  background-color: #050505;
+  text-align: start;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.45;
+
+  width: 212px;
+  padding: 16px 12px;
+  border-radius: 12px;
+  background: #0F0F0F;
+  box-shadow: 0px 4px 14px 0px rgba(227, 255, 168, 0.20);
+}
+
 
 /* MOBILE  */
 
