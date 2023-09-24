@@ -10,8 +10,12 @@ import menuSvg from '../../images/icons/menu.svg';
 import arrowRightSvg from '../../images/icons/arrow-right.svg';
 
 import { logOut } from '../../redux/auth/operations';
-import { updateWeight, updateGoal } from '../../redux/usersGoal/operations';
+import { updateGoal } from '../../redux/usersGoal/operations';
+
 // import { useAuth } from '../../redux/auth/useAuth';
+
+// new
+import { updateGoalAuth, updateWeight } from '../../redux/auth/operations';
 
 import arrowDownSvg from '../../images/icons/arrow-down.svg';
 import closeCircleSvg from '../../images/icons/close-circle.svg';
@@ -29,13 +33,11 @@ import css from './header.module.css';
 function Header() {
   const dispatch = useDispatch();
 
-
   const [inputWeight, setInputWeight] = useState('');
   const [weight, setWeight] = useState('');
   const [avatar, setAvatar] = useState('');
   const [name, setName] = useState('');
   const [goal, setGoal] = useState('');
-
 
   const [activeLink, setActiveLink] = useState(null);
   // const { user } = useAuth();
@@ -54,7 +56,6 @@ function Header() {
   const handleClick = link => {
     setActiveLink(link);
   };
-  
 
   // useEffect(() => {
   //   if (user && user.goal) {
@@ -107,7 +108,7 @@ function Header() {
         console.error('Помилка при оновленні ваги:', error);
       });
   };
-  
+
   const handleConfirmGoal = () => {
     if (!selectedGoal) {
       console.error('Ціль не обрана');
@@ -120,11 +121,19 @@ function Header() {
       .catch(error => {
         console.error('Помилка при оновленні цілі', error);
       });
+
+    dispatch(updateGoalAuth(selectedGoal))
+      .then(() => {
+        closeModalGoal();
+      })
+      .catch(error => {
+        console.error('Помилка при оновленні цілі', error);
+      });
   };
 
   const openModalGoal = () => {
     setIsModalGoalOpen(true);
-    setIsModalWeightOpen(false); 
+    setIsModalWeightOpen(false);
     setIsModalUserOpen(false);
     closeModalMobile();
     scrollLock.disablePageScroll(document.body);
@@ -132,17 +141,16 @@ function Header() {
 
   const closeModalGoal = () => {
     setIsModalGoalOpen(false);
-     scrollLock.clearQueueScrollLocks();
-     scrollLock.enablePageScroll();
+    scrollLock.clearQueueScrollLocks();
+    scrollLock.enablePageScroll();
   };
 
   const openModalWeight = () => {
     setIsModalWeightOpen(true);
-    setIsModalGoalOpen(false); 
+    setIsModalGoalOpen(false);
     setIsModalUserOpen(false);
     closeModalMobile();
     scrollLock.disablePageScroll(document.body);
-    
   };
 
   const closeModalWeight = () => {
@@ -153,15 +161,13 @@ function Header() {
 
   const toggleModal = () => {
     setIsModalUserOpen(!isModalUserOpen);
-    setIsModalGoalOpen(false); 
+    setIsModalGoalOpen(false);
     setIsModalWeightOpen(false);
     closeModalMobile();
-    
   };
 
   const closeModalUser = () => {
     setIsModalUserOpen(false);
-    
   };
 
   const openModalMobile = () => {
@@ -181,84 +187,91 @@ function Header() {
   // }
 
   return (
-    <div className="container" style={{ paddingLeft: 0,
-      paddingRight: 0 }}>
+    <div className="container" style={{ paddingLeft: 0, paddingRight: 0 }}>
       <header className={css.header}>
         <Link to="/WelcomePage" className={css.link}>
           <h1 className={css.headline}>HealthyHub</h1>
         </Link>
         <div className={css.navigation}>
-            <img src={menuSvg} alt='Menu svg' className={css.menuSvg} onClick={openModalMobile}/>
+          <img
+            src={menuSvg}
+            alt="Menu svg"
+            className={css.menuSvg}
+            onClick={openModalMobile}
+          />
 
-               { isModalMobileOpen && (
-                
-                  <div>
-
-                    <div className={css.modalMobileContent}>
-                        <img
-                          src={closeCircleSvg}
-                          alt="close modal svg"
-                          onClick={closeModalMobile}
-                          className={css.closeMobileSvg}
-                        />
-                            <img
-                              src={waightEmoji}
-                              alt="Waight Emoji"
-                              className={css.waightEmojiMobile}
-                              onClick={openModalWeight}
-                           />
-                          <div className={css.mobileWeightGoalContainer}>
-                            <div className={css.weightSectionMobile} onClick={openModalWeight}>
-                              <h3 className={css.headlineWeightMobile}>Weight</h3>
-                              <div className={css.weightElementMobile}>
-                                <p className={css.textWeightKgMobile}>{weight} kg</p>
-                                <img src={edit2Svg} alt="edit weight" />
-                              </div>
-                            </div>
-                            <div onClick={openModalGoal}>
-                              <h3 className={css.headlineGoalMobile}>Goal</h3>
-                              <img
-                                src={arrowRightSvg}
-                                alt="expend the list svg"
-                                className={css.openarrowRightGoalSvgMobile}
-                              />
-                            </div>
-                            {token && goal && (
-                              <div>
-                                {goal === 'Lose fat' && (
-                                  <img
-                                    src={loseFatMenEmoji}
-                                    alt="Lose fat emoji"
-                                    className={css.goalEmojiMobile}
-                                    onClick={openModalGoal}
-                                  />
-                                )}
-                                {goal === 'Maintain' && (
-                                  <img
-                                    src={maintakeMenEmoji}
-                                    alt="Maintain emoji"
-                                    className={css.goalEmojiMobile}
-                                    onClick={openModalGoal}
-                                  />
-                                )}
-                                {goal === 'Gain muscle' && (
-                                  <img
-                                    src={gainMuscleEmoji}
-                                    alt="Gain Muscle emoji"
-                                    className={css.goalEmojiMobile}
-                                    onClick={openModalGoal}
-                                  />
-                                )}
-                                <p className={css.goalChosenNameMobile} onClick={openModalGoal}>
-                                  {goal}
-                                </p>
-                              </div>
-                            )}
-                            </div>
+          {isModalMobileOpen && (
+            <div>
+              <div className={css.modalMobileContent}>
+                <img
+                  src={closeCircleSvg}
+                  alt="close modal svg"
+                  onClick={closeModalMobile}
+                  className={css.closeMobileSvg}
+                />
+                <img
+                  src={waightEmoji}
+                  alt="Waight Emoji"
+                  className={css.waightEmojiMobile}
+                  onClick={openModalWeight}
+                />
+                <div className={css.mobileWeightGoalContainer}>
+                  <div
+                    className={css.weightSectionMobile}
+                    onClick={openModalWeight}
+                  >
+                    <h3 className={css.headlineWeightMobile}>Weight</h3>
+                    <div className={css.weightElementMobile}>
+                      <p className={css.textWeightKgMobile}>{weight} kg</p>
+                      <img src={edit2Svg} alt="edit weight" />
                     </div>
-                    
                   </div>
-               )}
+                  <div onClick={openModalGoal}>
+                    <h3 className={css.headlineGoalMobile}>Goal</h3>
+                    <img
+                      src={arrowRightSvg}
+                      alt="expend the list svg"
+                      className={css.openarrowRightGoalSvgMobile}
+                    />
+                  </div>
+                  {token && goal && (
+                    <div>
+                      {goal === 'Lose fat' && (
+                        <img
+                          src={loseFatMenEmoji}
+                          alt="Lose fat emoji"
+                          className={css.goalEmojiMobile}
+                          onClick={openModalGoal}
+                        />
+                      )}
+                      {goal === 'Maintain' && (
+                        <img
+                          src={maintakeMenEmoji}
+                          alt="Maintain emoji"
+                          className={css.goalEmojiMobile}
+                          onClick={openModalGoal}
+                        />
+                      )}
+                      {goal === 'Gain muscle' && (
+                        <img
+                          src={gainMuscleEmoji}
+                          alt="Gain Muscle emoji"
+                          className={css.goalEmojiMobile}
+                          onClick={openModalGoal}
+                        />
+                      )}
+                      <p
+                        className={css.goalChosenNameMobile}
+                        onClick={openModalGoal}
+                      >
+                        {goal}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
 
           {isLoggedIn ? (
             <>
@@ -296,16 +309,13 @@ function Header() {
                         alt="Gain Muscle emoji"
                         className={css.goalEmoji}
                         onClick={openModalGoal}
-
                       />
                     )}
-                    <p className={css.goalChosenName} 
-                        onClick={openModalGoal}
-                        >{goal}</p>
+                    <p className={css.goalChosenName} onClick={openModalGoal}>
+                      {goal}
+                    </p>
                   </div>
                 )}
-                
-
 
                 {isModalGoalOpen && (
                   <div>
@@ -361,14 +371,14 @@ function Header() {
                           >
                             Confirm
                           </button>
-                          <p className={css.cancel} onClick={closeModalGoal}>Cancel</p>
+                          <p className={css.cancel} onClick={closeModalGoal}>
+                            Cancel
+                          </p>
                         </div>
                       </div>
                     </div>
                   </div>
                 )}
-
-
 
                 <img
                   src={waightEmoji}
@@ -378,18 +388,12 @@ function Header() {
                 />
                 <div className={css.weightSection} onClick={openModalWeight}>
                   <h3 className={css.headlineWeight}>Weight</h3>
-                  
+
                   <div className={css.weightElement}>
                     <p className={css.textWeightKg}>{weight} kg</p>
-                  <img
-                    src={edit2Svg}
-                    alt="expend the list svg"
-                  />
+                    <img src={edit2Svg} alt="expend the list svg" />
                   </div>
-                  
                 </div>
-
-
 
                 {isModalWeightOpen && (
                   <div>
@@ -428,14 +432,17 @@ function Header() {
                           >
                             Confirm
                           </button>
-                          <p className={css.cancelWeight} onClick={closeModalWeight}>Cancel</p>
+                          <p
+                            className={css.cancelWeight}
+                            onClick={closeModalWeight}
+                          >
+                            Cancel
+                          </p>
                         </div>
                       </div>
                     </div>
                   </div>
                 )}
-
-
 
                 <div className={css.infoUserContent} onClick={toggleModal}>
                   <span>{name}</span>
@@ -451,8 +458,6 @@ function Header() {
                   />
                 </div>
 
-
-
                 {isModalUserOpen && (
                   <div>
                     <div className={css.modalUserContent}>
@@ -463,11 +468,14 @@ function Header() {
                           className={css.setting2Svg}
                         />
                         <Link to="/settings" className={css.link}>
-                          <p className={css.textLinkSetting} 
-                          onClick={() => {
-                            closeModalUser(); 
-                          }}
-                    >Setting</p>
+                          <p
+                            className={css.textLinkSetting}
+                            onClick={() => {
+                              closeModalUser();
+                            }}
+                          >
+                            Setting
+                          </p>
                         </Link>
                       </div>
                       <div className={css.logOutElement}>
@@ -479,8 +487,8 @@ function Header() {
                         <p
                           className={css.textLinkLogOut}
                           onClick={() => {
-                            closeModalUser(); 
-                            dispatch(logOut()); 
+                            closeModalUser();
+                            dispatch(logOut());
                           }}
                         >
                           Log out
@@ -489,16 +497,9 @@ function Header() {
                     </div>
                   </div>
                 )}
-
-
-
               </div>
             </>
-
-            
           ) : (
-
-
             <>
               <Link
                 to="/signin"
@@ -529,8 +530,6 @@ function Header() {
         </div>
       </header>
     </div>
-      
-    
   );
 }
 

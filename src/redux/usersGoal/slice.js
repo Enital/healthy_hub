@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addWater, fetchGoals, fetchGoalsConfirm } from './operations';
+import {
+  addWater,
+  fetchGoals,
+  fetchGoalsConfirm,
+  updateGoal,
+} from './operations';
 
 const handlePending = state => {
   state.isLoading = true;
@@ -13,10 +18,15 @@ const handleFetchGoalsFulfilled = (state, action) => {
   state.error = null;
   state.items = action.payload;
 };
-const handleAddWaterFulfilled = (state, action) => {
+const handleUpdateGoalFulfilled = (state, action) => {
   state.isLoading = false;
   state.error = null;
-  state.items.total.water.used = action.payload.totalWater;
+  state.items.total.water.goal = action.payload.total.water.goal;
+  state.items.total.calories.goal = action.payload.total.calories.goal;
+  state.items.total.carbohydrates.goal =
+    action.payload.total.carbohydrates.goal;
+  state.items.total.protein.goal = action.payload.total.protein.goal;
+  state.items.total.fat.goal = action.payload.total.fat.goal;
 };
 const handleFetchGoalsConfirmFulfilled = (state, action) => {
   state.isLoading = false;
@@ -38,6 +48,12 @@ const handleFetchGoalsConfirmFulfilled = (state, action) => {
   state.items.snackDishes = action.payload.snackDishes;
 };
 
+const handleAddWaterFulfilled = (state, action) => {
+  state.isLoading = false;
+  state.error = null;
+  state.items.total.water.used = action.payload.totalWater;
+};
+
 const goalSlice = createSlice({
   name: 'goals',
   initialState: {
@@ -57,7 +73,11 @@ const goalSlice = createSlice({
       //addFood
       .addCase(fetchGoalsConfirm.pending, handlePending)
       .addCase(fetchGoalsConfirm.fulfilled, handleFetchGoalsConfirmFulfilled)
-      .addCase(fetchGoalsConfirm.rejected, handleRejected);
+      .addCase(fetchGoalsConfirm.rejected, handleRejected)
+      // updateGoal
+      .addCase(updateGoal.pending, handlePending)
+      .addCase(updateGoal.fulfilled, handleUpdateGoalFulfilled)
+      .addCase(updateGoal.rejected, handleRejected);
   },
 });
 

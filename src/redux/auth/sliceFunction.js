@@ -23,3 +23,25 @@ export const handleRefreshingFull = (state, action) => {
 export const handleRefreshingFalse = state => {
   state.isRefreshing = false;
 };
+
+// new reqwests
+
+export const handlePending = state => {
+  state.isLoading = true;
+};
+export const handleRejected = (state, action) => {
+  state.isLoading = false;
+  state.error = action.payload;
+};
+
+export const handleUpdateWeightFulfilled = (state, action) => {
+  state.isLoading = false;
+  state.error = null;
+  state.user.weight = action.payload.weight;
+};
+
+export const handleUpdateGoalAuthFulfilled = (state, action) => {
+  state.isLoading = false;
+  state.error = null;
+  state.user.goal = action.payload.goal;
+};
