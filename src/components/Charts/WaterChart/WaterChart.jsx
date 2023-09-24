@@ -163,7 +163,11 @@ const WaterChart = () => {
     },
   };
 
-  const average = Math.round(_.mean(data));
+  const processedData = data.filter(item => {
+    return item > 0;
+  });
+  // console.log(processedData);
+  const average = Math.round(_.mean(processedData));
 
   return (
     <div className={css.waterChart}>

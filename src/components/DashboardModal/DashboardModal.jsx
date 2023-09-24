@@ -1,6 +1,8 @@
+import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 
 import css from './dashboardModal.module.css';
+
 const Modal = ({ onClose, children }) => {
   useEffect(() => {
     const handleOnClose = e => {
@@ -15,7 +17,12 @@ const Modal = ({ onClose, children }) => {
       window.removeEventListener('keydown', handleOnClose);
     };
   }, [onClose]);
+
   return <div className={css.modal}>{children}</div>;
+};
+
+Modal.propTypes = {
+  onClose: PropTypes.func.isRequired,
 };
 
 export default Modal;

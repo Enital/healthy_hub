@@ -33,7 +33,7 @@ const Dashboard = () => {
   };
 
   const toggleModal = () => {
-    setTimeToggleBtn(timeToggleBtn => !timeToggleBtn);
+    // setTimeToggleBtn(timeToggleBtn => !timeToggleBtn);
     setShowModal(!showModal);
   };
 
@@ -50,7 +50,9 @@ const Dashboard = () => {
             <Link className={css.btnToMain} to={'/'}>
               <img src={leftArrow} alt="arrow" />
             </Link>
-            <p className={css.dashboardTitleP}>Last month</p>
+            <p className={css.dashboardTitleP}>
+              {showMonth ? 'Last year' : 'Last month'}
+            </p>
             <button
               type="button"
               className={css.toggleBtn}

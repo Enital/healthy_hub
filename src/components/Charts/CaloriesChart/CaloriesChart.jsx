@@ -203,8 +203,9 @@ export default function CaloriesChart() {
         cornerRadius: 8,
         caretSize: 0,
         padding: 10,
-        borderColor: 'rgba(227, 255, 168, 0.1)',
-        borderWidth: 3,
+        // backgroundShadowColor: 'rgba(227, 255, 168, 0.1)',
+        // borderColor: 'rgba(227, 255, 168, 0.1)',
+        // borderWidth: 3,
         backgroundColor: '#0f0f0f',
         titleFont: {
           weight: 'bold',
@@ -231,7 +232,11 @@ export default function CaloriesChart() {
     },
   };
 
-  const average = Math.round(_.mean(data));
+  const processedData = data.filter(item => {
+    return item > 0;
+  });
+  // console.log(processedData);
+  const average = Math.round(_.mean(processedData));
 
   const dataOne = {
     labels,
