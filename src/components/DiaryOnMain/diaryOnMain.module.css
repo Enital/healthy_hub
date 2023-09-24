@@ -15,29 +15,27 @@
   .placeholderData {
     width: 276px !important;
   }
-  /* .parent-element .placeholderData {
-    width: 276;
-  } */
-/* .placeholderMobile {
-  width: 276px;
-  color: aqua;
-} */
 
-  /* input::placeholder {
-width: 276px;
-  } */
-  /* input::placeholder {
-    width: 276px;
-    height: 36px;
-  } */
   .containerMobile {
     width: 300px;
-    height: 558px;
+    height: 570px;
     padding-left: 10px;
     padding-right: 10px;
     margin-left: auto;
     margin-right: auto;
     background-color: rgba(15, 15, 15, 1);
+    overflow: auto;
+  }
+  .img {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    text-transform: capitalize;
+    width: 85px;
+    height: 25px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+    color: rgba(255, 255, 255, 1);
   }
   .img {
     margin-top: 25px;
@@ -143,20 +141,23 @@ width: 276px;
   }
   .buttonConfirm {
     display: flex;
-    flex-direction: column; /* Змінити напрямок на колонку */
-    justify-content: flex-start; /* Горизонтальне вирівнювання по лівому краю */
-    gap: 10px;
+    flex-direction: column; /* column */
+    justify-content: flex-start; /* left */
+    
     
   }
   .cancel {
+    order: 2;
     color: rgba(182, 182, 182, 1);
     font-size: 14px;
     line-height: 20px;
     border: 1px solid transparent;
     background-color: rgba(15, 15, 15, 1);
     margin-top: 25px;
+    margin-bottom: 20px;
   }
   .confirm {
+    order: 1;
     width: 276px;
     height: 20px;
     font-weight: 500;
@@ -168,8 +169,7 @@ width: 276px;
     display: flex;
     justify-content: center; /*Align text horizontally in the center */
     align-items: center;
-    /* margin-left: 80px; */
-    /* margin: 0; */
+    margin-top: 20px;
   }
 }
 
