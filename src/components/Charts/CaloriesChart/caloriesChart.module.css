@@ -12,6 +12,12 @@
   background-color: #0F0F0F;
   border-radius: 8px;
   padding: 18px 8px 22px 8px;
+
+
+  /* overflow-x: scroll; */
+  /* overflow-y: hidden; */
+  /* scrollbar-color: #050505 #0F0F0F;
+  scrollbar-width: thin; */
 }
 
 .dashboardTitle {
@@ -39,3 +45,11 @@
     margin-right: 20px;
   }
 }
+
+/* @media screen and (max-width: 768px) { */
+/* .chart {
+  overflow-x: scroll;
+  overflow-y: hidden;
+} */
+
+/* } */
