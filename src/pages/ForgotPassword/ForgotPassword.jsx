@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import SportAndFitnessTrackerIMG from './../../images/img/illustration-sport-and-fitness-tracker.svg';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import css from './ForgotPassword.module.css';
 import { useState } from 'react';
 import axios from 'axios';
@@ -16,6 +17,7 @@ function ForgotPassword() {
       });
       return res.data;
     } catch (error) {
+      Notify.failure(error.response.data.message);
       console.error(error);
     }
   }

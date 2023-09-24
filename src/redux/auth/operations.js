@@ -1,8 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 axios.defaults.baseURL = 'https://goit-healthy-hub.onrender.com/api';
 const path = '/auth';
+
+function showError(error) {
+  Notify.failure(error.response.data.message);
+}
 
 // Utility to add JWT
 const setAuthHeader = token => {
@@ -24,6 +28,8 @@ export const register = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
+      console.log(error);
+      showError(error);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -39,6 +45,7 @@ export const logIn = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
+      showError(error);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -51,6 +58,7 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
     // After a successful logout, remove the token from the HTTP header
     clearAuthHeader();
   } catch (error) {
+     showError(error);
     return thunkAPI.rejectWithValue(error.message);
   }
 });
@@ -90,4 +98,3 @@ export const checkingRegistered = createAsyncThunk(
     }
   }
 );
-

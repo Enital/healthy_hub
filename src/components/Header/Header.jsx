@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { format } from 'date-fns';
 import axios from 'axios';
+import scrollLock from 'scroll-lock';
 
 import profileCircleSvg from '../../images/icons/profile-circle.svg';
 import menuSvg from '../../images/icons/menu.svg';
 import arrowRightSvg from '../../images/icons/arrow-right.svg';
 
 import { logOut } from '../../redux/auth/operations';
+import { updateWeight, updateGoal } from '../../redux/usersGoal/operations';
 // import { useAuth } from '../../redux/auth/useAuth';
 
 import arrowDownSvg from '../../images/icons/arrow-down.svg';
@@ -92,14 +94,27 @@ function Header() {
     setSelectedGoal(goalEmoji);
   };
 
+  const handleChange = event => {
+    setInputWeight(event.target.value);
+  };
+
+  const handleConfirm = () => {
+    dispatch(updateWeight(inputWeight))
+      .then(() => {
+        setInputWeight('');
+      })
+      .catch(error => {
+        console.error('Помилка при оновленні ваги:', error);
+      });
+  };
+  
   const handleConfirmGoal = () => {
     if (!selectedGoal) {
       console.error('Ціль не обрана');
       return;
     }
-    axios
-      .patch('/user/goal', { goal: selectedGoal })
-      .then(response => {
+    dispatch(updateGoal(selectedGoal))
+      .then(() => {
         closeModalGoal();
       })
       .catch(error => {
@@ -107,31 +122,18 @@ function Header() {
       });
   };
 
-  const handleChange = event => {
-    setInputWeight(event.target.value);
-  };
-
-  const handleConfirm = () => {
-    axios
-      .put('/user/weight', { weight: inputWeight })
-      .then(response => {
-        setInputWeight('');
-      })
-      .catch(error => {
-        console.error('Помилка при оновленні ваги:', error);
-      });
-  };
-
-
   const openModalGoal = () => {
     setIsModalGoalOpen(true);
     setIsModalWeightOpen(false); 
     setIsModalUserOpen(false);
     closeModalMobile();
+    scrollLock.disablePageScroll(document.body);
   };
 
   const closeModalGoal = () => {
     setIsModalGoalOpen(false);
+     scrollLock.clearQueueScrollLocks();
+     scrollLock.enablePageScroll();
   };
 
   const openModalWeight = () => {
@@ -139,10 +141,14 @@ function Header() {
     setIsModalGoalOpen(false); 
     setIsModalUserOpen(false);
     closeModalMobile();
+    scrollLock.disablePageScroll(document.body);
+    
   };
 
   const closeModalWeight = () => {
     setIsModalWeightOpen(false);
+    scrollLock.clearQueueScrollLocks();
+    scrollLock.enablePageScroll();
   };
 
   const toggleModal = () => {
@@ -155,15 +161,19 @@ function Header() {
 
   const closeModalUser = () => {
     setIsModalUserOpen(false);
+    
   };
 
   const openModalMobile = () => {
     setIsModalMobileOpen(true);
     setIsModalUserOpen(false);
+    scrollLock.disablePageScroll(document.body);
   };
 
   const closeModalMobile = () => {
     setIsModalMobileOpen(false);
+    scrollLock.clearQueueScrollLocks();
+    scrollLock.enablePageScroll();
   };
 
   // if (user && user.goal) {

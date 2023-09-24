@@ -34,10 +34,11 @@ const SignUpPage = () => {
   const haldleForm1 = event => {
     event.preventDefault();
     setName(event.target.name.value);
-    setEmail(event.target.email.value);
+    const updatedEmail = event.target.email.value;
+    setEmail(updatedEmail);
     setPassword(event.target.password.value);
-    dispatch(checkingRegistered({ email })).then(result => {
-      console.log('Результат checkingRegistered:', result);
+    console.log(email);
+    dispatch(checkingRegistered({ email: updatedEmail })).then(result => {
       if (result.payload.message === 'User not found') {
         nextPage();
       } else {
@@ -83,9 +84,13 @@ const SignUpPage = () => {
         activity,
         goal,
       })
-    );
+    ).then(result => {
+      console.log('Результат :', result);
+      if (result.meta.requestStatus === 'fulfilled') {
+        Notify.success(`Hi, ${name}! Let's do this!`);
+      }
+    });
     form.reset();
-    Notify.success(`Hi, ${name}! Let's do this!`);
   };
 
   return (
