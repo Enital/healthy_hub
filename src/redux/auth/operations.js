@@ -104,7 +104,7 @@ export const updateWeight = createAsyncThunk(
   'user/updateWeight',
   async (inputWeight, thunkAPI) => {
     try {
-      setHeadersToken(thunkAPI.getState().auth.token);
+      setAuthHeader(res.data.token);
       const response = await axios.put('/user/weight', { weight: inputWeight });
       return response.data;
     } catch (e) {
@@ -118,7 +118,7 @@ export const updateGoalAuth = createAsyncThunk(
   'user/updateGoal',
   async (selectedGoal, thunkAPI) => {
     try {
-      setHeadersToken(thunkAPI.getState().auth.token);
+      setAuthHeader(res.data.token);
       const response = await axios.patch('/user/goal', { goal: selectedGoal });
       return response.data;
     } catch (e) {
