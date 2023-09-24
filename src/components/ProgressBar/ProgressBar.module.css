@@ -1,0 +1,64 @@
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.conteiner {
+  max-width: 400px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.conteiner .steps {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.steps .circle {
+  display: flex;
+  height: 50px;
+  width: 50px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10%;
+  border: 4px solid #e3ffa8;
+  color: #050505;
+  font-size: 22px;
+  background: #050505;
+  z-index: 2;
+  transition-delay: 100ms;
+}
+.steps .circle.active {
+  transition-delay: 100ms;
+  border-color: #cdf871;
+  color: #c6fe4e;
+}
+.steps .circle.active:hover {
+  /* transition-delay: 100ms; */
+  background: #cdf871;
+  border-color: #050505;
+  color: #050505;
+  transition: background 0.4s ease, border-color 0.4s ease, color 0.4s ease; /* Додайте анімацію на :hover */
+}
+.steps .progressBar {
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  background: #e3ffa8;
+  z-index: 1;
+  transition: width 0.5s ease;
+}
+
+.progressBar .indicator {
+  position: absolute;
+  height: 100%;
+  width: 0%;
+  transition: width 0.5s ease;
+}

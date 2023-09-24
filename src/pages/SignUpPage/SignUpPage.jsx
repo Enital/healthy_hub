@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import { register, checkingRegistered } from 'redux/auth/operations';
 import { useState } from 'react';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-
+import ProgressBar from '../../components/ProgressBar/ProgressBar';
 Notify.init({
   showOnlyTheLastOne: true,
   cssAnimationStyle: 'from-bottom',
@@ -37,7 +37,6 @@ const SignUpPage = () => {
     const updatedEmail = event.target.email.value;
     setEmail(updatedEmail);
     setPassword(event.target.password.value);
-    console.log(email);
     dispatch(checkingRegistered({ email: updatedEmail })).then(result => {
       if (result.payload.message === 'User not found') {
         nextPage();
@@ -47,7 +46,6 @@ const SignUpPage = () => {
     });
   };
   const haldleForm2 = event => {
-    console.log(event);
     event.preventDefault();
     setGoal(event.target.goal.value);
     nextPage();
@@ -85,7 +83,6 @@ const SignUpPage = () => {
         goal,
       })
     ).then(result => {
-      console.log('Результат :', result);
       if (result.meta.requestStatus === 'fulfilled') {
         Notify.success(`Hi, ${name}! Let's do this!`);
       }
@@ -129,6 +126,7 @@ const SignUpPage = () => {
           activity={activity2}
         />
       )}
+      <ProgressBar page={page} setPage={setPage} />
     </div>
   );
 };
