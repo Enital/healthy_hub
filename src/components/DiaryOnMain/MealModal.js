@@ -15,6 +15,17 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
     calories: '',
   });
 
+  // const [placeholderData, setPlaceholderData] = useState([
+  //   {
+  //     name: '',
+  //     carbohydrates: '',
+  //     protein: '',
+  //     fat: '',
+  //     calories: '',
+  //   },
+  // ]);
+
+
   const initialInputFields = [
     { name: '', carbohydrates: '', protein: '', fat: '', calories: '' },
   ];
@@ -42,6 +53,15 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
     }));
   };
 
+  // const handleInputChange = (index, event) => {
+  //   const { name, value } = event.target;
+  //   setPlaceholderData(prevData => {
+  //     const newData = [...prevData]; // Створюємо копію масиву
+  //     newData[index][name] = value; // Оновлюємо значення в копії
+  //     return newData; // Повертаємо оновлений масив
+  //   });
+  // };
+
   const handleConfirm = async () => {
     try {
       await dispatch(fetchGoalsConfirm({ placeholderData, mealName }));
@@ -59,6 +79,30 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
       console.error('Помилка під час відправки на бекенд:', error);
     }
   };
+
+
+  // const handleConfirm = async () => {
+  //   try {
+  //     // console.log(placeholderData);
+  //     const newPlaceholderData = [
+  //       ...placeholderData,
+  //       {
+  //         name: '',
+  //         carbohydrates: '',
+  //         protein: '',
+  //         fat: '',
+  //         calories: '',
+  //       }
+  //     ];
+  //     // console.log(newPlaceholderData);
+  //     await dispatch(fetchGoalsConfirm({ newPlaceholderData, mealName }));
+  //     setPlaceholderData(newPlaceholderData);
+  //     setInputFields(initialInputFields);
+  //     onClose();
+  //   } catch (error) {
+  //     console.error('Помилка під час відправки на бекенд:', error);
+  //   }
+  // };
 
   const handleRemoveField = index => {
     const newInputFields = [...inputFields];
@@ -82,7 +126,7 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
           <h2 className={css.img}>Record your meal</h2>
           <div className={css.flexContainer}>
             <img className={css.breakfast} src={breakfast} alt="breakfast" />
-            <h2 className={css.img}>{mealName}</h2>
+            <h2 className={`${css.text} ${css.img}`}>{mealName}</h2>
           </div>
 
           {inputFields.map((field, index) => (
