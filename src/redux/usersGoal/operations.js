@@ -55,3 +55,31 @@ export const fetchGoalsConfirm = createAsyncThunk(
     }
   }
 );
+
+// updateWeight
+export const updateWeight = createAsyncThunk(
+  'user/updateWeight',
+  async (inputWeight, thunkAPI) => {
+    try {
+      setHeadersToken(thunkAPI.getState().auth.token);
+      const response = await axios.put('/user/weight', { weight: inputWeight });
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+// updateGoal
+export const updateGoal = createAsyncThunk(
+  'user/updateGoal',
+  async (selectedGoal, thunkAPI) => {
+    try {
+      setHeadersToken(thunkAPI.getState().auth.token);
+      const response = await axios.patch('/user/goal', { goal: selectedGoal });
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);

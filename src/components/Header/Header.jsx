@@ -10,6 +10,7 @@ import menuSvg from '../../images/icons/menu.svg';
 import arrowRightSvg from '../../images/icons/arrow-right.svg';
 
 import { logOut } from '../../redux/auth/operations';
+import { updateWeight, updateGoal } from '../../redux/usersGoal/operations';
 // import { useAuth } from '../../redux/auth/useAuth';
 
 import arrowDownSvg from '../../images/icons/arrow-down.svg';
@@ -93,36 +94,33 @@ function Header() {
     setSelectedGoal(goalEmoji);
   };
 
-  const handleConfirmGoal = () => {
-    if (!selectedGoal) {
-      console.error('Ціль не обрана');
-      return;
-    }
-    axios
-      .patch('/user/goal', { goal: selectedGoal })
-      .then(response => {
-        closeModalGoal();
-      })
-      .catch(error => {
-        console.error('Помилка при оновленні цілі', error);
-      });
-  };
-
   const handleChange = event => {
     setInputWeight(event.target.value);
   };
 
   const handleConfirm = () => {
-    axios
-      .put('/user/weight', { weight: inputWeight })
-      .then(response => {
+    dispatch(updateWeight(inputWeight))
+      .then(() => {
         setInputWeight('');
       })
       .catch(error => {
         console.error('Помилка при оновленні ваги:', error);
       });
   };
-
+  
+  const handleConfirmGoal = () => {
+    if (!selectedGoal) {
+      console.error('Ціль не обрана');
+      return;
+    }
+    dispatch(updateGoal(selectedGoal))
+      .then(() => {
+        closeModalGoal();
+      })
+      .catch(error => {
+        console.error('Помилка при оновленні цілі', error);
+      });
+  };
 
   const openModalGoal = () => {
     setIsModalGoalOpen(true);
