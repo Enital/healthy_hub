@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import breakfast from '../../images/illustration/breakfast-image.svg';
 import { FaBitbucket } from "react-icons/fa";
+//import { FaBitbucket } from "react-icons/fa";
 import css from './diaryOnMain.module.css';
 import { useDispatch } from 'react-redux';
 import { fetchGoalsConfirm } from 'redux/usersGoal/operations';
