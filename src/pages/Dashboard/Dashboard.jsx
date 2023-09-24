@@ -24,7 +24,6 @@ const Dashboard = () => {
 
   const { graph } = useSelector(selectCharts);
   // console.log(graph);
-  const [timeToggleBtn, setTimeToggleBtn] = useState(false);
 
   const closeModal = () => {
     if (showModal) {
@@ -33,7 +32,6 @@ const Dashboard = () => {
   };
 
   const toggleModal = () => {
-    // setTimeToggleBtn(timeToggleBtn => !timeToggleBtn);
     setShowModal(!showModal);
   };
 
@@ -51,7 +49,7 @@ const Dashboard = () => {
               <img src={leftArrow} alt="arrow" />
             </Link>
             <p className={css.dashboardTitleP}>
-              {showMonth ? 'Last year' : 'Last month'}
+              {showMonth ? 'Last month' : 'Last year'}
             </p>
             <button
               type="button"
@@ -63,7 +61,7 @@ const Dashboard = () => {
                 alt="down arrow"
                 // className={css.arrowDownSvg}
                 style={{
-                  transform: timeToggleBtn ? 'rotate(180deg)' : 'rotate(0deg)',
+                  transform: toggleModal ? 'rotate(180deg)' : 'rotate(0deg)',
                 }}
               />
             </button>
