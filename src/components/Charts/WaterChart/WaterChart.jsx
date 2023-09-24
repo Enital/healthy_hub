@@ -26,47 +26,47 @@ ChartJS.register(
 const WaterChart = () => {
   const { graph } = useSelector(selectCharts);
   const labels = graph.days;
-
+  const data = graph.water;
   let caption = 'K';
 
-  const randomScaling = function () {
-    return (
-      (Math.random() > 0.5 ? 1.0 : 1.0) * Math.round(Math.random() * 500 + 1250)
-    );
-  };
-  const data = [
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-  ];
+  // const randomScaling = function () {
+  //   return (
+  //     (Math.random() > 0.5 ? 1.0 : 1.0) * Math.round(Math.random() * 500 + 1250)
+  //   );
+  // };
+  // const data = [
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  // ];
 
   const datasets = [
     {

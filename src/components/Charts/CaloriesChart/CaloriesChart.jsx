@@ -100,45 +100,45 @@ export default function CaloriesChart() {
   //   randomScaling(),
   // ];
   const labels = graph.days;
-
-  const randomScaling = function () {
-    return (
-      (Math.random() > 0.5 ? 1.0 : 1.0) * Math.round(Math.random() * 500 + 1250)
-    );
-  };
-  const data = [
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-    randomScaling(),
-  ];
+  const data = graph.calories;
+  // const randomScaling = function () {
+  //   return (
+  //     (Math.random() > 0.5 ? 1.0 : 1.0) * Math.round(Math.random() * 500 + 1250)
+  //   );
+  // };
+  // const data = [
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  // ];
   const datasets = [
     {
       label: 'Calories',
