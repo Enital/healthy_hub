@@ -12,9 +12,20 @@
 }
 
 @media screen and (max-width: 833px) {
-  input::placeholder {
-width: 276px;
+  .placeholderData {
+    width: 276px !important;
   }
+  /* .parent-element .placeholderData {
+    width: 276;
+  } */
+/* .placeholderMobile {
+  width: 276px;
+  color: aqua;
+} */
+
+  /* input::placeholder {
+width: 276px;
+  } */
   /* input::placeholder {
     width: 276px;
     height: 36px;

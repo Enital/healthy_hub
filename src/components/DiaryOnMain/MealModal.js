@@ -73,14 +73,11 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
   };
 
   return (
-   
     <div className={css.modalOverly} onClick={handleOverlyClick}>
-      
       <div
         className={css.overlay}
         style={{ display: isOpen ? 'block' : 'none' }}
       >
-       
         <div className={`${css.containerMobile} ${css.containerDextop}`}>
           <h2 className={css.img}>Record your meal</h2>
           <div className={css.flexContainer}>
@@ -90,149 +87,151 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
 
           {inputFields.map((field, index) => (
             <form>
-            <div className={css.containerLabel} key={index}>
-              <label htmlFor={`productName${index}`}></label>
-              
-              <input
-               className={`${css.placeholder} `}
-                style={{
-                  border: '1px solid rgba(227, 255, 168, 1)',
-                  borderRadius: '12px',
-                  width: '255px',
-                  height: '36px',
-                  fontSize: '14px',
-                  lineHeight: '20px',
-                  color: 'rgba(182, 182, 182, 1)',
-                  fontFamily: 'Poppins',
+              <ul>
+                <div className={css.containerLabel} key={index}>
+                  <label htmlFor={`productName${index}`}></label>
 
-                  paddingLeft: '10px',
-                  gap: '10px',
-                  background: 'black',
-                  marginRight: '10px',
-                 
-                }}
-                
+                  <input
+                    style={{
+                      border: '1px solid rgba(227, 255, 168, 1)',
+                      borderRadius: '12px',
+                      width: '255px',
+                      height: '36px',
+                      fontSize: '14px',
+                      lineHeight: '20px',
+                      color: 'rgba(182, 182, 182, 1)',
+                      fontFamily: 'Poppins',
 
-                placeholder="The name of the product or dish"
-                type="text"
-                id={`productName${index}`}
-                name="name"
-                value={field.name}
-                onChange={e => handleInputChange(index, e)}
-              />
+                      paddingLeft: '10px',
+                      gap: '10px',
+                      background: 'black',
+                      marginRight: '10px',
+                    }}
+                    placeholder="The name of the product or dish"
+                    type="text"
+                    id={`productName${index}`}
+                    name="name"
+                    value={field.name}
+                    onChange={e => handleInputChange(index, e)}
+                    className={css.placeholderData}
+                  />
 
-              <label htmlFor={`carbohydrates${index}`}></label>
-              <input
-                style={{
-                  border: '1px solid rgba(227, 255, 168, 1)',
-                  borderRadius: '12px',
-                  width: '100px',
-                  height: '36px',
-                  fontSize: '14px',
-                  lineHeight: '20px',
-                  color: 'rgba(182, 182, 182, 1)',
-                  font: 'Poppins',
+                  <label htmlFor={`carbohydrates${index}`}></label>
+                  <input
+                    style={{
+                      border: '1px solid rgba(227, 255, 168, 1)',
+                      borderRadius: '12px',
+                      width: '100px',
+                      height: '36px',
+                      fontSize: '14px',
+                      lineHeight: '20px',
+                      color: 'rgba(182, 182, 182, 1)',
+                      font: 'Poppins',
 
-                  paddingLeft: '10px',
-                  gap: '10px',
-                  background: 'black',
-                  marginRight: '10px',
-                }}
-                placeholder="carbonoh."
-                type="text"
-                id={`carbohydrates${index}`}
-                name="carbohydrates"
-                value={field.carbohydrates}
-                onChange={e => handleInputChange(index, e)}
-              />
+                      paddingLeft: '10px',
+                      gap: '10px',
+                      background: 'black',
+                      marginRight: '10px',
+                    }}
+                    placeholder="carbonoh."
+                    type="text"
+                    id={`carbohydrates${index}`}
+                    name="carbohydrates"
+                    value={field.carbohydrates}
+                    onChange={e => handleInputChange(index, e)}
+                    className={css.placeholderData}
+                  />
 
-              <label htmlFor={`protein${index}`}></label>
-              <input
-                style={{
-                  border: '1px solid rgba(227, 255, 168, 1)',
-                  borderRadius: '12px',
-                  width: '86px',
-                  height: '36px',
-                  fontSize: '14px',
-                  lineHeight: '20px',
-                  color: 'rgba(182, 182, 182, 1)',
-                  font: 'Poppins',
+                  <label htmlFor={`protein${index}`}></label>
+                  <input
+                    style={{
+                      border: '1px solid rgba(227, 255, 168, 1)',
+                      borderRadius: '12px',
+                      width: '86px',
+                      height: '36px',
+                      fontSize: '14px',
+                      lineHeight: '20px',
+                      color: 'rgba(182, 182, 182, 1)',
+                      font: 'Poppins',
 
-                  paddingLeft: '10px',
-                  gap: '10px',
-                  background: 'black',
-                  marginRight: '10px',
-                }}
-                placeholder="Protein"
-                type="text"
-                id={`protein${index}`}
-                name="protein"
-                value={field.protein}
-                onChange={e => handleInputChange(index, e)}
-              />
+                      paddingLeft: '10px',
+                      gap: '10px',
+                      background: 'black',
+                      marginRight: '10px',
+                    }}
+                    placeholder="Protein"
+                    type="text"
+                    id={`protein${index}`}
+                    name="protein"
+                    value={field.protein}
+                    onChange={e => handleInputChange(index, e)}
+                    className={css.placeholderData}
+                  />
 
-              <label htmlFor={`fat${index}`}></label>
-              <input
-                style={{
-                  border: '1px solid rgba(227, 255, 168, 1)',
-                  borderRadius: '12px',
-                  width: '61px',
-                  height: '36px',
-                  fontSize: '14px',
-                  lineHeight: '20px',
-                  color: 'rgba(182, 182, 182, 1)',
-                  font: 'Poppins',
+                  <label htmlFor={`fat${index}`}></label>
+                  <input
+                    style={{
+                      border: '1px solid rgba(227, 255, 168, 1)',
+                      borderRadius: '12px',
+                      width: '61px',
+                      height: '36px',
+                      fontSize: '14px',
+                      lineHeight: '20px',
+                      color: 'rgba(182, 182, 182, 1)',
+                      font: 'Poppins',
 
-                  paddingLeft: '10px',
-                  gap: '10px',
-                  background: 'black',
-                  marginRight: '10px',
-                }}
-                placeholder="Fat"
-                type="text"
-                id={`fat${index}`}
-                name="fat"
-                value={field.fat}
-                onChange={e => handleInputChange(index, e)}
-              />
+                      paddingLeft: '10px',
+                      gap: '10px',
+                      background: 'black',
+                      marginRight: '10px',
+                    }}
+                    placeholder="Fat"
+                    type="text"
+                    id={`fat${index}`}
+                    name="fat"
+                    value={field.fat}
+                    onChange={e => handleInputChange(index, e)}
+                    className={css.placeholderData}
+                  />
 
-              <label htmlFor={`calories${index}`}></label>
-              <input
-              className={css.placeholder}
-                style={{
-                  border: '1px solid rgba(227, 255, 168, 1)',
-                  borderRadius: '12px',
-                  width: '78px',
-                  height: '36px',
-                  fontSize: '14px',
-                  lineHeight: '20px',
-                  color: 'rgba(182, 182, 182, 1)',
-                  font: 'Poppins',
+                  <label htmlFor={`calories${index}`}></label>
+                  <input
+                   
+                    style={{
+                      border: '1px solid rgba(227, 255, 168, 1)',
+                      borderRadius: '12px',
+                      width: '78px',
+                      height: '36px',
+                      fontSize: '14px',
+                      lineHeight: '20px',
+                      color: 'rgba(182, 182, 182, 1)',
+                      font: 'Poppins',
 
-                  paddingLeft: '10px',
-                  gap: '10px',
-                  background: 'black',
-                  marginRight: '10px',
-                }}
-                placeholder="Calories"
-                type="text"
-                id={`calories${index}`}
-                name="calories"
-                value={field.calories}
-                onChange={e => handleInputChange(index, e)}
-              />
+                      paddingLeft: '10px',
+                      gap: '10px',
+                      background: 'black',
+                      marginRight: '10px',
+                    }}
+                    placeholder="Calories"
+                    type="text"
+                    id={`calories${index}`}
+                    name="calories"
+                    value={field.calories}
+                    onChange={e => handleInputChange(index, e)}
+                    className={css.placeholderData}
+                  />
 
-              {index > 0 && (
-                <button
-                  className={css.remove}
-                  type="button"
-                  onClick={() => handleRemoveField(index)}
-                >
-                  remove
-                 
-                </button>
-              )}
-            </div>
+                  {index > 0 && (
+                    <button
+                      className={css.remove}
+                      type="button"
+                      onClick={() => handleRemoveField(index)}
+                    >
+                      remove
+                    </button>
+                  )}
+                </div>
+              </ul>
             </form>
           ))}
 
@@ -243,17 +242,17 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
           >
             + Add more
           </button>
-       
-        <div className={css.buttonConfirm}>
-          <button className={css.cancel} onClick={onClose}>
-            Cancel
-          </button>
-          <button className={css.confirm} onClick={handleConfirm}>
-            Confirm
-          </button>
+
+          <div className={css.buttonConfirm}>
+            <button className={css.cancel} onClick={onClose}>
+              Cancel
+            </button>
+            <button className={css.confirm} onClick={handleConfirm}>
+              Confirm
+            </button>
+          </div>
         </div>
-        </div>
-    </div>
+      </div>
     </div>
   );
 };
