@@ -5,6 +5,7 @@ import AddWaterModal from 'components/addWaterModal/addWaterModal';
 import { useState } from 'react';
 import css from './water.module.css';
 import addSvg from '../../images/icons/add.svg';
+import scrollLock from 'scroll-lock';
 
 export default function Water() {
   const [openModal, setOpenModal] = useState(false);
@@ -12,10 +13,13 @@ export default function Water() {
 
   const openModalHendler = () => {
     setOpenModal(true);
+    scrollLock.disablePageScroll(document.body);
   };
 
   const closeModalHendler = () => {
     setOpenModal(false);
+    scrollLock.clearQueueScrollLocks();
+    scrollLock.enablePageScroll();
   };
 
   if (Object.keys(items).length === 0) {
