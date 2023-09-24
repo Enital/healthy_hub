@@ -1,6 +1,6 @@
 import React from 'react';
-// import { selectCharts } from 'redux/dashboard/selectors';
-// import { useSelector } from 'react-redux';
+import { selectCharts } from 'redux/dashboard/selectors';
+import { useSelector } from 'react-redux';
 
 import { Line } from 'react-chartjs-2';
 import {
@@ -25,7 +25,7 @@ ChartJS.register(
 );
 
 export default function CaloriesChart() {
-  // const { items } = useSelector(selectCharts);
+  const { graph } = useSelector(selectCharts);
 
   //   '1',
   //   '2',
@@ -99,40 +99,8 @@ export default function CaloriesChart() {
   //   randomScaling(),
   //   randomScaling(),
   // ];
-  // const labels = items.days;
-  const labels = [
-    '1',
-    '2',
-    '3',
-    '4',
-    '5',
-    '6',
-    '7',
-    '8',
-    '9',
-    '10',
-    '11',
-    '12',
-    '13',
-    '14',
-    '15',
-    '16',
-    '17',
-    '18',
-    '19',
-    '20',
-    '21',
-    '22',
-    '23',
-    '24',
-    '25',
-    '26',
-    '27',
-    '28',
-    '29',
-    '30',
-    '31',
-  ];
+  const labels = graph.days;
+
   const randomScaling = function () {
     return (
       (Math.random() > 0.5 ? 1.0 : 1.0) * Math.round(Math.random() * 500 + 1250)
