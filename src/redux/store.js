@@ -28,11 +28,11 @@ const userPersistConfig = {
   whitelist: ['breakfast', 'lunch', 'dinner', 'snack', 'id'],
 };
 
-const graphPersistConfig = {
-  key: 'graph',
-  storage,
-  whitelist: ['items'],
-};
+// const graphPersistConfig = {
+//   key: 'graph',
+//   storage,
+//   whitelist: ['items'],
+// };
 
 const persistedUserReducer = persistReducer(userPersistConfig, userReducer);
 
@@ -41,7 +41,8 @@ export const store = configureStore({
     auth: persistReducer(authPersistConfig, authReducer),
     goals: userGoalReducer,
     user: persistedUserReducer,
-    graph: persistReducer(graphPersistConfig, graphReducer),
+    graph: graphReducer,
+    // graph: persistReducer(graphPersistConfig, graphReducer),
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

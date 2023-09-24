@@ -7,6 +7,7 @@ import Water from 'components/water/water';
 import Food from 'components/food/food';
 import arrow from '../../images/icons/arrow-right.svg';
 import { fetchGoals } from 'redux/usersGoal/operations';
+import { fetchGraph } from 'redux/dashboard/operations';
 import css from './today.module.css';
 
 const Today = () => {
@@ -14,6 +15,7 @@ const Today = () => {
 
   useEffect(() => {
     dispatch(fetchGoals());
+    dispatch(fetchGraph());
   }, [dispatch]);
 
   return (
