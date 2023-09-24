@@ -9,24 +9,13 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
   const dispatch = useDispatch();
   const [placeholderData, setPlaceholderData] = useState([
     {
-    name: '',
-    carbohydrates: '',
-    protein: '',
-    fat: '',
-    calories: '',
-    }
+      name: '',
+      carbohydrates: '',
+      protein: '',
+      fat: '',
+      calories: '',
+    },
   ]);
-
-  // const [placeholderData, setPlaceholderData] = useState([
-  //   {
-  //     name: '',
-  //     carbohydrates: '',
-  //     protein: '',
-  //     fat: '',
-  //     calories: '',
-  //   },
-  // ]);
-
 
   const initialInputFields = [
     { name: '', carbohydrates: '', protein: '', fat: '', calories: '' },
@@ -47,56 +36,13 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
     const newInputFields = [...inputFields];
     newInputFields[index][name] = value;
     setInputFields(newInputFields);
-    console.log('newInputFields',newInputFields);
+    // console.log('newInputFields',newInputFields);
 
-    //update placeholder
-    // setPlaceholderData(prevData => ({
-    //   ...prevData,
-    //   [name]: value,
-    // }));
-      setPlaceholderData(prevData => newInputFields);
+    setPlaceholderData(prevData => newInputFields);
   };
-
-  // const handleInputChange = (index, event) => {
-  //   const { name, value } = event.target;
-  //   setPlaceholderData(prevData => {
-  //     const newData = [...prevData]; // Створюємо копію масиву
-  //     newData[index][name] = value; // Оновлюємо значення в копії
-  //     return newData; // Повертаємо оновлений масив
-  //   });
-  // };
-
-  // const handleConfirm = async () => {
-  //   try {
-  //     await dispatch(fetchGoalsConfirm({ placeholderData, mealName }));
-  //     setPlaceholderData({
-  //       name: '',
-  //       carbohydrates: '',
-  //       protein: '',
-  //       fat: '',
-  //       calories: '',
-  //     });
-
-  //     setInputFields(initialInputFields);
-  //     onClose();
-  //   } catch (error) {
-  //     console.error('Помилка під час відправки на бекенд:', error);
-  //   }
-  // };
-
 
   const handleConfirm = async () => {
     try {
-      // const newPlaceholderData = [
-      //   ...placeholderData,
-      //   {
-      //     name: '',
-      //     carbohydrates: '',
-      //     protein: '',
-      //     fat: '',
-      //     calories: '',
-      //   }
-      // ];
       console.log('placeholderData', placeholderData);
       await dispatch(fetchGoalsConfirm({ placeholderData, mealName }));
       setPlaceholderData(placeholderData);
@@ -243,7 +189,6 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
 
                   <label htmlFor={`calories${index}`}></label>
                   <input
-                   
                     style={{
                       border: '1px solid rgba(227, 255, 168, 1)',
                       borderRadius: '12px',
