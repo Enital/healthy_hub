@@ -5,21 +5,21 @@ import { Link } from 'react-router-dom';
 import DiaryTable from 'components/Table/Table';
 
 const Diary = () => {
-  // const mealTypes = [
-  //   { type: 'breakfast', data: [] },
-  //   { type: 'dinner', data: [] },
-  //   { type: 'lunch', data: [] },
-  //   { type: 'snack', data: [] },
-  // ];
+  const mealTypes = [
+    { type: 'breakfast', data: [] },
+    { type: 'dinner', data: [] },
+    { type: 'lunch', data: [] },
+    { type: 'snack', data: [] },
+  ];
 
-  // const renderedDiaryTables = mealTypes.map(({ type, data }) => (
-  //   <DiaryTable
-  //     key={type}
-  //     mealType={type}
-  //     mealData={data}
-  //     setFoodName={() => {}}
-  //   />
-  // ));
+  const renderedDiaryTables = mealTypes.map(({ type, data }) => (
+    <DiaryTable
+      key={type}
+      mealType={type}
+      mealData={data}
+      setFoodName={() => {}}
+    />
+  ));
 
   return (
     <div className={s.containerDiary}>
@@ -27,11 +27,9 @@ const Diary = () => {
         <Link className={s.btnDiary} to={'/'}>
           <BsArrowLeft size="1.5rem" />
         </Link>
-        <Link to={'/'}>
-          <h2 className={s.textBtn}>Diary</h2>
-        </Link>
+        <h2 className={s.textBtn}>Diary</h2>
       </div>
-      <DiaryTable className={s.diary} />
+      <div className={s.diary}>{renderedDiaryTables}</div>
     </div>
   );
 };
