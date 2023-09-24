@@ -71,8 +71,29 @@ const DiaryTable = ({
   //   setFoodName(name);
   //   onUpdateMealButtonClick(mealType);
   // };
-  const [mealModalOpen, setMealModalOpen] = useState(false);
-  const [selectedFoodName, setSelectedFoodName] = useState('');
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const [selectedMeal, setSelectedMeal] = useState('');
+  // const [selectedFoodName, setSelectedFoodName] = useState('');
+  // const [mealModalOpen, setMealModalOpen] = useState(false);
+
+  const openModal = mealName => {
+    setSelectedMeal(mealName);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setSelectedMeal('');
+    setModalOpen(false);
+  };
+
+  const handleOnClose = e => {
+    if (e.code === 'Escape') {
+      closeModal();
+    }
+  };
+
+  window.addEventListener('keydown', handleOnClose);
 
   const { items } = useSelector(selectGoals);
   if (Object.keys(items).length === 0) {
@@ -95,11 +116,11 @@ const DiaryTable = ({
   const snackProtein = items.snack.protein;
   const snackFat = items.snack.fat;
 
-  const onRecordMealButtonClick = evt => {
-    setSelectedFoodName(evt.target.name);
-    document.body.style.overflow = 'hidden';
-    setMealModalOpen(true);
-  };
+  // const onRecordMealButtonClick = evt => {
+  //   setSelectedFoodName(evt.target.name);
+  //   document.body.style.overflow = 'hidden';
+  //   setMealModalOpen(true);
+  // };
   return (
     <section className={css.sectionDiary}>
       <div className={css.wrapper}>
@@ -212,8 +233,8 @@ const DiaryTable = ({
                 })} */}
 
                 <button
-                  name={mealType}
-                  onClick={onRecordMealButtonClick}
+                  // name={mealType}
+                  onClick={() => openModal('breakfast')}
                   className={s.recordMealButton}
                 >
                   <svg width="16px" height="16px" className={s.recordMealIcon}>
@@ -222,9 +243,10 @@ const DiaryTable = ({
                   Record your meal
                 </button>
                 <MealModal
-                  isOpen={mealModalOpen}
-                  onClose={() => setMealModalOpen(false)}
-                  mealName={selectedFoodName}
+                  closeModal={closeModal}
+                  isOpen={isModalOpen}
+                  onClose={closeModal}
+                  mealName={selectedMeal}
                 />
               </div>
             </div>
@@ -327,8 +349,8 @@ const DiaryTable = ({
                 })} */}
 
               <button
-                name={mealType}
-                onClick={onRecordMealButtonClick}
+                // name={mealType}
+                onClick={() => openModal('lunch')}
                 className={s.recordMealButton}
               >
                 <svg width="16px" height="16px" className={s.recordMealIcon}>
@@ -337,9 +359,10 @@ const DiaryTable = ({
                 Record your meal
               </button>
               <MealModal
-                isOpen={mealModalOpen}
-                onClose={() => setMealModalOpen(false)}
-                mealName={selectedFoodName}
+                closeModal={closeModal}
+                isOpen={isModalOpen}
+                onClose={closeModal}
+                mealName={selectedMeal}
               />
             </div>
           </div>
@@ -452,8 +475,8 @@ const DiaryTable = ({
                 })} */}
 
                 <button
-                  name={mealType}
-                  onClick={onRecordMealButtonClick}
+                  // name={mealType}
+                  onClick={() => openModal('dinner')}
                   className={s.recordMealButton}
                 >
                   <svg width="16px" height="16px" className={s.recordMealIcon}>
@@ -462,9 +485,10 @@ const DiaryTable = ({
                   Record your meal
                 </button>
                 <MealModal
-                  isOpen={mealModalOpen}
-                  onClose={() => setMealModalOpen(false)}
-                  mealName={selectedFoodName}
+                  closeModal={closeModal}
+                  isOpen={isModalOpen}
+                  onClose={closeModal}
+                  mealName={selectedMeal}
                 />
               </div>
             </div>
@@ -569,8 +593,8 @@ const DiaryTable = ({
                 })} */}
 
               <button
-                name={mealType}
-                onClick={onRecordMealButtonClick}
+                // name={mealType}
+                onClick={() => openModal('snack')}
                 className={s.recordMealButton}
               >
                 <svg width="16px" height="16px" className={s.recordMealIcon}>
@@ -579,9 +603,10 @@ const DiaryTable = ({
                 Record your meal
               </button>
               <MealModal
-                isOpen={mealModalOpen}
-                onClose={() => setMealModalOpen(false)}
-                mealName={selectedFoodName}
+                closeModal={closeModal}
+                isOpen={isModalOpen}
+                onClose={closeModal}
+                mealName={selectedMeal}
               />
             </div>
           </div>
