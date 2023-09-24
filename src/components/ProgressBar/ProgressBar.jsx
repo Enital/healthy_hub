@@ -29,7 +29,7 @@ const ProgressBar = ({ page, setPage }) => {
     });
 
     progressBar.style.width = `${((page - 1) / (circles.length - 1)) * 100}%`;
-  }, [page]);
+  }, [page,activePages]);
 
   return (
     <div className="container">
