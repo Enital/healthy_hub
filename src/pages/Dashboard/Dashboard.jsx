@@ -23,6 +23,7 @@ const Dashboard = () => {
   }, [dispatch]);
 
   const { graph } = useSelector(selectCharts);
+  // console.log(graph);
   const [timeToggleBtn, setTimeToggleBtn] = useState(false);
 
   const closeModal = () => {
