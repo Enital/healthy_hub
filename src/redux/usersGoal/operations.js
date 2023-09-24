@@ -46,7 +46,7 @@ export const fetchGoalsConfirm = createAsyncThunk(
     try {
       setHeadersToken(thunkAPI.getState().auth.token);
       const response = await axios.post('/user/food-intake', {
-        [mealName]: [placeholderData],
+        [mealName]: placeholderData,
       });
       console.log(placeholderData);
       return response.data;
