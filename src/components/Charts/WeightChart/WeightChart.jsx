@@ -51,7 +51,11 @@ export default function WeightChart() {
   //   randomScaling(),
   // ];
 
-  const average = Math.round(_.mean(data));
+  const processedData = data.filter(item => {
+    return item > 0;
+  });
+  // console.log(processedData);
+  const average = _.mean(processedData).toFixed(1);
 
   return (
     <div className={css.weightChart}>
