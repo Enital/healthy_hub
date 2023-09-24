@@ -46,7 +46,7 @@ export default function WeightChart() {
   // ];
   const randomScaling = function () {
     return (
-      (Math.random() > 0.5 ? 1.0 : 1.0) * Math.round(Math.random() * 500 + 1250)
+      (Math.random() > 0.5 ? 1.0 : 1.0) * Math.round(Math.random() * 5 + 60)
     );
   };
   const data = [

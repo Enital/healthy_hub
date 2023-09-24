@@ -5,6 +5,7 @@
 
 .chartContainer {
   display: flex;
+  flex-direction: column;
   /* flex-direction: row;
   align-items: center;
   margin-top: 16px;
@@ -90,5 +91,10 @@
     width: 1440px;
     padding-left: 34px;
     padding-right: 34px;
+  }
+
+  .chartContainer {
+    display: flex;
+    flex-direction: row;
   }
 }

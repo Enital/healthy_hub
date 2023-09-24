@@ -49,3 +49,12 @@
   font-size: 10px;
   line-height: 1.4;
 }
+
+@media screen and (min-width: 834px) {
+  .weightChart {
+    height: 110px;
+    width: 780px;
+  }
+}
+
+/* @media screen and (min-width: 1440px) {} */
