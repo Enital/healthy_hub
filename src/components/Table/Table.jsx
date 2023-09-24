@@ -116,6 +116,16 @@ const DiaryTable = ({
   const snackProtein = items.snack.protein;
   const snackFat = items.snack.fat;
 
+  const breakfastDish = items.breakfastDishes;
+  const lunchDish = items.lunchDishes;
+  const dinnerDish = items.dinnerDishes;
+  const snackDish = items.snackDishes;
+
+  console.log(breakfastDish);
+  console.log(lunchDish);
+  console.log(dinnerDish);
+  console.log(snackDish);
+
   // const onRecordMealButtonClick = evt => {
   //   setSelectedFoodName(evt.target.name);
   //   document.body.style.overflow = 'hidden';
@@ -169,69 +179,75 @@ const DiaryTable = ({
               </div>
 
               <div className={css.dairy_dish_list}>
-                {/* {breakfast.map(record => {
-                  return (
-                    <div className={css.record} key={record._id}>
-                      <div className={css.dairy_elem_list}>
-                        <div className={css.dairy_add_dish_item}>
-                          <p className={css.dairy_dish_p}>{record.name}</p>
-                          <button
-                            onClick={() => onEditButtonClick(el.foodName)}
-                            className={s.btnEdit}
-                          >
-                            <svg
-                              width="16px"
-                              height="16px"
-                              className={s.recordMealIcon}
+                {breakfastDish.length > 0 &&
+                  breakfastDish.map(record => {
+                    return (
+                      <div className={css.record} key={record._id}>
+                        <div className={css.dairy_elem_list}>
+                          <div className={css.dairy_add_dish_item}>
+                            <p className={css.dairy_dish_p}>{record.name}</p>
+                            {/* <button
+                              onClick={() => onEditButtonClick(el.foodName)}
+                              className={s.btnEdit}
                             >
-                              <use xlinkHref={`${Icons}#pencil`} />
-                            </svg>
-                            Edit
-                          </button>
-                        </div>
-
-                        <div className={css.dairy_elem_breakfast}>
-                          <ul className={css.dairy_elem_breakfast_list}>
-                            <li className={css.dairy_elem_breakfast_item}>
-                              <span className={css.dairy_elem_span}>Carb.</span>
-                              <span className={css.dairy_elem_breakfast_span}>
-                                {record.carbonohidrates}
-                              </span>
-                            </li>
-                            <li className={css.dairy_elem_breakfast_item}>
-                              <span className={css.dairy_elem_span}>Prot.</span>
-                              <span className={css.dairy_elem_breakfast_span}>
-                                {record.protein}
-                              </span>
-                            </li>
-                            <li className={css.dairy_elem_breakfast_item}>
-                              <span className={css.dairy_elem_span}>Fat.</span>
-                              <span className={css.dairy_elem_breakfast_span}>
-                                {record.fat}
-                              </span>
-                            </li>
-                            <div className={css.dairy_icons_edit}>
-                              <button
-                                onClick={() => onEditButtonClick(el.foodName)}
-                                className={s.btnEdit}
+                              <svg
+                                width="16px"
+                                height="16px"
+                                className={s.recordMealIcon}
                               >
-                                <svg
-                                  width="16px"
-                                  height="16px"
-                                  className={s.recordMealIcon}
+                                <use xlinkHref={`${Icons}#pencil`} />
+                              </svg>
+                              Edit
+                            </button> */}
+                          </div>
+
+                          <div className={css.dairy_elem_breakfast}>
+                            <ul className={css.dairy_elem_breakfast_list}>
+                              <li className={css.dairy_elem_breakfast_item}>
+                                <span className={css.dairy_elem_span}>
+                                  Carb.
+                                </span>
+                                <span className={css.dairy_elem_breakfast_span}>
+                                  {record.carbohydrates}
+                                </span>
+                              </li>
+                              <li className={css.dairy_elem_breakfast_item}>
+                                <span className={css.dairy_elem_span}>
+                                  Prot.
+                                </span>
+                                <span className={css.dairy_elem_breakfast_span}>
+                                  {record.protein}
+                                </span>
+                              </li>
+                              <li className={css.dairy_elem_breakfast_item}>
+                                <span className={css.dairy_elem_span}>
+                                  Fat.
+                                </span>
+                                <span className={css.dairy_elem_breakfast_span}>
+                                  {record.fat}
+                                </span>
+                              </li>
+                              <div className={css.dairy_icons_edit}>
+                                {/* <button
+                                  onClick={() => onEditButtonClick(el.foodName)}
+                                  className={s.btnEdit}
                                 >
-                                  <use xlinkHref={`${Icons}#pencil`} />
-                                </svg>
-                                Edit
-                              </button>
-                            </div>
-                          </ul>
+                                  <svg
+                                    width="16px"
+                                    height="16px"
+                                    className={s.recordMealIcon}
+                                  >
+                                    <use xlinkHref={`${Icons}#pencil`} />
+                                  </svg>
+                                  Edit
+                                </button> */}
+                              </div>
+                            </ul>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  );
-                })} */}
-
+                    );
+                  })}
                 <button
                   // name={mealType}
                   onClick={() => openModal('breakfast')}
@@ -285,13 +301,14 @@ const DiaryTable = ({
             </div>
 
             <div className={css.dairy_dish_list}>
-              {/* {breakfast.map(record => {
+              {lunchDish.length > 0 &&
+                lunchDish.map(record => {
                   return (
                     <div className={css.record} key={record._id}>
                       <div className={css.dairy_elem_list}>
                         <div className={css.dairy_add_dish_item}>
                           <p className={css.dairy_dish_p}>{record.name}</p>
-                          <button
+                          {/* <button
                             onClick={() => onEditButtonClick(el.foodName)}
                             className={s.btnEdit}
                           >
@@ -303,7 +320,7 @@ const DiaryTable = ({
                               <use xlinkHref={`${Icons}#pencil`} />
                             </svg>
                             Edit
-                          </button>
+                          </button> */}
                         </div>
 
                         <div className={css.dairy_elem_breakfast}>
@@ -311,7 +328,7 @@ const DiaryTable = ({
                             <li className={css.dairy_elem_breakfast_item}>
                               <span className={css.dairy_elem_span}>Carb.</span>
                               <span className={css.dairy_elem_breakfast_span}>
-                                {record.carbonohidrates}
+                                {record.carbohydrates}
                               </span>
                             </li>
                             <li className={css.dairy_elem_breakfast_item}>
@@ -327,7 +344,7 @@ const DiaryTable = ({
                               </span>
                             </li>
                             <div className={css.dairy_icons_edit}>
-                              <button
+                              {/* <button
                                 onClick={() => onEditButtonClick(el.foodName)}
                                 className={s.btnEdit}
                               >
@@ -339,15 +356,14 @@ const DiaryTable = ({
                                   <use xlinkHref={`${Icons}#pencil`} />
                                 </svg>
                                 Edit
-                              </button>
+                              </button> */}
                             </div>
                           </ul>
                         </div>
                       </div>
                     </div>
                   );
-                })} */}
-
+                })}
               <button
                 // name={mealType}
                 onClick={() => openModal('lunch')}
@@ -411,68 +427,75 @@ const DiaryTable = ({
               </div>
 
               <div className={css.dairy_dish_list}>
-                {/* {breakfast.map(record => {
-                  return (
-                    <div className={css.record} key={record._id}>
-                      <div className={css.dairy_elem_list}>
-                        <div className={css.dairy_add_dish_item}>
-                          <p className={css.dairy_dish_p}>{record.name}</p>
-                          <button
-                            onClick={() => onEditButtonClick(el.foodName)}
-                            className={s.btnEdit}
-                          >
-                            <svg
-                              width="16px"
-                              height="16px"
-                              className={s.recordMealIcon}
+                {dinnerDish.length > 0 &&
+                  dinnerDish.map(record => {
+                    return (
+                      <div className={css.record} key={record._id}>
+                        <div className={css.dairy_elem_list}>
+                          <div className={css.dairy_add_dish_item}>
+                            <p className={css.dairy_dish_p}>{record.name}</p>
+                            {/* <button
+                              onClick={() => onEditButtonClick(el.foodName)}
+                              className={s.btnEdit}
                             >
-                              <use xlinkHref={`${Icons}#pencil`} />
-                            </svg>
-                            Edit
-                          </button>
-                        </div>
-
-                        <div className={css.dairy_elem_breakfast}>
-                          <ul className={css.dairy_elem_breakfast_list}>
-                            <li className={css.dairy_elem_breakfast_item}>
-                              <span className={css.dairy_elem_span}>Carb.</span>
-                              <span className={css.dairy_elem_breakfast_span}>
-                                {record.carbonohidrates}
-                              </span>
-                            </li>
-                            <li className={css.dairy_elem_breakfast_item}>
-                              <span className={css.dairy_elem_span}>Prot.</span>
-                              <span className={css.dairy_elem_breakfast_span}>
-                                {record.protein}
-                              </span>
-                            </li>
-                            <li className={css.dairy_elem_breakfast_item}>
-                              <span className={css.dairy_elem_span}>Fat.</span>
-                              <span className={css.dairy_elem_breakfast_span}>
-                                {record.fat}
-                              </span>
-                            </li>
-                            <div className={css.dairy_icons_edit}>
-                              <button
-                                onClick={() => onEditButtonClick(el.foodName)}
-                                className={s.btnEdit}
+                              <svg
+                                width="16px"
+                                height="16px"
+                                className={s.recordMealIcon}
                               >
-                                <svg
-                                  width="16px"
-                                  height="16px"
-                                  className={s.recordMealIcon}
+                                <use xlinkHref={`${Icons}#pencil`} />
+                              </svg>
+                              Edit
+                            </button> */}
+                          </div>
+
+                          <div className={css.dairy_elem_breakfast}>
+                            <ul className={css.dairy_elem_breakfast_list}>
+                              <li className={css.dairy_elem_breakfast_item}>
+                                <span className={css.dairy_elem_span}>
+                                  Carb.
+                                </span>
+                                <span className={css.dairy_elem_breakfast_span}>
+                                  {record.carbohydrates}
+                                </span>
+                              </li>
+                              <li className={css.dairy_elem_breakfast_item}>
+                                <span className={css.dairy_elem_span}>
+                                  Prot.
+                                </span>
+                                <span className={css.dairy_elem_breakfast_span}>
+                                  {record.protein}
+                                </span>
+                              </li>
+                              <li className={css.dairy_elem_breakfast_item}>
+                                <span className={css.dairy_elem_span}>
+                                  Fat.
+                                </span>
+                                <span className={css.dairy_elem_breakfast_span}>
+                                  {record.fat}
+                                </span>
+                              </li>
+                              <div className={css.dairy_icons_edit}>
+                                {/* <button
+                                  onClick={() => onEditButtonClick(el.foodName)}
+                                  className={s.btnEdit}
                                 >
-                                  <use xlinkHref={`${Icons}#pencil`} />
-                                </svg>
-                                Edit
-                              </button>
-                            </div>
-                          </ul>
+                                  <svg
+                                    width="16px"
+                                    height="16px"
+                                    className={s.recordMealIcon}
+                                  >
+                                    <use xlinkHref={`${Icons}#pencil`} />
+                                  </svg>
+                                  Edit
+                                </button> */}
+                              </div>
+                            </ul>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  );
-                })} */}
+                    );
+                  })}
 
                 <button
                   // name={mealType}
@@ -529,13 +552,14 @@ const DiaryTable = ({
             </div>
 
             <div className={css.dairy_dish_list}>
-              {/* {breakfast.map(record => {
+              {snackDish.length > 0 &&
+                snackDish.map(record => {
                   return (
                     <div className={css.record} key={record._id}>
                       <div className={css.dairy_elem_list}>
                         <div className={css.dairy_add_dish_item}>
                           <p className={css.dairy_dish_p}>{record.name}</p>
-                          <button
+                          {/* <button
                             onClick={() => onEditButtonClick(el.foodName)}
                             className={s.btnEdit}
                           >
@@ -547,7 +571,7 @@ const DiaryTable = ({
                               <use xlinkHref={`${Icons}#pencil`} />
                             </svg>
                             Edit
-                          </button>
+                          </button> */}
                         </div>
 
                         <div className={css.dairy_elem_breakfast}>
@@ -555,7 +579,7 @@ const DiaryTable = ({
                             <li className={css.dairy_elem_breakfast_item}>
                               <span className={css.dairy_elem_span}>Carb.</span>
                               <span className={css.dairy_elem_breakfast_span}>
-                                {record.carbonohidrates}
+                                {record.carbohydrates}
                               </span>
                             </li>
                             <li className={css.dairy_elem_breakfast_item}>
@@ -571,7 +595,7 @@ const DiaryTable = ({
                               </span>
                             </li>
                             <div className={css.dairy_icons_edit}>
-                              <button
+                              {/* <button
                                 onClick={() => onEditButtonClick(el.foodName)}
                                 className={s.btnEdit}
                               >
@@ -583,14 +607,14 @@ const DiaryTable = ({
                                   <use xlinkHref={`${Icons}#pencil`} />
                                 </svg>
                                 Edit
-                              </button>
+                              </button> */}
                             </div>
                           </ul>
                         </div>
                       </div>
                     </div>
                   );
-                })} */}
+                })}
 
               <button
                 // name={mealType}
