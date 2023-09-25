@@ -2,12 +2,15 @@ import { NavLink } from 'react-router-dom';
 import SportAndFitnessTrackerIMG from './../../images/img/illustration-sport-and-fitness-tracker.svg';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import css from './ForgotPassword.module.css';
-import { useState } from 'react';
+import { useInput } from '../../hooks/useValidationForm';
+import { cssValidEmail } from '../../components/SignUpForm/InputValidation/messageErrorEmail';
+// import { useState } from 'react';
 import axios from 'axios';
 axios.defaults.baseURL = 'https://goit-healthy-hub.onrender.com/api';
 
 function ForgotPassword() {
-  const [email, setEmail] = useState('');
+  const email = useInput('', { isEmpty: true, isEmail: true });
+  // const [email, setEmail] = useState('');
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -38,15 +41,19 @@ function ForgotPassword() {
           <form className={css.form} onSubmit={handleSubmit}>
             <label>
               <input
-                className={css.input}
+                className={cssValidEmail(email)}
                 type="email"
                 name="email"
                 placeholder="E-mail"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
+                value={email.value}
+                onChange={e => email.onChange(e)}
+                onBlur={e => email.onBlur(e)}
+                // value={email}
+                // onChange={e => setEmail(e.target.value)}
+                autocomplete="off"
               />
             </label>
-            <button className={css.send} type="submit">
+            <button className={css.send} to="/signin" type="submit">
               Send
             </button>
           </form>

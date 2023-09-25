@@ -58,6 +58,7 @@ function SignIn() {
                 value={email.value}
                 onChange={e => email.onChange(e)}
                 onBlur={e => email.onBlur(e)}
+                autocomplete="off"
               />{' '}
               {messageErrorEmail(email, 'Not valid e-mail*')}
             </label>
@@ -71,6 +72,7 @@ function SignIn() {
                 id="myInput"
                 onChange={e => password.onChange(e)}
                 onBlur={e => password.onBlur(e)}
+                autocomplete="off"
               />
               {messageErrorPassword(password, 'Enter a valid Password*', '')}
               {incorrect &&

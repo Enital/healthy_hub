@@ -159,7 +159,7 @@
   .confirm {
     order: 1;
     width: 276px;
-    height: 20px;
+    height: 36px;
     font-weight: 500;
     font-size: 14px;
     line-height: 20px;
@@ -314,7 +314,7 @@
   }
   .confirm {
     width: 192px;
-    height: 20px;
+    height: 36px;
     font-weight: 500;
     font-size: 14px;
     line-height: 20px;
