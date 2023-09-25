@@ -1,9 +1,8 @@
 import activityIMG from './../../images/img/illustration-activity.svg';
 import css from './YourActivity.module.css';
-import { useState } from 'react';
 
-function YourActivity({ onBackPage, onForm, activity }) {
-  const [activityValue, setActivity] = useState(activity);
+
+function YourActivity({ onBackPage, onForm, activity ,setActivity}) {
 
   const handleChangeActivity = e => {
     setActivity(e.target.value);
@@ -27,7 +26,7 @@ function YourActivity({ onBackPage, onForm, activity }) {
                 type="radio"
                 name="activity"
                 value={1.2}
-                checked={activityValue === '1.2'}
+                checked={activity === '1.2'}
                 onChange={handleChangeActivity}
               />
               1.2 - if you do not have physical activity and sedentary work
@@ -37,7 +36,7 @@ function YourActivity({ onBackPage, onForm, activity }) {
                 type="radio"
                 name="activity"
                 value={1.375}
-                checked={activityValue === '1.375'}
+                checked={activity === '1.375'}
                 onChange={handleChangeActivity}
               />
               1.375 - if you do short runs or light gymnastics 1-3 times a week
@@ -47,7 +46,7 @@ function YourActivity({ onBackPage, onForm, activity }) {
                 type="radio"
                 name="activity"
                 value={1.55}
-                checked={activityValue === '1.55'}
+                checked={activity === '1.55'}
                 onChange={handleChangeActivity}
               />
               1.55 - if you play sports with average loads 3-5 times a week
@@ -57,7 +56,7 @@ function YourActivity({ onBackPage, onForm, activity }) {
                 type="radio"
                 name="activity"
                 value={1.725}
-                checked={activityValue === '1.725'}
+                checked={activity === '1.725'}
                 onChange={handleChangeActivity}
               />
               1.725 ​​- if you train fully 6-7 times a week
