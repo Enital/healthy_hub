@@ -6,6 +6,7 @@ import {
   refreshUser,
   updateWeight,
   updateGoalAuth,
+  updateUser,
 } from './operations';
 import {
   handlePending,
@@ -17,6 +18,7 @@ import {
   handleRefreshingFalse,
   handleRefreshingFull,
   handleRefreshingTrue,
+  handleUpdateUserFulfilled,
 } from './sliceFunction';
 
 const authSlice = createSlice({
@@ -45,7 +47,11 @@ const authSlice = createSlice({
       // updateGoalAuth
       .addCase(updateGoalAuth.pending, handlePending)
       .addCase(updateGoalAuth.fulfilled, handleUpdateGoalAuthFulfilled)
-      .addCase(updateGoalAuth.rejected, handleRejected);
+      .addCase(updateGoalAuth.rejected, handleRejected)
+      // updateGoalAuth
+      .addCase(updateUser.pending, handlePending)
+      .addCase(updateUser.fulfilled, handleUpdateUserFulfilled)
+      .addCase(updateUser.rejected, handleRejected);
   },
 });
 
