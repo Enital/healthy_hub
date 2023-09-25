@@ -69,3 +69,22 @@ export const updateGoal = createAsyncThunk(
     }
   }
 );
+
+// DiaryPage
+export const UpdateFood = createAsyncThunk(
+  'user/food-intake/:id',
+  async (data, thunkAPI) => {
+    const { placeholderData, id } = data;
+
+    try {
+      setHeadersToken(thunkAPI.getState().auth.token);
+      const response = await axios.put(
+        `/user/food-intake/${id}`,
+        placeholderData
+      );
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
