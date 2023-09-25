@@ -1,17 +1,54 @@
+/* MOBILE */
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 24px 0;
+}
+
+.img {
+  width: 300px;
+  height: 312px;
+  margin-bottom: 24px;
+}
+
+.title {
+  color: var(--color-primary-white, #fff);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+
+.trumb {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.photo {
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+}
+
 .buttons {
   display: flex;
   flex-direction: column;
-  width: max-content;
   margin: 0 auto;
-  /* width: 90%; */
+  width: 100%;
 }
 
-.inputText{
+.buttonsDeck {
+  display: none;
+}
+
+.inputText {
   background-color: transparent;
   color: #ffffff;
 }
 
-.dmcx{
+.dmcx {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,13 +71,9 @@
   line-height: 1.4;
 }
 
-.profileForm {
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
 .settingsDownloadPhoto {
   display: flex;
+  align-items: center;
   gap: 10px;
   margin-top: 12px;
   margin-bottom: 40px;
@@ -118,24 +151,25 @@
   line-height: 1.4;
 }
 
-.photo {
-  margin: 0 auto;
-  background-color: transparent;
-  width: 300px;
-  height: 300px;
-}
-
 /* TABLET */
 @media screen and (min-width: 834px) {
-  .container {
-    width: 834px;
-    padding-left: 27px;
-    padding-right: 27px;
-    margin: 0 auto;
+  .trumb {
+    margin-top: 24px;
   }
 
-  .profileForm {
-    margin: 0;
+  .wrapper {
+    padding: 40px 0;
+  }
+
+  .img {
+    width: 380px;
+    height: 396px;
+    margin-bottom: 80px;
+  }
+
+  .title {
+    font-size: 30px;
+    line-height: 1.2;
   }
 
   .profileSettings {
@@ -156,6 +190,7 @@
     width: 70%;
     gap: 40px;
     flex-wrap: wrap;
+    margin-bottom: 40px;
   }
 
   .settingActivity {
@@ -174,49 +209,48 @@
   }
 
   .buttons {
-    position: absolute;
-    top: 120px;
-    right: 27px;
+    display: none;
+  }
+
+  .buttonsDeck {
+    display: flex;
     flex-direction: row-reverse;
-    width: 470px;
     height: 36px;
     gap: 12px;
   }
 
-  .photo {
-    margin-top: 30px;
-    margin-bottom: 30px;
-  }
-
   .settingsDownloadPhoto {
+    display: flex;
+    align-items: center;
     margin-bottom: 0;
   }
-
-  /* .profile-settings */
 }
 
 /* DESKTOP */
 @media screen and (min-width: 1440px) {
-  .container {
-    width: 1440px;
-    padding-left: 34px;
-    padding-right: 34px;
-
-    display: flex;
-    flex-direction: row;
+  .trumb {
+    margin-top: 20px;
   }
 
-  .profileForm {
-    display: flex;
-    width: 700px;
-    flex-direction: column;
-    margin-top: 50px;
-    margin-left: 200px;
+  .wrapper {
+    flex-direction: row;
+    column-gap: 160px;
+    align-items: start;
+    padding-left: 116px;
+  }
+
+  .img {
+    width: 536px;
+    height: 560px;
+    margin-bottom: 0;
+  }
+
+  .title {
+    text-align: start;
   }
 
   .settingsInputs {
-    width: 600px;
-    margin-top: 70px;
+    width: 572px;
     gap: 60px;
     row-gap: 40px;
   }
@@ -226,14 +260,6 @@
     margin-top: 40px;
     margin-left: 0;
     margin-right: 0;
-}
-
-  .photo {
-    width: 600px;
-    height: 600px;
-    position: relative;
-    top: 20px;
-    left: 10px;
   }
 
   .profileSettings {
@@ -248,8 +274,8 @@
   .buttons {
     right: 52px;
   }
-  .radioSettings{
-    width:fit-content;
+  .radioSettings {
+    width: fit-content;
     display: flex;
     align-items: center;
     justify-content: center;
