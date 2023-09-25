@@ -185,8 +185,7 @@
   .containerDiary {
     width: 518px;
     padding-right: 10px;
-    margin-left: 0;
-    margin-right: 0;
+   
   }
   .link {
     display: flex;
@@ -378,13 +377,26 @@
     justify-content: center;
     text-align: center;
     white-space: nowrap;
-    /* margin-top: 20px; */
+    
   }
   .carbonohidrates {
     margin-right: 25px;
     margin-left: 43px;
+    width: 200px;
+  }
+  .breakfastProtein {
+    margin-right: 25px;
+    width: 110px;
   }
   .linkFood {
     width: 518px;
+    display: flex;
+  /* justify-content: space-between; */
+  align-items: center; 
   }
+  /* .number {
+    width: 10px; 
+    display: inline-block;
+    text-align: left; 
+  } */
 }
