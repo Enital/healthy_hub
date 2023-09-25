@@ -460,6 +460,7 @@ function Header() {
                             placeholder="Enter your weight"
                             pattern="\d*"
                             className={css.inputWeight}
+                            autocomplete="off"
                           />
                           <button
                             onClick={handleConfirm}
