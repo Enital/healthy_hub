@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { format } from 'date-fns';
 import axios from 'axios';
 import scrollLock from 'scroll-lock';
@@ -12,9 +12,8 @@ import arrowRightSvg from '../../images/icons/arrow-right.svg';
 import { logOut } from '../../redux/auth/operations';
 import { updateGoal } from '../../redux/usersGoal/operations';
 
-// import { useAuth } from '../../redux/auth/useAuth';
+import { useAuth } from '../../redux/auth/useAuth';
 
-// new
 import { updateGoalAuth, updateWeight } from '../../redux/auth/operations';
 
 import arrowDownSvg from '../../images/icons/arrow-down.svg';
@@ -32,15 +31,17 @@ import css from './header.module.css';
 
 function Header() {
   const dispatch = useDispatch();
+  const { user } = useAuth();
+
+  const weight = user.weight;
+  const avatar = user.avatar;
+  const name = user.name;
+  const goal = user.goal;
 
   const [inputWeight, setInputWeight] = useState('');
-  const [weight, setWeight] = useState('');
-  const [avatar, setAvatar] = useState('');
-  const [name, setName] = useState('');
-  const [goal, setGoal] = useState('');
 
   const [activeLink, setActiveLink] = useState(null);
-  // const { user } = useAuth();
+
   const [selectedGoal, setSelectedGoal] = useState(null);
 
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
@@ -57,39 +58,8 @@ function Header() {
     setActiveLink(link);
   };
 
-  // useEffect(() => {
-  //   if (user && user.goal) {
-  //     setSelectedGoal(user.goal);
-  //     console.log(user.goal);
-  //   }
-  // }, [user]);
-
   const token = useSelector(state => state.auth.token);
   axios.defaults.baseURL = 'https://goit-healthy-hub.onrender.com/api';
-
-  async function getUser(token) {
-    try {
-      const res = await axios.get('/auth/current', {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      return res.data;
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-  useEffect(() => {
-    getUser(token)
-      .then(data => {
-        setWeight(data.weight);
-        setAvatar(data.avatar);
-        setGoal(data.goal);
-        setName(data.name);
-      })
-      .catch(err => console.error('error:' + err));
-  }, [token]);
 
   const handleGoalSelect = goalEmoji => {
     setSelectedGoal(goalEmoji);
@@ -103,6 +73,7 @@ function Header() {
     dispatch(updateWeight(inputWeight))
       .then(() => {
         setInputWeight('');
+        closeModalWeight();
       })
       .catch(error => {
         console.error('Помилка при оновленні ваги:', error);
@@ -181,10 +152,6 @@ function Header() {
     scrollLock.clearQueueScrollLocks();
     scrollLock.enablePageScroll();
   };
-
-  // if (user && user.goal) {
-  //   console.log(user.goal);
-  // }
 
   return (
     <div className="container" style={{ paddingLeft: 0, paddingRight: 0 }}>
@@ -429,6 +396,7 @@ function Header() {
                           <button
                             onClick={handleConfirm}
                             className={css.buttonWeightConfirm}
+                            
                           >
                             Confirm
                           </button>

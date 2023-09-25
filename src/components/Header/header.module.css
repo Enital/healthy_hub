@@ -138,6 +138,7 @@ h1, h2, h3, h4, h5, h6, p, div, link {
     right: 32px;
     position: absolute;
     top: 20px;
+    cursor:pointer;
 }
 
 .modalMobileContent{
@@ -430,7 +431,7 @@ h1, h2, h3, h4, h5, h6, p, div, link {
     display: none;
 }
 
-@media (min-width: 834px) and (max-width: 932px) {
+@media (min-width: 834px) and (max-width: 1440px) {
     /*планшет ------------------------------------------------------------------------------------------------------------------------------*/
     .header{
         height: 100%;
@@ -563,7 +564,7 @@ h1, h2, h3, h4, h5, h6, p, div, link {
     }
 }
 
-@media (min-width: 320px) and (max-width: 768px) {
+@media (min-width: 0px) and (max-width: 834px) {
     /* телефон ------------------------------------------------------------------------------------------------------------------------------ */
     .header{
         height: 100%;
