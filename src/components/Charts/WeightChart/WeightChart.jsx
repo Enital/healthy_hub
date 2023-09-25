@@ -59,9 +59,11 @@ export default function WeightChart() {
 
   return (
     <div className={css.weightChart}>
-      <div className={css.dashboardTitle}>
+      <div className={css.weightTitle}>
         <p className={css.chartTitle}>Weight</p>
-        <p className={css.chartSubtitle}>Average value: {average} kg</p>
+        <p className={css.chartSubtitle}>
+          Average value: <span className={css.average}>{average} kg</span>
+        </p>
       </div>
       <div className={css.chart}>
         <BuildWeightChart />

@@ -33,12 +33,23 @@
   font-style: normal;
   font-weight: 400;
   line-height: 14px;
+  color: var(--color-primary-gray);
 }
 
 @media screen and (min-width: 834px) {
   .weightTable {
     width: 780px;
     height: 110px;
+  }
+}
+
+@media screen and(min-width: 834px) {
+  .weightTable {
+    padding: 24px 20px 36px 22px;
+  }
+
+  .tableBlock {
+    padding-right: 6px;
   }
 }
 

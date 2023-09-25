@@ -80,8 +80,8 @@ const Dashboard = () => {
           <p className={css.month}>{graph.labels.monthLong}</p>
         </div>
         <div className={css.chartContainer}>
-          <CaloriesChart />
-          <WaterChart />
+          <CaloriesChart showMonth={showMonth} setMonth={showMonth} />
+          <WaterChart data={showMonth} />
         </div>
         <WeightChart />
       </div>

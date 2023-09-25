@@ -3,7 +3,8 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 24px 0;
+  padding: 24px 0; transition: width 0.5s ease;
+  
 }
 
 .img {
@@ -307,4 +308,15 @@ input[type='checkbox']:checked::after {
   line-height: 14px;
   margin-top: 4px;
   margin-left: 10px;
+}
+
+input:-webkit-autofill {
+  background-color: #3cbc81 !important;
+  background-image: #3cbc81 !important;
+  color: #3cbc81 !important;
+}
+input:-webkit-autofill {
+  background-color: #3cbc81 !important;
+  background-image: #3cbc81 !important;
+  color: #3cbc81 !important;
 }

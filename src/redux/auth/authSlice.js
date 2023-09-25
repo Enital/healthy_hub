@@ -1,11 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { register, logIn, logOut, refreshUser } from './operations';
 import {
+  register,
+  logIn,
+  logOut,
+  refreshUser,
+  updateWeight,
+  updateGoalAuth,
+  updateUser,
+  updateAvatar,
+} from './operations';
+import {
+  handlePending,
+  handleRejected,
+  handleUpdateWeightFulfilled,
+  handleUpdateGoalAuthFulfilled,
   handleFulfilledLogOut,
   handleFulfilledPost,
   handleRefreshingFalse,
   handleRefreshingFull,
   handleRefreshingTrue,
+  handleUpdateUserFulfilled,
+  handleUpdateAvatarFulfilled,
 } from './sliceFunction';
 
 const authSlice = createSlice({
@@ -15,7 +30,10 @@ const authSlice = createSlice({
     token: null,
     isLoggedIn: false,
     isRefreshing: false,
+    error: null,
+    isLoading: false,
   },
+
   extraReducers: builder => {
     builder
       .addCase(register.fulfilled, handleFulfilledPost)
@@ -23,7 +41,23 @@ const authSlice = createSlice({
       .addCase(logOut.fulfilled, handleFulfilledLogOut)
       .addCase(refreshUser.pending, handleRefreshingTrue)
       .addCase(refreshUser.fulfilled, handleRefreshingFull)
-      .addCase(refreshUser.rejected, handleRefreshingFalse);
+      .addCase(refreshUser.rejected, handleRefreshingFalse)
+      // updateWeight
+      .addCase(updateWeight.pending, handlePending)
+      .addCase(updateWeight.fulfilled, handleUpdateWeightFulfilled)
+      .addCase(updateWeight.rejected, handleRejected)
+      // updateGoalAuth
+      .addCase(updateGoalAuth.pending, handlePending)
+      .addCase(updateGoalAuth.fulfilled, handleUpdateGoalAuthFulfilled)
+      .addCase(updateGoalAuth.rejected, handleRejected)
+      // updateGoalAuth
+      .addCase(updateUser.pending, handlePending)
+      .addCase(updateUser.fulfilled, handleUpdateUserFulfilled)
+      .addCase(updateUser.rejected, handleRejected)
+      // updateAvatar
+      .addCase(updateAvatar.pending, handlePending)
+      .addCase(updateAvatar.fulfilled, handleUpdateAvatarFulfilled)
+      .addCase(updateAvatar.rejected, handleRejected);
   },
 });
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import { selectCharts } from 'redux/dashboard/selectors';
 import { useSelector } from 'react-redux';
-
 import { Line } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -24,7 +23,7 @@ ChartJS.register(
   Tooltip
 );
 
-export default function CaloriesChart() {
+export default function CaloriesChart({ showMonth, setShowMonth }) {
   const { graph } = useSelector(selectCharts);
 
   //   '1',
@@ -101,6 +100,7 @@ export default function CaloriesChart() {
   // ];
   const labels = graph.days;
   const data = graph.calories;
+  let caption = 'K';
   // const randomScaling = function () {
   //   return (
   //     (Math.random() > 0.5 ? 1.0 : 1.0) * Math.round(Math.random() * 500 + 1250)
@@ -139,6 +139,7 @@ export default function CaloriesChart() {
   //   randomScaling(),
   //   randomScaling(),
   // ];
+
   const datasets = [
     {
       label: 'Calories',
@@ -156,9 +157,6 @@ export default function CaloriesChart() {
       pointBackgroundColor: '#E3FFA8',
     },
   ];
-
-  // #292928;
-  let caption = 'K';
 
   const options = {
     responsive: true,
@@ -242,17 +240,18 @@ export default function CaloriesChart() {
     labels,
     datasets,
   };
+
   return (
     <div className={css.caloriesChart}>
-      {/* <ul> */}
-      <div className={css.dashboardTitle}>
+      <div className={css.caloriesTitle}>
         <p className={css.chartTitle}>Calories</p>
-        <p className={css.chartSubtitle}>Average value: {average} cal</p>
+        <p className={css.chartSubtitle}>
+          Average value: <span className={css.average}>{average} cal</span>
+        </p>
       </div>
       <div className={css.chart}>
         <Line options={options} data={dataOne} />
       </div>
-      {/* </ul> */}
     </div>
   );
 }

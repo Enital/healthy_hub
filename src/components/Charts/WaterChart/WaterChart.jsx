@@ -23,11 +23,11 @@ ChartJS.register(
   Tooltip
 );
 
-const WaterChart = () => {
+export default function WaterChart() {
   const { graph } = useSelector(selectCharts);
   const labels = graph.days;
   const data = graph.water;
-  let caption = 'K';
+  let caption = 'L';
 
   // const randomScaling = function () {
   //   return (
@@ -171,17 +171,15 @@ const WaterChart = () => {
 
   return (
     <div className={css.waterChart}>
-      <ul>
-        <div className={css.dashboardTitle}>
-          <p className={css.chartTitle}>Water</p>
-          <p className={css.chartSubtitle}>Average value: {average} ml</p>
-        </div>
-        <div className={css.chart}>
-          <Line options={options} data={dataOne} />
-        </div>
-      </ul>
+      <div className={css.waterTitle}>
+        <p className={css.chartTitle}>Water</p>
+        <p className={css.chartSubtitle}>
+          Average value: <span className={css.average}>{average} ml</span>
+        </p>
+      </div>
+      <div className={css.chart}>
+        <Line options={options} data={dataOne} />
+      </div>
     </div>
   );
-};
-
-export default WaterChart;
+}
