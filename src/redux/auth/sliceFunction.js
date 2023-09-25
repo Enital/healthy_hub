@@ -51,3 +51,9 @@ export const handleUpdateUserFulfilled = (state, action) => {
   state.error = null;
   state.user = action.payload;
 };
+
+export const handleUpdateAvatarFulfilled = (state, action) => {
+  state.isLoading = false;
+  state.error = null;
+  state.user.avatar = action.payload.avatar;
+};
