@@ -39,7 +39,7 @@ function YourHealth({ onForm, onBackPage, heightValue, weightValue }) {
               value={height.value}
               onChange={e => height.onChange(e)}
               onBlur={e => height.onBlur(e)}
-              required
+              autocomplete="off" 
             />
             {messageErrorHeight(height, 'Not valid height*')}
           </label>
@@ -53,7 +53,7 @@ function YourHealth({ onForm, onBackPage, heightValue, weightValue }) {
               value={weight.value}
               onChange={e => weight.onChange(e)}
               onBlur={e => weight.onBlur(e)}
-              required
+              autocomplete="off" 
             />
             {messageErrorWeight(weight, 'Not valid weight*')}
           </label>

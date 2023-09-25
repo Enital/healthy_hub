@@ -58,7 +58,7 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
     // After a successful logout, remove the token from the HTTP header
     clearAuthHeader();
   } catch (error) {
-     showError(error);
+    showError(error);
     return thunkAPI.rejectWithValue(error.message);
   }
 });
@@ -95,6 +95,63 @@ export const checkingRegistered = createAsyncThunk(
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+// updateWeight
+export const updateWeight = createAsyncThunk(
+  'user/updateWeight',
+  async (inputWeight, thunkAPI) => {
+    try {
+      setAuthHeader(thunkAPI.getState().auth.token);
+      const response = await axios.put('/user/weight', { weight: inputWeight });
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+// updateGoalAuth
+export const updateGoalAuth = createAsyncThunk(
+  'user/updateGoal',
+  async (selectedGoal, thunkAPI) => {
+    try {
+      setAuthHeader(thunkAPI.getState().auth.token);
+      const response = await axios.patch('/user/goal', { goal: selectedGoal });
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+// updateUser
+export const updateUser = createAsyncThunk(
+  'auth/settings',
+  async (formData, thunkAPI) => {
+    try {
+      setAuthHeader(thunkAPI.getState().auth.token);
+      const response = await axios.patch('/auth/settings', formData);
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+// updateAvatar
+export const updateAvatar = createAsyncThunk(
+  'auth/avatar',
+  async (formFile, thunkAPI) => {
+    try {
+      setAuthHeader(thunkAPI.getState().auth.token);
+      const response = await axios.patch('/auth/avatar', formFile);
+      console.log(response.data);
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
     }
   }
 );

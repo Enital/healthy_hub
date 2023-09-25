@@ -37,6 +37,7 @@ const SignUpForm = ({ onForm, nameValue, emailValue, passwordValue }) => {
               value={name.value}
               onChange={e => name.onChange(e)}
               onBlur={e => name.onBlur(e)}
+              autocomplete="off"
             />
             {messageErrorName(name, 'Not valid name*')}
           </label>
@@ -49,6 +50,7 @@ const SignUpForm = ({ onForm, nameValue, emailValue, passwordValue }) => {
               value={email.value}
               onChange={e => email.onChange(e)}
               onBlur={e => email.onBlur(e)}
+              autocomplete="off"
             />
             {messageErrorEmail(email, 'Not valid e-mail*')}
           </label>
@@ -67,6 +69,7 @@ const SignUpForm = ({ onForm, nameValue, emailValue, passwordValue }) => {
               id="myInput"
               onChange={e => password.onChange(e)}
               onBlur={e => password.onBlur(e)}
+              autocomplete="off"
             />
             {messageErrorPassword(
               password,

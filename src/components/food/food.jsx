@@ -54,7 +54,8 @@ export default function Food() {
             })}
           >
             <h3 style={{ fontSize: 42, fontWeight: 400, color: '#FFFFFF' }}>
-              {usedCalories >= totalCalories ? 'DONE' : usedCalories}
+              {/* {usedCalories >= totalCalories ? 'DONE' : usedCalories} */}
+              {usedCalories}
             </h3>
             <p
               style={{
