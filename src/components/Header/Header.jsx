@@ -40,6 +40,10 @@ function Header() {
 
   const [inputWeight, setInputWeight] = useState('');
 
+  const [isLoseFatSelected, setIsLoseFatSelected] = useState(false);
+  const [isMaintainSelected, setIsMaintainSelected] = useState(false);
+  const [isGainMuscleSelected, setIsGainMuscleSelected] = useState(false);
+
   const [activeLink, setActiveLink] = useState(null);
 
   const [selectedGoal, setSelectedGoal] = useState(null);
@@ -102,6 +106,42 @@ function Header() {
       });
   };
 
+  const handleLoseFatIconClick = () => {
+    setIsLoseFatSelected(true);
+    setIsMaintainSelected(false);
+    setIsGainMuscleSelected(false);
+  };
+
+  const handleMaintainIconClick = () => {
+    setIsLoseFatSelected(false);
+    setIsMaintainSelected(true);
+    setIsGainMuscleSelected(false);
+  };
+
+  const handleGainMuscleIconClick = () => {
+    setIsLoseFatSelected(false);
+    setIsMaintainSelected(false);
+    setIsGainMuscleSelected(true);
+  };
+
+  const handleLoseFatClick = () => {
+    setIsLoseFatSelected(true);
+    setIsMaintainSelected(false);
+    setIsGainMuscleSelected(false);
+  };
+
+  const handleMaintainClick = () => {
+    setIsLoseFatSelected(false);
+    setIsMaintainSelected(true);
+    setIsGainMuscleSelected(false);
+  };
+
+  const handleGainMuscleClick = () => {
+    setIsLoseFatSelected(false);
+    setIsMaintainSelected(false);
+    setIsGainMuscleSelected(true);
+  };
+
   const openModalGoal = () => {
     setIsModalGoalOpen(true);
     setIsModalWeightOpen(false);
@@ -153,6 +193,28 @@ function Header() {
     scrollLock.enablePageScroll();
   };
 
+  const handleOnClose = e => {
+    if (e.code === 'Escape') {
+      closeModalGoal();
+      closeModalWeight();
+      closeModalMobile();
+      setIsModalUserOpen(false);
+    }
+  };
+
+  window.addEventListener('keydown', handleOnClose);
+
+  const handleOverlyClick = e => {
+    if (e.currentTarget === e.target) {
+      closeModalGoal();
+      closeModalWeight();
+      closeModalMobile();
+      setIsModalUserOpen(false);
+    }
+  };
+
+
+
   return (
     <div className="container" style={{ paddingLeft: 0, paddingRight: 0 }}>
       <header className={css.header}>
@@ -168,7 +230,7 @@ function Header() {
           />
 
           {isModalMobileOpen && (
-            <div>
+            <div >
               <div className={css.modalMobileContent}>
                 <img
                   src={closeCircleSvg}
@@ -285,7 +347,7 @@ function Header() {
                 )}
 
                 {isModalGoalOpen && (
-                  <div>
+                  <div className={css.modalOverly} onClick={handleOverlyClick}>
                     <div className={css.modalGoalContent}>
                       <img
                         src={closeCircleSvg}
@@ -305,9 +367,11 @@ function Header() {
                           <img
                             src={loseFatMenEmoji}
                             alt="lose Fat Men Emoji"
-                            className={css.emojiTargetGoal}
+                            className={`${css.emojiTargetGoal} ${isLoseFatSelected ? css.emojiTargetGoalActive : ''}`}
+                    onClick={handleLoseFatIconClick}
                           />
-                          <p className={css.textEmojiGoal}>Lose fat</p>
+                          <p className={`${css.textEmojiGoal} ${isLoseFatSelected ? css.textEmojiGoalActive : ''}`}
+                     onClick={handleLoseFatClick}>Lose fat</p>
                         </div>
                         <div
                           className={css.choiseTargetGoal}
@@ -316,9 +380,11 @@ function Header() {
                           <img
                             src={maintakeMenEmoji}
                             alt="Maintake Men Emoji"
-                            className={css.emojiTargetGoal}
+                            className={`${css.emojiTargetGoal} ${isMaintainSelected ? css.emojiTargetGoalActive : ''}`}
+                    onClick={handleMaintainIconClick}
                           />
-                          <p className={css.textEmojiGoal}>Maintain</p>
+                          <p className={`${css.textEmojiGoal} ${isMaintainSelected ? css.textEmojiGoalActive : ''}`}
+                     onClick={handleMaintainClick}>Maintain</p>
                         </div>
                         <div
                           className={css.choiseTargetGoal}
@@ -327,9 +393,11 @@ function Header() {
                           <img
                             src={gainMuscleEmoji}
                             alt="Gain Muscle Emoji"
-                            className={css.emojiTargetGoal}
+                            className={`${css.emojiTargetGoal} ${isGainMuscleSelected ? css.emojiTargetGoalActive : ''}`}
+                    onClick={handleGainMuscleIconClick}
                           />
-                          <p className={css.textEmojiGoal}>Gain Muscle</p>
+                          <p className={`${css.textEmojiGoal} ${isGainMuscleSelected ? css.textEmojiGoalActive : ''}`}
+                     onClick={handleGainMuscleClick}>Gain Muscle</p>
                         </div>
                         <div>
                           <button
@@ -363,7 +431,7 @@ function Header() {
                 </div>
 
                 {isModalWeightOpen && (
-                  <div>
+                  <div className={css.modalOverly} onClick={handleOverlyClick}>
                     <div className={css.modalWeightContent}>
                       <img
                         src={closeCircleSvg}
@@ -427,7 +495,7 @@ function Header() {
                 </div>
 
                 {isModalUserOpen && (
-                  <div>
+                  <div className={css.modalOverly} onClick={handleOverlyClick}>
                     <div className={css.modalUserContent}>
                       <div className={css.settingElement}>
                         <img
