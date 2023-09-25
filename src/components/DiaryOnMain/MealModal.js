@@ -109,6 +109,7 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
                     value={field.name}
                     onChange={e => handleInputChange(index, e)}
                     className={css.placeholderData}
+                    autoComplete='off'
                   />
 
                   <label htmlFor={`carbohydrates${index}`}></label>
@@ -129,12 +130,13 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
                       marginRight: '10px',
                     }}
                     placeholder="carbonoh."
-                    type="text"
+                    type="number"
                     id={`carbohydrates${index}`}
                     name="carbohydrates"
                     value={field.carbohydrates}
                     onChange={e => handleInputChange(index, e)}
                     className={css.placeholderData}
+                    autoComplete='off'
                   />
 
                   <label htmlFor={`protein${index}`}></label>
@@ -155,12 +157,13 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
                       marginRight: '10px',
                     }}
                     placeholder="Protein"
-                    type="text"
+                    type="number"
                     id={`protein${index}`}
                     name="protein"
                     value={field.protein}
                     onChange={e => handleInputChange(index, e)}
                     className={css.placeholderData}
+                    autoComplete='off'
                   />
 
                   <label htmlFor={`fat${index}`}></label>
@@ -181,12 +184,13 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
                       marginRight: '10px',
                     }}
                     placeholder="Fat"
-                    type="text"
+                    type="number"
                     id={`fat${index}`}
                     name="fat"
                     value={field.fat}
                     onChange={e => handleInputChange(index, e)}
                     className={css.placeholderData}
+                    autoComplete='off'
                   />
 
                   <label htmlFor={`calories${index}`}></label>
@@ -213,6 +217,7 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
                     value={field.calories}
                     onChange={e => handleInputChange(index, e)}
                     className={css.placeholderData}
+                    autoComplete='off'
                   />
 
                   {index > 0 && (
