@@ -395,7 +395,8 @@ button {
 
     .btnEdit {
         display: flex;
-        align-items: center;
+        align-items: center;      
+        
     }
 }
 
@@ -704,7 +705,8 @@ p {
 
     .wrapper_dishes_block {
         width: 100%;
-        height: 240px;
+        max-height: 240px;
+        overflow-y: auto;
         padding: 32px 14px;
     }
 
@@ -750,9 +752,9 @@ p {
         height: 100%;
     }
 
-    .dairy_add_dish_item:not(:last-child) {
+    /* .dairy_add_dish_item:not(:last-child) {
         margin-bottom: 32px;
-    }
+    } */
 
     .dairy_add_dish_item:last-child {
         margin-bottom: 0;
@@ -790,6 +792,7 @@ p {
 
     .dairy_icons_edit {
         display: flex;
+        align-items:
 
         /* align-items: center; */
     }
@@ -841,17 +844,22 @@ p {
         /* flex-wrap: wrap; */
         /* width: 100%; */
         gap: 20px;
+        
     }
 
     .wrapper_dishes {
         display: block;
         width: 100%;
         align-items: center;
+        
     }
 
     .dairy_dish_wrapper {
         margin-bottom: 20px;
         margin-top: 0px;
+        max-height: 330px;
+            overflow-y: auto;
+       
     }
 
     .dairy_elem_breakfast_span {
@@ -921,9 +929,9 @@ p {
         margin-bottom: 6px;
     }
 
-    .dairy_add_dish_item:not(:last-child) {
+    /* .dairy_add_dish_item:not(:last-child) {
         margin-bottom: 32px;
-    }
+    } */
 
     .dairy_add_dish_item:last-child {
         margin-bottom: 0;
@@ -974,6 +982,7 @@ p {
 
     .dairy_elem_breakfast_item:not(:last-child) {
         margin-right: 32px;
+        margin-left: 32px;
     }
 
     .dairy_breakfast_span:not(last-child) {
