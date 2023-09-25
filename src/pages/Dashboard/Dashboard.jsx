@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import CaloriesChart from 'components/Charts/CaloriesChart/CaloriesChart';
+import CaloriesChartYear from 'components/Charts/CaloriesChart/CaloriesChartYear';
 import WaterChart from 'components/Charts/WaterChart/WaterChart';
+import WaterChartYear from 'components/Charts/WaterChart/WaterChartYear';
 import WeightChart from 'components/Charts/WeightChart/WeightChart';
 import Modal from 'components/DashboardModal/DashboardModal';
 import { Link } from 'react-router-dom';
@@ -23,7 +25,13 @@ const Dashboard = () => {
   }, [dispatch]);
 
   const { graph } = useSelector(selectCharts);
-  // console.log(graph);
+  console.log(graph);
+  const today = new Date();
+  const todayYear = today.getFullYear();
+  const lastYear = todayYear - 1;
+  const twoYear = todayYear + '-' + lastYear;
+  // console.log(twoYear);
+  const twoMonth = graph.labels.monthLong;
 
   const closeModal = () => {
     if (showModal) {
@@ -77,13 +85,17 @@ const Dashboard = () => {
               </Modal>
             )}
           </ul>
-          <p className={css.month}>{graph.labels.monthLong}</p>
+          <p className={css.month}>{showMonth ? twoMonth : twoYear}</p>
         </div>
         <div className={css.chartContainer}>
-          <CaloriesChart showMonth={showMonth} setMonth={showMonth} />
-          <WaterChart data={showMonth} />
+          {showMonth ? (
+            <CaloriesChart showMonth={showMonth} />
+          ) : (
+            <CaloriesChartYear />
+          )}
+          {showMonth ? <WaterChart data={showMonth} /> : <WaterChartYear />}
         </div>
-        <WeightChart />
+        <WeightChart showMonth={showMonth} />
       </div>
     </div>
   );

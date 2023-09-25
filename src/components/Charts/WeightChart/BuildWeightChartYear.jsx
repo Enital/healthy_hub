@@ -1,23 +1,31 @@
 import React from 'react';
-import { selectCharts } from 'redux/dashboard/selectors';
-import BuildWeightChart from './BuildWeightChart';
-import BuildWeightChartYear from './BuildWeightChartYear';
-import { useSelector } from 'react-redux';
+// import { selectCharts } from 'redux/dashboard/selectors';
+// import { useSelector } from 'react-redux';
 
-import css from './weightChart.module.css';
+import css from './buildWeightChart.module.css';
 
-const _ = require('lodash');
-
-export default function WeightChart({ showMonth }) {
-  const { graph } = useSelector(selectCharts);
-
-  const data = graph.weight;
+export default function BuildWeightChart() {
+  // const { graph } = useSelector(selectCharts);
+  const labels = [
+    'Sep',
+    'Aug',
+    'Jul',
+    'Jun',
+    'May',
+    'Apr',
+    'Mar',
+    'Feb',
+    'Jan',
+    'Dec',
+    'Nov',
+    'Oct',
+  ];
+  const data = [0, 0, 0, 0, 0, 0, 0, 0, 88, 89, 90, 91];
   // const randomScaling = function () {
   //   return (
   //     (Math.random() > 0.5 ? 1.0 : 1.0) * Math.round(Math.random() * 5 + 60)
   //   );
   // };
-
   // const data = [
   //   randomScaling(),
   //   randomScaling(),
@@ -52,23 +60,20 @@ export default function WeightChart({ showMonth }) {
   //   randomScaling(),
   // ];
 
-  const processedData = data.filter(item => {
-    return item > 0;
-  });
-  // console.log(processedData);
-  const average = _.mean(processedData).toFixed(1);
-
   return (
-    <div className={css.weightChart}>
-      <div className={css.weightTitle}>
-        <p className={css.chartTitle}>Weight</p>
-        <p className={css.chartSubtitle}>
-          Average value: <span className={css.average}>{average} kg</span>
-        </p>
+    <>
+      <div className={css.weightTable}>
+        {data.map((item, index) => (
+          <div className={css.tableBlock} key={index}>
+            <p className={css.tableUpRow}>
+              <span>{item}</span>
+            </p>
+            <p className={css.tableDownRow}>
+              <span>{labels[index]}</span>
+            </p>
+          </div>
+        ))}
       </div>
-      <div className={css.chart}>
-        {showMonth ? <BuildWeightChart /> : <BuildWeightChartYear />}
-      </div>
-    </div>
+    </>
   );
 }

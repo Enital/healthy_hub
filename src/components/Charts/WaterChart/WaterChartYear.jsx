@@ -1,6 +1,6 @@
 import React from 'react';
-import { selectCharts } from 'redux/dashboard/selectors';
-import { useSelector } from 'react-redux';
+// import { selectCharts } from 'redux/dashboard/selectors';
+// import { useSelector } from 'react-redux';
 import { Line } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -11,7 +11,7 @@ import {
   Tooltip,
 } from 'chart.js';
 
-import css from './caloriesChart.module.css';
+import css from './waterChart.module.css';
 
 const _ = require('lodash');
 
@@ -23,16 +23,68 @@ ChartJS.register(
   Tooltip
 );
 
-export default function CaloriesChart({ showMonth }) {
-  const { graph } = useSelector(selectCharts);
-  // console.log(showMonth);
-  const labels = graph.days;
-  const data = graph.calories;
-  let caption = 'K';
+export default function WaterChart() {
+  // const { graph } = useSelector(selectCharts);
+  // const labels = graph.days;
+  // const data = graph.water;
+  let caption = 'L';
+  const labels = [
+    'Sep',
+    'Aug',
+    'Jul',
+    'Jun',
+    'May',
+    'Apr',
+    'Mar',
+    'Feb',
+    'Jan',
+    'Dec',
+    'Nov',
+    'Oct',
+  ];
+  const data = [0, 0, 0, 0, 0, 0, 0, 0, 1500, 1580, 1700, 1800];
+  // const randomScaling = function () {
+  //   return (
+  //     (Math.random() > 0.5 ? 1.0 : 1.0) * Math.round(Math.random() * 500 + 1250)
+  //   );
+  // };
+  // const data = [
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  //   randomScaling(),
+  // ];
 
   const datasets = [
     {
-      label: 'Calories',
+      label: 'Water',
       data: data,
       fill: false,
       showLine: true,
@@ -48,6 +100,13 @@ export default function CaloriesChart({ showMonth }) {
     },
   ];
 
+  const dataOne = {
+    labels,
+    datasets,
+  };
+
+  // #292928;
+  // const newWater = items.water.filter(item => item !== 0);
   const options = {
     responsive: true,
     scales: {
@@ -78,7 +137,6 @@ export default function CaloriesChart({ showMonth }) {
         },
         ticks: {
           // stepSize: 1,
-          // padding: 6,
           color: '#B6B6B6',
         },
       },
@@ -91,9 +149,8 @@ export default function CaloriesChart({ showMonth }) {
         cornerRadius: 8,
         caretSize: 0,
         padding: 10,
-        // backgroundShadowColor: 'rgba(227, 255, 168, 0.1)',
-        // borderColor: 'rgba(227, 255, 168, 0.1)',
-        // borderWidth: 3,
+        borderColor: 'rgba(227, 255, 168, 0.1)',
+        borderWidth: 3,
         backgroundColor: '#0f0f0f',
         titleFont: {
           weight: 'bold',
@@ -114,7 +171,7 @@ export default function CaloriesChart({ showMonth }) {
         callbacks: {
           title: () => null,
           label: context => context.raw,
-          footer: () => 'calories',
+          footer: () => 'milliliters',
         },
       },
     },
@@ -126,17 +183,12 @@ export default function CaloriesChart({ showMonth }) {
   // console.log(processedData);
   const average = Math.round(_.mean(processedData));
 
-  const dataOne = {
-    labels,
-    datasets,
-  };
-
   return (
-    <div className={css.caloriesChart}>
-      <div className={css.caloriesTitle}>
-        <p className={css.chartTitle}>Calories</p>
+    <div className={css.waterChart}>
+      <div className={css.waterTitle}>
+        <p className={css.chartTitle}>Water</p>
         <p className={css.chartSubtitle}>
-          Average value: <span className={css.average}>{average} cal</span>
+          Average value: <span className={css.average}>{average} ml</span>
         </p>
       </div>
       <div className={css.chart}>
