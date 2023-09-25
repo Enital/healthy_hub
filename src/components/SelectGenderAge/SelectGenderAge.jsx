@@ -66,6 +66,7 @@ function SelectGenderAge({ onForm, onBackPage, gender, ageValue }) {
               value={age.value}
               onChange={e => age.onChange(e)}
               onBlur={e => age.onBlur(e)}
+              autocomplete="off" 
               required
             />
             {messageErrorAge(age,'Not valid age*')}
