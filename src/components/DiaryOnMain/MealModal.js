@@ -110,6 +110,7 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
                     onChange={e => handleInputChange(index, e)}
                     className={css.placeholderData}
                     autoComplete='off'
+                    
                   />
 
                   <label htmlFor={`carbohydrates${index}`}></label>
@@ -137,6 +138,7 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
                     onChange={e => handleInputChange(index, e)}
                     className={css.placeholderData}
                     autoComplete='off'
+                    max={999}
                   />
 
                   <label htmlFor={`protein${index}`}></label>
@@ -164,6 +166,7 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
                     onChange={e => handleInputChange(index, e)}
                     className={css.placeholderData}
                     autoComplete='off'
+                    max={999}
                   />
 
                   <label htmlFor={`fat${index}`}></label>
@@ -191,6 +194,7 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
                     onChange={e => handleInputChange(index, e)}
                     className={css.placeholderData}
                     autoComplete='off'
+                    max={999}
                   />
 
                   <label htmlFor={`calories${index}`}></label>
@@ -218,6 +222,7 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
                     onChange={e => handleInputChange(index, e)}
                     className={css.placeholderData}
                     autoComplete='off'
+                    max={999}
                   />
 
                   {index > 0 && (
