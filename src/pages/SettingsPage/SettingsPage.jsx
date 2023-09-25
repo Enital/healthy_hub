@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import SettingsPageImg from './../../images/img/illustration-interactive-learning-experience.svg';
 import css from './settingsPage.module.css';
+import inboxIMG from '../../images/icons/inbox.svg';
 
 import { useDispatch } from 'react-redux';
 import { useAuth } from 'redux/auth/useAuth';
-import { updateUser } from 'redux/auth/operations';
+import { updateAvatar, updateUser } from 'redux/auth/operations';
 
 function Settings() {
   const { user } = useAuth();
@@ -31,6 +32,27 @@ function Settings() {
     e.preventDefault();
     dispatch(updateUser(formData));
   };
+
+  // avatar //
+  const filePicker = useRef(null);
+  // const [selectedFile, setselectedFile] = useState(null);
+
+  const hadleFileChange = e => {
+    e.preventDefault();
+    // setselectedFile(e.target.files[0]);
+    const selectedFile = e.target.files[0];
+    if (!selectedFile) {
+      return;
+    }
+    console.log(selectedFile);
+    const formFile = new FormData();
+    formFile.append('file', selectedFile);
+    dispatch(updateAvatar(formFile));
+  };
+
+  const handlePick = () => {
+    filePicker.current.click();
+  }; // avatar //
 
   return (
     <div className={css.container}>
@@ -60,7 +82,17 @@ function Settings() {
             <div>
               <div className={css.settingsDownloadPhoto}>
                 <img src={user.avatar} alt="avatar" width="36" height="36" />
-                <input type="file" />
+                <div onClick={handlePick}>
+                  <img src={inboxIMG} alt="box" width="16" height="16" />{' '}
+                  Download new photo
+                </div>
+                <input
+                  className="hidden-element"
+                  type="file"
+                  onChange={hadleFileChange}
+                  accept="image/*"
+                  ref={filePicker}
+                />
               </div>
             </div>
           </div>
