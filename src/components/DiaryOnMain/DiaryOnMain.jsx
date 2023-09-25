@@ -82,7 +82,7 @@ const DiaryOnMain = () => {
               <span className={`${css.carbonohidrates} ${css.carbonohidratesMobile}`}>
                 Carbonohidrates: {breakfastCarbohydrates}
               </span>
-              <span className={`${css.carbonohidrates} ${css.carbonohidratesMobile}`}>
+              <span className={`${css.breakfastProtein} ${css.carbonohidratesMobile}`}>
                 {' '}
                 Protein: {breakfastProtein}
               </span>
@@ -118,7 +118,7 @@ const DiaryOnMain = () => {
                 {' '}
                 Carbonohidrates: {lunchCarbohydrates}
               </span>
-              <span className={`${css.carbonohidrates} ${css.carbonohidratesMobile}`}>
+              <span className={`${css.breakfastProtein} ${css.carbonohidratesMobile}`}>
                 {' '}
                 Protein: {lunchProtein}
               </span>{' '}
@@ -147,7 +147,7 @@ const DiaryOnMain = () => {
               <span className={`${css.carbonohidrates} ${css.carbonohidratesMobile}`}>
                 Carbonohidrates: {dinnerCarbohydrates}
               </span>
-              <span className={`${css.carbonohidrates} ${css.carbonohidratesMobile}`}>
+              <span className={`${css.breakfastProtein} ${css.carbonohidratesMobile}`}>
                 {' '}
                 Protein: {dinnerProtein}
               </span>{' '}
@@ -176,7 +176,7 @@ const DiaryOnMain = () => {
               <span className={`${css.carbonohidrates} ${css.carbonohidratesMobile}`}>
                 Carbonohidrates:{snackCarbohydrates}
               </span>
-              <span className={`${css.carbonohidrates} ${css.carbonohidratesMobile}`}>
+              <span className={`${css.breakfastProtein} ${css.carbonohidratesMobile}`}>
                 {' '}
                 Protein: {snackProtein}
               </span>{' '}
