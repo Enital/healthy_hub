@@ -1,6 +1,6 @@
 import React from 'react';
-import { selectCharts } from 'redux/dashboard/selectors';
-import { useSelector } from 'react-redux';
+// import { selectCharts } from 'redux/dashboard/selectors';
+// import { useSelector } from 'react-redux';
 import { Line } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -23,11 +23,27 @@ ChartJS.register(
   Tooltip
 );
 
-export default function CaloriesChart({ showMonth }) {
-  const { graph } = useSelector(selectCharts);
+export default function CaloriesChartYear() {
+  // const { graph } = useSelector(selectCharts);
   // console.log(showMonth);
-  const labels = graph.days;
-  const data = graph.calories;
+  // const labels = graph.days;
+  // const DATE = new Date();
+  // console.log(DATE);
+  const labels = [
+    'Sep',
+    'Aug',
+    'Jul',
+    'Jun',
+    'May',
+    'Apr',
+    'Mar',
+    'Feb',
+    'Jan',
+    'Dec',
+    'Nov',
+    'Oct',
+  ];
+  const data = [0, 0, 0, 0, 0, 0, 0, 0, 1700, 1680, 1720, 1600];
   let caption = 'K';
 
   const datasets = [
