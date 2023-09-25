@@ -94,7 +94,7 @@ export default function Water() {
           <h3 className={css.consumption}>Water consumption</h3>
           <div className={css.item}>
             <p className={css.waterGoal}>
-              {waterGoal}
+              {waterUsed}
               <span className={css.waterSpan}>ml</span>
             </p>
             <p className={css.left}>
