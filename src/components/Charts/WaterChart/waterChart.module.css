@@ -1,17 +1,44 @@
 .waterChart {
   height: 422px;
   width: 706px;
+  /* margin-right: 20px; */
+  /* border: solid 1px red; */
+  /* padding: 25px 20px 6px 14px; */
+
+
 }
 
 .chart {
-  height: 382px;
+  /* height: 382px; */
   width: 676px;
+  padding: 25px 20px 24px 14px;
   background-color: #0F0F0F;
   border-radius: 8px;
-  padding: 18px 8px 22px 8px;
+  /* overflow-block: visible; */
+
+  /* overflow-y: hidden; */
+  /* scrollbar-color: #050505 #0F0F0F;
+  scrollbar-width: thin; */
 }
 
-.dashboardTitle {
+/* #chartjs-tooltip {
+  opacity: 1;
+  position: absolute;
+  background: rgba(255, 255, 255, .9);
+  box-shadow: 2px 2px 6px rgba(227, 255, 168, 0.1);
+  color: #333;
+  border-radius: 4px;
+  padding: 50px;
+  width: 140px;
+  min-height: 150px;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  pointer-events: none;
+  -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, 5%);
+} */
+
+.waterTitle {
   display: flex;
   flex-direction: row;
   align-items: baseline;
@@ -22,11 +49,54 @@
 }
 
 .chartTitle {
-  padding-right: 20px;
+  margin-right: 58px;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
 }
 
 .chartSubtitle {
   font-size: 14px;
+  font-style: normal;
   font-weight: 400;
+  line-height: 20px
+}
+
+.average {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
   line-height: 20px;
+  color: var(--color-primary-gray);
+  margin-left: 8px;
+}
+
+@media screen and (max-width: 834px) {
+  .chart {
+    overflow-x: scroll;
+  }
+}
+
+@media screen and (min-width: 834px) and (max-width: 1440px) {
+  .caloriesChart {
+    height: 422px;
+    width: 706px;
+  }
+
+  .chart {
+    width: 780px;
+    height: 415px;
+  }
+
+  .chartTitle {
+    margin-right: 40px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .caloriesChart {
+    width: 676px;
+    height: 420px;
+  }
 }
