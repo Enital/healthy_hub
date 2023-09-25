@@ -126,3 +126,17 @@ export const updateGoalAuth = createAsyncThunk(
     }
   }
 );
+
+// updateUser
+export const updateUser = createAsyncThunk(
+  'auth/settings',
+  async (formData, thunkAPI) => {
+    try {
+      setAuthHeader(thunkAPI.getState().auth.token);
+      const response = await axios.patch('/auth/settings', formData);
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);

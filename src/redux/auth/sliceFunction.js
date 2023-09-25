@@ -45,3 +45,9 @@ export const handleUpdateGoalAuthFulfilled = (state, action) => {
   state.error = null;
   state.user.goal = action.payload.goal;
 };
+
+export const handleUpdateUserFulfilled = (state, action) => {
+  state.isLoading = false;
+  state.error = null;
+  state.user = action.payload;
+};
