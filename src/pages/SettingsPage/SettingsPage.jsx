@@ -84,6 +84,7 @@ function Settings() {
                 className={css.inputText}
                 value={formData.name}
                 onChange={handleInputChange}
+                autoComplete='off'
               />
             </div>
             <div>
@@ -120,6 +121,7 @@ function Settings() {
                 className={css.inputText}
                 value={formData.age}
                 onChange={handleInputChange}
+                autoComplete='off'
                 onKeyDown={e => {
                   if (
                     !/^\d*$/.test(e.target.value + e.key) &&
@@ -165,6 +167,7 @@ function Settings() {
                 className={css.inputText}
                 value={formData.height}
                 onChange={handleInputChange}
+                autoComplete='off'
                 onKeyDown={e => {
                   if (
                     !/^\d*$/.test(e.target.value + e.key) &&
@@ -185,6 +188,7 @@ function Settings() {
                 className={css.inputText}
                 value={formData.weight}
                 onChange={handleInputChange}
+                autoComplete='off'
                 onKeyDown={e => {
                   if (
                     !/^\d*$/.test(e.target.value + e.key) &&
