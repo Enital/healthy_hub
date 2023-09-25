@@ -4,19 +4,17 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import css from './ForgotPassword.module.css';
 import { useInput } from '../../hooks/useValidationForm';
 import { cssValidEmail } from '../../components/SignUpForm/InputValidation/messageErrorEmail';
-// import { useState } from 'react';
 import axios from 'axios';
 axios.defaults.baseURL = 'https://goit-healthy-hub.onrender.com/api';
 
 function ForgotPassword() {
   const email = useInput('', { isEmpty: true, isEmail: true });
-  // const [email, setEmail] = useState('');
 
   async function handleSubmit(e) {
     e.preventDefault();
     try {
       const res = await axios.post('auth/restore', {
-        email: email,
+        email: email.value,
       });
       return res.data;
     } catch (error) {
@@ -48,8 +46,6 @@ function ForgotPassword() {
                 value={email.value}
                 onChange={e => email.onChange(e)}
                 onBlur={e => email.onBlur(e)}
-                // value={email}
-                // onChange={e => setEmail(e.target.value)}
                 autocomplete="off"
               />
             </label>
