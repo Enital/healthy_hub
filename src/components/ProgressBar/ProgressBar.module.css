@@ -30,7 +30,7 @@
 
   border: 2px solid var(--color-primary-green-lite, #e3ffa8);
   border-radius: 12px;
-  color: var(--color-primary-white, #fff);
+  color: black;
   font-size: 14px;
   line-height: 1.43;
   background: #050505;
