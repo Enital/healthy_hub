@@ -1,5 +1,5 @@
 .dashboardContainer {
-  padding: 20px;
+  /* padding: 20px; */
   /* border: solid 1px red; */
 }
 
@@ -14,15 +14,22 @@
 
 .dashboardTitle {
   display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-right: 6px;
+  /* display: flex;
   flex-direction: row;
   position: relative;
   align-items: center;
   margin-right: 6px;
-  justify-content: space-between;
+  justify-content: space-between; */
 }
 
 .dashboardTitleP {
-  font-size: 32px;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 30px;
 }
 
 .dashboardTitleUl {
@@ -31,8 +38,15 @@
   align-items: center;
 }
 
+/* .dashboardMonth {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px;
+} */
+
 .btnToMain {
-  padding-right: 12px;
+  padding-right: 8px;
 }
 
 .toggleBtn {
@@ -45,7 +59,11 @@
 }
 
 .month {
-  font-size: 24px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px;
+  text-align: end;
 }
 
 .arrowDownSvg {
@@ -86,8 +104,25 @@
     padding-right: 27px;
   }
 
+  .dashboardTitle {
+    flex-direction: row;
+    position: relative;
+    align-items: center;
+    margin-right: 6px;
+    justify-content: space-between;
+  }
+
+  .chartContainer {
+    width: 780px;
+    margin-bottom: 65px;
+  }
+
   .toggleBtn {
     margin-left: 12px;
+  }
+
+  .canvas {
+    width: 780px;
   }
 }
 
@@ -102,5 +137,6 @@
   .chartContainer {
     display: flex;
     flex-direction: row;
+    margin-bottom: 0px;
   }
 }

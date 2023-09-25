@@ -2,31 +2,38 @@
   height: 110px;
   width: 1372px;
   /* padding: 10px; */
-  margin-top: 40px;
-  margin-right: 20px;
+  /* margin-top: 40px;
+  margin-right: 20px; */
   /* background-color: #0F0F0F; */
   /* border-radius: 8px; */
   /* border: solid 1px cyan; */
 }
 
-.dashboardTitle {
+.weightTitle {
   display: flex;
   flex-direction: row;
   align-items: baseline;
-  font-size: 22px;
+  /* font-size: 22px;
   font-weight: 400;
-  line-height: 32px;
+  line-height: 32px; */
+  font-size: 14px;
+  line-height: 1.43;
+  margin-bottom: 16px;
 }
 
 .chartTitle {
-  padding-right: 20px;
-  margin-bottom: 6px;
+  margin-right: 78px;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
 }
 
 .chartSubtitle {
   font-size: 14px;
+  font-style: normal;
   font-weight: 400;
-  line-height: 20px;
+  line-height: 20px
 }
 
 
@@ -39,15 +46,30 @@
   text-align: center;
 }
 
-.weightTitle {
+/* .weightTitle {
   font-size: 14px;
   line-height: 1.43;
   margin-bottom: 16px;
-}
+} */
 
 .dataTitle {
   font-size: 10px;
   line-height: 1.4;
+}
+
+.average {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--color-primary-gray);
+  margin-left: 8px;
+}
+
+@media screen and (max-width: 834px) {
+  .chart {
+    overflow-x: scroll;
+  }
 }
 
 @media screen and (min-width: 834px) {

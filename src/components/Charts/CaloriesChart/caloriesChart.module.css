@@ -9,14 +9,13 @@
 }
 
 .chart {
-  height: 382px;
+  /* height: 382px; */
   width: 676px;
+  padding: 25px 20px 24px 14px;
   background-color: #0F0F0F;
   border-radius: 8px;
-  padding: 18px 8px 22px 8px;
+  /* overflow-block: visible; */
 
-
-  /* overflow-x: scroll; */
   /* overflow-y: hidden; */
   /* scrollbar-color: #050505 #0F0F0F;
   scrollbar-width: thin; */
@@ -39,7 +38,7 @@
   transform: translate(-50%, 5%);
 } */
 
-.dashboardTitle {
+.caloriesTitle {
   display: flex;
   flex-direction: row;
   align-items: baseline;
@@ -50,25 +49,58 @@
 }
 
 .chartTitle {
-  padding-right: 20px;
+  margin-right: 58px;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
 }
 
 .chartSubtitle {
   font-size: 14px;
+  font-style: normal;
   font-weight: 400;
+  line-height: 20px
+}
+
+.average {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
   line-height: 20px;
+  color: var(--color-primary-gray);
+  margin-left: 8px;
+}
+
+@media screen and (max-width: 834px) {
+  .chart {
+    overflow-x: scroll;
+  }
+}
+
+@media screen and (min-width: 834px) and (max-width: 1440px) {
+  .caloriesChart {
+    height: 422px;
+    width: 706px;
+    margin-bottom: 65px;
+  }
+
+  .chart {
+    width: 780px;
+    height: 415px;
+  }
+
+  .chartTitle {
+    margin-right: 40px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
   .caloriesChart {
     margin-right: 20px;
+    width: 676px;
+    height: 420px;
+    margin-bottom: 0px;
   }
+
 }
-
-/* @media screen and (max-width: 768px) { */
-/* .chart {
-  overflow-x: scroll;
-  overflow-y: hidden;
-} */
-
-/* } */
