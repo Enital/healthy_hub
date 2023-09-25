@@ -16,12 +16,13 @@ const ProgressBar = ({ page, setPage }) => {
     if (!activePages.includes(page)) {
       setActivePages(prevActivePages => [...prevActivePages, page]);
     }
-
     const circles = circlesRef.current;
     const progressBar = progressBarRef.current;
 
     circles.forEach((circle, index) => {
       if (index < page) {
+        circle.classList.add(css.vised);
+      } else if (!page) {
         circle.classList.add(css.active);
       } else {
         circle.classList.remove(css.active);
@@ -29,10 +30,9 @@ const ProgressBar = ({ page, setPage }) => {
     });
 
     progressBar.style.width = `${((page - 1) / (circles.length - 1)) * 100}%`;
-  }, [page,activePages]);
+  }, [page, activePages]);
 
   return (
-    <div className="container">
       <div className={css.body}>
         <div className={css.conteiner}>
           <div className={css.steps}>
@@ -40,7 +40,11 @@ const ProgressBar = ({ page, setPage }) => {
               <button
                 key={step}
                 className={`${css.circle} ${
-                  step <= page || activePages.includes(step) ? css.active : ''
+                  step < page || activePages.includes(step)
+                    ? css.vised
+                    : step === page
+                    ? css.active
+                    : ''
                 }`}
                 onClick={() => {
                   if (step <= page || activePages.includes(step)) {
@@ -56,7 +60,6 @@ const ProgressBar = ({ page, setPage }) => {
             </div>
           </div>
         </div>
-      </div>
     </div>
   );
 };

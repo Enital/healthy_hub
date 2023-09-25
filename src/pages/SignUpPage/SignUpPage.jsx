@@ -124,6 +124,7 @@ const SignUpPage = () => {
           onForm={handleSubmit5}
           onBackPage={backPage}
           activity={activity2}
+          setActivity={setActivity}
         />
       )}
       <ProgressBar page={page} setPage={setPage} />

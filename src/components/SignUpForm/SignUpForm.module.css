@@ -309,3 +309,14 @@ input[type='checkbox']:checked::after {
   margin-top: 4px;
   margin-left: 10px;
 }
+
+input:-webkit-autofill {
+  background-color: #3cbc81 !important;
+  background-image: #3cbc81 !important;
+  color: #3cbc81 !important;
+}
+input:-webkit-autofill {
+  background-color: #3cbc81 !important;
+  background-image: #3cbc81 !important;
+  color: #3cbc81 !important;
+}
