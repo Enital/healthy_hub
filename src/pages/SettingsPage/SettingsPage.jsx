@@ -55,190 +55,10 @@ function Settings() {
   }; // avatar //
 
   return (
-    <div className={css.container}>
-      <p className={css.profileSettings}>Profile setting</p>
-      <div className={css.dmcx}>
-        <img
-          src={SettingsPageImg}
-          className={css.photo}
-          alt="SettingsPagePhoto"
-        />
-      </div>
-      <form className={css.profileForm}>
-        <div className={css.settingsInputs}>
-          <div>
-            <p className={css.settingsStats}>Your name</p>
-            <input
-              name="name"
-              placeholder="Enter your name"
-              type="text"
-              className={css.inputText}
-              value={formData.name}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div>
-            <p className={css.settingsStats}>Your photo</p>
-            <div>
-              <div className={css.settingsDownloadPhoto}>
-                <img src={user.avatar} alt="avatar" width="36" height="36" />
-                <div onClick={handlePick}>
-                  <img src={inboxIMG} alt="box" width="16" height="16" />{' '}
-                  Download new photo
-                </div>
-                <input
-                  className="hidden-element"
-                  type="file"
-                  onChange={hadleFileChange}
-                  accept="image/*"
-                  ref={filePicker}
-                />
-              </div>
-            </div>
-          </div>
-          <div>
-            <p className={css.settingsStats}>Your age</p>
-            <input
-              type="text"
-              name="age"
-              placeholder="Enter your age"
-              className={css.inputText}
-              value={formData.age}
-              onChange={handleInputChange}
-              onKeyDown={e => {
-                if (
-                  !/^\d*$/.test(e.target.value + e.key) &&
-                  e.key !== 'Backspace' &&
-                  e.key !== 'Delete'
-                ) {
-                  e.preventDefault();
-                }
-              }}
-            />
-          </div>
-          <div>
-            <p className={css.settingsStats}>Gender</p>
-            <div className={css.settingsGenders}>
-              <div className={css.gender}>
-                <input
-                  type="radio"
-                  name="gender"
-                  value="male"
-                  checked={formData.gender === 'male'}
-                  onChange={handleInputChange}
-                />
-                <p>Male</p>
-              </div>
-              <div className={css.gender}>
-                <input
-                  type="radio"
-                  name="gender"
-                  value="female"
-                  checked={formData.gender === 'female'}
-                  onChange={handleInputChange}
-                />
-                <p>Female</p>
-              </div>
-            </div>
-          </div>
-          <div>
-            <p className={css.settingsStats}>Height</p>
-            <input
-              type="text"
-              name="height"
-              placeholder="Enter your height"
-              className={css.inputText}
-              value={formData.height}
-              onChange={handleInputChange}
-              onKeyDown={e => {
-                if (
-                  !/^\d*$/.test(e.target.value + e.key) &&
-                  e.key !== 'Backspace' &&
-                  e.key !== 'Delete'
-                ) {
-                  e.preventDefault();
-                }
-              }}
-            />
-          </div>
-          <div>
-            <p className={css.settingsStats}>Weight</p>
-            <input
-              type="text"
-              name="weight"
-              placeholder="Enter your weight"
-              className={css.inputText}
-              value={formData.weight}
-              onChange={handleInputChange}
-              onKeyDown={e => {
-                if (
-                  !/^\d*$/.test(e.target.value + e.key) &&
-                  e.key !== 'Backspace' &&
-                  e.key !== 'Delete'
-                ) {
-                  e.preventDefault();
-                }
-              }}
-            />
-          </div>
-        </div>
-        <div className={css.settingActivity}>
-          <p>Your activity</p>
-          <div className={css.radioSettings}>
-            <input
-              type="radio"
-              name="activity"
-              value={1.2}
-              checked={String(formData.activity) === '1.2'}
-              onChange={handleInputChange}
-            />
-            1.2 - if you do not have physical activity and sedentary work
-          </div>
-          <div className={css.radioSettings}>
-            <input
-              type="radio"
-              name="activity"
-              value={1.375}
-              checked={String(formData.activity) === '1.375'}
-              onChange={handleInputChange}
-            />
-            1,375 - if you do short runs or light gymnastics 1-3 times a week
-          </div>
-          <div className={css.radioSettings}>
-            <input
-              type="radio"
-              name="activity"
-              value={1.55}
-              checked={String(formData.activity) === '1.55'}
-              onChange={handleInputChange}
-            />
-            1.55 - if you play sports with average loads 3-5 times a week
-          </div>
-          <div className={css.radioSettings}>
-            <input
-              type="radio"
-              name="activity"
-              value={1.725}
-              checked={String(formData.activity) === '1.725'}
-              onChange={handleInputChange}
-            />
-            1,725 - if you train fully 6-7 times a week
-          </div>
-          <div className={css.radioSettings}>
-            <input
-              type="radio"
-              name="activity"
-              value={1.9}
-              checked={String(formData.activity) === '1.9'}
-              onChange={handleInputChange}
-            />
-            <p>
-              1.9 - if your work is related to physical labor, you train 2 times
-              a day and include strength exercises in your training program
-            </p>
-          </div>
-        </div>
-        <div className={css.buttons}>
+    <div className="container">
+      <div className={css.trumb}>
+        <h1 className={css.title}>Profile setting</h1>
+        <div className={css.buttonsDeck}>
           <button className={css.settingsSaveBTN} onClick={handleSave}>
             <p className={css.settingsButtonSAVEText}>Save</p>
           </button>
@@ -246,7 +66,204 @@ function Settings() {
             <p className={css.settingsButtonCANCELEDText}>Cancel</p>
           </button>
         </div>
-      </form>
+      </div>
+      <div className={css.wrapper}>
+        <img
+          className={css.img}
+          src={SettingsPageImg}
+          alt="illustration interactive learning experience"
+        />
+        <form className={css.profileForm}>
+          <div className={css.settingsInputs}>
+            <div className={css.downLoad}>
+              <p className={css.settingsStats}>Your name</p>
+              <input
+                name="name"
+                placeholder="Enter your name"
+                type="text"
+                className={css.inputText}
+                value={formData.name}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div>
+              <p className={css.settingsStats}>Your photo</p>
+              <div>
+                <div className={css.settingsDownloadPhoto}>
+                  <img
+                    className={css.photo}
+                    src={user.avatar}
+                    alt="avatar"
+                    width="36"
+                    height="36"
+                  />
+                  <div onClick={handlePick}>
+                    <img src={inboxIMG} alt="box" width="16" height="16" />{' '}
+                    Download new photo
+                  </div>
+                  <input
+                    className="hidden-element"
+                    type="file"
+                    onChange={hadleFileChange}
+                    accept="image/*"
+                    ref={filePicker}
+                  />
+                </div>
+              </div>
+            </div>
+            <div>
+              <p className={css.settingsStats}>Your age</p>
+              <input
+                type="text"
+                name="age"
+                placeholder="Enter your age"
+                className={css.inputText}
+                value={formData.age}
+                onChange={handleInputChange}
+                onKeyDown={e => {
+                  if (
+                    !/^\d*$/.test(e.target.value + e.key) &&
+                    e.key !== 'Backspace' &&
+                    e.key !== 'Delete'
+                  ) {
+                    e.preventDefault();
+                  }
+                }}
+              />
+            </div>
+            <div>
+              <p className={css.settingsStats}>Gender</p>
+              <div className={css.settingsGenders}>
+                <div className={css.gender}>
+                  <input
+                    type="radio"
+                    name="gender"
+                    value="male"
+                    checked={formData.gender === 'male'}
+                    onChange={handleInputChange}
+                  />
+                  <p>Male</p>
+                </div>
+                <div className={css.gender}>
+                  <input
+                    type="radio"
+                    name="gender"
+                    value="female"
+                    checked={formData.gender === 'female'}
+                    onChange={handleInputChange}
+                  />
+                  <p>Female</p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <p className={css.settingsStats}>Height</p>
+              <input
+                type="text"
+                name="height"
+                placeholder="Enter your height"
+                className={css.inputText}
+                value={formData.height}
+                onChange={handleInputChange}
+                onKeyDown={e => {
+                  if (
+                    !/^\d*$/.test(e.target.value + e.key) &&
+                    e.key !== 'Backspace' &&
+                    e.key !== 'Delete'
+                  ) {
+                    e.preventDefault();
+                  }
+                }}
+              />
+            </div>
+            <div>
+              <p className={css.settingsStats}>Weight</p>
+              <input
+                type="text"
+                name="weight"
+                placeholder="Enter your weight"
+                className={css.inputText}
+                value={formData.weight}
+                onChange={handleInputChange}
+                onKeyDown={e => {
+                  if (
+                    !/^\d*$/.test(e.target.value + e.key) &&
+                    e.key !== 'Backspace' &&
+                    e.key !== 'Delete'
+                  ) {
+                    e.preventDefault();
+                  }
+                }}
+              />
+            </div>
+          </div>
+          <div className={css.settingActivity}>
+            <p>Your activity</p>
+            <div className={css.radioSettings}>
+              <input
+                type="radio"
+                name="activity"
+                value={1.2}
+                checked={String(formData.activity) === '1.2'}
+                onChange={handleInputChange}
+              />
+              1.2 - if you do not have physical activity and sedentary work
+            </div>
+            <div className={css.radioSettings}>
+              <input
+                type="radio"
+                name="activity"
+                value={1.375}
+                checked={String(formData.activity) === '1.375'}
+                onChange={handleInputChange}
+              />
+              1,375 - if you do short runs or light gymnastics 1-3 times a week
+            </div>
+            <div className={css.radioSettings}>
+              <input
+                type="radio"
+                name="activity"
+                value={1.55}
+                checked={String(formData.activity) === '1.55'}
+                onChange={handleInputChange}
+              />
+              1.55 - if you play sports with average loads 3-5 times a week
+            </div>
+            <div className={css.radioSettings}>
+              <input
+                type="radio"
+                name="activity"
+                value={1.725}
+                checked={String(formData.activity) === '1.725'}
+                onChange={handleInputChange}
+              />
+              1,725 - if you train fully 6-7 times a week
+            </div>
+            <div className={css.radioSettings}>
+              <input
+                type="radio"
+                name="activity"
+                value={1.9}
+                checked={String(formData.activity) === '1.9'}
+                onChange={handleInputChange}
+              />
+              <p>
+                1.9 - if your work is related to physical labor, you train 2
+                times a day and include strength exercises in your training
+                program
+              </p>
+            </div>
+          </div>
+          <div className={css.buttons}>
+            <button className={css.settingsSaveBTN} onClick={handleSave}>
+              <p className={css.settingsButtonSAVEText}>Save</p>
+            </button>
+            <button className={css.settingsCancelBTN}>
+              <p className={css.settingsButtonCANCELEDText}>Cancel</p>
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
