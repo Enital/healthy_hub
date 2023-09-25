@@ -78,30 +78,19 @@ const DiaryTable = ({
   // const [selectedFoodName, setSelectedFoodName] = useState('');
   // const [mealModalOpen, setMealModalOpen] = useState(false);
 
-  const [isUpdateMealModalOpen, SetUpdateMealModalOpen] = useState(false);
+  const [isUpdateMealModalOpen, setIsUpdateMealModalOpen] = useState(false);
+  const [selectedMealDish, setSelectedMealDish] = useState('');
 
-  const openUpdateMealModal = mealName => {};
-
-  const closeUpdateMealModal = () => {
-    setSelectedMeal('');
-    SetUpdateMealModalOpen(false);
+  const openUpdateMealModal = mealName => {
+    setSelectedMealDish(mealName);
+    setIsUpdateMealModalOpen(true);
   };
 
-  // const openUpdateMealModal = mealName => {
-  //   setSelectedMeal(mealName);
-  //   setIsUpdateMealModalOpen(prevState => ({
-  //     ...prevState,
-  //     [mealName]: true,
-  //   }));
-  // };
+  const closeUpdateMealModal = () => {
+    setSelectedMealDish('');
+    setIsUpdateMealModalOpen(false);
+  };
 
-  // const closeUpdateMealModal = mealName => {
-  //   setSelectedMeal('');
-  //   setIsUpdateMealModalOpen(prevState => ({
-  //     ...prevState,
-  //     [mealName]: false,
-  //   }));
-  // };
   const openModal = mealName => {
     setSelectedMeal(mealName);
     setModalOpen(true);
@@ -201,6 +190,7 @@ const DiaryTable = ({
               <div className={css.dairy_dish_list}>
                 {breakfastDish.length > 0 &&
                   breakfastDish.map(record => {
+                    console.log(record);
                     return (
                       <div className={css.record} key={record._id}>
                         <div className={css.dairy_elem_list}>
@@ -251,13 +241,21 @@ const DiaryTable = ({
                                   </svg>
                                   Edit
                                 </button>
-                                {isUpdateMealModalOpen[record.name] && (
+                                {/* {isUpdateMealModalOpen[record.name] && (
                                   <UpdateMealModal
                                     onClose={() =>
                                       closeUpdateMealModal(record.name)
                                     }
                                   />
-                                )}
+                                )} */}
+                                <UpdateMealModal
+                                  updateMealModalOpen={isUpdateMealModalOpen}
+                                  setUpdateMealModalOpen={
+                                    setIsUpdateMealModalOpen
+                                  }
+                                  selectedMeal={selectedMealDish}
+                                  foodName={selectedMealDish}
+                                />
                               </div>
                             </ul>
                           </div>
