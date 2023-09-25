@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import breakfast from '../../images/illustration/breakfast-image.svg';
-import { FaBitbucket } from "react-icons/fa";
+import { FaBitbucket } from 'react-icons/fa';
 //import { FaBitbucket } from "react-icons/fa";
 //FaTrashAlt
 import css from './diaryOnMain.module.css';
@@ -9,6 +9,7 @@ import { fetchGoalsConfirm } from 'redux/usersGoal/operations';
 
 const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
   const dispatch = useDispatch();
+
   const [placeholderData, setPlaceholderData] = useState([
     {
       name: '',
@@ -36,6 +37,7 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
   const handleInputChange = (index, event) => {
     const { name, value } = event.target;
     const newInputFields = [...inputFields];
+
     newInputFields[index][name] = value;
     setInputFields(newInputFields);
     // console.log('newInputFields',newInputFields);
@@ -96,7 +98,6 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
                       lineHeight: '20px',
                       color: 'rgba(182, 182, 182, 1)',
                       fontFamily: 'Poppins',
-
                       paddingLeft: '10px',
                       gap: '10px',
                       background: 'black',
@@ -109,8 +110,7 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
                     value={field.name}
                     onChange={e => handleInputChange(index, e)}
                     className={css.placeholderData}
-                    autoComplete='off'
-                    
+                    autoComplete="off"
                   />
 
                   <label htmlFor={`carbohydrates${index}`}></label>
@@ -124,21 +124,27 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
                       lineHeight: '20px',
                       color: 'rgba(182, 182, 182, 1)',
                       font: 'Poppins',
-
                       paddingLeft: '10px',
                       gap: '10px',
                       background: 'black',
                       marginRight: '10px',
                     }}
                     placeholder="carbonoh."
-                    type="number"
+                    type="text"
                     id={`carbohydrates${index}`}
                     name="carbohydrates"
                     value={field.carbohydrates}
-                    onChange={e => handleInputChange(index, e)}
+                    onChange={e => {
+                      const inputValue = e.target.value;
+                      if (!isNaN(inputValue)) {
+                        const intValue = parseInt(inputValue);
+                        if (intValue <= 999) {
+                          handleInputChange(index, e);
+                        }
+                      }
+                    }}
                     className={css.placeholderData}
-                    autoComplete='off'
-                    max={999}
+                    autoComplete="off"
                   />
 
                   <label htmlFor={`protein${index}`}></label>
@@ -159,14 +165,21 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
                       marginRight: '10px',
                     }}
                     placeholder="Protein"
-                    type="number"
+                    type="text"
                     id={`protein${index}`}
                     name="protein"
                     value={field.protein}
-                    onChange={e => handleInputChange(index, e)}
+                    onChange={e => {
+                      const inputValue = e.target.value;
+                      if (!isNaN(inputValue)) {
+                        const intValue = parseInt(inputValue);
+                        if (intValue <= 999) {
+                          handleInputChange(index, e);
+                        }
+                      }
+                    }}
                     className={css.placeholderData}
-                    autoComplete='off'
-                    max={999}
+                    autoComplete="off"
                   />
 
                   <label htmlFor={`fat${index}`}></label>
@@ -180,21 +193,27 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
                       lineHeight: '20px',
                       color: 'rgba(182, 182, 182, 1)',
                       font: 'Poppins',
-
                       paddingLeft: '10px',
                       gap: '10px',
                       background: 'black',
                       marginRight: '10px',
                     }}
                     placeholder="Fat"
-                    type="number"
+                    type="text"
                     id={`fat${index}`}
                     name="fat"
                     value={field.fat}
-                    onChange={e => handleInputChange(index, e)}
+                    onChange={e => {
+                      const inputValue = e.target.value;
+                      if (!isNaN(inputValue)) {
+                        const intValue = parseInt(inputValue);
+                        if (intValue <= 999) {
+                          handleInputChange(index, e);
+                        }
+                      }
+                    }}
                     className={css.placeholderData}
-                    autoComplete='off'
-                    max={999}
+                    autoComplete="off"
                   />
 
                   <label htmlFor={`calories${index}`}></label>
@@ -208,7 +227,6 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
                       lineHeight: '20px',
                       color: 'rgba(182, 182, 182, 1)',
                       font: 'Poppins',
-
                       paddingLeft: '10px',
                       gap: '10px',
                       background: 'black',
@@ -219,10 +237,17 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
                     id={`calories${index}`}
                     name="calories"
                     value={field.calories}
-                    onChange={e => handleInputChange(index, e)}
+                    onChange={e => {
+                      const inputValue = e.target.value;
+                      if (!isNaN(inputValue)) {
+                        const intValue = parseInt(inputValue);
+                        if (intValue <= 999) {
+                          handleInputChange(index, e);
+                        }
+                      }
+                    }}
                     className={css.placeholderData}
-                    autoComplete='off'
-                    max={999}
+                    autoComplete="off"
                   />
 
                   {index > 0 && (
@@ -231,7 +256,7 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
                       type="button"
                       onClick={() => handleRemoveField(index)}
                     >
-                      <FaBitbucket/>
+                      <FaBitbucket />
                     </button>
                   )}
                 </div>
