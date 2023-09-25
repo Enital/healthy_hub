@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import css from './UpdateMealModal.module.css';
 import Modal from 'react-modal';
 import Breakfast from '../../../images/illustration/breakfast-image.svg';
@@ -6,9 +6,9 @@ import Lunch from '../../../images/illustration/lunch-image.svg';
 import Dinner from '../../../images/illustration/dinner-image.svg';
 import Snack from '../../../images/illustration/snack-image.svg';
 
-import { useDispatch, useSelector } from 'react-redux';
-import { updateUserFoodOperation } from 'redux/user/userOperations';
-import { makeSelectMeal } from 'redux/user/userSelectors';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { updateUserFoodOperation } from 'redux/user/userOperations';
+// import { makeSelectMeal } from 'redux/user/userSelectors';
 
 export const customStyles = {
   overlay: {
@@ -24,99 +24,98 @@ const UpdateMealModal = ({
   selectedMeal,
   foodName,
 }) => {
-  const dispatch = useDispatch();
-  const selectMeal = makeSelectMeal();
-  const mealData = useSelector(state => selectMeal(state, selectedMeal));
-  const editMeal = mealData?.filter(el => el.foodName === foodName);
+  // const dispatch = useDispatch();
+  // const selectMeal = makeSelectMeal();
+  // const mealData = useSelector(state => selectMeal(state, selectedMeal));
+  // const editMeal = mealData?.filter(el => el.foodName === foodName);
 
-  const [validationText, setValidationText] = useState(false);
-  const [form, setForm] = useState({
-    foodName,
-    carbonohidrates: editMeal[0]?.carbonohidrates || '',
-    protein: editMeal[0]?.protein || '',
-    fat: editMeal[0]?.fat || '',
-  });
+  // const [validationText, setValidationText] = useState(false);
+  // const [form, setForm] = useState({
+  //   foodName,
+  //   carbonohidrates: editMeal[0]?.carbonohidrates || '',
+  //   protein: editMeal[0]?.protein || '',
+  //   fat: editMeal[0]?.fat || '',
+  // });
 
-  useEffect(() => {
-    if (updateMealModalOpen) {
-      if (editMeal[0]) {
-        setForm({
-          foodName,
-          carbonohidrates: editMeal[0].carbonohidrates,
-          protein: editMeal[0].protein,
-          fat: editMeal[0].fat,
-        });
-      } else {
-        setForm({
-          foodName,
-          carbonohidrates: '',
-          protein: '',
-          fat: '',
-        });
-      }
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [updateMealModalOpen, foodName]);
+  // useEffect(() => {
+  //   if (updateMealModalOpen) {
+  //     if (editMeal[0]) {
+  //       setForm({
+  //         foodName,
+  //         carbonohidrates: editMeal[0].carbonohidrates,
+  //         protein: editMeal[0].protein,
+  //         fat: editMeal[0].fat,
+  //       });
+  //     } else {
+  //       setForm({
+  //         foodName,
+  //         carbonohidrates: '',
+  //         protein: '',
+  //         fat: '',
+  //       });
+  //     }
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [updateMealModalOpen, foodName]);
 
-  const handleCloseModal = () => {
-    setUpdateMealModalOpen(false);
-    document.body.style.overflow = 'auto';
+  // const handleCloseModal = () => {
+  //   setUpdateMealModalOpen(false);
+  //   document.body.style.overflow = 'auto';
 
-    setValidationText(false);
-  };
+  //   setValidationText(false);
+  // };
 
-  const foodSection = selectedMeal.toLowerCase();
+  // const foodSection = selectedMeal.toLowerCase();
 
-  const updateFood = {
-    [foodSection]: {
-      foodName,
-      carbonohidrates: form.carbonohidrates,
-      protein: form.protein,
-      fat: form.fat,
-    },
-  };
+  // const updateFood = {
+  //   [foodSection]: {
+  //     foodName,
+  //     carbonohidrates: form.carbonohidrates,
+  //     protein: form.protein,
+  //     fat: form.fat,
+  //   },
+  // };
 
-  const handleClick = e => {
-    e.preventDefault();
-    if (form.carbonohidrates === '' || form.protein === '' || form.fat === '') {
-      setValidationText(true);
-      return;
-    }
+  // const handleClick = e => {
+  //   e.preventDefault();
+  //   if (form.carbonohidrates === '' || form.protein === '' || form.fat === '') {
+  //     setValidationText(true);
+  //     return;
+  //   }
 
-    dispatch(updateUserFoodOperation(updateFood));
-    setForm({
-      foodName,
-      carbonohidrates: '',
-      protein: '',
-      fat: '',
-    });
-    handleCloseModal();
-  };
+  //   dispatch(updateUserFoodOperation(updateFood));
+  //   setForm({
+  //     foodName,
+  //     carbonohidrates: '',
+  //     protein: '',
+  //     fat: '',
+  //   });
+  //   handleCloseModal();
+  // };
 
-  const handleChange = e => {
-    const { name, value } = e.target;
+  // const handleChange = e => {
+  //   const { name, value } = e.target;
 
-    if (name === 'carbonohidrates' || name === 'fat' || name === 'protein') {
-      if (/^\d{0,3}$/.test(value) && Number(value) <= 999) {
-        setForm(prevForm => {
-          return { ...prevForm, [name]: value };
-        });
-      }
-      return;
-    }
-  };
+  //   if (name === 'carbonohidrates' || name === 'fat' || name === 'protein') {
+  //     if (/^\d{0,3}$/.test(value) && Number(value) <= 999) {
+  //       setForm(prevForm => {
+  //         return { ...prevForm, [name]: value };
+  //       });
+  //     }
+  //     return;
+  //   }
+  // };
 
-  const handleDefault = e => {
-    if (e.key === '-' || e.key === '+') {
-      e.preventDefault();
-    }
-  };
+  // const handleDefault = e => {
+  //   if (e.key === '-' || e.key === '+') {
+  //     e.preventDefault();
+  //   }
+  // };
 
   return (
     <Modal
       className={`${css.recordMealModal} `}
       isOpen={updateMealModalOpen}
-      onRequestClose={handleCloseModal}
       style={customStyles}
       contentLabel="Example Modal"
     >
@@ -139,9 +138,7 @@ const UpdateMealModal = ({
               type="number"
               name="carbonohidrates"
               className={css.recordMealModalInput}
-              value={form.carbonohidrates}
-              onChange={handleChange}
-              onKeyDown={handleDefault}
+              value={0}
               required={true}
             />
             <input
@@ -149,9 +146,7 @@ const UpdateMealModal = ({
               type="number"
               name="protein"
               className={css.recordMealModalInput}
-              value={form.protein}
-              onChange={handleChange}
-              onKeyDown={handleDefault}
+              value={0}
               required={true}
             />
             <input
@@ -159,30 +154,19 @@ const UpdateMealModal = ({
               name="fat"
               type="number"
               className={css.recordMealModalInput}
-              value={form.fat}
-              onChange={handleChange}
-              onKeyDown={handleDefault}
+              value={0}
               required={true}
             />
           </div>
         </div>
-        {validationText && (
-          <p className={css.validationText}>Please fill in all fields </p>
-        )}
         <div className={css.recordMealModalBtnContainer}>
-          <button
-            className={`${css.recordMealModalConfirmBtn}`}
-            onClick={handleClick}
-            // type="button"
-          >
+          <button className={`${css.recordMealModalConfirmBtn}`}>
             Confirm
           </button>
           <button
             className={`${css.recordMealModalCancelBtn} `}
             type="button"
             onClick={() => {
-              setUpdateMealModalOpen(false);
-              setValidationText(false);
               document.body.style.overflow = 'auto';
             }}
           >

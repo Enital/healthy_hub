@@ -12,6 +12,7 @@ import Icons from '../../images/icons/symbol-defs.svg';
 import MealModal from '../DiaryOnMain/MealModal';
 import { useSelector } from 'react-redux';
 import { selectGoals } from 'redux/usersGoal/selectors';
+import UpdateMealModal from '../ModalDiary/UpdateMealModal/UpdateMealModal';
 
 const DiaryTable = ({
   mealType,
@@ -77,6 +78,30 @@ const DiaryTable = ({
   // const [selectedFoodName, setSelectedFoodName] = useState('');
   // const [mealModalOpen, setMealModalOpen] = useState(false);
 
+  const [isUpdateMealModalOpen, SetUpdateMealModalOpen] = useState(false);
+
+  const openUpdateMealModal = mealName => {};
+
+  const closeUpdateMealModal = () => {
+    setSelectedMeal('');
+    SetUpdateMealModalOpen(false);
+  };
+
+  // const openUpdateMealModal = mealName => {
+  //   setSelectedMeal(mealName);
+  //   setIsUpdateMealModalOpen(prevState => ({
+  //     ...prevState,
+  //     [mealName]: true,
+  //   }));
+  // };
+
+  // const closeUpdateMealModal = mealName => {
+  //   setSelectedMeal('');
+  //   setIsUpdateMealModalOpen(prevState => ({
+  //     ...prevState,
+  //     [mealName]: false,
+  //   }));
+  // };
   const openModal = mealName => {
     setSelectedMeal(mealName);
     setModalOpen(true);
@@ -120,11 +145,6 @@ const DiaryTable = ({
   const lunchDish = items.lunchDishes;
   const dinnerDish = items.dinnerDishes;
   const snackDish = items.snackDishes;
-
-  console.log(breakfastDish);
-  console.log(lunchDish);
-  console.log(dinnerDish);
-  console.log(snackDish);
 
   // const onRecordMealButtonClick = evt => {
   //   setSelectedFoodName(evt.target.name);
@@ -186,19 +206,6 @@ const DiaryTable = ({
                         <div className={css.dairy_elem_list}>
                           <div className={css.dairy_add_dish_item}>
                             <p className={css.dairy_dish_p}>{record.name}</p>
-                            {/* <button
-                              onClick={() => onEditButtonClick(el.foodName)}
-                              className={s.btnEdit}
-                            >
-                              <svg
-                                width="16px"
-                                height="16px"
-                                className={s.recordMealIcon}
-                              >
-                                <use xlinkHref={`${Icons}#pencil`} />
-                              </svg>
-                              Edit
-                            </button> */}
                           </div>
 
                           <div className={css.dairy_elem_breakfast}>
@@ -228,8 +235,11 @@ const DiaryTable = ({
                                 </span>
                               </li>
                               <div className={css.dairy_icons_edit}>
-                                {/* <button
-                                  onClick={() => onEditButtonClick(el.foodName)}
+                                <button
+                                  onClick={() =>
+                                    openUpdateMealModal(record.name)
+                                  }
+                                  // onClick={() => onEditButtonClick(el.foodName)}
                                   className={s.btnEdit}
                                 >
                                   <svg
@@ -240,7 +250,14 @@ const DiaryTable = ({
                                     <use xlinkHref={`${Icons}#pencil`} />
                                   </svg>
                                   Edit
-                                </button> */}
+                                </button>
+                                {isUpdateMealModalOpen[record.name] && (
+                                  <UpdateMealModal
+                                    onClose={() =>
+                                      closeUpdateMealModal(record.name)
+                                    }
+                                  />
+                                )}
                               </div>
                             </ul>
                           </div>
@@ -308,19 +325,6 @@ const DiaryTable = ({
                       <div className={css.dairy_elem_list}>
                         <div className={css.dairy_add_dish_item}>
                           <p className={css.dairy_dish_p}>{record.name}</p>
-                          {/* <button
-                            onClick={() => onEditButtonClick(el.foodName)}
-                            className={s.btnEdit}
-                          >
-                            <svg
-                              width="16px"
-                              height="16px"
-                              className={s.recordMealIcon}
-                            >
-                              <use xlinkHref={`${Icons}#pencil`} />
-                            </svg>
-                            Edit
-                          </button> */}
                         </div>
 
                         <div className={css.dairy_elem_breakfast}>
@@ -344,8 +348,9 @@ const DiaryTable = ({
                               </span>
                             </li>
                             <div className={css.dairy_icons_edit}>
-                              {/* <button
-                                onClick={() => onEditButtonClick(el.foodName)}
+                              <button
+                                onClick={() => openUpdateMealModal(record.name)}
+                                // onClick={() => onEditButtonClick(el.foodName)}
                                 className={s.btnEdit}
                               >
                                 <svg
@@ -356,7 +361,14 @@ const DiaryTable = ({
                                   <use xlinkHref={`${Icons}#pencil`} />
                                 </svg>
                                 Edit
-                              </button> */}
+                              </button>
+                              {isUpdateMealModalOpen[record.name] && (
+                                <UpdateMealModal
+                                  onClose={() =>
+                                    closeUpdateMealModal(record.name)
+                                  }
+                                />
+                              )}
                             </div>
                           </ul>
                         </div>
@@ -434,19 +446,6 @@ const DiaryTable = ({
                         <div className={css.dairy_elem_list}>
                           <div className={css.dairy_add_dish_item}>
                             <p className={css.dairy_dish_p}>{record.name}</p>
-                            {/* <button
-                              onClick={() => onEditButtonClick(el.foodName)}
-                              className={s.btnEdit}
-                            >
-                              <svg
-                                width="16px"
-                                height="16px"
-                                className={s.recordMealIcon}
-                              >
-                                <use xlinkHref={`${Icons}#pencil`} />
-                              </svg>
-                              Edit
-                            </button> */}
                           </div>
 
                           <div className={css.dairy_elem_breakfast}>
@@ -476,8 +475,11 @@ const DiaryTable = ({
                                 </span>
                               </li>
                               <div className={css.dairy_icons_edit}>
-                                {/* <button
-                                  onClick={() => onEditButtonClick(el.foodName)}
+                                <button
+                                  onClick={() =>
+                                    openUpdateMealModal(record.name)
+                                  }
+                                  // onClick={() => onEditButtonClick(el.foodName)}
                                   className={s.btnEdit}
                                 >
                                   <svg
@@ -488,7 +490,14 @@ const DiaryTable = ({
                                     <use xlinkHref={`${Icons}#pencil`} />
                                   </svg>
                                   Edit
-                                </button> */}
+                                </button>
+                                {isUpdateMealModalOpen[record.name] && (
+                                  <UpdateMealModal
+                                    onClose={() =>
+                                      closeUpdateMealModal(record.name)
+                                    }
+                                  />
+                                )}
                               </div>
                             </ul>
                           </div>
@@ -559,19 +568,6 @@ const DiaryTable = ({
                       <div className={css.dairy_elem_list}>
                         <div className={css.dairy_add_dish_item}>
                           <p className={css.dairy_dish_p}>{record.name}</p>
-                          {/* <button
-                            onClick={() => onEditButtonClick(el.foodName)}
-                            className={s.btnEdit}
-                          >
-                            <svg
-                              width="16px"
-                              height="16px"
-                              className={s.recordMealIcon}
-                            >
-                              <use xlinkHref={`${Icons}#pencil`} />
-                            </svg>
-                            Edit
-                          </button> */}
                         </div>
 
                         <div className={css.dairy_elem_breakfast}>
@@ -595,8 +591,9 @@ const DiaryTable = ({
                               </span>
                             </li>
                             <div className={css.dairy_icons_edit}>
-                              {/* <button
-                                onClick={() => onEditButtonClick(el.foodName)}
+                              <button
+                                onClick={() => openUpdateMealModal(record.name)}
+                                // onClick={() => onEditButtonClick(el.foodName)}
                                 className={s.btnEdit}
                               >
                                 <svg
@@ -607,7 +604,14 @@ const DiaryTable = ({
                                   <use xlinkHref={`${Icons}#pencil`} />
                                 </svg>
                                 Edit
-                              </button> */}
+                              </button>
+                              {isUpdateMealModalOpen[record.name] && (
+                                <UpdateMealModal
+                                  onClose={() =>
+                                    closeUpdateMealModal(record.name)
+                                  }
+                                />
+                              )}
                             </div>
                           </ul>
                         </div>
