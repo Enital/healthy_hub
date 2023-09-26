@@ -90,11 +90,11 @@ const UpdateMealModal = ({
           <table className={css.dairy_breakfast_table}>
             <thead>
               <tr>
-                <th>Name</th>
-                <th>Carbonoh.</th>
-                <th>Protein</th>
-                <th>Fat</th>
-                <th>Calories</th>
+                <th style={{ fontWeight: 'normal' }}>Name</th>
+                <th style={{ fontWeight: 'normal' }}>Carbonoh.</th>
+                <th style={{ fontWeight: 'normal' }}>Protein</th>
+                <th style={{ fontWeight: 'normal' }}>Fat</th>
+                <th style={{ fontWeight: 'normal' }}>Calories</th>
               </tr>
             </thead>
             <tbody>
