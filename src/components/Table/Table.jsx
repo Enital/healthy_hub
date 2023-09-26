@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import s from './Table.module.css';
 import css from './Table.module.css';
-import 'overlayscrollbars/overlayscrollbars.css';
-import { OverlayScrollbars } from 'overlayscrollbars';
+// import 'overlayscrollbars/overlayscrollbars.css';
+// import { OverlayScrollbars } from 'overlayscrollbars';
 import breakfastImage from '../../images/illustration/breakfast-image.svg';
 import lunchImage from '../../images/illustration/lunch-image.svg';
 import dinnerImage from '../../images/illustration/dinner-image.svg';
@@ -14,12 +14,12 @@ import { selectGoals } from 'redux/usersGoal/selectors';
 import UpdateMealModal from '../ModalDiary/UpdateMealModal/UpdateMealModal';
 
 const DiaryTable = () => {
-  const tableContainerRef = useRef(null);
-  useEffect(() => {
-    if (tableContainerRef.current) {
-      OverlayScrollbars(tableContainerRef.current, {});
-    }
-  }, []);
+  // const tableContainerRef = useRef(null);
+  // useEffect(() => {
+  //   if (tableContainerRef.current) {
+  //     OverlayScrollbars(tableContainerRef.current, {});
+  //   }
+  // }, []);
 
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedMeal, setSelectedMeal] = useState('');
@@ -99,7 +99,7 @@ const DiaryTable = () => {
     <section className={css.sectionDiary}>
       <div className={css.wrapper}>
         <div className={css.wrapper_dishes}>
-          <div ref={tableContainerRef} className={css.dairy_dish_wrapper}>
+          <div className={css.dairy_dish_wrapper}>
             <div className={css.dairy_wrapper}>
               <div className={css.dairy_wrapper_title}>
                 <div className={css.dairy_title_breakfast}>
@@ -249,7 +249,7 @@ const DiaryTable = () => {
               </div>
             </div>
           </div>
-          <div ref={tableContainerRef} className={css.dairy_dish_wrapper}>
+          <div className={css.dairy_dish_wrapper}>
             <div className={css.dairy_wrapper}>
               <div className={css.dairy_title_lunch}>
                 <img src={lunchImage} alt="lunch" className={css.icon_dish} />
@@ -395,7 +395,7 @@ const DiaryTable = () => {
         </div>
 
         <div className={css.wrapper_dishes}>
-          <div ref={tableContainerRef} className={css.dairy_dish_wrapper}>
+          <div className={css.dairy_dish_wrapper}>
             <div className={css.dairy_wrapper}>
               <div className={css.dairy_wrapper_title}>
                 <div className={css.dairy_title_dinner}>
@@ -545,7 +545,7 @@ const DiaryTable = () => {
               </div>
             </div>
           </div>
-          <div ref={tableContainerRef} className={css.dairy_dish_wrapper}>
+          <div className={css.dairy_dish_wrapper}>
             <div className={css.dairy_wrapper}>
               <div className={css.dairy_wrapper_title}>
                 <div className={css.dairy_title_snack}>
