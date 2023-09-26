@@ -60,6 +60,7 @@
     ]
   },
   "devDependencies": {
-    "@faker-js/faker": "^8.0.2"
+    "@faker-js/faker": "^8.0.2",
+    "use-history": "^1.4.1"
   }
 }
