@@ -15,12 +15,34 @@ const DiaryTable = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedMeal, setSelectedMeal] = useState('');
 
+  const [mealName, setMealName] = useState('');
+  const [carbohydrates, setCarbohydrates] = useState(0);
+  const [protein, setProtein] = useState(0);
+  const [fat, setFat] = useState(0);
+  const [calories, setCalories] = useState(0);
+
   const [isUpdateMealModalOpen, setIsUpdateMealModalOpen] = useState(false);
   const [selectedMealDish, setSelectedMealDish] = useState('');
   console.log(selectedMealDish);
 
-  const openUpdateMealModal = id => {
-    console.log(id);
+  console.log(mealName);
+
+  const openUpdateMealModal = (
+    id,
+    name,
+    carbohydrates,
+    protein,
+    fat,
+    calories
+  ) => {
+    console.log(name);
+
+    setMealName(name);
+    setCalories(calories);
+    setCarbohydrates(carbohydrates);
+    setProtein(protein);
+    setFat(fat);
+
     setSelectedMealDish(id);
     setIsUpdateMealModalOpen(true);
   };
@@ -155,7 +177,14 @@ const DiaryTable = () => {
                               <div className={css.dairy_icons_edit}>
                                 <button
                                   onClick={() => {
-                                    openUpdateMealModal(record._id);
+                                    openUpdateMealModal(
+                                      record._id,
+                                      record.name,
+                                      record.carbohydrates,
+                                      record.protein,
+                                      record.fat,
+                                      record.calories
+                                    );
                                   }}
                                   className={s.btnEdit}
                                 >
@@ -175,6 +204,11 @@ const DiaryTable = () => {
                                     setIsUpdateMealModalOpen
                                   }
                                   foodId={selectedMealDish}
+                                  mealName={mealName}
+                                  carbohydrates={carbohydrates}
+                                  protein={protein}
+                                  fat={fat}
+                                  calories={calories}
                                 />
                               </div>
                             </ul>
@@ -267,7 +301,14 @@ const DiaryTable = () => {
                             <div className={css.dairy_icons_edit}>
                               <button
                                 onClick={() => {
-                                  openUpdateMealModal(record._id);
+                                  openUpdateMealModal(
+                                    record._id,
+                                    record.name,
+                                    record.carbohydrates,
+                                    record.protein,
+                                    record.fat,
+                                    record.calories
+                                  );
                                 }}
                                 className={s.btnEdit}
                               >
@@ -287,6 +328,11 @@ const DiaryTable = () => {
                                     setIsUpdateMealModalOpen
                                   }
                                   foodId={selectedMealDish}
+                                  mealName={mealName}
+                                  carbohydrates={carbohydrates}
+                                  protein={protein}
+                                  fat={fat}
+                                  calories={calories}
                                 />
                               )}
                             </div>
@@ -396,7 +442,14 @@ const DiaryTable = () => {
                               <div className={css.dairy_icons_edit}>
                                 <button
                                   onClick={() => {
-                                    openUpdateMealModal(record._id);
+                                    openUpdateMealModal(
+                                      record._id,
+                                      record.name,
+                                      record.carbohydrates,
+                                      record.protein,
+                                      record.fat,
+                                      record.calories
+                                    );
                                   }}
                                   className={s.btnEdit}
                                 >
@@ -416,6 +469,11 @@ const DiaryTable = () => {
                                       setIsUpdateMealModalOpen
                                     }
                                     foodId={selectedMealDish}
+                                    mealName={mealName}
+                                    carbohydrates={carbohydrates}
+                                    protein={protein}
+                                    fat={fat}
+                                    calories={calories}
                                   />
                                 )}
                               </div>
@@ -512,7 +570,14 @@ const DiaryTable = () => {
                             <div className={css.dairy_icons_edit}>
                               <button
                                 onClick={() => {
-                                  openUpdateMealModal(record._id);
+                                  openUpdateMealModal(
+                                    record._id,
+                                    record.name,
+                                    record.carbohydrates,
+                                    record.protein,
+                                    record.fat,
+                                    record.calories
+                                  );
                                 }}
                                 className={s.btnEdit}
                               >
@@ -532,6 +597,11 @@ const DiaryTable = () => {
                                     setIsUpdateMealModalOpen
                                   }
                                   foodId={selectedMealDish}
+                                  mealName={mealName}
+                                  carbohydrates={carbohydrates}
+                                  protein={protein}
+                                  fat={fat}
+                                  calories={calories}
                                 />
                               )}
                             </div>

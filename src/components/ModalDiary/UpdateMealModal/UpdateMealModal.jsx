@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import css from './UpdateMealModal.module.css';
 import Modal from 'react-modal';
 import { useDispatch } from 'react-redux';
@@ -15,10 +15,15 @@ const UpdateMealModal = ({
   updateMealModalOpen,
   setUpdateMealModalOpen,
   foodId,
+  mealName,
+  calories,
+  carbohydrates,
+  protein,
+  fat,
 }) => {
   const id = foodId;
   console.log(foodId);
-
+  console.log(mealName);
   const dispatch = useDispatch();
 
   const [placeholderData, setPlaceholderData] = useState({
@@ -28,6 +33,16 @@ const UpdateMealModal = ({
     protein: 0,
     fat: 0,
   });
+
+  useEffect(() => {
+    setPlaceholderData({
+      name: mealName,
+      calories: calories,
+      carbohydrates: carbohydrates,
+      protein: protein,
+      fat: fat,
+    });
+  }, [mealName, carbohydrates, protein, fat, calories]);
 
   const handleInputChange = e => {
     const { name, value } = e.target;
