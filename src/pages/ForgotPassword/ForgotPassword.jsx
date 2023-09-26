@@ -54,13 +54,13 @@ function ForgotPassword() {
                 autocomplete="off"
               />
             </label>
-            <button className={css.send} to="/signin" type="submit">
+            <button className={css.send} type="submit" onClick={handleClick}>
               Send
             </button>
           </form>
           <div className={css.questionTrumb}>
             <p className={css.question}> Do you already have an account?</p>
-            <NavLink className={css.signinBtn} onClick={handleClick}>
+            <NavLink className={css.signinBtn}  to="/signin" onClick={handleClick}>
               Sign in
             </NavLink>
           </div>
