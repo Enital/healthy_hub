@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import breakfast from '../../images/illustration/breakfast-image.svg';
 import { FaTrashAlt } from 'react-icons/fa';
-//import { FaBitbucket } from "react-icons/fa";
-//FaTrashAlt
 import css from './diaryOnMain.module.css';
 import { useDispatch } from 'react-redux';
 import { fetchGoalsConfirm } from 'redux/usersGoal/operations';
@@ -78,10 +76,15 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
       setInputFields(newInputFields);
       setPlaceholderData(prevData => newInputFields);
     }
+
+
+
   };
 
   return (
+    
     <div className={css.modalOverly} onClick={handleOverlyClick}>
+      
       <div
         className={css.overlay}
         style={{ display: isOpen ? 'block' : 'none' }}
