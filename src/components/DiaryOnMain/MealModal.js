@@ -47,7 +47,7 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
 
   const handleConfirm = async () => {
     try {
-      console.log('placeholderData', placeholderData);
+      // console.log('placeholderData', placeholderData);
       await dispatch(fetchGoalsConfirm({ placeholderData, mealName }));
       setPlaceholderData(placeholderData);
       setInputFields(initialInputFields);
