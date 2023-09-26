@@ -8,6 +8,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    box-shadow: 0px 4px 14px 0px rgba(227, 255, 168, 0.20);
 
     @media (min-width: 834px) {
         width: 678px;
@@ -46,7 +47,7 @@
 }
 
 .recordMealModalInput {
-    width: 276px;
+    max-width: 276px;
     padding: 8px 10px;
     color: #fff;
 
@@ -61,7 +62,7 @@
     margin-bottom: 16px;
 
     @media screen and (min-width: 834px) {
-        width: 120px;
+        width: 95px;
         margin-bottom: 0;
     }
 }
@@ -224,3 +225,50 @@
         flex-direction: row;
     }
 }
+.dairy_breakfast_list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 77%;
+    padding-left: 0px;
+}
+
+.dairy_breakfast_item {
+    font-size: 14px;
+    font-family: inherit;
+}
+   .dairy_breakfast_list {
+       display: flex;
+       align-items: center;
+       margin-bottom: 0;
+       width: 100%;
+   }
+
+   .dairy_breakfast_item:not(last-child) {
+       margin-left: 0 !important;
+       margin-right: 20px;
+       margin-bottom: 0px;
+   }
+          .dairy_breakfast_list {
+              display: flex;
+              align-items: center;
+              flex-wrap: wrap;
+              width: 100%;
+          }
+    
+          .dairy_breakfast_item,
+          .edit_icon {
+              display: flex;
+              align-items: center;
+          }
+    
+          .dairy_breakfast_item:not(last-child) {
+              margin-left: 0 !important;
+              margin-right: 20px;
+              margin-bottom: 6px;
+          }
+    
+    
+    
+          .dairy_add_dish_item:last-child {
+              margin-bottom: 0;
+          }
