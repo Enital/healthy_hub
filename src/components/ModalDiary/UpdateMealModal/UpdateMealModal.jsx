@@ -22,8 +22,6 @@ const UpdateMealModal = ({
   fat,
 }) => {
   const id = foodId;
-  console.log(foodId);
-  console.log(mealName);
   const dispatch = useDispatch();
 
   const [placeholderData, setPlaceholderData] = useState({
@@ -46,10 +44,25 @@ const UpdateMealModal = ({
 
   const handleInputChange = e => {
     const { name, value } = e.target;
-    setPlaceholderData(prevData => ({
-      ...prevData,
-      [name]: value,
-    }));
+
+    // Обмеження до 4 символів для числових полів
+    if (
+      name === 'carbohydrates' ||
+      name === 'protein' ||
+      name === 'fat' ||
+      name === 'calories'
+    ) {
+      const limitedValue = value.replace(/\D/g, '').slice(0, 4);
+      setPlaceholderData(prevData => ({
+        ...prevData,
+        [name]: limitedValue,
+      }));
+    } else {
+      setPlaceholderData(prevData => ({
+        ...prevData,
+        [name]: value,
+      }));
+    }
   };
 
   const handleSave = e => {
@@ -74,67 +87,89 @@ const UpdateMealModal = ({
 
       <form noValidate>
         <div className={css.updateFoodForm}>
-          <div className={css.inputWrapper}>
-            <input
-              style={{
-                border: '1px solid rgba(227, 255, 168, 1)',
-                borderRadius: '12px',
-                width: '223px',
-                height: '36px',
-                fontSize: '14px',
-                lineHeight: '20px',
-                color: 'rgba(182, 182, 182, 1)',
-                fontFamily: 'Poppins',
-
-                paddingLeft: '10px',
-                gap: '10px',
-                background: 'black',
-                marginRight: '10px',
-              }}
-              type="text"
-              name="name"
-              className={css.recordMealModalInput}
-              value={placeholderData.name}
-              onChange={handleInputChange}
-              required={true}
-            />
-            <input
-              placeholder="Carbonoh."
-              type="number"
-              name="carbohydrates"
-              className={css.recordMealModalInput}
-              value={placeholderData.carbohydrates}
-              onChange={handleInputChange}
-              required={true}
-            />
-            <input
-              placeholder="Protein"
-              type="number"
-              name="protein"
-              className={css.recordMealModalInput}
-              value={placeholderData.protein}
-              onChange={handleInputChange}
-              required={true}
-            />
-            <input
-              placeholder="Fat"
-              name="fat"
-              type="number"
-              className={css.recordMealModalInput}
-              value={placeholderData.fat}
-              onChange={handleInputChange}
-              required={true}
-            />
-            <input
-              placeholder="Calories"
-              name="calories"
-              type="number"
-              className={css.recordMealModalInput}
-              value={placeholderData.calories}
-              onChange={handleInputChange}
-              required={true}
-            />
-          </div>
+          <table className={css.dairy_breakfast_table}>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Carbonoh.</th>
+                <th>Protein</th>
+                <th>Fat</th>
+                <th>Calories</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <input
+                    style={{
+                      border: '1px solid rgba(227, 255, 168, 1)',
+                      borderRadius: '12px',
+                      width: '223px',
+                      height: '36px',
+                      fontSize: '14px',
+                      lineHeight: '20px',
+                      color: 'rgba(182, 182, 182, 1)',
+                      fontFamily: 'Poppins',
+                      paddingLeft: '10px',
+                      gap: '10px',
+                      background: 'black',
+                      marginRight: '10px',
+                    }}
+                    type="text"
+                    name="name"
+                    className={css.recordMealModalInput}
+                    value={placeholderData.name}
+                    onChange={handleInputChange}
+                    required={true}
+                  />
+                </td>
+                <td>
+                  <input
+                    placeholder="Carbonoh."
+                    type="number"
+                    name="carbohydrates"
+                    className={css.recordMealModalInput}
+                    value={placeholderData.carbohydrates}
+                    onChange={handleInputChange}
+                    required={true}
+                  />
+                </td>
+                <td>
+                  <input
+                    placeholder="Protein"
+                    type="number"
+                    name="protein"
+                    className={css.recordMealModalInput}
+                    value={placeholderData.protein}
+                    onChange={handleInputChange}
+                    required={true}
+                  />
+                </td>
+                <td>
+                  <input
+                    placeholder="Fat"
+                    name="fat"
+                    type="number"
+                    className={css.recordMealModalInput}
+                    value={placeholderData.fat}
+                    onChange={handleInputChange}
+                    required={true}
+                  />
+                </td>
+                <td>
+                  <input
+                    placeholder="Calories"
+                    name="calories"
+                    type="number"
+                    className={css.recordMealModalInput}
+                    value={placeholderData.calories}
+                    onChange={handleInputChange}
+                    required={true}
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <div className={css.recordMealModalBtnContainer}>
           <button
