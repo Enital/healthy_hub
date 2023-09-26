@@ -131,8 +131,12 @@
 }
 
 .settingsCancelBTN {
-  margin-top: 12px;
-  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 12px;
   border: none;
   background-color: transparent;
   color: #b6b6b6;
