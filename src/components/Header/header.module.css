@@ -88,6 +88,7 @@ h1, h2, h3, h4, h5, h6, p, div, link {
 .userProfileRegistration{
     margin: 0px 4px 0px 6px;
     width: 28px;
+    height: 28px;
     border-radius: 50%;
 }
 
@@ -114,7 +115,8 @@ h1, h2, h3, h4, h5, h6, p, div, link {
 .openArrowDownGoalSvg{
     position: absolute;
     top: 54px;
-    right: 480px;
+    right: 473px;
+    cursor: pointer;
 }
 
 .goalChosenName{
@@ -545,7 +547,8 @@ h1, h2, h3, h4, h5, h6, p, div, link {
     .openArrowDownGoalSvg{
         position: absolute;
         top: 54px;
-        right: 380px;
+        right: 375px;
+        cursor: pointer;
     }
     .modalGoalContent {
         background: var(--color-primary-black-2, #0F0F0F);
@@ -693,7 +696,8 @@ h1, h2, h3, h4, h5, h6, p, div, link {
     .openarrowRightGoalSvgMobile{
         position: absolute;
         top: 51px;
-        left: 167px;
+        left: 177px;
+        cursor: pointer;
     }
     .waightEmojiMobile{
         position: absolute;
