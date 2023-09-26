@@ -18,16 +18,17 @@ function ForgotPassword() {
       const res = await axios.post('auth/restore', {
         email: email.value,
       });
+      handleClick();
       return res.data;
     } catch (error) {
       Notify.failure(error.response.data.message);
       console.error(error);
     }
   }
-  let navigate = useNavigate ();
-    const handleClick = () => {
-       navigate('./home');
-    }    
+  let navigate = useNavigate();
+  const handleClick = () => {
+    navigate('./home');
+  };
   return (
     <div className="container">
       <div className={css.wrapper}>
@@ -54,13 +55,17 @@ function ForgotPassword() {
                 autocomplete="off"
               />
             </label>
-            <button className={css.send} type="submit" onClick={handleClick}>
+            <button className={css.send} type="submit">
               Send
             </button>
           </form>
           <div className={css.questionTrumb}>
             <p className={css.question}> Do you already have an account?</p>
-            <NavLink className={css.signinBtn}  to="/signin" onClick={handleClick}>
+            <NavLink
+              className={css.signinBtn}
+              to="/signin"
+              onClick={handleClick}
+            >
               Sign in
             </NavLink>
           </div>
