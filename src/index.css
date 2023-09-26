@@ -81,6 +81,10 @@ button {
   margin: -1px;
 }
 
+.layout {
+  background: var(--color-primary-black-2, #0f0f0f);
+}
+
 /* MOBILE */
 
 .container {

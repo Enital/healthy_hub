@@ -7,7 +7,7 @@ function Layout() {
   const { isLoggedIn } = useAuth();
   return (
     <div>
-      {!isLoggedIn ? <AuthNav /> : <Header />}
+      <div className="layout">{!isLoggedIn ? <AuthNav /> : <Header />} </div>
       <Outlet />
     </div>
   );
