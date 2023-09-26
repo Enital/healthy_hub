@@ -125,6 +125,15 @@ const UpdateMealModal = ({
               onChange={handleInputChange}
               required={true}
             />
+            <input
+              placeholder="Calories"
+              name="calories"
+              type="number"
+              className={css.recordMealModalInput}
+              value={placeholderData.calories}
+              onChange={handleInputChange}
+              required={true}
+            />
           </div>
         </div>
         <div className={css.recordMealModalBtnContainer}>
