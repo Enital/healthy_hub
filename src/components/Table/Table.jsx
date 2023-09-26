@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import s from './Table.module.css';
 import css from './Table.module.css';
+import 'overlayscrollbars/overlayscrollbars.css';
+import { OverlayScrollbars } from 'overlayscrollbars';
 import breakfastImage from '../../images/illustration/breakfast-image.svg';
 import lunchImage from '../../images/illustration/lunch-image.svg';
 import dinnerImage from '../../images/illustration/dinner-image.svg';
@@ -12,6 +14,13 @@ import { selectGoals } from 'redux/usersGoal/selectors';
 import UpdateMealModal from '../ModalDiary/UpdateMealModal/UpdateMealModal';
 
 const DiaryTable = () => {
+  const tableContainerRef = useRef(null);
+  useEffect(() => {
+    if (tableContainerRef.current) {
+      OverlayScrollbars(tableContainerRef.current, {});
+    }
+  }, []);
+
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedMeal, setSelectedMeal] = useState('');
 
@@ -23,9 +32,6 @@ const DiaryTable = () => {
 
   const [isUpdateMealModalOpen, setIsUpdateMealModalOpen] = useState(false);
   const [selectedMealDish, setSelectedMealDish] = useState('');
-  console.log(selectedMealDish);
-
-  console.log(mealName);
 
   const openUpdateMealModal = (
     id,
@@ -35,8 +41,6 @@ const DiaryTable = () => {
     fat,
     calories
   ) => {
-    console.log(name);
-
     setMealName(name);
     setCalories(calories);
     setCarbohydrates(carbohydrates);
@@ -95,7 +99,7 @@ const DiaryTable = () => {
     <section className={css.sectionDiary}>
       <div className={css.wrapper}>
         <div className={css.wrapper_dishes}>
-          <div className={css.dairy_dish_wrapper}>
+          <div ref={tableContainerRef} className={css.dairy_dish_wrapper}>
             <div className={css.dairy_wrapper}>
               <div className={css.dairy_wrapper_title}>
                 <div className={css.dairy_title_breakfast}>
@@ -132,15 +136,15 @@ const DiaryTable = () => {
 
             <div className={css.wrapper_dishes_block}>
               <div className={css.numbers}>
-                <p className={css.number}>1</p>
-                <p className={css.number}>2</p>
-                <p className={css.number}>3</p>
-                <p className={css.number}>4</p>
+                {breakfastDish.map((_, index) => (
+                  <p key={index} className={css.number}>
+                    {index + 1}
+                  </p>
+                ))}
               </div>
-
               <div className={css.dairy_dish_list}>
                 {breakfastDish.length > 0 &&
-                  breakfastDish.map(record => {
+                  breakfastDish.map((record, index) => {
                     return (
                       <div className={css.record} key={record._id}>
                         <div className={css.dairy_elem_list}>
