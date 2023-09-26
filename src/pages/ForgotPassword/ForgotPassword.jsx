@@ -1,8 +1,10 @@
 import { NavLink } from 'react-router-dom';
+import React from 'react';
 import SportAndFitnessTrackerIMG from './../../images/img/illustration-sport-and-fitness-tracker.svg';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import css from './ForgotPassword.module.css';
 import { useInput } from '../../hooks/useValidationForm';
+import { useNavigate } from 'react-router-dom';
 import { cssValidEmail } from '../../components/SignUpForm/InputValidation/messageErrorEmail';
 import axios from 'axios';
 axios.defaults.baseURL = 'https://goit-healthy-hub.onrender.com/api';
@@ -22,7 +24,10 @@ function ForgotPassword() {
       console.error(error);
     }
   }
-
+  let navigate = useNavigate ();
+    const handleClick = () => {
+       navigate('./home');
+    }    
   return (
     <div className="container">
       <div className={css.wrapper}>
@@ -55,7 +60,7 @@ function ForgotPassword() {
           </form>
           <div className={css.questionTrumb}>
             <p className={css.question}> Do you already have an account?</p>
-            <NavLink className={css.signinBtn} to="/signin">
+            <NavLink className={css.signinBtn} onClick={handleClick}>
               Sign in
             </NavLink>
           </div>
