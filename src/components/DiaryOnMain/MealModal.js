@@ -70,21 +70,16 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
   const handleKeyDown = (index, event) => {
     if (event.key === 'Backspace') {
       const { name, value } = event.target;
-      const newValue = value.slice(0, -1); // Видалити останній символ
+      const newValue = value.slice(0, -1);
       const newInputFields = [...inputFields];
       newInputFields[index][name] = newValue;
       setInputFields(newInputFields);
       setPlaceholderData(prevData => newInputFields);
     }
-
-
-
   };
 
   return (
-    
     <div className={css.modalOverly} onClick={handleOverlyClick}>
-      
       <div
         className={css.overlay}
         style={{ display: isOpen ? 'block' : 'none' }}
@@ -97,8 +92,8 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
           </div>
 
           {inputFields.map((field, index) => (
-            <form>
-              <ul>
+            <form key={index}>
+              <ul key={index}>
                 <div className={css.containerLabel} key={index}>
                   <label htmlFor={`productName${index}`}></label>
 
