@@ -25,6 +25,9 @@ function ForgotPassword() {
       console.error(error);
     }
   }
+  const showSuccessNotification = () => {
+   Notify.success('A password has been sent to your Email..');
+  };
   let navigate = useNavigate();
   const handleClick = () => {
     navigate('./home');
@@ -55,7 +58,7 @@ function ForgotPassword() {
                 autocomplete="off"
               />
             </label>
-            <button className={css.send} type="submit">
+            <button className={css.send} type="submit" onClick={showSuccessNotification}>
               Send
             </button>
           </form>
