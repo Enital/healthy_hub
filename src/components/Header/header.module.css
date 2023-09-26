@@ -88,6 +88,7 @@ h1, h2, h3, h4, h5, h6, p, div, link {
 .userProfileRegistration{
     margin: 0px 4px 0px 6px;
     width: 28px;
+    border-radius: 50%;
 }
 
 .authenticatedNav{
