@@ -17,7 +17,7 @@
 
   .containerMobile {
     width: 300px;
-    height: 570px;
+    height: 580px;
     padding-left: 10px;
     padding-right: 10px;
     margin-left: auto;
@@ -25,6 +25,21 @@
     background-color: rgba(15, 15, 15, 1);
     overflow: auto;
     box-shadow: 0px 4px 14px rgba(227, 255, 168, 0.2);
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* position: fixed;
+    top: 50%;
+    left: 50%; */
+  }
+  .remove {
+    background-color: rgba(15, 15, 15, 1);
+    color: rgba(227, 255, 168, 1);
+    font-size: 14px;
+    line-height: 20px;
+    border: 1px solid transparent;
   }
   .img {
     margin-top: 25px;
@@ -42,9 +57,8 @@
     margin-bottom: 25px;
     text-transform: capitalize;
     width: 268px;
-    /* height: 36px; */
     font-weight: 500;
-    font-size: 30px;
+    font-size: 25px;
     line-height: 36px;
     color: rgba(255, 255, 255, 1);
   }
@@ -256,12 +270,12 @@
 
   .breakfast {
     vertical-align: middle;
-    margin-left: 25px;
     height: 32px;
     font-weight: 400;
     font-size: 22px;
     line-height: 32px;
     color: rgba(255, 255, 255, 1);
+    /* margin-bottom: 5px; */
   }
   .nameBreakfast {
     width: 104px;
