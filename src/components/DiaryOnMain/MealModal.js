@@ -69,6 +69,17 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
     }
   };
 
+  const handleKeyDown = (index, event) => {
+    if (event.key === 'Backspace') {
+      const { name, value } = event.target;
+      const newValue = value.slice(0, -1); // Видалити останній символ
+      const newInputFields = [...inputFields];
+      newInputFields[index][name] = newValue;
+      setInputFields(newInputFields);
+      setPlaceholderData(prevData => newInputFields);
+    }
+  };
+
   return (
     <div className={css.modalOverly} onClick={handleOverlyClick}>
       <div
@@ -145,6 +156,7 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
                     }}
                     className={css.placeholderData}
                     autoComplete="off"
+                    onKeyDown={e => handleKeyDown(index, e)}
                   />
 
                   <label htmlFor={`protein${index}`}></label>
@@ -180,6 +192,7 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
                     }}
                     className={css.placeholderData}
                     autoComplete="off"
+                    onKeyDown={e => handleKeyDown(index, e)}
                   />
 
                   <label htmlFor={`fat${index}`}></label>
@@ -214,6 +227,7 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
                     }}
                     className={css.placeholderData}
                     autoComplete="off"
+                    onKeyDown={e => handleKeyDown(index, e)}
                   />
 
                   <label htmlFor={`calories${index}`}></label>
@@ -248,6 +262,7 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
                     }}
                     className={css.placeholderData}
                     autoComplete="off"
+                    onKeyDown={e => handleKeyDown(index, e)}
                   />
 
                   {index > 0 && (
