@@ -10,7 +10,7 @@ import menuSvg from '../../images/icons/menu.svg';
 import arrowRightSvg from '../../images/icons/arrow-right.svg';
 
 import { logOut } from '../../redux/auth/operations';
-import { updateGoal } from '../../redux/usersGoal/operations';
+import { updateGoal, weightGoalUpdate } from '../../redux/usersGoal/operations';
 
 import { useAuth } from '../../redux/auth/useAuth';
 
@@ -75,6 +75,14 @@ function Header() {
 
   const handleConfirm = () => {
     dispatch(updateWeight(inputWeight))
+      .then(() => {
+        setInputWeight('');
+        closeModalWeight();
+      })
+      .catch(error => {
+        console.error('Помилка при оновленні ваги:', error);
+      });
+    dispatch(weightGoalUpdate(inputWeight))
       .then(() => {
         setInputWeight('');
         closeModalWeight();
@@ -213,8 +221,6 @@ function Header() {
     }
   };
 
-
-
   return (
     <div className="container" style={{ paddingLeft: 0, paddingRight: 0 }}>
       <header className={css.header}>
@@ -230,7 +236,7 @@ function Header() {
           />
 
           {isModalMobileOpen && (
-            <div >
+            <div>
               <div className={css.modalMobileContent}>
                 <img
                   src={closeCircleSvg}
@@ -367,11 +373,19 @@ function Header() {
                           <img
                             src={loseFatMenEmoji}
                             alt="lose Fat Men Emoji"
-                            className={`${css.emojiTargetGoal} ${isLoseFatSelected ? css.emojiTargetGoalActive : ''}`}
-                    onClick={handleLoseFatIconClick}
+                            className={`${css.emojiTargetGoal} ${
+                              isLoseFatSelected ? css.emojiTargetGoalActive : ''
+                            }`}
+                            onClick={handleLoseFatIconClick}
                           />
-                          <p className={`${css.textEmojiGoal} ${isLoseFatSelected ? css.textEmojiGoalActive : ''}`}
-                     onClick={handleLoseFatClick}>Lose fat</p>
+                          <p
+                            className={`${css.textEmojiGoal} ${
+                              isLoseFatSelected ? css.textEmojiGoalActive : ''
+                            }`}
+                            onClick={handleLoseFatClick}
+                          >
+                            Lose fat
+                          </p>
                         </div>
                         <div
                           className={css.choiseTargetGoal}
@@ -380,11 +394,21 @@ function Header() {
                           <img
                             src={maintakeMenEmoji}
                             alt="Maintake Men Emoji"
-                            className={`${css.emojiTargetGoal} ${isMaintainSelected ? css.emojiTargetGoalActive : ''}`}
-                    onClick={handleMaintainIconClick}
+                            className={`${css.emojiTargetGoal} ${
+                              isMaintainSelected
+                                ? css.emojiTargetGoalActive
+                                : ''
+                            }`}
+                            onClick={handleMaintainIconClick}
                           />
-                          <p className={`${css.textEmojiGoal} ${isMaintainSelected ? css.textEmojiGoalActive : ''}`}
-                     onClick={handleMaintainClick}>Maintain</p>
+                          <p
+                            className={`${css.textEmojiGoal} ${
+                              isMaintainSelected ? css.textEmojiGoalActive : ''
+                            }`}
+                            onClick={handleMaintainClick}
+                          >
+                            Maintain
+                          </p>
                         </div>
                         <div
                           className={css.choiseTargetGoal}
@@ -393,11 +417,23 @@ function Header() {
                           <img
                             src={gainMuscleEmoji}
                             alt="Gain Muscle Emoji"
-                            className={`${css.emojiTargetGoal} ${isGainMuscleSelected ? css.emojiTargetGoalActive : ''}`}
-                    onClick={handleGainMuscleIconClick}
+                            className={`${css.emojiTargetGoal} ${
+                              isGainMuscleSelected
+                                ? css.emojiTargetGoalActive
+                                : ''
+                            }`}
+                            onClick={handleGainMuscleIconClick}
                           />
-                          <p className={`${css.textEmojiGoal} ${isGainMuscleSelected ? css.textEmojiGoalActive : ''}`}
-                     onClick={handleGainMuscleClick}>Gain Muscle</p>
+                          <p
+                            className={`${css.textEmojiGoal} ${
+                              isGainMuscleSelected
+                                ? css.textEmojiGoalActive
+                                : ''
+                            }`}
+                            onClick={handleGainMuscleClick}
+                          >
+                            Gain Muscle
+                          </p>
                         </div>
                         <div>
                           <button
@@ -465,7 +501,6 @@ function Header() {
                           <button
                             onClick={handleConfirm}
                             className={css.buttonWeightConfirm}
-                            
                           >
                             Confirm
                           </button>

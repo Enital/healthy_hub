@@ -88,3 +88,17 @@ export const UpdateFood = createAsyncThunk(
     }
   }
 );
+
+// weightGoalUpdate
+export const weightGoalUpdate = createAsyncThunk(
+  'user/updateWeight',
+  async (inputWeight, thunkAPI) => {
+    try {
+      setHeadersToken(thunkAPI.getState().auth.token);
+      const response = await axios.put('/user/weight', { weight: inputWeight });
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
