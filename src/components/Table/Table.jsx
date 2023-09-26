@@ -6,89 +6,23 @@ import lunchImage from '../../images/illustration/lunch-image.svg';
 import dinnerImage from '../../images/illustration/dinner-image.svg';
 import snackImage from '../../images/illustration/snack-image.svg';
 import Icons from '../../images/icons/symbol-defs.svg';
-// import { useMediaQuery } from 'react-responsive';
-// import * as mob from '../../images/illustration';
-// import { nanoid } from 'nanoid';
 import MealModal from '../DiaryOnMain/MealModal';
 import { useSelector } from 'react-redux';
 import { selectGoals } from 'redux/usersGoal/selectors';
 import UpdateMealModal from '../ModalDiary/UpdateMealModal/UpdateMealModal';
 
-const DiaryTable = ({
-  mealType,
-  mealData,
-  onUpdateMealButtonClick,
-  setFoodName,
-}) => {
-  // const mealTypes = [
-  //   { type: 'breakfast', data: [] },
-  //   { type: 'dinner', data: [] },
-  //   { type: 'lunch', data: [] },
-  //   { type: 'snack', data: [] },
-  // ];
-  // const isMobile = useMediaQuery({ maxWidth: 833 });
-
-  // function calculateSum(meal) {
-  //   return meal.reduce(
-  //     (acc, mealItem) => {
-  //       acc.carbonohidratesSum += Number(mealItem.carbonohidrates);
-  //       acc.proteinSum += Number(mealItem.protein);
-  //       acc.fatSum += Number(mealItem.fat);
-  //       return acc;
-  //     },
-  //     { carbonohidratesSum: 0, proteinSum: 0, fatSum: 0 }
-  //   );
-  // }
-
-  // const sum = calculateSum(mealData);
-
-  // function makeNewMealsArray(mealsArray) {
-  //   const newArray =
-  //     mealsArray.length <= 3
-  //       ? [
-  //           ...mealsArray,
-  //           ...Array(1).fill({
-  //             showButton: true,
-  //           }),
-  //           ...Array(3 - mealsArray.length).fill({
-  //             foodName: '',
-  //             carbonohidrates: '',
-  //             fat: '',
-  //             protein: '',
-  //           }),
-  //         ]
-  //       : [
-  //           ...mealsArray,
-  //           ...Array(1).fill({
-  //             showButton: true,
-  //           }),
-  //         ];
-  //   return newArray;
-  // }
-
-  // const onEditButtonClick = name => {
-  //   document.body.style.overflow = 'hidden';
-
-  //   setFoodName(name);
-  //   onUpdateMealButtonClick(mealType);
-  // };
+const DiaryTable = () => {
   const [isModalOpen, setModalOpen] = useState(false);
-
   const [selectedMeal, setSelectedMeal] = useState('');
-  // const [selectedFoodName, setSelectedFoodName] = useState('');
-  // const [mealModalOpen, setMealModalOpen] = useState(false);
 
   const [isUpdateMealModalOpen, setIsUpdateMealModalOpen] = useState(false);
   const [selectedMealDish, setSelectedMealDish] = useState('');
+  console.log(selectedMealDish);
 
-  const openUpdateMealModal = mealName => {
-    setSelectedMealDish(mealName);
+  const openUpdateMealModal = id => {
+    console.log(id);
+    setSelectedMealDish(id);
     setIsUpdateMealModalOpen(true);
-  };
-
-  const closeUpdateMealModal = () => {
-    setSelectedMealDish('');
-    setIsUpdateMealModalOpen(false);
   };
 
   const openModal = mealName => {
@@ -135,11 +69,6 @@ const DiaryTable = ({
   const dinnerDish = items.dinnerDishes;
   const snackDish = items.snackDishes;
 
-  // const onRecordMealButtonClick = evt => {
-  //   setSelectedFoodName(evt.target.name);
-  //   document.body.style.overflow = 'hidden';
-  //   setMealModalOpen(true);
-  // };
   return (
     <section className={css.sectionDiary}>
       <div className={css.wrapper}>
@@ -190,7 +119,6 @@ const DiaryTable = ({
               <div className={css.dairy_dish_list}>
                 {breakfastDish.length > 0 &&
                   breakfastDish.map(record => {
-                    console.log(record);
                     return (
                       <div className={css.record} key={record._id}>
                         <div className={css.dairy_elem_list}>
@@ -226,10 +154,9 @@ const DiaryTable = ({
                               </li>
                               <div className={css.dairy_icons_edit}>
                                 <button
-                                  onClick={() =>
-                                    openUpdateMealModal(record.name)
-                                  }
-                                  // onClick={() => onEditButtonClick(el.foodName)}
+                                  onClick={() => {
+                                    openUpdateMealModal(record._id);
+                                  }}
                                   className={s.btnEdit}
                                 >
                                   <svg
@@ -241,20 +168,13 @@ const DiaryTable = ({
                                   </svg>
                                   Edit
                                 </button>
-                                {/* {isUpdateMealModalOpen[record.name] && (
-                                  <UpdateMealModal
-                                    onClose={() =>
-                                      closeUpdateMealModal(record.name)
-                                    }
-                                  />
-                                )} */}
+
                                 <UpdateMealModal
                                   updateMealModalOpen={isUpdateMealModalOpen}
                                   setUpdateMealModalOpen={
                                     setIsUpdateMealModalOpen
                                   }
-                                  selectedMeal={selectedMealDish}
-                                  foodName={selectedMealDish}
+                                  foodId={selectedMealDish}
                                 />
                               </div>
                             </ul>
@@ -264,7 +184,6 @@ const DiaryTable = ({
                     );
                   })}
                 <button
-                  // name={mealType}
                   onClick={() => openModal('breakfast')}
                   className={s.recordMealButton}
                 >
@@ -347,8 +266,9 @@ const DiaryTable = ({
                             </li>
                             <div className={css.dairy_icons_edit}>
                               <button
-                                onClick={() => openUpdateMealModal(record.name)}
-                                // onClick={() => onEditButtonClick(el.foodName)}
+                                onClick={() => {
+                                  openUpdateMealModal(record._id);
+                                }}
                                 className={s.btnEdit}
                               >
                                 <svg
@@ -362,9 +282,11 @@ const DiaryTable = ({
                               </button>
                               {isUpdateMealModalOpen[record.name] && (
                                 <UpdateMealModal
-                                  onClose={() =>
-                                    closeUpdateMealModal(record.name)
+                                  updateMealModalOpen={isUpdateMealModalOpen}
+                                  setUpdateMealModalOpen={
+                                    setIsUpdateMealModalOpen
                                   }
+                                  foodId={selectedMealDish}
                                 />
                               )}
                             </div>
@@ -375,7 +297,6 @@ const DiaryTable = ({
                   );
                 })}
               <button
-                // name={mealType}
                 onClick={() => openModal('lunch')}
                 className={s.recordMealButton}
               >
@@ -474,10 +395,9 @@ const DiaryTable = ({
                               </li>
                               <div className={css.dairy_icons_edit}>
                                 <button
-                                  onClick={() =>
-                                    openUpdateMealModal(record.name)
-                                  }
-                                  // onClick={() => onEditButtonClick(el.foodName)}
+                                  onClick={() => {
+                                    openUpdateMealModal(record._id);
+                                  }}
                                   className={s.btnEdit}
                                 >
                                   <svg
@@ -491,9 +411,11 @@ const DiaryTable = ({
                                 </button>
                                 {isUpdateMealModalOpen[record.name] && (
                                   <UpdateMealModal
-                                    onClose={() =>
-                                      closeUpdateMealModal(record.name)
+                                    updateMealModalOpen={isUpdateMealModalOpen}
+                                    setUpdateMealModalOpen={
+                                      setIsUpdateMealModalOpen
                                     }
+                                    foodId={selectedMealDish}
                                   />
                                 )}
                               </div>
@@ -505,7 +427,6 @@ const DiaryTable = ({
                   })}
 
                 <button
-                  // name={mealType}
                   onClick={() => openModal('dinner')}
                   className={s.recordMealButton}
                 >
@@ -590,8 +511,9 @@ const DiaryTable = ({
                             </li>
                             <div className={css.dairy_icons_edit}>
                               <button
-                                onClick={() => openUpdateMealModal(record.name)}
-                                // onClick={() => onEditButtonClick(el.foodName)}
+                                onClick={() => {
+                                  openUpdateMealModal(record._id);
+                                }}
                                 className={s.btnEdit}
                               >
                                 <svg
@@ -605,9 +527,11 @@ const DiaryTable = ({
                               </button>
                               {isUpdateMealModalOpen[record.name] && (
                                 <UpdateMealModal
-                                  onClose={() =>
-                                    closeUpdateMealModal(record.name)
+                                  updateMealModalOpen={isUpdateMealModalOpen}
+                                  setUpdateMealModalOpen={
+                                    setIsUpdateMealModalOpen
                                   }
+                                  foodId={selectedMealDish}
                                 />
                               )}
                             </div>
@@ -619,7 +543,6 @@ const DiaryTable = ({
                 })}
 
               <button
-                // name={mealType}
                 onClick={() => openModal('snack')}
                 className={s.recordMealButton}
               >
