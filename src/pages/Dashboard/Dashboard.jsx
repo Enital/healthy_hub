@@ -25,12 +25,14 @@ const Dashboard = () => {
   }, [dispatch]);
 
   const { graph } = useSelector(selectCharts);
-  console.log(graph);
+  // console.log(graph);
   const today = new Date();
   const todayYear = today.getFullYear();
   const lastYear = todayYear - 1;
   const twoYear = todayYear + '-' + lastYear;
-  // console.log(twoYear);
+  // const todayMonth = today.getMonth();
+  // console.log(todayMonth);
+
   const twoMonth = graph.labels.monthLong;
 
   const closeModal = () => {
