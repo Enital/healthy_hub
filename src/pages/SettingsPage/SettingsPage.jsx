@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import SettingsPageImg from './../../images/img/illustration-interactive-learning-experience.svg';
 import css from './settingsPage.module.css';
 import inboxIMG from '../../images/icons/inbox.svg';
@@ -10,6 +11,7 @@ import { updateAvatar, updateUser } from 'redux/auth/operations';
 function Settings() {
   const { user } = useAuth();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     name: user.name,
@@ -31,8 +33,13 @@ function Settings() {
   const handleSave = e => {
     e.preventDefault();
     dispatch(updateUser(formData));
+    navigate('/healthy-hub');
   };
 
+  const handleCancel = e => {
+    e.preventDefault();
+    navigate('/healthy-hub');
+  };
   // avatar //
   const filePicker = useRef(null);
   // const [selectedFile, setselectedFile] = useState(null);
@@ -262,7 +269,7 @@ function Settings() {
             <button className={css.settingsSaveBTN} onClick={handleSave}>
               <p className={css.settingsButtonSAVEText}>Save</p>
             </button>
-            <button className={css.settingsCancelBTN}>
+            <button className={css.settingsCancelBTN} onClick={handleCancel}>
               <p className={css.settingsButtonCANCELEDText}>Cancel</p>
             </button>
           </div>
