@@ -69,7 +69,7 @@ function Settings() {
           <button className={css.settingsSaveBTN} onClick={handleSave}>
             <p className={css.settingsButtonSAVEText}>Save</p>
           </button>
-          <button className={css.settingsCancelBTN}>
+          <button className={css.settingsCancelBTN} onClick={handleCancel}>
             <p className={css.settingsButtonCANCELEDText}>Cancel</p>
           </button>
         </div>
