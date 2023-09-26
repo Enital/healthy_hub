@@ -27,6 +27,20 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
   const [inputFields, setInputFields] = useState(initialInputFields);
   if (!isOpen) return null;
 
+  const disabledValid = () => {
+    if (
+      placeholderData.name.length < 1 ||
+      placeholderData.carbohydrates.length < 1 ||
+      placeholderData.protein.length < 1 ||
+      placeholderData.fat.length < 1 ||
+      placeholderData.calories.length < 1
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   const handleAddField = () => {
     setInputFields([
       ...inputFields,
@@ -79,7 +93,6 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
       setPlaceholderData(prevData => newInputFields);
     }
   };
-
   return (
     <div className={css.modalOverly} onClick={handleOverlyClick}>
       <div
@@ -100,46 +113,25 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
                   <label htmlFor={`productName${index}`}></label>
 
                   <input
-                    style={{
-                      border: '1px solid rgba(227, 255, 168, 1)',
-                      borderRadius: '12px',
-                      width: '255px',
-                      height: '36px',
-                      fontSize: '14px',
-                      lineHeight: '20px',
-                      color: 'rgba(182, 182, 182, 1)',
-                      fontFamily: 'Poppins',
-                      paddingLeft: '10px',
-                      gap: '10px',
-                      background: 'black',
-                      marginRight: '10px',
-                    }}
+                    className={`${css.input}${
+                      field.name.length < 2 || field.name.length > 50
+                        ? ` ${css.inputError}`
+                        : ''
+                    }`}
                     placeholder="The name of the product or dish"
                     type="text"
                     id={`productName${index}`}
                     name="name"
                     value={field.name}
                     onChange={e => handleInputChange(index, e)}
-                    className={css.placeholderData}
                     autoComplete="off"
                   />
 
                   <label htmlFor={`carbohydrates${index}`}></label>
                   <input
-                    style={{
-                      border: '1px solid rgba(227, 255, 168, 1)',
-                      borderRadius: '12px',
-                      width: '100px',
-                      height: '36px',
-                      fontSize: '14px',
-                      lineHeight: '20px',
-                      color: 'rgba(182, 182, 182, 1)',
-                      font: 'Poppins',
-                      paddingLeft: '10px',
-                      gap: '10px',
-                      background: 'black',
-                      marginRight: '10px',
-                    }}
+                    className={`${css.inputCPFC}${
+                      field.carbohydrates >= 9999 ? ` ${css.inputError}` : ''
+                    }`}
                     placeholder="carbonoh."
                     type="text"
                     id={`carbohydrates${index}`}
@@ -149,33 +141,20 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
                       const inputValue = e.target.value;
                       if (!isNaN(inputValue)) {
                         const intValue = parseInt(inputValue);
-                        if (intValue <= 999) {
+                        if (intValue <= 9999) {
                           handleInputChange(index, e);
                         }
                       }
                     }}
-                    className={css.placeholderData}
                     autoComplete="off"
                     onKeyDown={e => handleKeyDown(index, e)}
                   />
 
                   <label htmlFor={`protein${index}`}></label>
                   <input
-                    style={{
-                      border: '1px solid rgba(227, 255, 168, 1)',
-                      borderRadius: '12px',
-                      width: '86px',
-                      height: '36px',
-                      fontSize: '14px',
-                      lineHeight: '20px',
-                      color: 'rgba(182, 182, 182, 1)',
-                      font: 'Poppins',
-
-                      paddingLeft: '10px',
-                      gap: '10px',
-                      background: 'black',
-                      marginRight: '10px',
-                    }}
+                    className={`${css.inputCPFC}${
+                      field.protein >= 9999 ? ` ${css.inputError}` : ''
+                    }`}
                     placeholder="Protein"
                     type="text"
                     id={`protein${index}`}
@@ -185,32 +164,20 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
                       const inputValue = e.target.value;
                       if (!isNaN(inputValue)) {
                         const intValue = parseInt(inputValue);
-                        if (intValue <= 999) {
+                        if (intValue <= 9999) {
                           handleInputChange(index, e);
                         }
                       }
                     }}
-                    className={css.placeholderData}
                     autoComplete="off"
                     onKeyDown={e => handleKeyDown(index, e)}
                   />
 
                   <label htmlFor={`fat${index}`}></label>
                   <input
-                    style={{
-                      border: '1px solid rgba(227, 255, 168, 1)',
-                      borderRadius: '12px',
-                      width: '61px',
-                      height: '36px',
-                      fontSize: '14px',
-                      lineHeight: '20px',
-                      color: 'rgba(182, 182, 182, 1)',
-                      font: 'Poppins',
-                      paddingLeft: '10px',
-                      gap: '10px',
-                      background: 'black',
-                      marginRight: '10px',
-                    }}
+                    className={`${css.inputCPFC}${
+                      field.fat >= 9999 ? ` ${css.inputError}` : ''
+                    }`}
                     placeholder="Fat"
                     type="text"
                     id={`fat${index}`}
@@ -220,32 +187,20 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
                       const inputValue = e.target.value;
                       if (!isNaN(inputValue)) {
                         const intValue = parseInt(inputValue);
-                        if (intValue <= 999) {
+                        if (intValue <= 9999) {
                           handleInputChange(index, e);
                         }
                       }
                     }}
-                    className={css.placeholderData}
                     autoComplete="off"
                     onKeyDown={e => handleKeyDown(index, e)}
                   />
 
                   <label htmlFor={`calories${index}`}></label>
                   <input
-                    style={{
-                      border: '1px solid rgba(227, 255, 168, 1)',
-                      borderRadius: '12px',
-                      width: '78px',
-                      height: '36px',
-                      fontSize: '14px',
-                      lineHeight: '20px',
-                      color: 'rgba(182, 182, 182, 1)',
-                      font: 'Poppins',
-                      paddingLeft: '10px',
-                      gap: '10px',
-                      background: 'black',
-                      marginRight: '10px',
-                    }}
+                    className={`${css.inputCPFC}${
+                      field.calories >= 9999 ? ` ${css.inputError}` : ''
+                    }`}
                     placeholder="Calories"
                     type="text"
                     id={`calories${index}`}
@@ -255,12 +210,11 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
                       const inputValue = e.target.value;
                       if (!isNaN(inputValue)) {
                         const intValue = parseInt(inputValue);
-                        if (intValue <= 999) {
+                        if (intValue <= 9999) {
                           handleInputChange(index, e);
                         }
                       }
                     }}
-                    className={css.placeholderData}
                     autoComplete="off"
                     onKeyDown={e => handleKeyDown(index, e)}
                   />
@@ -291,7 +245,11 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
             <button className={css.cancel} onClick={onClose}>
               Cancel
             </button>
-            <button className={css.confirm} onClick={handleConfirm}>
+            <button
+              className={css.confirm}
+              disabled={disabledValid()}
+              onClick={handleConfirm}
+            >
               Confirm
             </button>
           </div>
