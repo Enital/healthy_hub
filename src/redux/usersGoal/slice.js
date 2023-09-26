@@ -5,6 +5,7 @@ import {
   fetchGoals,
   fetchGoalsConfirm,
   updateGoal,
+  weightGoalUpdate,
 } from './operations';
 
 const handlePending = state => {
@@ -109,7 +110,11 @@ const goalSlice = createSlice({
       // updateFood
       .addCase(UpdateFood.pending, handlePending)
       .addCase(UpdateFood.fulfilled, handleUpdateFoodFulfilled)
-      .addCase(UpdateFood.rejected, handleRejected);
+      .addCase(UpdateFood.rejected, handleRejected)
+      // weightGoalUpdate
+      .addCase(weightGoalUpdate.pending, handlePending)
+      .addCase(weightGoalUpdate.fulfilled, handleUpdateGoalFulfilled)
+      .addCase(weightGoalUpdate.rejected, handleRejected);
   },
 });
 
