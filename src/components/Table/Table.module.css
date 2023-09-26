@@ -559,7 +559,7 @@ p {
 .dairy_dish_wrapper {
     margin-bottom: 24px;
     margin-top: 24px;
-    background-color: #0f0f0f;
+    /* background-color: #0f0f0f; */
 }
 
 .wrapper_dishes_block {
@@ -811,7 +811,7 @@ p {
     .dairy_dish_wrapper {
         margin-bottom: 24px;
         margin-top: 24px;
-        background-color: #0f0f0f;
+        /* background-color: #0f0f0f; */
     }
 
     .dairy_title_lunch {
@@ -860,7 +860,7 @@ p {
         margin-bottom: 20px;
         margin-top: 0px;
         max-height: 330px;
-        background-color: #0f0f0f;
+        /* background-color: #0f0f0f; */
             /* overflow-y: auto; */
        
     }
