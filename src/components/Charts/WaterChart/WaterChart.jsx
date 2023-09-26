@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { selectCharts } from 'redux/dashboard/selectors';
 import { useSelector } from 'react-redux';
 import { Line } from 'react-chartjs-2';
@@ -10,8 +10,10 @@ import {
   PointElement,
   Tooltip,
 } from 'chart.js';
+import SimpleBar from 'simplebar-react';
 
 import css from './waterChart.module.css';
+import 'simplebar-react/dist/simplebar.min.css';
 
 const _ = require('lodash');
 
@@ -169,17 +171,46 @@ export default function WaterChart() {
   // console.log(processedData);
   const average = Math.round(_.mean(processedData));
 
-  return (
-    <div className={css.waterChart}>
-      <div className={css.waterTitle}>
-        <p className={css.chartTitle}>Water</p>
-        <p className={css.chartSubtitle}>
-          Average value: <span className={css.average}>{average} ml</span>
-        </p>
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    window.onresize = () => {
+      setWindowWidth(window.innerWidth);
+      return () => {
+        windowWidth.onresize = false;
+      };
+    };
+  }, [windowWidth]);
+
+  if (windowWidth < 834) {
+    return (
+      <div className={css.waterChart}>
+        <div className={css.waterTitle}>
+          <p className={css.chartTitle}>Water</p>
+          <p className={css.chartSubtitle}>
+            Average value: <span className={css.average}>{average} ml</span>
+          </p>
+        </div>
+        <SimpleBar style={{ maxWidth: 310 }}>
+          <div className={css.chart}>
+            <Line options={options} data={dataOne} />
+          </div>
+        </SimpleBar>
       </div>
-      <div className={css.chart}>
-        <Line options={options} data={dataOne} />
+    );
+  } else {
+    return (
+      <div className={css.waterChart}>
+        <div className={css.waterTitle}>
+          <p className={css.chartTitle}>Water</p>
+          <p className={css.chartSubtitle}>
+            Average value: <span className={css.average}>{average} ml</span>
+          </p>
+        </div>
+        <div className={css.chart}>
+          <Line options={options} data={dataOne} />
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }

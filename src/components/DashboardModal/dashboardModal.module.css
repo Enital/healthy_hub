@@ -6,4 +6,5 @@
   left: 28px;
   background-color: black;
   border-radius: 12px;
+  z-index: 99;
 }

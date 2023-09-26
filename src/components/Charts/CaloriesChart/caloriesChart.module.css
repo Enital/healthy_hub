@@ -1,11 +1,27 @@
+/* ::-webkit-scrollbar {
+  height: 8px;
+  width: 94px;
+
+  background-color: var(--bg-secondary);
+  border-radius: 12px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+} */
+
 .caloriesChart {
   height: 422px;
   width: 706px;
+  position: relative;
   /* margin-right: 20px; */
   /* border: solid 1px red; */
   /* padding: 25px 20px 6px 14px; */
-
-
 }
 
 .chart {
@@ -14,6 +30,7 @@
   padding: 25px 20px 24px 14px;
   background-color: #0F0F0F;
   border-radius: 8px;
+  position: relative;
   /* overflow-block: visible; */
 
   /* overflow-y: hidden; */
@@ -72,13 +89,122 @@
   margin-left: 8px;
 }
 
-@media screen and (max-width: 834px) {
-  .chart {
-    overflow-x: scroll;
-  }
+/* .track-vertical {
+  top: 2px;
+  bottom: 2px;
+  right: 2px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.111);
 }
 
-@media screen and (min-width: 834px) and (max-width: 1440px) {
+.track-vertical .thumb-vertical {
+  position: relative;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  border-radius: inherit;
+  background-color: rgba(123, 154, 255, 0.418);
+}
+
+.track-horizontal {
+  position: absolute;
+  height: 6px;
+  right: 2px;
+  bottom: 2px;
+  left: 2px;
+  border-radius: 3px;
+}
+
+.track-horizontal .thumb-horizontal {
+  position: relative;
+  display: block;
+  height: 100%;
+  cursor: pointer;
+  border-radius: inherit;
+  background-color: rgba(125, 149, 255, 0.993);
+}
+
+.view {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  overflow: scroll;
+  margin-right: -15px;
+  margin-bottom: -17px !important;
+} */
+
+/* .track-horizontal {
+  background-color: blue;
+  width: 100%;
+  left: 0px;
+  bottom: 0px;
+  height: 10px !important;
+} */
+
+/* @media screen and (max-width: 833px) {
+  width: 310px;
+  padding-bottom: 8px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    height: 8px;
+    width: 94px;
+
+    background-color: var(--bg-secondary);
+    border-radius: 12px;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 12px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+  }
+} */
+
+/* @media screen and (max-width: 833px) {
+  .chart {
+    width: 780px;
+    position: relative;
+    
+  } */
+
+/* .chart>canvas {
+    touch-action: cross-slide-x;
+  } */
+
+/* .scrollable {
+    width: 780px; */
+/* position: relative; */
+/* overflow-x: scroll; */
+/* } */
+/* } */
+
+/* .custom-scrollbars__content {
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.custom-scrollbars__content::-webkit-scrollbar {
+  display: none;
+} */
+
+/* .scrollContainer::webkit-scrollbar {
+  height: 6px;
+} */
+
+/* .chart>canvas {
+  width: 80%;
+} */
+
+@media screen and (min-width: 834px) and (max-width: 1439px) {
   .caloriesChart {
     height: 422px;
     width: 706px;

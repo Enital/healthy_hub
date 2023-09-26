@@ -72,11 +72,11 @@
   margin-left: 8px;
 }
 
-@media screen and (max-width: 834px) {
+/* @media screen and (max-width: 834px) {
   .chart {
     overflow-x: scroll;
   }
-}
+} */
 
 @media screen and (min-width: 834px) and (max-width: 1440px) {
   .caloriesChart {
