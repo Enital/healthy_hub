@@ -88,18 +88,31 @@ const UpdateMealModal = ({
       <form noValidate>
         <div className={css.updateFoodForm}>
           <table className={css.dairy_breakfast_table}>
-            <thead>
+            {/* <thead>
               <tr>
-                <th style={{ fontWeight: 'normal' }}>Name</th>
-                <th style={{ fontWeight: 'normal' }}>Carbonoh.</th>
-                <th style={{ fontWeight: 'normal' }}>Protein</th>
-                <th style={{ fontWeight: 'normal' }}>Fat</th>
-                <th style={{ fontWeight: 'normal' }}>Calories</th>
+                <th className={css.titles} style={{ fontWeight: 'normal' }}>
+                  Name
+                </th>
+                <th className={css.titles} style={{ fontWeight: 'normal' }}>
+                  Carbonoh.
+                </th>
+                <th className={css.titles} style={{ fontWeight: 'normal' }}>
+                  Protein
+                </th>
+                <th className={css.titles} style={{ fontWeight: 'normal' }}>
+                  Fat
+                </th>
+                <th className={css.titles} style={{ fontWeight: 'normal' }}>
+                  Calories
+                </th>
               </tr>
-            </thead>
+            </thead> */}
             <tbody>
               <tr>
                 <td>
+                  <p className={css.titles} style={{ fontWeight: 'normal' }}>
+                    Name
+                  </p>
                   <input
                     style={{
                       border: '1px solid rgba(227, 255, 168, 1)',
@@ -124,6 +137,9 @@ const UpdateMealModal = ({
                   />
                 </td>
                 <td>
+                  <p className={css.titles} style={{ fontWeight: 'normal' }}>
+                    Carbonoh.
+                  </p>
                   <input
                     placeholder="Carbonoh."
                     type="number"
@@ -135,6 +151,9 @@ const UpdateMealModal = ({
                   />
                 </td>
                 <td>
+                  <p className={css.titles} style={{ fontWeight: 'normal' }}>
+                    Protein
+                  </p>
                   <input
                     placeholder="Protein"
                     type="number"
@@ -146,6 +165,9 @@ const UpdateMealModal = ({
                   />
                 </td>
                 <td>
+                  <p className={css.titles} style={{ fontWeight: 'normal' }}>
+                    Fat
+                  </p>
                   <input
                     placeholder="Fat"
                     name="fat"
@@ -157,6 +179,9 @@ const UpdateMealModal = ({
                   />
                 </td>
                 <td>
+                  <p className={css.titles} style={{ fontWeight: 'normal' }}>
+                    Calories
+                  </p>
                   <input
                     placeholder="Calories"
                     name="calories"
