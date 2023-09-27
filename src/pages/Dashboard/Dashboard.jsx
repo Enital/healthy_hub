@@ -12,13 +12,15 @@ import { fetchGraph } from 'redux/dashboard/operations';
 import { selectCharts } from 'redux/dashboard/selectors';
 import leftArrow from '../../images/icons/arrow-left.svg';
 import arrowDownSvg from '../../images/icons/arrow-down.svg';
+// import SimpleBar from 'simplebar-react';
+// import 'simplebar-react/dist/simplebar.min.css';
 
 import css from './dashboard.module.css';
 
 const Dashboard = () => {
   const [showModal, setShowModal] = useState(false);
   const [showMonth, setShowMonth] = useState(true);
-
+  // const [showScroll, setShowScroll] = useState(false);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchGraph());
@@ -49,6 +51,21 @@ const Dashboard = () => {
     setShowMonth(!showMonth);
     closeModal();
   };
+
+  // const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  // useEffect(() => {
+  // window.onresize = () => {
+  // setWindowWidth(window.innerWidth);
+  // return () => {
+  //   windowWidth.onresize = false;
+  // };
+  // };
+  // console.log(windowWidth);
+  //   if (windowWidth < 834) {
+  //     setShowScroll(true);
+  //   }
+  // }, [windowWidth]);
 
   return (
     <div className={css.container}>
@@ -89,15 +106,29 @@ const Dashboard = () => {
           </ul>
           <p className={css.month}>{showMonth ? twoMonth : twoYear}</p>
         </div>
+        {/* <div className={css.scrollContainer}> */}
         <div className={css.chartContainer}>
           {showMonth ? (
-            <CaloriesChart showMonth={showMonth} />
+            <div className={css.scrollWrapper}>
+              <CaloriesChart showMonth={showMonth} />
+            </div>
           ) : (
-            <CaloriesChartYear />
+            <div className={css.scrollWrapper}>
+              <CaloriesChartYear />
+            </div>
           )}
-          {showMonth ? <WaterChart data={showMonth} /> : <WaterChartYear />}
+          {showMonth ? (
+            <div className={css.scrollWrapper}>
+              <WaterChart data={showMonth} />
+            </div>
+          ) : (
+            <div className={css.scrollWrapper}>
+              <WaterChartYear />
+            </div>
+          )}
         </div>
         <WeightChart showMonth={showMonth} />
+        {/* </div> */}
       </div>
     </div>
   );

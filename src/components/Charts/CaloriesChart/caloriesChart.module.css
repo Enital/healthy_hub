@@ -31,6 +31,8 @@
   background-color: #0F0F0F;
   border-radius: 8px;
   position: relative;
+
+  overflow-x: auto;
   /* overflow-block: visible; */
 
   /* overflow-y: hidden; */
@@ -87,6 +89,20 @@
   line-height: 20px;
   color: var(--color-primary-gray);
   margin-left: 8px;
+}
+
+.chart::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chart::-webkit-scrollbar-track {
+  background: rgb(55, 55, 55);
+  border-radius: 12px;
+}
+
+.chart::-webkit-scrollbar-thumb {
+  background-color: #050505;
+  border-radius: 30px;
 }
 
 /* .track-vertical {
@@ -202,6 +218,12 @@
 
 /* .chart>canvas {
   width: 80%;
+} */
+/* @media screen and (max-width: 833px) {
+  .chart {
+    overflow-x: aut;
+  }
+
 } */
 
 @media screen and (min-width: 834px) and (max-width: 1439px) {

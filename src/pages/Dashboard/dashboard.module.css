@@ -1,17 +1,45 @@
 .dashboardContainer {
   /* padding: 20px; */
   /* border: solid 1px red; */
+  margin-bottom: 20px;
 }
 
 .chartContainer {
   display: flex;
   flex-direction: column;
+  /* overflow-x: scroll; */
   /* flex-direction: row;
   align-items: center;
   margin-top: 16px;
   border-radius: 8px; */
-  padding-bottom: 20px;
+  /* padding-bottom: 20px; */
 }
+
+.scrollWrapper {
+  overflow-x: scroll;
+}
+
+/* .scrollWrapper::-webkit-scrollbar {
+  width: 8px; */
+/* Ширина скроллбара */
+/* } */
+
+/* Стилизация бегунка (ползунка) скроллбара */
+/* .scrollWrapper::-webkit-scrollbar-thumb { */
+/* background-color: #121111; */
+/* background-color: rgb(255, 255, 255, 0.1); */
+/* background-color: #4d4b4b; */
+/* Цвет бегунка */
+/* border-radius: 12px; */
+/* Скругление углов бегунка */
+/* } */
+
+/* Стилизация трека (фона) скроллбара */
+/* .scrollWrapper::-webkit-scrollbar-track { */
+/* background-color: #4d4b4b; */
+/* background-color: rgb(15, 15, 15, 1); */
+/* Цвет фона трека */
+/* } */
 
 .dashboardTitle {
   display: flex;
@@ -105,6 +133,10 @@
     padding-right: 27px;
   }
 
+  .scrollWrapper {
+    overflow-x: hidden;
+  }
+
   .dashboardTitle {
     flex-direction: row;
     position: relative;
@@ -115,7 +147,7 @@
 
   .chartContainer {
     width: 780px;
-    margin-bottom: 65px;
+    margin-bottom: 25px;
   }
 
   .toggleBtn {
