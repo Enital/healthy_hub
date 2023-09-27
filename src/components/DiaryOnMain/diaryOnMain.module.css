@@ -59,7 +59,7 @@
     width: 268px;
     font-weight: 500;
     font-size: 25px;
-    line-height: 36px;
+    /* line-height: 36px; */
     color: rgba(255, 255, 255, 1);
   }
   .containerDiary {
@@ -254,6 +254,7 @@
     display: none; /* Invisible by default*/
     overflow-y: auto;
     box-shadow: 0px 4px 14px rgba(227, 255, 168, 0.2);
+    /* overflow: hidden; */
   }
 
   .img {
@@ -404,17 +405,9 @@
     /* justify-content: space-between; */
     align-items: center;
   }
-/* /////////////// */
-  /* .modalOpen {
-    overflow: hidden;
-  }
-  .modalOpen .modalBackground {
-    pointer-events: auto;
-    display: block;
-  }
-  
-  
-  .modalContent {
-    display: none;
-  } */
+
+}
+body.modal-open {
+  overflow: hidden;
+  max-height: 100vh
 }
