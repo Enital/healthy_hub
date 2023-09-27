@@ -256,12 +256,24 @@
     text-align: start;
   }
 
-.questionTrumb {
-  padding-left: 32px;
+  .questionTrumb {
+    padding-left: 32px;
   }
 
   .questionTrumb {
     padding-left: 0;
+  }
+}
+
+@media screen and (max-width: 834px) {
+  .checkbox {
+    position: absolute;
+    appearance: revert;
+    cursor: pointer;
+    top: 50%;
+    left: 55%;
+    right: 14px;
+    top: 14px;
   }
 }
 
