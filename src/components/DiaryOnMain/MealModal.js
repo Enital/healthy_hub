@@ -25,19 +25,23 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
   const [inputFields, setInputFields] = useState(initialInputFields);
   if (!isOpen) return null;
   const disabledValid = () => {
-    // Loop through the array and check each object's properties
     for (const data of placeholderData) {
       if (
-        data.name.length < 1 ||
-        data.carbohydrates.length < 1 ||
-        data.protein.length < 1 ||
-        data.fat.length < 1 ||
-        data.calories.length < 1
+        data.name.length < 2 ||
+        data.name.length > 50 ||
+        data.carbohydrates < 1 ||
+        data.carbohydrates >= 9999 ||
+        data.protein < 1 ||
+        data.protein >= 9999 ||
+        data.fat < 1 ||
+        data.fat >= 9999 ||
+        data.calories < 1 ||
+        data.calories >= 9999
       ) {
-        return true; // Disable the button if any field is empty
+        return true;
       }
     }
-    return false; // Enable the button if all fields are filled
+    return false;
   };
 
   const handleAddField = () => {
