@@ -1,21 +1,18 @@
 .weightChart {
   height: 110px;
   width: 1372px;
-  /* padding: 10px; */
-  /* margin-top: 40px;
-  margin-right: 20px; */
-  /* background-color: #0F0F0F; */
-  /* border-radius: 8px; */
-  /* border: solid 1px cyan; */
+  margin-top: 10px;
+}
+
+.chart {
+  width: 300px;
+  overflow-x: auto;
 }
 
 .weightTitle {
   display: flex;
   flex-direction: row;
   align-items: baseline;
-  /* font-size: 22px;
-  font-weight: 400;
-  line-height: 32px; */
   font-size: 14px;
   line-height: 1.43;
   margin-bottom: 16px;
@@ -46,12 +43,6 @@
   text-align: center;
 }
 
-/* .weightTitle {
-  font-size: 14px;
-  line-height: 1.43;
-  margin-bottom: 16px;
-} */
-
 .dataTitle {
   font-size: 10px;
   line-height: 1.4;
@@ -66,17 +57,44 @@
   margin-left: 8px;
 }
 
-/* @media screen and (max-width: 834px) {
-  .chart {
-    overflow-x: scroll;
-  }
-} */
 
 @media screen and (min-width: 834px) {
   .weightChart {
-    height: 110px;
+    height: 130px;
     width: 780px;
+  }
+
+  .chart {
+    width: 780px;
+    height: 130px;
   }
 }
 
-/* @media screen and (min-width: 1440px) {} */
+@media screen and (min-width: 1440px) {
+  .weightChart {
+    height: 130px;
+    width: 1372px;
+  }
+
+  .chart {
+    width: 1372px;
+  }
+}
+
+.chart::-webkit-scrollbar {
+  height: 8px;
+}
+
+/* Стилизация бегунка (ползунка) скроллбара */
+.chart::-webkit-scrollbar-thumb {
+  background-color: rgb(255, 255, 255, 0.1);
+  /* Цвет бегунка */
+  border-radius: 12px;
+  /* Скругление углов бегунка */
+}
+
+/* Стилизация трека (фона) скроллбара */
+.chart::-webkit-scrollbar-track {
+  background-color: rgb(15, 15, 15, 1);
+  /* Цвет фона трека */
+}

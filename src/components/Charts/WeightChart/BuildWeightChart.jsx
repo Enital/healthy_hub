@@ -8,45 +8,6 @@ export default function BuildWeightChart() {
   const { graph } = useSelector(selectCharts);
   const labels = graph.days;
   const data = graph.weight;
-  // const randomScaling = function () {
-  //   return (
-  //     (Math.random() > 0.5 ? 1.0 : 1.0) * Math.round(Math.random() * 5 + 60)
-  //   );
-  // };
-  // const data = [
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  // ];
-
   return (
     <>
       <div className={css.weightTable}>

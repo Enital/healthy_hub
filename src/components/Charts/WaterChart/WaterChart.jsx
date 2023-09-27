@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { selectCharts } from 'redux/dashboard/selectors';
 import { useSelector } from 'react-redux';
 import { Line } from 'react-chartjs-2';
@@ -10,10 +10,8 @@ import {
   PointElement,
   Tooltip,
 } from 'chart.js';
-import SimpleBar from 'simplebar-react';
 
 import css from './waterChart.module.css';
-import 'simplebar-react/dist/simplebar.min.css';
 
 const _ = require('lodash');
 
@@ -31,52 +29,12 @@ export default function WaterChart() {
   const data = graph.water;
   let caption = 'L';
 
-  // const randomScaling = function () {
-  //   return (
-  //     (Math.random() > 0.5 ? 1.0 : 1.0) * Math.round(Math.random() * 500 + 1250)
-  //   );
-  // };
-  // const data = [
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  // ];
-
   const datasets = [
     {
       label: 'Water',
       data: data,
       fill: false,
       showLine: true,
-      // strokeColor: 'rgba(255, 240, 196, 1)',
       borderColor: '#E3FFA8',
       borderWidth: 1,
       tension: 0.4,
@@ -168,49 +126,19 @@ export default function WaterChart() {
   const processedData = data.filter(item => {
     return item > 0;
   });
-  // console.log(processedData);
   const average = Math.round(_.mean(processedData));
 
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    window.onresize = () => {
-      setWindowWidth(window.innerWidth);
-      return () => {
-        windowWidth.onresize = false;
-      };
-    };
-  }, [windowWidth]);
-
-  if (windowWidth < 834) {
-    return (
-      <div className={css.waterChart}>
-        <div className={css.waterTitle}>
-          <p className={css.chartTitle}>Water</p>
-          <p className={css.chartSubtitle}>
-            Average value: <span className={css.average}>{average} ml</span>
-          </p>
-        </div>
-        <SimpleBar style={{ maxWidth: 310 }}>
-          <div className={css.chart}>
-            <Line options={options} data={dataOne} />
-          </div>
-        </SimpleBar>
+  return (
+    <div className={css.waterChart}>
+      <div className={css.waterTitle}>
+        <p className={css.chartTitle}>Water</p>
+        <p className={css.chartSubtitle}>
+          Average value: <span className={css.average}>{average} ml</span>
+        </p>
       </div>
-    );
-  } else {
-    return (
-      <div className={css.waterChart}>
-        <div className={css.waterTitle}>
-          <p className={css.chartTitle}>Water</p>
-          <p className={css.chartSubtitle}>
-            Average value: <span className={css.average}>{average} ml</span>
-          </p>
-        </div>
-        <div className={css.chart}>
-          <Line options={options} data={dataOne} />
-        </div>
+      <div className={css.chart}>
+        <Line options={options} data={dataOne} />
       </div>
-    );
-  }
+    </div>
+  );
 }

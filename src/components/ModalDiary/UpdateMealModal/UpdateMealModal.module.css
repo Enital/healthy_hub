@@ -1,73 +1,86 @@
-.recordMealModal {
-    border-radius: 12px;
-    background: #0f0f0f;
-    width: 300px;
-    padding: 16px 12px;
-    position: absolute;
-    z-index: 5;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+@media screen and (max-width: 833px) {
+  tr {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
 
-    @media (min-width: 834px) {
-        width: 678px;
-        padding: 24px;
-    }
+  input {
+    width: 223px;
+  }
+}
+
+.recordMealModal {
+  border-radius: 12px;
+  background: #0f0f0f;
+  width: 300px;
+  padding: 16px 12px;
+  position: absolute;
+  z-index: 5;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 4px 14px 0px rgba(227, 255, 168, 0.2);
+
+  @media (min-width: 834px) {
+    width: 678px;
+    padding: 24px;
+  }
 }
 
 .recordMealModalTitle {
-    font-size: 24px;
+  font-size: 24px;
 
-    font-weight: 500;
-    line-height: 1.25em;
-    margin-bottom: 24px;
+  font-weight: 500;
+  line-height: 1.25em;
+  margin-bottom: 24px;
 
-    @media (min-width: 834px) {
-        font-size: 30px;
-    }
+  @media (min-width: 834px) {
+    font-size: 30px;
+  }
 }
 
 .recordMealModalMeal {
-    font-size: 18px;
+  font-size: 18px;
 
-    font-weight: 400;
-    line-height: 1.44em;
+  font-weight: 400;
+  line-height: 1.44em;
 
-    @media (min-width: 834px) {
-        font-size: 22px;
-    }
+  @media (min-width: 834px) {
+    font-size: 22px;
+  }
 }
 
 .recordMealModalMealImageContainer {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    margin-bottom: 16px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
 }
 
 .recordMealModalInput {
-    width: 276px;
-    padding: 8px 10px;
-    color: #fff;
+  max-width: 276px;
+  padding: 8px 10px;
+  color: #fff;
 
-    border-radius: 12px;
-    border: 1px solid #e3ffa8;
-    background: #0f0f0f;
-    outline: #fff;
-    font-size: 14px;
+  border-radius: 12px;
+  border: 1px solid #e3ffa8;
+  background: #0f0f0f;
+  outline: #fff;
+  font-size: 14px;
 
-    font-weight: 400;
-    line-height: 1.42em;
-    margin-bottom: 16px;
+  font-weight: 400;
+  line-height: 1.42em;
+  margin-bottom: 16px;
 
-    @media screen and (min-width: 834px) {
-        width: 120px;
-        margin-bottom: 0;
-    }
+  @media screen and (min-width: 834px) {
+    width: 95px;
+    margin-bottom: 0;
+  }
 }
 
 .recordMealModalInput:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 /* .recordMealModalInput:first-child {
@@ -78,149 +91,203 @@
 
 .recordMealModalInput::-webkit-inner-spin-button,
 .recordMealModalInput::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .recordMealModalInput::placeholder {
-    color: #b6b6b6;
+  color: #b6b6b6;
 
-    font-size: 14px;
+  font-size: 14px;
 
-    font-weight: 400;
-    line-height: 1.42em;
+  font-weight: 400;
+  line-height: 1.42em;
 }
 
 .recordMealModalInputsList {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
 }
 
 .recordMealModalInputsListItem {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 
-    @media (min-width: 834px) {
-        flex-direction: row;
-    }
+  @media (min-width: 834px) {
+    flex-direction: row;
+  }
 }
 
 .recordMealModalAddMoreBtn {
-    cursor: pointer;
-    display: flex;
-    gap: 6px;
-    margin-bottom: 40px;
-    color: #e3ffa8;
+  cursor: pointer;
+  display: flex;
+  gap: 6px;
+  margin-bottom: 40px;
+  color: #e3ffa8;
 
-    font-size: 14px;
+  font-size: 14px;
 
-    font-weight: 500;
-    line-height: 1.42em;
+  font-weight: 500;
+  line-height: 1.42em;
 }
 
 .svgPlus {
-    stroke: #e3ffa8;
+  stroke: #e3ffa8;
 }
 
 .recordMealModalConfirmBtn {
-    padding: 8px 10px;
+  padding: 8px 10px;
 
-    border-radius: 12px;
-    background: #e3ffa8;
+  border-radius: 12px;
+  background: #e3ffa8;
 
-    color: #0f0f0f;
-    text-align: center;
+  color: #0f0f0f;
+  text-align: center;
 
-    font-size: 14px;
+  font-size: 14px;
 
-    font-weight: 500;
-    line-height: 1.42em;
-    width: 276px;
-    margin-bottom: 16px;
-    cursor: pointer;
+  font-weight: 500;
+  line-height: 1.42em;
+  width: 276px;
+  margin-bottom: 16px;
+  cursor: pointer;
 
-    @media (min-width: 834px) {
-        margin-bottom: 0px;
-        width: 212px;
-    }
+  @media (min-width: 834px) {
+    margin-bottom: 0px;
+    width: 212px;
+  }
 }
 
 .recordMealModalConfirmBtn:disabled {
-    opacity: 0.5;
-    background-color: #aaa;
-    pointer-events: none;
+  opacity: 0.5;
+  background-color: #aaa;
+  pointer-events: none;
 }
 
 .recordMealModalCancelBtn {
-    width: 276px;
-    cursor: pointer;
-    color: #b6b6b6;
-    text-align: center;
+  width: 276px;
+  cursor: pointer;
+  color: #b6b6b6;
+  text-align: center;
 
-    font-size: 14px;
+  font-size: 14px;
 
-    font-weight: 400;
-    line-height: 1.42em;
+  font-weight: 400;
+  line-height: 1.42em;
 
-    @media (min-width: 834px) {
-        width: 192px;
-    }
+  @media (min-width: 834px) {
+    width: 192px;
+  }
+}
+
+.titles {
+  color: #b6b6b6;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42em;
+  margin-bottom: 6px;
 }
 
 .recordMealModalBtnContainer {
-    @media (min-width: 834px) {
-        display: flex;
-        width: 100%;
-        flex-direction: row-reverse;
-        gap: 12px;
-    }
+  @media (min-width: 834px) {
+    display: flex;
+    width: 100%;
+    flex-direction: row-reverse;
+    gap: 12px;
+  }
 }
 
 .updateFoodForm {
-    display: flex;
-    flex-direction: column;
-    /* justify-content: space-between; */
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
 
-    @media (min-width: 834px) {
-        flex-direction: row;
-    }
+  @media (min-width: 834px) {
+    flex-direction: row;
+  }
 }
 
 .textBtn {
-    width: 280px;
-    /* height: 30px; */
-    font-size: 24px;
-    line-height: 30px;
-    display: flex;
-    margin-left: 12px;
-    font-weight: 500;
-    align-items: center;
+  width: 280px;
+  /* height: 30px; */
+  font-size: 24px;
+  line-height: 30px;
+  display: flex;
+  margin-left: 12px;
+  font-weight: 500;
+  align-items: center;
 
-    /* margin-bottom: 12px; */
-    @media (min-width: 834px) {
-        margin-bottom: 0;
-    }
+  /* margin-bottom: 12px; */
+  @media (min-width: 834px) {
+    margin-bottom: 0;
+  }
 }
 
 .validationText {
-    font-size: 14px;
-    text-align: center;
-    color: red;
-    margin-bottom: 8px;
+  font-size: 14px;
+  text-align: center;
+  color: red;
+  margin-bottom: 8px;
 }
 
 .inputWrapper {
-    display: flex;
-    flex-direction: column;
-    column-gap: 12px;
+  display: flex;
+  flex-direction: column;
+  column-gap: 12px;
 
-    @media (min-width: 834px) {
-        flex-direction: row;
-    }
+  @media (min-width: 834px) {
+    flex-direction: row;
+  }
+}
+.dairy_breakfast_list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 77%;
+  padding-left: 0px;
+}
+
+.dairy_breakfast_item {
+  font-size: 14px;
+  font-family: inherit;
+}
+.dairy_breakfast_list {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.dairy_breakfast_item:not(last-child) {
+  margin-left: 0 !important;
+  margin-right: 20px;
+  margin-bottom: 0px;
+}
+.dairy_breakfast_list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.dairy_breakfast_item,
+.edit_icon {
+  display: flex;
+  align-items: center;
+}
+
+.dairy_breakfast_item:not(last-child) {
+  margin-left: 0 !important;
+  margin-right: 20px;
+  margin-bottom: 6px;
+}
+
+.dairy_add_dish_item:last-child {
+  margin-bottom: 0;
 }

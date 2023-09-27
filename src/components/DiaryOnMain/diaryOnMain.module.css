@@ -404,10 +404,18 @@
     /* justify-content: space-between; */
     align-items: center;
   }
-  /* .number {
-    width: 10px; 
-    display: inline-block;
-    text-align: left; 
+/* /////////////// */
+  /* .modalOpen {
+    overflow: hidden;
+  }
+  .modalOpen .modalBackground {
+    pointer-events: auto;
+    display: block;
+  }
+  
+  
+  .modalContent {
+    display: none;
   } */
 }
 

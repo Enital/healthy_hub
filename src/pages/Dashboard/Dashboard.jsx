@@ -18,14 +18,12 @@ import css from './dashboard.module.css';
 const Dashboard = () => {
   const [showModal, setShowModal] = useState(false);
   const [showMonth, setShowMonth] = useState(true);
-
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchGraph());
   }, [dispatch]);
 
   const { graph } = useSelector(selectCharts);
-  // console.log(graph);
   const today = new Date();
   const todayYear = today.getFullYear();
   const lastYear = todayYear - 1;
@@ -69,7 +67,6 @@ const Dashboard = () => {
               <img
                 src={arrowDownSvg}
                 alt="down arrow"
-                // className={css.arrowDownSvg}
                 style={{
                   transform: toggleModal ? 'rotate(180deg)' : 'rotate(0deg)',
                 }}
@@ -91,11 +88,23 @@ const Dashboard = () => {
         </div>
         <div className={css.chartContainer}>
           {showMonth ? (
-            <CaloriesChart showMonth={showMonth} />
+            <div className={css.scrollWrapper}>
+              <CaloriesChart showMonth={showMonth} />
+            </div>
           ) : (
-            <CaloriesChartYear />
+            <div className={css.scrollWrapper}>
+              <CaloriesChartYear />
+            </div>
           )}
-          {showMonth ? <WaterChart data={showMonth} /> : <WaterChartYear />}
+          {showMonth ? (
+            <div className={css.scrollWrapper}>
+              <WaterChart data={showMonth} />
+            </div>
+          ) : (
+            <div className={css.scrollWrapper}>
+              <WaterChartYear />
+            </div>
+          )}
         </div>
         <WeightChart showMonth={showMonth} />
       </div>

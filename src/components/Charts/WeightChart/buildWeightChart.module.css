@@ -8,17 +8,16 @@
   border-radius: 8px;
   justify-content: space-around;
   padding: 24px 41px 36px 21px;
+  margin-bottom: 7px;
 }
 
 .tableBlock {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* padding-right: 23px; */
 }
 
 .tableUpRow {
-  /* font-family: Poppins; */
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -27,8 +26,6 @@
 }
 
 .tableDownRow {
-  /* text-align: center; */
-  /* font-family: Poppins; */
   font-size: 10px;
   font-style: normal;
   font-weight: 400;

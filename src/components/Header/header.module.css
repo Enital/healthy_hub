@@ -1,17 +1,24 @@
 h1, h2, h3, h4, h5, h6, p, div, link {
     font-family: var(--main-font);
 }
-/* 
-.modalOverly{
-    position: fixed;
-    z-index: 9999;
+
+.modalOverly {
+    z-index: 110;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-} */
+}
+
+.modalWrapper {
+    position: relative;
+    width: 100%;
+    height: 0;
+}
 
 .header{
+    z-index: 120;
     width: 100%;
     height: 100px;
     margin-bottom: 10px;
@@ -87,9 +94,10 @@ h1, h2, h3, h4, h5, h6, p, div, link {
 
 .userProfileRegistration{
     margin: 0px 4px 0px 6px;
-    width: 28px;
-    height: 28px;
     border-radius: 50%;
+    height: 45px;
+    width: 45px;
+    object-fit: cover;
 }
 
 .authenticatedNav{
@@ -141,9 +149,9 @@ h1, h2, h3, h4, h5, h6, p, div, link {
     text-align: center;
     border-radius: 12px;
     position: absolute; 
-    top: 100px;
+    top: -10px;
     right: 248px;
-    z-index: 99;
+    z-index: 120;
 }
 
 .closeSvg{
@@ -162,7 +170,7 @@ h1, h2, h3, h4, h5, h6, p, div, link {
     position: absolute;
     top: 60px;
     left: 10px;
-    z-index: 99;
+    z-index: 120;
 }
 
 .headlineTarget{
@@ -202,9 +210,9 @@ h1, h2, h3, h4, h5, h6, p, div, link {
     height: 200px;
     text-align: center;
     position: absolute; 
-    top: 100px;
+    top: -10px;
     right: 36px;
-    z-index: 99;
+    z-index: 120;
 }
 
 .sectionContentWeight{
@@ -416,10 +424,10 @@ h1, h2, h3, h4, h5, h6, p, div, link {
     height: 104px;
     text-align: center;
     position: absolute; 
-    top: 80px;
+    top: -25px;
     right: 36px;
     padding: 24px;
-    z-index: 99;
+    z-index: 120;
     cursor: pointer;
 }
 
@@ -558,9 +566,9 @@ h1, h2, h3, h4, h5, h6, p, div, link {
         text-align: center;
         border-radius: 12px;
         position: absolute; 
-        top: 100px;
+        top: -10px;
         right: 148px;
-        z-index: 99;
+        z-index: 120;
     }
     .modalWeightContent{
         background: var(--color-primary-black-2, #0F0F0F);
@@ -570,9 +578,9 @@ h1, h2, h3, h4, h5, h6, p, div, link {
         height: 200px;
         text-align: center;
         position: absolute; 
-        top: 100px;
+        top: -10px;
         right: 148px;
-        z-index: 99;
+        z-index: 120;
     }
     .modalUserContent{
         border-radius: 12px;
@@ -582,10 +590,10 @@ h1, h2, h3, h4, h5, h6, p, div, link {
         height: 104px;
         text-align: center;
         position: absolute; 
-        top: 80px;
+        top: -25px;
         right: 27px;
         padding: 24px;
-        z-index: 99;
+        z-index: 120;
         cursor: pointer;
     }
 }
@@ -745,9 +753,9 @@ h1, h2, h3, h4, h5, h6, p, div, link {
         text-align: center;
         border-radius: 0%;
         position: absolute;
-        top: 60px;
+        top: -10px;
         right:0px;
-        z-index: 99;
+        z-index: 120;
     }
     .sectionChoiseGoal{
         display: flex;
@@ -811,9 +819,9 @@ h1, h2, h3, h4, h5, h6, p, div, link {
         text-align: center;
         border-radius: 0%;
         position: absolute;
-        top: 60px;
+        top: -10px;
         right:0px;
-        z-index: 99;
+        z-index: 120;
     }
     .sectionContentWeight{
         display: inline-flex;
@@ -888,10 +896,10 @@ h1, h2, h3, h4, h5, h6, p, div, link {
         height: 104px;
         text-align: center;
         position: absolute; 
-        top: 54px;
+        top: -10px;
         right: 10px;
         padding: 24px;
-        z-index: 99;
+        z-index: 120;
         cursor: pointer;
     }
     .closeMobileSvg{
