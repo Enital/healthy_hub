@@ -14,8 +14,6 @@
   padding: 25px 20px 24px 14px;
   background-color: #0F0F0F;
   border-radius: 8px;
-
-  overflow-x: auto;
   /* overflow-block: visible; */
 
   /* overflow-y: hidden; */
@@ -101,27 +99,4 @@
     width: 676px;
     height: 420px;
   }
-
-  .chart {
-    width: 676px;
-  }
 }
-
-/* .chart::-webkit-scrollbar {
-  width: 5px; */
-/* Ширина скроллбара */
-/* } */
-
-/* Стилизация бегунка (ползунка) скроллбара */
-/* .chart::-webkit-scrollbar-thumb {
-  background-color: #121111; */
-/* Цвет бегунка */
-/* border-radius: 5px; */
-/* Скругление углов бегунка */
-/* } */
-
-/* Стилизация трека (фона) скроллбара */
-/* .chart::-webkit-scrollbar-track {
-  background-color: #4d4b4b; */
-/* Цвет фона трека */
-/* } */

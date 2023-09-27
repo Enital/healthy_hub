@@ -7,12 +7,6 @@
   /* background-color: #0F0F0F; */
   /* border-radius: 8px; */
   /* border: solid 1px cyan; */
-  /* padding-bottom: 20px; */
-}
-
-.chart {
-  width: 320px;
-  overflow-x: auto;
 }
 
 .weightTitle {
@@ -80,60 +74,9 @@
 
 @media screen and (min-width: 834px) {
   .weightChart {
-    height: 130px;
+    height: 110px;
     width: 780px;
   }
-
-  .chart {
-    width: 780px;
-    height: 130px;
-    /* overflow-x: auto; */
-  }
 }
 
-@media screen and (min-width: 1440px) {
-  .chart {
-    width: 1372px;
-  }
-}
-
-.chart::-webkit-scrollbar {
-  width: 5px;
-  /* Ширина скроллбара */
-}
-
-/* Стилизация бегунка (ползунка) скроллбара */
-.chart::-webkit-scrollbar-thumb {
-  background-color: rgb(255, 255, 255, 0.1);
-  /* Цвет бегунка */
-  border-radius: 8px;
-  /* Скругление углов бегунка */
-}
-
-/* Стилизация трека (фона) скроллбара */
-.chart::-webkit-scrollbar-track {
-  background-color: rgb(15, 15, 15, 1);
-  /* Цвет фона трека */
-}
-
-/* .scrollWrapper::-webkit-scrollbar {
-  width: 8px; */
-/* Ширина скроллбара */
-/* } */
-
-/* Стилизация бегунка (ползунка) скроллбара */
-/* .scrollWrapper::-webkit-scrollbar-thumb { */
-/* background-color: #121111; */
-/* background-color: rgb(255, 255, 255, 0.1); */
-/* background-color: #4d4b4b; */
-/* Цвет бегунка */
-/* border-radius: 12px; */
-/* Скругление углов бегунка */
-/* } */
-
-/* Стилизация трека (фона) скроллбара */
-/* .scrollWrapper::-webkit-scrollbar-track { */
-/* background-color: #4d4b4b; */
-/* background-color: rgb(15, 15, 15, 1); */
-/* Цвет фона трека */
-/* } */
+/* @media screen and (min-width: 1440px) {} */
