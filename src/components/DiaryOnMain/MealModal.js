@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import breakfast from '../../images/illustration/breakfast-image.svg';
 import { FaTrashAlt } from 'react-icons/fa';
-//import { FaBitbucket } from "react-icons/fa";
-//FaTrashAlt
 import css from './diaryOnMain.module.css';
 import { useDispatch } from 'react-redux';
 import { fetchGoalsConfirm } from 'redux/usersGoal/operations';
@@ -72,7 +70,7 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
   const handleKeyDown = (index, event) => {
     if (event.key === 'Backspace') {
       const { name, value } = event.target;
-      const newValue = value.slice(0, -1); // Видалити останній символ
+      const newValue = value.slice(0, -1);
       const newInputFields = [...inputFields];
       newInputFields[index][name] = newValue;
       setInputFields(newInputFields);
@@ -94,8 +92,8 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
           </div>
 
           {inputFields.map((field, index) => (
-            <form>
-              <ul>
+            <form key={index}>
+              <ul key={index}>
                 <div className={css.containerLabel} key={index}>
                   <label htmlFor={`productName${index}`}></label>
 
