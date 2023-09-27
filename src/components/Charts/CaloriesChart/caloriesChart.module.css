@@ -1,6 +1,7 @@
 .caloriesChart {
-  height: 422px;
+  height: 412px;
   width: 706px;
+  position: relative;
 }
 
 .chart {
@@ -22,6 +23,7 @@
   font-weight: 400;
   line-height: 32px;
   margin-bottom: 9px;
+  /* position: fixed; */
 }
 
 .chartTitle {

@@ -1,6 +1,7 @@
 .waterChart {
-  height: 422px;
+  height: 412px;
   width: 706px;
+  margin-top: 25px;
 }
 
 .chart {
@@ -47,7 +48,7 @@
 }
 
 
-@media screen and (min-width: 834px) and (max-width: 1440px) {
+@media screen and (min-width: 834px) and (max-width: 1439px) {
   .caloriesChart {
     height: 422px;
     width: 706px;
@@ -64,8 +65,9 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .caloriesChart {
+  .waterChart {
     width: 676px;
     height: 420px;
+    margin-top: 0px;
   }
 }

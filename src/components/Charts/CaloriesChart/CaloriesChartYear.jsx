@@ -1,6 +1,6 @@
 import React from 'react';
-// import { selectCharts } from 'redux/dashboard/selectors';
-// import { useSelector } from 'react-redux';
+import { selectCharts } from 'redux/dashboard/selectors';
+import { useSelector } from 'react-redux';
 import { Line } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -24,13 +24,13 @@ ChartJS.register(
 );
 
 export default function CaloriesChartYear() {
-  // const { graph } = useSelector(selectCharts);
+  const { graph } = useSelector(selectCharts);
+  // console.log(graph);
   // console.log(showMonth);
   // const labels = graph.days;
   // const DATE = new Date();
   // console.log(DATE);
   const labels = [
-    'Sep',
     'Aug',
     'Jul',
     'Jun',
@@ -42,17 +42,24 @@ export default function CaloriesChartYear() {
     'Dec',
     'Nov',
     'Oct',
+    'Sep',
   ];
-  const data = [0, 0, 0, 0, 0, 0, 0, 0, 1700, 1680, 1720, 1600];
+  // const data = [0, 0, 0, 0, 0, 0, 0, 0, 1700, 1680, 1720, 1600];
   let caption = 'K';
-
+  const calories = graph.calories;
+  // console.log(calories);
+  const caloriesProc = calories.filter(item => {
+    return item > 0;
+  });
+  const dataYear = Math.round(_.mean(caloriesProc));
+  // console.log(dataYear);
+  const data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, dataYear];
   const datasets = [
     {
       label: 'Calories',
       data: data,
       fill: false,
       showLine: true,
-      // strokeColor: 'rgba(255, 240, 196, 1)',
       borderColor: '#E3FFA8',
       borderWidth: 1,
       tension: 0.4,
@@ -136,10 +143,10 @@ export default function CaloriesChartYear() {
     },
   };
 
-  const processedData = data.filter(item => {
+  const processedData = caloriesProc.filter(item => {
     return item > 0;
   });
-  // console.log(processedData);
+
   const average = Math.round(_.mean(processedData));
 
   const dataOne = {

@@ -1,23 +1,34 @@
 import React from 'react';
+import { selectCharts } from 'redux/dashboard/selectors';
+import { useSelector } from 'react-redux';
 
 import css from './buildWeightChart.module.css';
 
+const _ = require('lodash');
+
 export default function BuildWeightChart() {
+  const { graph } = useSelector(selectCharts);
+
   const labels = [
-    'Sep',
-    'Aug',
-    'Jul',
-    'Jun',
+    'August',
+    'July',
+    'June',
     'May',
-    'Apr',
-    'Mar',
-    'Feb',
-    'Jan',
-    'Dec',
-    'Nov',
-    'Oct',
+    'April',
+    'March',
+    'February',
+    'January',
+    'December',
+    'November',
+    'October',
+    'September',
   ];
-  const data = [0, 0, 0, 0, 0, 0, 0, 0, 88, 89, 90, 91];
+  const weight = graph.weight;
+  const weightProc = weight.filter(item => {
+    return item > 0;
+  });
+  const dataYear = Math.round(_.mean(weightProc));
+  const data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, dataYear];
 
   return (
     <>
