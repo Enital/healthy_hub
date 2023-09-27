@@ -352,105 +352,6 @@ function Header() {
                   </div>
                 )}
 
-                {isModalGoalOpen && (
-                  <div className={css.modalOverly} onClick={handleOverlyClick}>
-                    <div className={css.modalGoalContent}>
-                      <img
-                        src={closeCircleSvg}
-                        alt="close modal svg"
-                        onClick={closeModalGoal}
-                        className={css.closeSvg}
-                      />
-                      <h3 className={css.headlineTarget}>Target selection</h3>
-                      <p className={css.textUnderHeadlineTarget}>
-                        The service will adjust your calorie intake to your goal
-                      </p>
-                      <div className={css.sectionChoiseGoal}>
-                        <div
-                          className={css.choiseTargetGoal}
-                          onClick={() => handleGoalSelect('Lose fat')}
-                        >
-                          <img
-                            src={loseFatMenEmoji}
-                            alt="lose Fat Men Emoji"
-                            className={`${css.emojiTargetGoal} ${
-                              isLoseFatSelected ? css.emojiTargetGoalActive : ''
-                            }`}
-                            onClick={handleLoseFatIconClick}
-                          />
-                          <p
-                            className={`${css.textEmojiGoal} ${
-                              isLoseFatSelected ? css.textEmojiGoalActive : ''
-                            }`}
-                            onClick={handleLoseFatClick}
-                          >
-                            Lose fat
-                          </p>
-                        </div>
-                        <div
-                          className={css.choiseTargetGoal}
-                          onClick={() => handleGoalSelect('Maintain')}
-                        >
-                          <img
-                            src={maintakeMenEmoji}
-                            alt="Maintake Men Emoji"
-                            className={`${css.emojiTargetGoal} ${
-                              isMaintainSelected
-                                ? css.emojiTargetGoalActive
-                                : ''
-                            }`}
-                            onClick={handleMaintainIconClick}
-                          />
-                          <p
-                            className={`${css.textEmojiGoal} ${
-                              isMaintainSelected ? css.textEmojiGoalActive : ''
-                            }`}
-                            onClick={handleMaintainClick}
-                          >
-                            Maintain
-                          </p>
-                        </div>
-                        <div
-                          className={css.choiseTargetGoal}
-                          onClick={() => handleGoalSelect('Gain muscle')}
-                        >
-                          <img
-                            src={gainMuscleEmoji}
-                            alt="Gain Muscle Emoji"
-                            className={`${css.emojiTargetGoal} ${
-                              isGainMuscleSelected
-                                ? css.emojiTargetGoalActive
-                                : ''
-                            }`}
-                            onClick={handleGainMuscleIconClick}
-                          />
-                          <p
-                            className={`${css.textEmojiGoal} ${
-                              isGainMuscleSelected
-                                ? css.textEmojiGoalActive
-                                : ''
-                            }`}
-                            onClick={handleGainMuscleClick}
-                          >
-                            Gain Muscle
-                          </p>
-                        </div>
-                        <div>
-                          <button
-                            onClick={handleConfirmGoal}
-                            className={css.modalGoalButton}
-                          >
-                            Confirm
-                          </button>
-                          <p className={css.cancel} onClick={closeModalGoal}>
-                            Cancel
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
                 <img
                   src={waightEmoji}
                   alt="Waight Emoji"
@@ -466,56 +367,6 @@ function Header() {
                   </div>
                 </div>
 
-                {isModalWeightOpen && (
-                  <div className={css.modalOverly} onClick={handleOverlyClick}>
-                    <div className={css.modalWeightContent}>
-                      <img
-                        src={closeCircleSvg}
-                        alt="close modal svg"
-                        onClick={closeModalWeight}
-                        className={css.closeSvg}
-                      />
-                      <h3 className={css.headlineEnter}>
-                        Enter your current weight
-                      </h3>
-                      <div className={css.sectionContentWeight}>
-                        <p className={css.textUnderHeadlineEnter}>
-                          You can record your weight once a day
-                        </p>
-                        <div className={css.data}>
-                          <p className={css.dataToday}>Today</p>
-                          <p className={css.textToday}>{formatDate}</p>
-                        </div>
-                        <div>
-                          <input
-                            type="text"
-                            id="weight"
-                            name="weight"
-                            value={inputWeight}
-                            onChange={handleChange}
-                            placeholder="Enter your weight"
-                            pattern="\d*"
-                            className={css.inputWeight}
-                            autocomplete="off"
-                          />
-                          <button
-                            onClick={handleConfirm}
-                            className={css.buttonWeightConfirm}
-                          >
-                            Confirm
-                          </button>
-                          <p
-                            className={css.cancelWeight}
-                            onClick={closeModalWeight}
-                          >
-                            Cancel
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
                 <div className={css.infoUserContent} onClick={toggleModal}>
                   <span>{name}</span>
                   <img
@@ -529,46 +380,6 @@ function Header() {
                     onClick={toggleModal}
                   />
                 </div>
-
-                {isModalUserOpen && (
-                  <div className={css.modalOverly} onClick={handleOverlyClick}>
-                    <div className={css.modalUserContent}>
-                      <div className={css.settingElement}>
-                        <img
-                          src={setting2Svg}
-                          alt="Setting Svg"
-                          className={css.setting2Svg}
-                        />
-                        <Link to="/settings" className={css.link}>
-                          <p
-                            className={css.textLinkSetting}
-                            onClick={() => {
-                              closeModalUser();
-                            }}
-                          >
-                            Setting
-                          </p>
-                        </Link>
-                      </div>
-                      <div className={css.logOutElement}>
-                        <img
-                          src={logOutSvg}
-                          alt="Setting Svg"
-                          className={css.logOutSvg}
-                        />
-                        <p
-                          className={css.textLinkLogOut}
-                          onClick={() => {
-                            closeModalUser();
-                            dispatch(logOut());
-                          }}
-                        >
-                          Log out
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                )}
               </div>
             </>
           ) : (
@@ -601,6 +412,186 @@ function Header() {
           )}
         </div>
       </header>
+
+      {/* ============ Backdrop ============ */}
+
+      {(isModalGoalOpen || isModalWeightOpen || isModalUserOpen) && (
+        <div className={css.modalOverly} onClick={handleOverlyClick}></div>
+      )}
+
+      {/* ========== Modal windows ==========*/}
+
+      <div className={css.modalWrapper}>
+        {isModalGoalOpen && (
+          <div className={css.modalGoalContent}>
+            <img
+              src={closeCircleSvg}
+              alt="close modal svg"
+              onClick={closeModalGoal}
+              className={css.closeSvg}
+            />
+            <h3 className={css.headlineTarget}>Target selection</h3>
+            <p className={css.textUnderHeadlineTarget}>
+              The service will adjust your calorie intake to your goal
+            </p>
+            <div className={css.sectionChoiseGoal}>
+              <div
+                className={css.choiseTargetGoal}
+                onClick={() => handleGoalSelect('Lose fat')}
+              >
+                <img
+                  src={loseFatMenEmoji}
+                  alt="lose Fat Men Emoji"
+                  className={`${css.emojiTargetGoal} ${
+                    isLoseFatSelected ? css.emojiTargetGoalActive : ''
+                  }`}
+                  onClick={handleLoseFatIconClick}
+                />
+                <p
+                  className={`${css.textEmojiGoal} ${
+                    isLoseFatSelected ? css.textEmojiGoalActive : ''
+                  }`}
+                  onClick={handleLoseFatClick}
+                >
+                  Lose fat
+                </p>
+              </div>
+              <div
+                className={css.choiseTargetGoal}
+                onClick={() => handleGoalSelect('Maintain')}
+              >
+                <img
+                  src={maintakeMenEmoji}
+                  alt="Maintake Men Emoji"
+                  className={`${css.emojiTargetGoal} ${
+                    isMaintainSelected ? css.emojiTargetGoalActive : ''
+                  }`}
+                  onClick={handleMaintainIconClick}
+                />
+                <p
+                  className={`${css.textEmojiGoal} ${
+                    isMaintainSelected ? css.textEmojiGoalActive : ''
+                  }`}
+                  onClick={handleMaintainClick}
+                >
+                  Maintain
+                </p>
+              </div>
+              <div
+                className={css.choiseTargetGoal}
+                onClick={() => handleGoalSelect('Gain muscle')}
+              >
+                <img
+                  src={gainMuscleEmoji}
+                  alt="Gain Muscle Emoji"
+                  className={`${css.emojiTargetGoal} ${
+                    isGainMuscleSelected ? css.emojiTargetGoalActive : ''
+                  }`}
+                  onClick={handleGainMuscleIconClick}
+                />
+                <p
+                  className={`${css.textEmojiGoal} ${
+                    isGainMuscleSelected ? css.textEmojiGoalActive : ''
+                  }`}
+                  onClick={handleGainMuscleClick}
+                >
+                  Gain Muscle
+                </p>
+              </div>
+              <div>
+                <button
+                  onClick={handleConfirmGoal}
+                  className={css.modalGoalButton}
+                >
+                  Confirm
+                </button>
+                <p className={css.cancel} onClick={closeModalGoal}>
+                  Cancel
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+        {isModalWeightOpen && (
+          <div className={css.modalWeightContent}>
+            <img
+              src={closeCircleSvg}
+              alt="close modal svg"
+              onClick={closeModalWeight}
+              className={css.closeSvg}
+            />
+            <h3 className={css.headlineEnter}>Enter your current weight</h3>
+            <div className={css.sectionContentWeight}>
+              <p className={css.textUnderHeadlineEnter}>
+                You can record your weight once a day
+              </p>
+              <div className={css.data}>
+                <p className={css.dataToday}>Today</p>
+                <p className={css.textToday}>{formatDate}</p>
+              </div>
+              <div>
+                <input
+                  type="text"
+                  id="weight"
+                  name="weight"
+                  value={inputWeight}
+                  onChange={handleChange}
+                  placeholder="Enter your weight"
+                  pattern="\d*"
+                  className={css.inputWeight}
+                  autocomplete="off"
+                />
+                <button
+                  onClick={handleConfirm}
+                  className={css.buttonWeightConfirm}
+                >
+                  Confirm
+                </button>
+                <p className={css.cancelWeight} onClick={closeModalWeight}>
+                  Cancel
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+        {isModalUserOpen && (
+          <div className={css.modalUserContent}>
+            <div className={css.settingElement}>
+              <img
+                src={setting2Svg}
+                alt="Setting Svg"
+                className={css.setting2Svg}
+              />
+              <Link to="/settings" className={css.link}>
+                <p
+                  className={css.textLinkSetting}
+                  onClick={() => {
+                    closeModalUser();
+                  }}
+                >
+                  Setting
+                </p>
+              </Link>
+            </div>
+            <div className={css.logOutElement}>
+              <img
+                src={logOutSvg}
+                alt="Setting Svg"
+                className={css.logOutSvg}
+              />
+              <p
+                className={css.textLinkLogOut}
+                onClick={() => {
+                  closeModalUser();
+                  dispatch(logOut());
+                }}
+              >
+                Log out
+              </p>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

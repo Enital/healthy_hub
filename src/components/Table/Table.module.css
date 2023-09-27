@@ -560,6 +560,26 @@ p {
     margin-bottom: 24px;
     margin-top: 24px;
     background-color: #0f0f0f;
+    max-height: 450px;        
+        overflow-y: auto;
+}
+.dairy_dish_wrapper::-webkit-scrollbar {
+    width: 5px;
+    /* Ширина скроллбара */
+}
+
+/* Стилизация бегунка (ползунка) скроллбара */
+.dairy_dish_wrapper::-webkit-scrollbar-thumb {
+    background-color:#121111;
+    /* Цвет бегунка */
+    border-radius: 5px;
+    /* Скругление углов бегунка */
+}
+
+/* Стилизация трека (фона) скроллбара */
+.dairy_dish_wrapper::-webkit-scrollbar-track {
+    background-color: #4d4b4b;
+    /* Цвет фона трека */
 }
 
 .wrapper_dishes_block {
@@ -589,6 +609,9 @@ p {
     margin-bottom: 9px;
 }
 
+.numbers {
+    background-color: #0f0f0f;
+}
 .number {
     font-size: 14px;
     line-height: 20px;
@@ -596,10 +619,12 @@ p {
     display: flex;
     flex-wrap: wrap;
     margin-right: 16px;
+    background-color: #0f0f0f;
 }
 
 .number:not(:last-child) {
     margin-bottom: 35px;
+    background-color: #0f0f0f;
 }
 
 .recordMealText {
@@ -641,6 +666,7 @@ p {
 
 .dairy_dish_list {
     overflow: hidden;
+    background-color: #0f0f0f;
 }
 
 .edit_pen {
@@ -751,6 +777,7 @@ p {
     .dairy_dish_list {
         width: 100%;
         height: 100%;
+        background-color: #0f0f0f;
     }
 
     /* .dairy_add_dish_item:not(:last-child) {
@@ -812,7 +839,29 @@ p {
         margin-bottom: 24px;
         margin-top: 24px;
         background-color: #0f0f0f;
-    }
+    
+                max-height: 450px;
+                overflow-y: auto;
+                }
+        
+                .dairy_dish_wrapper::-webkit-scrollbar {
+                    width: 5px;
+                    /* Ширина скроллбара */
+                }
+        
+                /* Стилизация бегунка (ползунка) скроллбара */
+                .dairy_dish_wrapper::-webkit-scrollbar-thumb {
+                    background-color: #121111;
+                    /* Цвет бегунка */
+                    border-radius: 5px;
+                    /* Скругление углов бегунка */
+                }
+        
+                /* Стилизация трека (фона) скроллбара */
+                .dairy_dish_wrapper::-webkit-scrollbar-track {
+                    background-color: #4d4b4b;
+                    /* Цвет фона трека */
+                }
 
     .dairy_title_lunch {
         width: 611px;
@@ -863,7 +912,29 @@ p {
         background-color: #0f0f0f;
             /* overflow-y: auto; */
        
-    }
+    
+                max-height: 450px;
+                overflow-y: auto;
+                }
+        
+                .dairy_dish_wrapper::-webkit-scrollbar {
+                    width: 5px;
+                    /* Ширина скроллбара */
+                }
+        
+                /* Стилизация бегунка (ползунка) скроллбара */
+                .dairy_dish_wrapper::-webkit-scrollbar-thumb {
+                    background-color: #121111;
+                    /* Цвет бегунка */
+                    border-radius: 5px;
+                    /* Скругление углов бегунка */
+                }
+        
+                /* Стилизация трека (фона) скроллбара */
+                .dairy_dish_wrapper::-webkit-scrollbar-track {
+                    background-color:#4d4b4b;
+                    /* Цвет фона трека */
+                }
 
     .dairy_elem_breakfast_span {
         font-size: 14px;
@@ -880,6 +951,7 @@ p {
         display: flex;
         align-items: center;
         flex-wrap: nowrap;
+        background-color: #050505;
         /* width: 100%; */
     }
 
