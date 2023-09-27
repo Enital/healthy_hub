@@ -14,6 +14,7 @@ function ForgotPassword() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    Notify.success('A password has been sent to your Email..');
     try {
       const res = await axios.post('auth/restore', {
         email: email.value,
@@ -21,13 +22,11 @@ function ForgotPassword() {
       handleClick();
       return res.data;
     } catch (error) {
+      
       Notify.failure(error.response.data.message);
       console.error(error);
     }
   }
-  const showSuccessNotification = () => {
-   Notify.success('A password has been sent to your Email..');
-  };
   let navigate = useNavigate();
   const handleClick = () => {
     navigate('./home');
@@ -58,7 +57,7 @@ function ForgotPassword() {
                 autocomplete="off"
               />
             </label>
-            <button className={css.send} type="submit" onClick={showSuccessNotification}>
+            <button className={css.send} type="submit" >
               Send
             </button>
           </form>
