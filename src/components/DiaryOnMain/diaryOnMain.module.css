@@ -418,3 +418,44 @@
     display: none;
   } */
 }
+
+.inputCPFC {
+  border: 1px solid rgba(227, 255, 168, 1);
+  border-radius: 12px;
+  width: 86px;
+  height: 36px;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba(182, 182, 182, 1);
+  font-family: Poppins;
+  padding-left: 10px;
+  gap: 10px;
+  background: black;
+  margin-right: 10px;
+}
+.input {
+  border: 1px solid rgba(227, 255, 168, 1);
+  border-radius: 12px;
+  width: 255px;
+  height: 36px;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba(182, 182, 182, 1);
+  font-family: Poppins;
+  padding-left: 10px;
+  gap: 10px;
+  background: black;
+  margin-right: 10px;
+}
+
+.inputError {
+  border: 2px solid #e74a3b;
+}
+.input::placeholder {
+  color: var(--color-primary-grey, #b6b6b6);
+  font-size: 14px;
+  line-height: 1.43;
+}
+ button:disabled {
+  background-color: #b6b6b6;
+}
