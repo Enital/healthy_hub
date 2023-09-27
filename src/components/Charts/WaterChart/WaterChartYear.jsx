@@ -27,7 +27,6 @@ export default function WaterChart() {
   const { graph } = useSelector(selectCharts);
   let caption = 'L';
   const labels = [
-    'Sep',
     'Aug',
     'Jul',
     'Jun',
@@ -39,6 +38,7 @@ export default function WaterChart() {
     'Dec',
     'Nov',
     'Oct',
+    'Sep',
   ];
   // const data = [0, 0, 0, 0, 0, 0, 0, 0, 1500, 1580, 1700, 1800];
 
