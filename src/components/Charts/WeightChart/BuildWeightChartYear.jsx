@@ -2,7 +2,7 @@ import React from 'react';
 import { selectCharts } from 'redux/dashboard/selectors';
 import { useSelector } from 'react-redux';
 
-import css from './buildWeightChart.module.css';
+import css from './buildWeightChartYear.module.css';
 
 const _ = require('lodash');
 

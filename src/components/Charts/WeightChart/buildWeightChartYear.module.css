@@ -18,9 +18,9 @@
   /* margin-right: 56px; */
 }
 
-/* .tableBlock:not(:last-child) {
+.tableBlock:not(:last-child) {
   margin-right: 56px;
-} */
+}
 
 .tableUpRow {
   font-size: 14px;
@@ -42,22 +42,31 @@
   .weightTable {
     width: 780px;
     height: 110px;
-  }
-}
-
-@media screen and(min-width: 834px) {
-  .weightTable {
     padding: 24px 20px 36px 22px;
   }
 
-  .tableBlock {
-    padding-right: 6px;
+  .tableBlock:not(:last-child) {
+    margin-right: 4px;
   }
 }
+
+/* @media screen and(min-width: 834px) {
+  .weightTable {
+    padding: 24px 20px 36px 22px;
+  } */
+
+/* .tableBlock {
+    padding-right: 6px;
+  } */
+/* } */
 
 @media screen and (min-width: 1440px) {
   .weightTable {
     width: 1372px;
     height: 110px;
+  }
+
+  .tableBlock:not(:last-child) {
+    margin-right: 56px;
   }
 }
