@@ -10,12 +10,8 @@ import {
   PointElement,
   Tooltip,
 } from 'chart.js';
-// import 'overlayscrollbars/overlayscrollbars.css';
-// import { OverlayScrollbars } from 'overlayscrollbars';
-// import SimpleBar from 'simplebar-react';
 
 import css from './caloriesChart.module.css';
-// import 'simplebar-react/dist/simplebar.min.css';
 
 const _ = require('lodash');
 
@@ -29,13 +25,7 @@ ChartJS.register(
 
 export default function CaloriesChart({ showMonth }) {
   const { graph } = useSelector(selectCharts);
-  // console.log(showMonth);
-  // const tableContainerRef = useRef(null);
-  // useEffect(() => {
-  //   if (tableContainerRef.current) {
-  //     OverlayScrollbars(tableContainerRef.current, {});
-  //   }
-  // }, []);
+
   const labels = graph.days;
   const data = graph.calories;
   let caption = 'K';
@@ -141,55 +131,13 @@ export default function CaloriesChart({ showMonth }) {
     return item > 0;
   });
 
-  // console.log(processedData);
   const average = Math.round(_.mean(processedData));
 
   const dataOne = {
     labels,
     datasets,
   };
-  // const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  // useEffect(() => {
-  //   window.onresize = () => {
-  //     setWindowWidth(window.innerWidth);
-  //     return () => {
-  //       windowWidth.onresize = false;
-  //     };
-  //   };
-  // }, [windowWidth]);
-  // console.log(windowWidth);
-  // if (windowWidth <= 834) {
-  //   return (
-  //     <div className={css.caloriesChart}>
-  //       <div className={css.caloriesTitle}>
-  //         <p className={css.chartTitle}>Calories</p>
-  //         <p className={css.chartSubtitle}>
-  //           Average value: <span className={css.average}>{average} cal</span>
-  //         </p>
-  //       </div>
-  //       <SimpleBar style={{ maxWidth: 310 }}>
-  //         <div className={css.chart}>
-  //           <Line options={options} data={dataOne} />
-  //         </div>
-  //       </SimpleBar>
-  //     </div>
-  //   );
-  // } else {
-  //   return (
-  //     <div className={css.caloriesChart}>
-  //       <div className={css.caloriesTitle}>
-  //         <p className={css.chartTitle}>Calories</p>
-  //         <p className={css.chartSubtitle}>
-  //           Average value: <span className={css.average}>{average} cal</span>
-  //         </p>
-  //       </div>
-  //       <div className={css.chart}>
-  //         <Line options={options} data={dataOne} />
-  //       </div>
-  //     </div>
-  //   );
-  // }
   return (
     <div className={css.caloriesChart}>
       <div className={css.caloriesTitle}>

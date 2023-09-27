@@ -1,11 +1,8 @@
 import React from 'react';
-// import { selectCharts } from 'redux/dashboard/selectors';
-// import { useSelector } from 'react-redux';
 
 import css from './buildWeightChart.module.css';
 
 export default function BuildWeightChart() {
-  // const { graph } = useSelector(selectCharts);
   const labels = [
     'Sep',
     'Aug',
@@ -21,44 +18,6 @@ export default function BuildWeightChart() {
     'Oct',
   ];
   const data = [0, 0, 0, 0, 0, 0, 0, 0, 88, 89, 90, 91];
-  // const randomScaling = function () {
-  //   return (
-  //     (Math.random() > 0.5 ? 1.0 : 1.0) * Math.round(Math.random() * 5 + 60)
-  //   );
-  // };
-  // const data = [
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  //   randomScaling(),
-  // ];
 
   return (
     <>

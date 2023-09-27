@@ -12,22 +12,18 @@ import { fetchGraph } from 'redux/dashboard/operations';
 import { selectCharts } from 'redux/dashboard/selectors';
 import leftArrow from '../../images/icons/arrow-left.svg';
 import arrowDownSvg from '../../images/icons/arrow-down.svg';
-// import SimpleBar from 'simplebar-react';
-// import 'simplebar-react/dist/simplebar.min.css';
 
 import css from './dashboard.module.css';
 
 const Dashboard = () => {
   const [showModal, setShowModal] = useState(false);
   const [showMonth, setShowMonth] = useState(true);
-  // const [showScroll, setShowScroll] = useState(false);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchGraph());
   }, [dispatch]);
 
   const { graph } = useSelector(selectCharts);
-  // console.log(graph);
   const today = new Date();
   const todayYear = today.getFullYear();
   const lastYear = todayYear - 1;
@@ -52,21 +48,6 @@ const Dashboard = () => {
     closeModal();
   };
 
-  // const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  // useEffect(() => {
-  // window.onresize = () => {
-  // setWindowWidth(window.innerWidth);
-  // return () => {
-  //   windowWidth.onresize = false;
-  // };
-  // };
-  // console.log(windowWidth);
-  //   if (windowWidth < 834) {
-  //     setShowScroll(true);
-  //   }
-  // }, [windowWidth]);
-
   return (
     <div className={css.container}>
       <div className={css.dashboardContainer}>
@@ -86,7 +67,6 @@ const Dashboard = () => {
               <img
                 src={arrowDownSvg}
                 alt="down arrow"
-                // className={css.arrowDownSvg}
                 style={{
                   transform: toggleModal ? 'rotate(180deg)' : 'rotate(0deg)',
                 }}
@@ -106,7 +86,6 @@ const Dashboard = () => {
           </ul>
           <p className={css.month}>{showMonth ? twoMonth : twoYear}</p>
         </div>
-        {/* <div className={css.scrollContainer}> */}
         <div className={css.chartContainer}>
           {showMonth ? (
             <div className={css.scrollWrapper}>
@@ -128,7 +107,6 @@ const Dashboard = () => {
           )}
         </div>
         <WeightChart showMonth={showMonth} />
-        {/* </div> */}
       </div>
     </div>
   );
