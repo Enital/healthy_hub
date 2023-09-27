@@ -26,19 +26,20 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
 
   const [inputFields, setInputFields] = useState(initialInputFields);
   if (!isOpen) return null;
-
   const disabledValid = () => {
-    if (
-      placeholderData.name.length < 1 ||
-      placeholderData.carbohydrates.length < 1 ||
-      placeholderData.protein.length < 1 ||
-      placeholderData.fat.length < 1 ||
-      placeholderData.calories.length < 1
-    ) {
-      return true;
-    } else {
-      return false;
+    // Loop through the array and check each object's properties
+    for (const data of placeholderData) {
+      if (
+        data.name.length < 1 ||
+        data.carbohydrates.length < 1 ||
+        data.protein.length < 1 ||
+        data.fat.length < 1 ||
+        data.calories.length < 1
+      ) {
+        return true; // Disable the button if any field is empty
+      }
     }
+    return false; // Enable the button if all fields are filled
   };
 
   const handleAddField = () => {
@@ -247,8 +248,8 @@ const MealModal = ({ isOpen, onClose, mealName, closeModal }) => {
             </button>
             <button
               className={css.confirm}
-              disabled={disabledValid()}
               onClick={handleConfirm}
+              disabled={disabledValid()}
             >
               Confirm
             </button>

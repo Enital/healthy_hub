@@ -448,3 +448,6 @@
   font-size: 14px;
   line-height: 1.43;
 }
+ button:disabled {
+  background-color: #b6b6b6;
+}
