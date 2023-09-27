@@ -28,7 +28,7 @@ export const register = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       showError(error);
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -148,7 +148,7 @@ export const updateAvatar = createAsyncThunk(
     try {
       setAuthHeader(thunkAPI.getState().auth.token);
       const response = await axios.patch('/auth/avatar', formFile);
-      console.log(response.data);
+      // console.log(response.data);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
