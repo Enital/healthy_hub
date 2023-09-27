@@ -10,12 +10,8 @@ import {
   PointElement,
   Tooltip,
 } from 'chart.js';
-// import 'overlayscrollbars/overlayscrollbars.css';
-// import { OverlayScrollbars } from 'overlayscrollbars';
-// import SimpleBar from 'simplebar-react';
 
 import css from './waterChart.module.css';
-// import 'simplebar-react/dist/simplebar.min.css';
 
 const _ = require('lodash');
 
@@ -32,13 +28,6 @@ export default function WaterChart() {
   const labels = graph.days;
   const data = graph.water;
   let caption = 'L';
-
-  // const tableContainerRef = useRef(null);
-  // useEffect(() => {
-  //   if (tableContainerRef.current) {
-  //     OverlayScrollbars(tableContainerRef.current, {});
-  //   }
-  // }, []);
 
   const datasets = [
     {
