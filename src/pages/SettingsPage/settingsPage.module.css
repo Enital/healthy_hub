@@ -188,6 +188,15 @@
     width: 212px;
     margin-bottom: 0;
   }
+  .inputTextError {
+    border: 2px solid #e74a3b;
+  }
+
+  .input::placeholder {
+    color: var(--color-primary-grey, #b6b6b6);
+    font-size: 14px;
+    line-height: 1.43;
+  }
 
   .settingsInputs {
     display: flex;
@@ -267,7 +276,6 @@
     margin-right: 0;
     display: flex;
     flex-wrap: wrap;
-
   }
 
   .profileSettings {
@@ -288,7 +296,11 @@
     align-items: center;
     justify-content: center;
   }
-  .pForAcrivity{
+  .pForAcrivity {
     width: 560px;
   }
+}
+button:disabled,
+.settingsSaveBTN:disabled {
+  background-color: #b6b6b6;
 }
