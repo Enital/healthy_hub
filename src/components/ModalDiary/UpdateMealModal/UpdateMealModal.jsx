@@ -3,6 +3,7 @@ import css from './UpdateMealModal.module.css';
 import Modal from 'react-modal';
 import { useDispatch } from 'react-redux';
 import { UpdateFood } from 'redux/usersGoal/operations';
+import scrollLock from 'scroll-lock';
 
 export const customStyles = {
   overlay: {
@@ -23,6 +24,13 @@ const UpdateMealModal = ({
 }) => {
   const id = foodId;
   const dispatch = useDispatch();
+
+  if (updateMealModalOpen) {
+    scrollLock.disablePageScroll(document.body);
+  } else if (!updateMealModalOpen) {
+    scrollLock.clearQueueScrollLocks();
+    scrollLock.enablePageScroll();
+  }
 
   const [placeholderData, setPlaceholderData] = useState({
     name: '',
