@@ -3,8 +3,8 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 24px 0; transition: width 0.5s ease;
-  
+  padding: 24px 0;
+  transition: width 0.5s ease;
 }
 
 .img {
@@ -228,6 +228,18 @@
   .question {
     width: 238px;
     padding-left: 0;
+  }
+}
+
+@media screen and (max-width: 834px) {
+  .checkbox {
+    position: absolute;
+    appearance: revert;
+    cursor: pointer;
+    top: 50%;
+    left: 55%;
+    right: 14px;
+    top: 14px;
   }
 }
 

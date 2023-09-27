@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { format } from 'date-fns';
@@ -11,9 +11,7 @@ import arrowRightSvg from '../../images/icons/arrow-right.svg';
 
 import { logOut } from '../../redux/auth/operations';
 import { updateGoal, weightGoalUpdate } from '../../redux/usersGoal/operations';
-
 import { useAuth } from '../../redux/auth/useAuth';
-
 import { updateGoalAuth, updateWeight } from '../../redux/auth/operations';
 
 import arrowDownSvg from '../../images/icons/arrow-down.svg';
@@ -40,9 +38,11 @@ function Header() {
 
   const [inputWeight, setInputWeight] = useState('');
 
-  const [isLoseFatSelected, setIsLoseFatSelected] = useState(false);
-  const [isMaintainSelected, setIsMaintainSelected] = useState(false);
-  const [isGainMuscleSelected, setIsGainMuscleSelected] = useState(false);
+  const savedGoal = localStorage.getItem('selectedGoal');
+
+  const [isLoseFatSelected, setIsLoseFatSelected] = useState(savedGoal === 'Lose fat');
+  const [isMaintainSelected, setIsMaintainSelected] = useState(savedGoal === 'Maintain');
+  const [isGainMuscleSelected, setIsGainMuscleSelected] = useState(savedGoal === 'Gain muscle');
 
   const [activeLink, setActiveLink] = useState(null);
 
@@ -67,12 +67,21 @@ function Header() {
 
   const handleGoalSelect = goalEmoji => {
     setSelectedGoal(goalEmoji);
+    localStorage.setItem('selectedGoal', goalEmoji);
   };
+
+  useEffect(() => {
+    const savedGoal = localStorage.getItem('selectedGoal');
+    if (savedGoal) {
+      setSelectedGoal(savedGoal);
+    }
+  }, []);
 
   const handleChange = event => {
     setInputWeight(event.target.value);
   };
 
+  // checking weight changes
   const handleConfirm = () => {
     dispatch(updateWeight(inputWeight))
       .then(() => {
@@ -92,6 +101,7 @@ function Header() {
       });
   };
 
+  //checking the selection of a new target
   const handleConfirmGoal = () => {
     if (!selectedGoal) {
       console.error('Ціль не обрана');
@@ -100,6 +110,7 @@ function Header() {
     dispatch(updateGoal(selectedGoal))
       .then(() => {
         closeModalGoal();
+        localStorage.setItem('selectedGoal', selectedGoal);
       })
       .catch(error => {
         console.error('Помилка при оновленні цілі', error);
@@ -108,12 +119,14 @@ function Header() {
     dispatch(updateGoalAuth(selectedGoal))
       .then(() => {
         closeModalGoal();
+        localStorage.setItem('selectedGoal', selectedGoal);
       })
       .catch(error => {
         console.error('Помилка при оновленні цілі', error);
       });
   };
 
+  // stylization of selected icons 
   const handleLoseFatIconClick = () => {
     setIsLoseFatSelected(true);
     setIsMaintainSelected(false);
@@ -150,6 +163,7 @@ function Header() {
     setIsGainMuscleSelected(true);
   };
 
+  //open close modals
   const openModalGoal = () => {
     setIsModalGoalOpen(true);
     setIsModalWeightOpen(false);
@@ -235,6 +249,8 @@ function Header() {
             onClick={openModalMobile}
           />
 
+
+
           {isModalMobileOpen && (
             <div>
               <div className={css.modalMobileContent}>
@@ -307,6 +323,9 @@ function Header() {
               </div>
             </div>
           )}
+
+
+
 
           {isLoggedIn ? (
             <>
@@ -419,7 +438,7 @@ function Header() {
         <div className={css.modalOverly} onClick={handleOverlyClick}></div>
       )}
 
-      {/* ========== Modal windows ==========*/}
+      {/* ========== Modals windows ==========*/}
 
       <div className={css.modalWrapper}>
         {isModalGoalOpen && (
@@ -512,6 +531,9 @@ function Header() {
             </div>
           </div>
         )}
+
+
+
         {isModalWeightOpen && (
           <div className={css.modalWeightContent}>
             <img
@@ -554,6 +576,9 @@ function Header() {
             </div>
           </div>
         )}
+
+
+
         {isModalUserOpen && (
           <div className={css.modalUserContent}>
             <div className={css.settingElement}>

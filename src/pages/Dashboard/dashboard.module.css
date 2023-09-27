@@ -12,15 +12,14 @@
 }
 
 .scrollWrapper::-webkit-scrollbar {
+  margine-top: -5px;
   height: 8px;
   /* Висота скроллбара */
 }
 
 /* Стилизация бегунка (ползунка) скроллбара */
 .scrollWrapper::-webkit-scrollbar-thumb {
-  /* background-color: #121111; */
   background-color: rgb(255, 255, 255, 0.1);
-  /* background-color: #4d4b4b; */
   /* Цвет бегунка */
   border-radius: 12px;
   /* Скругление углов бегунка */
@@ -28,7 +27,6 @@
 
 /* Стилизация трека (фона) скроллбара */
 .scrollWrapper::-webkit-scrollbar-track {
-  /* background-color: #4d4b4b; */
   background-color: rgb(15, 15, 15, 1);
   /* Цвет фона трека */
 }
@@ -38,6 +36,7 @@
   flex-direction: column;
   position: relative;
   margin-right: 6px;
+  margin-bottom: 6px;
 }
 
 .dashboardTitleP {
@@ -105,7 +104,7 @@
 }
 
 /* TABLET */
-@media screen and (min-width: 834px) {
+@media screen and (min-width: 834px) and (max-width: 1439px) {
   .container {
     width: 834px;
     padding-left: 27px;
@@ -114,7 +113,7 @@
 
   .scrollWrapper {
     overflow-x: hidden;
-    height: 487px;
+    height: 488px;
   }
 
   .dashboardTitle {
@@ -156,6 +155,11 @@
 
   .scrollWrapper {
     width: 100%;
+    height: 440px;
     overflow-x: hidden;
+  }
+
+  .dashboardTitle {
+    margin-bottom: 0px;
   }
 }
