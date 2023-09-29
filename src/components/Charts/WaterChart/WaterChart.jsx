@@ -126,7 +126,12 @@ export default function WaterChart() {
   const processedData = data.filter(item => {
     return item > 0;
   });
-  const average = Math.round(_.mean(processedData));
+  let average = 0;
+  const arrayLength = data.length - 1;
+  if (graph.water[arrayLength] > 0) {
+    average = Math.round(_.mean(processedData));
+    return average;
+  }
 
   return (
     <div className={css.waterChart}>

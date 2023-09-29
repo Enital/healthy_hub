@@ -28,6 +28,7 @@ export default function CaloriesChart({ showMonth }) {
 
   const labels = graph.days;
   const data = graph.calories;
+  console.log(data);
   let caption = 'K';
 
   const datasets = [
@@ -130,8 +131,12 @@ export default function CaloriesChart({ showMonth }) {
   const processedData = data.filter(item => {
     return item > 0;
   });
-
-  const average = Math.round(_.mean(processedData));
+  let average = 0;
+  const arrayLength = data.length - 1;
+  if (graph.calories[arrayLength] > 0) {
+    average = Math.round(_.mean(processedData));
+    return average;
+  }
 
   const dataOne = {
     labels,

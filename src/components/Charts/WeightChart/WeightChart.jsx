@@ -15,7 +15,14 @@ export default function WeightChart({ showMonth }) {
   const processedData = data.filter(item => {
     return item > 0;
   });
-  const average = _.mean(processedData).toFixed(1);
+  let average = 0;
+  const arrayLength = data.length - 1;
+  if (graph.weight[arrayLength] > 0) {
+    average = Math.round(_.mean(processedData).toFixed(1));
+    return average;
+  }
+
+  // const average = _.mean(processedData).toFixed(1);
 
   return (
     <div className={css.weightChart}>
