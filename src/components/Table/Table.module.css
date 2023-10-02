@@ -586,7 +586,7 @@ p {
     display: flex;
     padding: 16px 12px;
     border-radius: 12px;
-    background-color: #0f0f0f;
+    background-color: #0f0f0f;    
 }
 
 .dairy_add_dish_item {
@@ -680,8 +680,7 @@ p {
     height: 20px;
 }
 
-.dairy_elem_breakfast_list {
-    width: 214px;
+.dairy_elem_breakfast_list {    
     padding-left: 0;
     display: flex;
     justify-content: space-between;
@@ -820,9 +819,7 @@ p {
 
     .dairy_icons_edit {
         display: flex;
-        align-items:
-
-        /* align-items: center; */
+        
     }
 
     .dairy_breakfast_item,
