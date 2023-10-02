@@ -12,8 +12,9 @@ import {
 } from 'chart.js';
 
 import css from './waterChart.module.css';
+import zeroUpdate from 'components/Functions/zeroUpdate';
 
-const _ = require('lodash');
+// const _ = require('lodash');
 
 ChartJS.register(
   LineElement,
@@ -123,17 +124,18 @@ export default function WaterChart() {
     },
   };
 
-  const processedData = data.filter(item => {
-    return item > 0;
-  });
-  const average = Math.round(_.mean(processedData));
+  // const processedData = data.filter(item => {
+  //   return item > 0;
+  // });
+  // const average = Math.round(_.mean(processedData));
 
   return (
     <div className={css.waterChart}>
       <div className={css.waterTitle}>
         <p className={css.chartTitle}>Water</p>
         <p className={css.chartSubtitle}>
-          Average value: <span className={css.average}>{average} ml</span>
+          Average value:{' '}
+          <span className={css.average}>{zeroUpdate(data)} ml</span>
         </p>
       </div>
       <div className={css.chart}>

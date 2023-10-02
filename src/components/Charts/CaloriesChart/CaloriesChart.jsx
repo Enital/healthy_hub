@@ -12,8 +12,9 @@ import {
 } from 'chart.js';
 
 import css from './caloriesChart.module.css';
+import zeroUpdate from 'components/Functions/zeroUpdate';
 
-const _ = require('lodash');
+// const _ = require('lodash');
 
 ChartJS.register(
   LineElement,
@@ -127,23 +128,32 @@ export default function CaloriesChart({ showMonth }) {
     },
   };
 
-  const processedData = data.filter(item => {
-    return item > 0;
-  });
-
-  const average = Math.round(_.mean(processedData));
+  // const processedData = data.filter(item => {
+  //   return item > 0;
+  // });
+  // let average = 0;
+  // if (processedData < 1) {
+  //   average = 0;
+  //   return 0;
+  // } else {
+  //   const average = Math.round(_.mean(processedData));
+  //   console.log(average);
+  //   return average;
+  // }
+  // zeroUpdate(graph.calories);
 
   const dataOne = {
     labels,
     datasets,
   };
-
+  console.log(zeroUpdate(data));
   return (
     <div className={css.caloriesChart}>
       <div className={css.caloriesTitle}>
         <p className={css.chartTitle}>Calories</p>
         <p className={css.chartSubtitle}>
-          Average value: <span className={css.average}>{average} cal</span>
+          Average value:{' '}
+          <span className={css.average}>{zeroUpdate(data)} cal</span>
         </p>
       </div>
       <div className={css.chart}>
