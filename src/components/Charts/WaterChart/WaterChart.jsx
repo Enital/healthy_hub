@@ -13,6 +13,7 @@ import {
 
 import css from './waterChart.module.css';
 import zeroUpdate from 'components/Functions/zeroUpdate';
+import monthData from 'components/Functions/monthData';
 
 // const _ = require('lodash');
 
@@ -26,8 +27,13 @@ ChartJS.register(
 
 export default function WaterChart() {
   const { graph } = useSelector(selectCharts);
-  const labels = graph.days;
-  const data = graph.water;
+  // const labels = graph.days;
+  // const data = graph.water;
+  const waterData = monthData(graph.days, graph.water);
+  // console.log(caloriesData);
+  const labels = waterData.days;
+  // console.log(labels);
+  const data = waterData.data;
   let caption = 'L';
 
   const datasets = [

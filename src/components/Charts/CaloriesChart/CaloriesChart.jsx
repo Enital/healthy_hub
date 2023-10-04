@@ -13,6 +13,7 @@ import {
 
 import css from './caloriesChart.module.css';
 import zeroUpdate from 'components/Functions/zeroUpdate';
+import monthData from 'components/Functions/monthData';
 
 // const _ = require('lodash');
 
@@ -26,9 +27,15 @@ ChartJS.register(
 
 export default function CaloriesChart({ showMonth }) {
   const { graph } = useSelector(selectCharts);
-
-  const labels = graph.days;
-  const data = graph.calories;
+  // console.log(showMonth);
+  // const labels = graph.days;
+  // console.log(labels);
+  // const data = graph.calories;
+  const caloriesData = monthData(graph.days, graph.calories);
+  // console.log(caloriesData);
+  const labels = caloriesData.days;
+  // console.log(labels);
+  const data = caloriesData.data;
   let caption = 'K';
 
   const datasets = [
@@ -146,13 +153,13 @@ export default function CaloriesChart({ showMonth }) {
     labels,
     datasets,
   };
-  console.log(zeroUpdate(data));
+  // console.log(zeroUpdate(data));
   return (
     <div className={css.caloriesChart}>
       <div className={css.caloriesTitle}>
         <p className={css.chartTitle}>Calories</p>
         <p className={css.chartSubtitle}>
-          Average value:{' '}
+          Average value:
           <span className={css.average}>{zeroUpdate(data)} cal</span>
         </p>
       </div>

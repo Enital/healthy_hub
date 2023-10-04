@@ -8,10 +8,10 @@ export function setToken(token) {
 }
 
 export const fetchGraph = createAsyncThunk(
-  'user/graph-v2?period=31',
+  'user/graph-v2?period=365',
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get('/user/graph-v2?period=31');
+      const response = await axios.get('/user/graph-v2?period=365');
       setToken(thunkAPI.getState().auth.token);
       return response.data;
     } catch (e) {
