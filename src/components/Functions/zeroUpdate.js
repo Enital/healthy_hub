@@ -4,6 +4,7 @@ export default function zeroUpdate(array) {
   const processedData = array.filter(item => {
     return item > 0;
   });
+
   if (processedData < 1) {
     return 0;
   } else {

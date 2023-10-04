@@ -28,8 +28,6 @@ const Dashboard = () => {
   const todayYear = today.getFullYear();
   const lastYear = todayYear - 1;
   const twoYear = todayYear + '-' + lastYear;
-  // const todayMonth = today.getMonth();
-  // console.log(todayMonth);
 
   const twoMonth = graph.labels.monthLong;
 

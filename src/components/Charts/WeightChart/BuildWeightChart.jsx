@@ -3,11 +3,13 @@ import { selectCharts } from 'redux/dashboard/selectors';
 import { useSelector } from 'react-redux';
 
 import css from './buildWeightChart.module.css';
+import monthData from 'components/Functions/monthData';
 
 export default function BuildWeightChart() {
   const { graph } = useSelector(selectCharts);
-  const labels = graph.days;
-  const data = graph.weight;
+  const weightData = monthData(graph.days, graph.weight);
+  const labels = weightData.days;
+  const data = weightData.data;
   return (
     <>
       <div className={css.weightTable}>

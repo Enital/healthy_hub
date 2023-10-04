@@ -69,6 +69,10 @@
     width: 780px;
     height: 130px;
   }
+
+  .chartTitle {
+    margin-right: 40px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -79,6 +83,10 @@
 
   .chart {
     width: 1372px;
+  }
+
+  .chartTitle {
+    margin-right: 58px;
   }
 }
 

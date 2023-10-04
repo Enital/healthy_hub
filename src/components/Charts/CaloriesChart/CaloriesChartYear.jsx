@@ -12,6 +12,8 @@ import {
 } from 'chart.js';
 
 import css from './caloriesChart.module.css';
+import yearData from 'components/Functions/yearData';
+import yearUpdate from 'components/Functions/yearUpdate';
 
 const _ = require('lodash');
 
@@ -25,35 +27,13 @@ ChartJS.register(
 
 export default function CaloriesChartYear() {
   const { graph } = useSelector(selectCharts);
-  // console.log(graph);
-  // console.log(showMonth);
-  // const labels = graph.days;
-  // const DATE = new Date();
-  // console.log(DATE);
-  const labels = [
-    'Aug',
-    'Jul',
-    'Jun',
-    'May',
-    'Apr',
-    'Mar',
-    'Feb',
-    'Jan',
-    'Dec',
-    'Nov',
-    'Oct',
-    'Sep',
-  ];
-  // const data = [0, 0, 0, 0, 0, 0, 0, 0, 1700, 1680, 1720, 1600];
+
+  const caloriesData = yearData(graph.days, graph.calories);
+  const data = caloriesData;
+  const labelsYear = yearUpdate();
+  const labels = labelsYear;
   let caption = 'K';
-  const calories = graph.calories;
-  // console.log(calories);
-  const caloriesProc = calories.filter(item => {
-    return item > 0;
-  });
-  const dataYear = Math.round(_.mean(caloriesProc));
-  // console.log(dataYear);
-  const data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, dataYear];
+
   const datasets = [
     {
       label: 'Calories',
@@ -114,9 +94,8 @@ export default function CaloriesChartYear() {
         cornerRadius: 8,
         caretSize: 0,
         padding: 10,
-        // backgroundShadowColor: 'rgba(227, 255, 168, 0.1)',
-        // borderColor: 'rgba(227, 255, 168, 0.1)',
-        // borderWidth: 3,
+        borderColor: 'rgba(227, 255, 168, 0.1)',
+        borderWidth: 3,
         backgroundColor: '#0f0f0f',
         titleFont: {
           weight: 'bold',
@@ -143,7 +122,7 @@ export default function CaloriesChartYear() {
     },
   };
 
-  const processedData = caloriesProc.filter(item => {
+  const processedData = data.filter(item => {
     return item > 0;
   });
 

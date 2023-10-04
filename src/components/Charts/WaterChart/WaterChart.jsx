@@ -13,8 +13,7 @@ import {
 
 import css from './waterChart.module.css';
 import zeroUpdate from 'components/Functions/zeroUpdate';
-
-// const _ = require('lodash');
+import monthData from 'components/Functions/monthData';
 
 ChartJS.register(
   LineElement,
@@ -26,8 +25,9 @@ ChartJS.register(
 
 export default function WaterChart() {
   const { graph } = useSelector(selectCharts);
-  const labels = graph.days;
-  const data = graph.water;
+  const waterData = monthData(graph.days, graph.water);
+  const labels = waterData.days;
+  const data = waterData.data;
   let caption = 'L';
 
   const datasets = [
@@ -52,8 +52,6 @@ export default function WaterChart() {
     datasets,
   };
 
-  // #292928;
-  // const newWater = items.water.filter(item => item !== 0);
   const options = {
     responsive: true,
     scales: {
@@ -123,11 +121,6 @@ export default function WaterChart() {
       },
     },
   };
-
-  // const processedData = data.filter(item => {
-  //   return item > 0;
-  // });
-  // const average = Math.round(_.mean(processedData));
 
   return (
     <div className={css.waterChart}>
