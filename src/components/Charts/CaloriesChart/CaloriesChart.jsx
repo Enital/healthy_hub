@@ -15,8 +15,6 @@ import css from './caloriesChart.module.css';
 import zeroUpdate from 'components/Functions/zeroUpdate';
 import monthData from 'components/Functions/monthData';
 
-// const _ = require('lodash');
-
 ChartJS.register(
   LineElement,
   CategoryScale,
@@ -27,14 +25,10 @@ ChartJS.register(
 
 export default function CaloriesChart({ showMonth }) {
   const { graph } = useSelector(selectCharts);
-  // console.log(showMonth);
-  // const labels = graph.days;
-  // console.log(labels);
-  // const data = graph.calories;
+
   const caloriesData = monthData(graph.days, graph.calories);
-  // console.log(caloriesData);
+
   const labels = caloriesData.days;
-  // console.log(labels);
   const data = caloriesData.data;
   let caption = 'K';
 
@@ -58,7 +52,6 @@ export default function CaloriesChart({ showMonth }) {
 
   const options = {
     responsive: true,
-    // maintainAspectRatio: false,
     scales: {
       y: {
         min: 0,
@@ -106,9 +99,8 @@ export default function CaloriesChart({ showMonth }) {
         cornerRadius: 8,
         caretSize: 0,
         padding: 10,
-        // backgroundShadowColor: 'rgba(227, 255, 168, 0.1)',
-        // borderColor: 'rgba(227, 255, 168, 0.1)',
-        // borderWidth: 3,
+        borderColor: 'rgba(227, 255, 168, 0.1)',
+        borderWidth: 3,
         backgroundColor: '#0f0f0f',
         titleFont: {
           weight: 'bold',
@@ -135,25 +127,11 @@ export default function CaloriesChart({ showMonth }) {
     },
   };
 
-  // const processedData = data.filter(item => {
-  //   return item > 0;
-  // });
-  // let average = 0;
-  // if (processedData < 1) {
-  //   average = 0;
-  //   return 0;
-  // } else {
-  //   const average = Math.round(_.mean(processedData));
-  //   console.log(average);
-  //   return average;
-  // }
-  // zeroUpdate(graph.calories);
-
   const dataOne = {
     labels,
     datasets,
   };
-  // console.log(zeroUpdate(data));
+
   return (
     <div className={css.caloriesChart}>
       <div className={css.caloriesTitle}>

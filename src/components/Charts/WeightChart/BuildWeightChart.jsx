@@ -7,12 +7,8 @@ import monthData from 'components/Functions/monthData';
 
 export default function BuildWeightChart() {
   const { graph } = useSelector(selectCharts);
-  // const labels = graph.days;
-  // const data = graph.weight;
   const weightData = monthData(graph.days, graph.weight);
-  // console.log(caloriesData);
   const labels = weightData.days;
-  // console.log(labels);
   const data = weightData.data;
   return (
     <>

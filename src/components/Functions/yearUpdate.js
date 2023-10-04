@@ -1,33 +1,29 @@
-export default function createGraphData(days, datesList, valuesList) {
-  // const beginDate = createPeriod(days).begin;
+export default function yearUpdate() {
+  const MONTH = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ];
+  let yearMonth = [];
+  const today = new Date();
+  const todayMonth = today.getMonth();
 
-  const allDatesByPeriod = [];
-  for (let i = 0; i < days; i += 1) {
-    const currentDate = addDays(beginDate, i);
-    allDatesByPeriod.push(format(currentDate, 'yyyy-MM-dd'));
-  }
-
-  const allDaysByPeriod = [];
-  for (let i = 0; i < days; i += 1) {
-    const currentDay = addDays(beginDate, i);
-    allDaysByPeriod.push(format(currentDay, 'd'));
-  }
-
-  const allValuesByPeriod = [];
-  let previousValue = 0;
-  for (let i = 0; i < days; i += 1) {
-    const currentDate = allDatesByPeriod[i];
-    const index = datesList.indexOf(currentDate);
-    if (index === -1) {
-      allValuesByPeriod.push(previousValue);
+  for (let i = 0; i < 12; i += 1) {
+    if (todayMonth + i > 10) {
+      yearMonth[i] = MONTH[todayMonth + i - 11];
     } else {
-      allValuesByPeriod.push(valuesList[index]);
-      previousValue = valuesList[index];
+      yearMonth[i] = MONTH[todayMonth + i + 1];
     }
   }
 
-  return {
-    days: allDaysByPeriod,
-    values: allValuesByPeriod,
-  };
+  return yearMonth;
 }

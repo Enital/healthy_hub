@@ -12,6 +12,8 @@ import {
 } from 'chart.js';
 
 import css from './waterChart.module.css';
+import yearData from 'components/Functions/yearData';
+import yearUpdate from 'components/Functions/yearUpdate';
 
 const _ = require('lodash');
 
@@ -25,29 +27,12 @@ ChartJS.register(
 
 export default function WaterChart() {
   const { graph } = useSelector(selectCharts);
+  const waterData = yearData(graph.days, graph.water);
+  const data = waterData;
   let caption = 'L';
-  const labels = [
-    'Aug',
-    'Jul',
-    'Jun',
-    'May',
-    'Apr',
-    'Mar',
-    'Feb',
-    'Jan',
-    'Dec',
-    'Nov',
-    'Oct',
-    'Sep',
-  ];
-  // const data = [0, 0, 0, 0, 0, 0, 0, 0, 1500, 1580, 1700, 1800];
 
-  const water = graph.water;
-  const waterProc = water.filter(item => {
-    return item > 0;
-  });
-  const dataYear = Math.round(_.mean(waterProc));
-  const data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, dataYear];
+  const labelsYear = yearUpdate();
+  const labels = labelsYear;
   const datasets = [
     {
       label: 'Water',
@@ -70,8 +55,6 @@ export default function WaterChart() {
     datasets,
   };
 
-  // #292928;
-  // const newWater = items.water.filter(item => item !== 0);
   const options = {
     responsive: true,
     scales: {
@@ -145,7 +128,7 @@ export default function WaterChart() {
   const processedData = data.filter(item => {
     return item > 0;
   });
-  // console.log(processedData);
+
   const average = Math.round(_.mean(processedData));
 
   return (
